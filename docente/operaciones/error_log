@@ -1,0 +1,326 @@
+[28-Nov-2023 10:16:34 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 10:16:34 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 10:16:39 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 10:16:39 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 11:56:14 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 11:56:14 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 16:56:44 UTC] PHP Warning:  mysqli_connect(): (08004/1040): Too many connections in /home/sistemae/SistemaAcademico/include/conexion.php on line 7
+[28-Nov-2023 16:56:44 UTC] PHP Fatal error:  Uncaught Error: Call to a member function set_charset() on bool in /home/sistemae/SistemaAcademico/include/conexion.php:15
+Stack trace:
+#0 /home/sistemae/SistemaAcademico/docente/operaciones/obtener_modulos.php(2): include()
+#1 {main}
+  thrown in /home/sistemae/SistemaAcademico/include/conexion.php on line 15
+[28-Nov-2023 11:56:44 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 11:56:44 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 12:19:30 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 12:19:30 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 12:19:36 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 12:19:36 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 12:20:11 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 12:20:11 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 12:20:15 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 12:20:15 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 12:45:46 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 12:45:46 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 12:49:22 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 12:49:22 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 12:49:24 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 12:49:24 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 12:59:45 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 12:59:45 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 15:32:19 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 15:32:19 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 15:32:28 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_estudiante.php on line 17
+[28-Nov-2023 15:32:28 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_estudiante.php on line 18
+[28-Nov-2023 15:32:28 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_estudiante.php on line 19
+[28-Nov-2023 15:32:28 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_estudiante.php on line 20
+[28-Nov-2023 15:32:28 America/Lima] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_pe.php on line 12
+[28-Nov-2023 15:32:34 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_estudiante.php on line 17
+[28-Nov-2023 15:32:34 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_estudiante.php on line 18
+[28-Nov-2023 15:32:34 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_estudiante.php on line 19
+[28-Nov-2023 15:32:34 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_estudiante.php on line 20
+[28-Nov-2023 15:32:35 America/Lima] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_pe.php on line 12
+[28-Nov-2023 15:33:41 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 15:33:41 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 15:34:10 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 15:34:10 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 15:40:02 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 15:40:02 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 18:33:14 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 18:33:14 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 18:34:23 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 18:34:23 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 18:51:08 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 18:51:08 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 18:51:14 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 18:51:14 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 18:51:22 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 18:51:22 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 18:51:33 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 18:51:33 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 18:51:56 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 18:51:56 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 18:52:54 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 18:52:54 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 18:55:09 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 18:55:09 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 18:55:53 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 18:55:53 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 18:59:24 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 18:59:24 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 19:01:28 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 19:01:28 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 19:02:09 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 19:02:09 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 19:03:20 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 19:03:20 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 19:03:50 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 19:03:50 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 19:04:24 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 19:04:24 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 19:44:07 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 19:44:07 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Nov-2023 19:47:45 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Nov-2023 19:47:45 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/SistemaAcademico/docente/operaciones/obtener_ud_sem.php on line 8
+[30-Nov-2023 11:07:02 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[30-Nov-2023 11:07:02 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[30-Nov-2023 11:17:06 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[30-Nov-2023 11:17:06 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[30-Nov-2023 11:17:24 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[30-Nov-2023 11:17:24 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[30-Nov-2023 12:10:40 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[30-Nov-2023 12:10:40 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[30-Nov-2023 21:35:43 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[30-Nov-2023 21:35:43 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[11-Dec-2023 08:02:38 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[11-Dec-2023 08:02:38 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[11-Dec-2023 08:02:49 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[11-Dec-2023 08:02:49 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[11-Dec-2023 08:04:57 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[11-Dec-2023 08:04:57 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[12-Dec-2023 10:07:34 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[12-Dec-2023 10:07:34 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 14:41:00 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 388
+[18-Dec-2023 14:41:00 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 389
+[18-Dec-2023 14:41:00 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 392
+[18-Dec-2023 14:41:00 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 395
+[18-Dec-2023 14:41:00 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 388
+[18-Dec-2023 14:41:00 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 389
+[18-Dec-2023 14:41:00 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 392
+[18-Dec-2023 14:41:00 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 395
+[18-Dec-2023 14:41:00 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 388
+[18-Dec-2023 14:41:00 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 389
+[18-Dec-2023 14:41:00 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 392
+[18-Dec-2023 14:41:00 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 395
+[18-Dec-2023 14:41:00 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 388
+[18-Dec-2023 14:41:00 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 389
+[18-Dec-2023 14:41:00 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 392
+[18-Dec-2023 14:41:00 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 395
+[18-Dec-2023 14:41:00 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 388
+[18-Dec-2023 14:41:00 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 389
+[18-Dec-2023 14:41:00 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 392
+[18-Dec-2023 14:41:00 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 395
+[18-Dec-2023 14:41:00 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 388
+[18-Dec-2023 14:41:00 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 389
+[18-Dec-2023 14:41:00 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 392
+[18-Dec-2023 14:41:00 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 395
+[18-Dec-2023 14:41:00 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 388
+[18-Dec-2023 14:41:00 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 389
+[18-Dec-2023 14:41:00 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 392
+[18-Dec-2023 14:41:00 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 395
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 388
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 389
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 392
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 395
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 388
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 389
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 392
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 395
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 388
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 389
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 392
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 395
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 388
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 389
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 392
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 395
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 388
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 389
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 392
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 395
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 388
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 389
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 392
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 395
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 388
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 389
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 392
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 395
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 388
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 389
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 392
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 395
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 388
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 389
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 392
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 395
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 388
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 389
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 392
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 395
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 388
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 389
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 392
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 395
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 388
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 389
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 392
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 395
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 388
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 389
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 392
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 395
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 388
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 389
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 392
+[18-Dec-2023 14:41:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 395
+[18-Dec-2023 14:43:25 America/Lima] PHP Notice:  Undefined index: id in /home/sistemae/iestpalfredosarmiento/docente/operaciones/actualizar_programacion.php on line 15
+[18-Dec-2023 14:43:25 America/Lima] PHP Notice:  Undefined index: docente in /home/sistemae/iestpalfredosarmiento/docente/operaciones/actualizar_programacion.php on line 16
+[18-Dec-2023 14:48:20 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 14:48:20 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 14:51:19 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_estudiante.php on line 17
+[18-Dec-2023 14:51:19 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_estudiante.php on line 18
+[18-Dec-2023 14:51:19 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_estudiante.php on line 19
+[18-Dec-2023 14:51:19 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_estudiante.php on line 20
+[18-Dec-2023 14:51:19 America/Lima] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_pe.php on line 12
+[18-Dec-2023 14:51:23 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_estudiante.php on line 17
+[18-Dec-2023 14:51:23 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_estudiante.php on line 18
+[18-Dec-2023 14:51:23 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_estudiante.php on line 19
+[18-Dec-2023 14:51:23 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_estudiante.php on line 20
+[18-Dec-2023 14:51:23 America/Lima] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_pe.php on line 12
+[18-Dec-2023 14:51:36 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_estudiante.php on line 17
+[18-Dec-2023 14:51:36 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_estudiante.php on line 18
+[18-Dec-2023 14:51:36 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_estudiante.php on line 19
+[18-Dec-2023 14:51:36 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_estudiante.php on line 20
+[18-Dec-2023 14:51:37 America/Lima] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_pe.php on line 12
+[18-Dec-2023 14:51:44 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_estudiante.php on line 17
+[18-Dec-2023 14:51:44 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_estudiante.php on line 18
+[18-Dec-2023 14:51:44 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_estudiante.php on line 19
+[18-Dec-2023 14:51:44 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_estudiante.php on line 20
+[18-Dec-2023 14:51:44 America/Lima] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_pe.php on line 12
+[18-Dec-2023 14:51:45 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_estudiante.php on line 17
+[18-Dec-2023 14:51:45 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_estudiante.php on line 18
+[18-Dec-2023 14:51:45 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_estudiante.php on line 19
+[18-Dec-2023 14:51:45 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_estudiante.php on line 20
+[18-Dec-2023 14:51:45 America/Lima] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_pe.php on line 12
+[18-Dec-2023 14:52:23 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 14:52:23 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 14:52:32 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_estudiante.php on line 17
+[18-Dec-2023 14:52:32 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_estudiante.php on line 18
+[18-Dec-2023 14:52:32 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_estudiante.php on line 19
+[18-Dec-2023 14:52:32 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_estudiante.php on line 20
+[18-Dec-2023 14:52:32 America/Lima] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_pe.php on line 12
+[18-Dec-2023 14:54:36 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 14:54:36 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 14:55:13 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 14:55:13 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 15:23:46 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 15:23:46 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 15:23:50 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 15:23:50 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 15:23:56 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 15:23:56 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 15:24:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/registrar_matricula.php on line 53
+[18-Dec-2023 15:24:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/registrar_matricula.php on line 131
+[18-Dec-2023 15:24:52 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/registrar_matricula.php on line 53
+[18-Dec-2023 15:24:52 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/registrar_matricula.php on line 131
+[18-Dec-2023 15:25:20 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/registrar_matricula.php on line 53
+[18-Dec-2023 15:25:20 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/registrar_matricula.php on line 131
+[18-Dec-2023 15:25:34 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/registrar_matricula.php on line 53
+[18-Dec-2023 15:25:34 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/registrar_matricula.php on line 131
+[18-Dec-2023 15:27:36 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 15:27:36 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 15:29:23 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 15:29:23 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 15:32:17 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 15:32:17 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 15:32:44 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/registrar_matricula.php on line 53
+[18-Dec-2023 15:32:44 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/operaciones/registrar_matricula.php on line 131
+[18-Dec-2023 15:48:05 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 15:48:05 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 15:48:12 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 15:48:12 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 15:48:18 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 15:48:18 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 15:50:57 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 15:50:57 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 15:51:03 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 15:51:03 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 15:51:15 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 15:51:15 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 15:51:24 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 15:51:24 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 15:52:01 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 15:52:01 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 15:52:04 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 15:52:04 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 18:24:04 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 18:24:04 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 18:24:11 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 18:24:11 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 18:24:16 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 18:24:16 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 18:24:38 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 18:24:38 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 18:24:50 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 18:24:50 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 18:25:02 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 18:25:02 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 18:25:49 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 18:25:49 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 18:26:02 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 18:26:02 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 18:26:07 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 18:26:07 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 18:26:17 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 18:26:17 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 18:26:46 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 18:26:46 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 18:43:17 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 18:43:17 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[18-Dec-2023 18:45:54 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[18-Dec-2023 18:45:54 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[19-Dec-2023 07:58:18 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[19-Dec-2023 07:58:18 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[19-Dec-2023 07:58:31 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[19-Dec-2023 07:58:31 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[19-Dec-2023 07:59:01 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[19-Dec-2023 07:59:01 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[19-Dec-2023 08:02:39 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[19-Dec-2023 08:02:39 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[19-Dec-2023 08:02:46 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[19-Dec-2023 08:02:46 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[19-Dec-2023 08:08:49 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[19-Dec-2023 08:08:49 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[19-Dec-2023 08:09:32 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[19-Dec-2023 08:09:32 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[19-Dec-2023 08:10:03 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[19-Dec-2023 08:10:03 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[19-Dec-2023 08:10:14 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[19-Dec-2023 08:10:14 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[19-Dec-2023 08:10:15 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[19-Dec-2023 08:10:15 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[19-Dec-2023 08:12:49 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[19-Dec-2023 08:12:49 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[19-Dec-2023 08:13:03 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[19-Dec-2023 08:13:03 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[19-Dec-2023 08:13:51 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[19-Dec-2023 08:13:51 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[19-Dec-2023 08:14:13 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[19-Dec-2023 08:14:13 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[19-Dec-2023 08:14:52 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[19-Dec-2023 08:14:52 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[19-Dec-2023 08:15:55 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[19-Dec-2023 08:15:55 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[19-Dec-2023 12:57:45 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
+[19-Dec-2023 12:57:45 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8

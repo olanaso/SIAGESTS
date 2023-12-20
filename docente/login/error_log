@@ -1,0 +1,19 @@
+[30-Nov-2023 15:47:53 America/Lima] PHP Notice:  Undefined index: usuario in /home/sistemae/iestpalfredosarmiento/docente/login/iniciar_sesion.php on line 5
+[30-Nov-2023 15:47:53 America/Lima] PHP Notice:  Undefined index: password in /home/sistemae/iestpalfredosarmiento/docente/login/iniciar_sesion.php on line 6
+[30-Nov-2023 23:10:48 America/Lima] PHP Warning:  include(../include/header_title.php): failed to open stream: No such file or directory in /home/sistemae/iestpalfredosarmiento/docente/login/recuperar_password.php on line 38
+[30-Nov-2023 23:10:48 America/Lima] PHP Warning:  include(../include/header_title.php): failed to open stream: No such file or directory in /home/sistemae/iestpalfredosarmiento/docente/login/recuperar_password.php on line 38
+[30-Nov-2023 23:10:48 America/Lima] PHP Warning:  include(): Failed opening '../include/header_title.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/sistemae/iestpalfredosarmiento/docente/login/recuperar_password.php on line 38
+[30-Nov-2023 23:10:55 America/Lima] PHP Warning:  include(../include/header_title.php): failed to open stream: No such file or directory in /home/sistemae/iestpalfredosarmiento/docente/login/recuperar_password.php on line 38
+[30-Nov-2023 23:10:55 America/Lima] PHP Warning:  include(../include/header_title.php): failed to open stream: No such file or directory in /home/sistemae/iestpalfredosarmiento/docente/login/recuperar_password.php on line 38
+[30-Nov-2023 23:10:55 America/Lima] PHP Warning:  include(): Failed opening '../include/header_title.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/sistemae/iestpalfredosarmiento/docente/login/recuperar_password.php on line 38
+[13-Dec-2023 07:02:41 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/login/iniciar_sesion.php on line 17
+[13-Dec-2023 09:22:30 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/login/iniciar_sesion.php on line 17
+[13-Dec-2023 09:33:26 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/login/iniciar_sesion.php on line 17
+[13-Dec-2023 09:33:29 America/Lima] PHP Notice:  Undefined index: usuario in /home/sistemae/iestpalfredosarmiento/docente/login/iniciar_sesion.php on line 5
+[13-Dec-2023 09:33:29 America/Lima] PHP Notice:  Undefined index: password in /home/sistemae/iestpalfredosarmiento/docente/login/iniciar_sesion.php on line 6
+[13-Dec-2023 10:39:26 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/login/iniciar_sesion.php on line 17
+[18-Dec-2023 14:23:43 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/login/iniciar_sesion.php on line 17
+[18-Dec-2023 18:23:09 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/login/iniciar_sesion.php on line 17
+[18-Dec-2023 18:43:13 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/login/iniciar_sesion.php on line 17
+[19-Dec-2023 07:54:40 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/login/iniciar_sesion.php on line 17
+[19-Dec-2023 12:57:17 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/login/iniciar_sesion.php on line 17
