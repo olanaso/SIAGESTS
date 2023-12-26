@@ -19,10 +19,14 @@ if (!verificar_sesion($conexion) || !verificarDatosAntiguo($conexion, $dni)) {
 
 //DATOS
 
-$res = getEstudianteAntiguo($conexion, $dni);
+$res = buscarEstudianteByDni($conexion,$dni);
 $estudiante_res = mysqli_fetch_array($res);
 $estudiante = $estudiante_res["apellidos_nombres"];
-$programa = $estudiante_res['programa_estudio'];
+
+$id_programa = $estudiante_res['id_programa_estudios'];
+$programa = buscarCarrerasById($conexion, $id_programa);
+$programa = mysqli_fetch_array($programa);
+$programa = $programa["nombre"];
 
 $not = getCalificacionFinalByDni($conexion, $dni);
 
@@ -185,7 +189,7 @@ $documento .= '<br /><br />
     VALUES ('$codigo' ,'$usuario','$dni', '$estudiante' ,'$programa','$rutaArchivo','$comprobante', CURRENT_TIMESTAMP())";
     mysqli_query($conexion, $consulta);
 
-}
+};
 ?>
 
 <!DOCTYPE html>

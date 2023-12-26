@@ -6,17 +6,18 @@ include("../include/funciones.php");
 include("../functions/funciones.php");
 include("include/verificar_sesion_secretaria.php");
 
-if (!verificar_sesion($conexion)) {
+$dni = $_POST['dni'];
+$comprobante = $_POST['comprobante'];
+
+if (!verificar_sesion($conexion) || !verificarDatosAntiguo($conexion, $dni)) {
   echo "<script>
                 alert('Error Usted no cuenta con permiso para acceder a esta página');
-                window.location.replace('index.php');
+                window.location.replace('certificado.php');
     		</script>";
 }else{
   $id_docente_sesion = buscar_docente_sesion($conexion, $_SESSION['id_sesion'], $_SESSION['token']);
 
 //DATOS
-$dni = $_POST['dni'];
-$comprobante = $_POST['comprobante'];
 
 $res = getEstudianteAntiguo($conexion, $dni);
 $estudiante_res = mysqli_fetch_array($res);
@@ -183,8 +184,7 @@ $documento .= '<br /><br />
     $consulta = "INSERT INTO certificado_estudios (codigo ,nombre_usuario, dni_estudiante, apellidos_nombres, programa_estudio,ruta_documento,num_comprobante, fecha_emision) 
     VALUES ('$codigo' ,'$usuario','$dni', '$estudiante' ,'$programa','$rutaArchivo','$comprobante', CURRENT_TIMESTAMP())";
     mysqli_query($conexion, $consulta);
-
-}
+};
 ?>
 
 <!DOCTYPE html>
@@ -236,7 +236,7 @@ $documento .= '<br /><br />
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                 <div class="">
-                    <h2 align="center">Boleta de Nota</h2>
+                    <h2 align="center">Certificado de Estudios</h2>
                     <button class="btn btn-success" data-toggle="modal" data-target=".registrar"><i class="fa fa-plus-square"></i> Enviar por Correo</button>
                     <a href="certificado.php" class="btn btn-danger">Regresar</a>
                     <div class="clearfix"></div>

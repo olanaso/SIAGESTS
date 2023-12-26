@@ -525,8 +525,6 @@ if (!($mostrar_archivo)) {
     $content_one .= '</table>';
     $pdf->writeHTML($content_one);
 
-
-
     $meses = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
 
     $fechaaa = date('d') . " de " . $meses[date('n') - 1] . " del " . date('Y');
@@ -544,12 +542,6 @@ if (!($mostrar_archivo)) {
 
       ';
     $pdf->writeHTML($footer);
-
-
-
-
-
-
 
 
     $pdf->Output('Informe Final - ' . $r_b_ud['descripcion'] . '.pdf', 'I');
