@@ -46,6 +46,12 @@
                       <li class="sub_menu"><a href="licencias.php">Licencias</a></li>
                     </ul>
                   </li>
+                  <li><a><i class="fa fa-file"></i> Documentos <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li class="sub_menu"><a href="certificado.php">Certificado de estudios</a></li>
+                      <li class="sub_menu"><a href="boleta_de_notas.php">Boleta de Notas</a></li>
+                    </ul>
+                  </li>
                   <li><a><i class="fa fa-users"></i> Docentes <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li class="sub_menu"><a href="docentes.php">Relación de Docentes</a></li>

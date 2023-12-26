@@ -435,6 +435,57 @@ function buscarTutoriaSesGrupalByIdAndIdTutoria($conexion,$id, $id_tutoria){
 	return mysqli_query($conexion, $sql);
 }
 
+//-------------------------Nuevas Consultas----------------------------
+
+function buscarAllBoletasNotas($conexion){
+	$sql = "SELECT * FROM boleta_notas";
+	return mysqli_query($conexion, $sql);
+}
+
+function buscarAllCertificados($conexion){
+	$sql = "SELECT * FROM certificado_estudios";
+	return mysqli_query($conexion, $sql);
+}
+
+function buscarMatriculado($conexion, $id_estudiante, $id_periodo){
+	$sql = "SELECT * FROM matricula WHERE  id_periodo_acad = '$id_periodo' AND id_estudiante = '$id_estudiante'";
+	return mysqli_query($conexion, $sql);
+}
+
+function getCalificacionFinalByDni($conexion, $dni){
+	$sql = "SELECT u.descripcion, u.creditos , CAST(ROUND(pf.promedio) AS SIGNED)  as promedio_final, pa.nombre as periodo FROM estudiante e INNER JOIN matricula m ON e.id = m.id_estudiante
+    INNER JOIN programa_estudios p ON m.id_programa_estudio = p.id INNER JOIN periodo_academico pa ON pa.id = m.id_periodo_acad
+    INNER JOIN detalle_matricula_unidad_didactica dm ON dm.id_matricula = m.id INNER JOIN programacion_unidad_didactica pu ON
+    pu.id_unidad_didactica = dm.id_programacion_ud INNER JOIN unidad_didactica u ON u.id = pu.id_unidad_didactica
+    INNER JOIN promedio_final pf ON pf.id_detalle_matricula = dm.id WHERE e.dni = '$dni' ORDER BY periodo ASC";
+	return mysqli_query($conexion,$sql);
+}
+
+function getCertificadoByCodigo($codigo){
+	include_once 'conexion.php';
+	$sql = "SELECT * FROM certificado_estudios WHERE codigo = $codigo";
+	return mysqli_query($conexion, $sql);
+}
+
+//---------------------PARA ESTUDIANTES ANTIGUOS AL USO DEL SISTEMA --------------------
+function getEstudianteAntiguo($conexion, $dni){
+	$sql = "SELECT * from estudiante_antiguo WHERE dni = $dni";
+    return mysqli_query($conexion,$sql);
+}
+
+function getEstudianteNotasAntigua($conexion, $dni, $programa){
+    $sql = "SELECT * from notas_antiguo WHERE dni = '$dni' AND nombre_programa = '$programa'";
+    return mysqli_query($conexion,$sql);
+}
+
+function getCalificacionFinalByDniAndPeriodo($conexion, $dni, $periodo){
+	$sql = "SELECT u.descripcion, u.creditos , CAST(ROUND(pf.promedio) AS SIGNED)  as promedio_final FROM estudiante e INNER JOIN matricula m ON e.id = m.id_estudiante
+    INNER JOIN programa_estudios p ON m.id_programa_estudio = p.id INNER JOIN periodo_academico pa ON pa.id = m.id_periodo_acad
+    INNER JOIN detalle_matricula_unidad_didactica dm ON dm.id_matricula = m.id INNER JOIN programacion_unidad_didactica pu ON
+    pu.id_unidad_didactica = dm.id_programacion_ud INNER JOIN unidad_didactica u ON u.id = pu.id_unidad_didactica
+    INNER JOIN promedio_final pf ON pf.id_detalle_matricula = dm.id WHERE e.dni = '$dni' AND pa.nombre = '$periodo'";
+	return mysqli_query($conexion,$sql);
+}
 
 
 
