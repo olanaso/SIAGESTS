@@ -237,7 +237,7 @@ $documento .= '<br /><br />
                 <div class="x_panel">
                 <div class="">
                     <h2 align="center">Certificado de Estudios</h2>
-                    <button class="btn btn-success" data-toggle="modal" data-target=".registrar"><i class="fa fa-plus-square"></i> Enviar por Correo</button>
+                    <a href="./login/enviar_certificado_correo.php?documento=<?= $rutaArchivo ?>&dni=<?= $dni ?>" class="btn btn-success"><i class="fa fa-plus-square"></i> Enviar por Correo</a>
                     <a href="certificado.php" class="btn btn-danger">Regresar</a>
                     <div class="clearfix"></div>
                 </div>

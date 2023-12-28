@@ -117,7 +117,7 @@ if (!verificar_sesion($conexion) || !verificarDatos($conexion, $dni, $id_periodo
     $documento = '
         <table border="0" width="100%" cellspacing="0" cellpadding="0">
             <tr>
-                <td width="33%"><img src="../img/logo.jpeg" alt="" height="40px"></td>
+                <td width="33%"><img src="../img/logo.jpg" alt="" height="40px"></td>
                 <td width="34%" align="center"><img src="../img/logo_minedu.jpeg" alt="" height="40px"></td>
                 <td width="33%" align="right"></td>
             </tr>
@@ -269,7 +269,7 @@ if (!verificar_sesion($conexion) || !verificarDatos($conexion, $dni, $id_periodo
                 <div class="x_panel">
                 <div class="">
                     <h2 align="center">Boleta de Nota</h2>
-                    <button class="btn btn-success" data-toggle="modal" data-target=".registrar"><i class="fa fa-plus-square"></i> Enviar por Correo</button>
+                    <a href="./login/enviar_boleta_correo.php?documento=<?= $rutaArchivo ?>&dni=<?= $dni ?>" class="btn btn-success"><i class="fa fa-plus-square"></i> Enviar por Correo</a>
                     <a href="boleta_de_notas.php" class="btn btn-danger">Regresar</a>
                     <div class="clearfix"></div>
                 </div>

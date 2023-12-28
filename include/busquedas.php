@@ -461,9 +461,13 @@ function getCalificacionFinalByDni($conexion, $dni){
 	return mysqli_query($conexion,$sql);
 }
 
-function getCertificadoByCodigo($codigo){
-	include_once 'conexion.php';
-	$sql = "SELECT * FROM certificado_estudios WHERE codigo = $codigo";
+function getCertificadoByCodigo($conexion,$codigo){
+	$sql = "SELECT * FROM certificado_estudios WHERE codigo = '$codigo'";
+	return mysqli_query($conexion, $sql);
+}
+
+function getBoletaByCodigo($conexion,$codigo){
+	$sql = "SELECT * FROM boleta_notas WHERE codigo = '$codigo'";
 	return mysqli_query($conexion, $sql);
 }
 

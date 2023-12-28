@@ -96,7 +96,9 @@ if (!verificar_sesion($conexion)) {
                           <td><?php echo $res_busc_est['periodo_acad']; ?></td>
                           <td><?php echo $res_busc_est['fecha_emision']; ?></td>
                           <td><?php echo $res_busc_est['num_comprobante']; ?></td>
-                          <td><a title="Ver PDF" class="btn btn-success" href="<?php echo $res_busc_est['ruta_documento']; ?>" target="_blank"><i class="fa fa-file"></i></a></td>
+                          <td>
+                          <a href="./login/enviar_boleta_correo.php?documento=<?= $res_busc_est['ruta_documento']; ?>&dni=<?= $res_busc_est['dni_estudiante']; ?>" class="btn btn-primary"><i class="fa fa-envelope"></i></a>  
+                          <a title="Ver PDF" class="btn btn-success" href="<?php echo $res_busc_est['ruta_documento']; ?>" target="_blank"><i class="fa fa-file"></i></a></td>
                         </tr>  
                         <?php
                           
