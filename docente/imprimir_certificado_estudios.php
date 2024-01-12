@@ -11,9 +11,9 @@ $comprobante = $_POST['comprobante'];
 
 if (!verificar_sesion($conexion) || !verificarDatosAntiguo($conexion, $dni)) {
   echo "<script>
-                alert('Error Usted no cuenta con permiso para acceder a esta página');
-                window.location.replace('certificado.php');
-    		</script>";
+  alert('Ah ocuurido un error, revice los datos ingresados y vuelva a intentarlo, ten en cuenta que si el número de comprobante ya fue utilizado, no se podra registrar.');
+  window.location.replace('certificado.php');
+</script>";
 }else{
   $id_docente_sesion = buscar_docente_sesion($conexion, $_SESSION['id_sesion'], $_SESSION['token']);
 
@@ -54,7 +54,7 @@ $nombre_doc = 'Certificado de estudios - ' . $estudiante.'.pdf';
 //CODIGO DE VERIFICACIÓN DE DOCUMENTO
 $codigo = uniqid();
 $url = $sistema['dominio_sistema'];
-$ruta_qr = generarQRBoleta( $url."/verificar.php?codigo=".$codigo ,'BN_'.$estudiante);
+$ruta_qr = generarQRBoleta( $url."/verificar.php?codigo=".$codigo ,'CE_'.$estudiante);
 
 require_once('../tcpdf/tcpdf.php');
 
@@ -167,8 +167,11 @@ $documento .= '<br /><br />
             <td colspan="2" align="center"><br><br><br><br><br>...............................................<br>'. $nombre_director .'<br>Director General</td>
         </tr>
         <tr>
-                <br><br>
-                <td width="100%" align="center"><img src="'. $ruta_qr .'" alt="" height="100px"></td>
+                <br><br><br><br>
+                <td width="100%" align="rigth"><img src="'. $ruta_qr .'" alt="" height="60px"></td>
+            </tr>
+            <tr>
+                <td width="100%" align="rigth"> Verifíque la integridad del documento, mediante este código QR.</td>
             </tr>
     </table>
 ';

@@ -14,7 +14,7 @@ $num_comprobante = $_POST['comprobante'];
 
 if (!verificar_sesion($conexion) || !verificarDatos($conexion, $dni, $id_periodo)) {
   echo "<script>
-                alert('Error Usted no cuenta con permiso para acceder a esta página');
+                alert('Ah ocuurido un error, revice los datos ingresados y vuelva a intentarlo, ten en cuenta que si el número de comprobante ya fue utilizado, no se podra registrar.');
                 window.location.replace('boleta_de_notas.php');
     		</script>";
 }else{
@@ -199,9 +199,12 @@ if (!verificar_sesion($conexion) || !verificarDatos($conexion, $dni, $id_periodo
                 <td colspan="2" align="center"><br><br><br><br><br><br><br>...............................................<br>'. $nombre_director .'<br>Director General</td>
             </tr>
             <tr>
-                <br><br>
-                <td width="100%" align="center"><img src="'. $ruta_qr .'" alt="" height="100px"></td>
-            </tr>
+            <br><br><br><br>
+            <td width="100%" align="rigth"><img src="'. $ruta_qr .'" alt="" height="60px"></td>
+        </tr>
+        <tr>
+            <td width="100%" align="rigth"> Verifíque la integridad del documento, mediante este código QR.</td>
+        </tr>
         </table>
     ';
 

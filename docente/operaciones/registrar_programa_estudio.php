@@ -35,11 +35,6 @@ $perfil = $_POST['perfil_egreso'];
 			";
 	};
 
-
-
-
-
-
 mysqli_close($conexion);
 
 }
