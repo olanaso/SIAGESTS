@@ -9,6 +9,7 @@ use PHPMailer\PHPMailer\Exception;
 
 $documento = $_GET['documento'];
 $dni_estudiante = $_GET['dni'];
+$correo = $_GET['correo'];
 
 //enviar correo
 require '../../PHPMailer/Exception.php';
@@ -26,15 +27,6 @@ require '../../PHPMailer/SMTP.php';
 
         $estudiante_res = buscarEstudianteByDni($conexion, $dni_estudiante);
         $est_ant_res = getEstudianteAntiguo($conexion, $dni_estudiante);
-
-        if($estudiante_res){
-            $estudiante_res = mysqli_fetch_array($estudiante_res);
-            $correo = $estudiante_res['correo'];
-        }elseif ($est_ant_res) {
-            $est_ant_res = mysqli_fetch_array($est_ant_res);
-            $correo = $est_ant_res['correo'];
-        }
-   
 
         //enviamos correo
 
@@ -87,7 +79,7 @@ require '../../PHPMailer/SMTP.php';
                                 <h3 style="text-align:center; color: #3c4858;">ENVIO DE DOCUMENTO</h3>
                                 <p style="font-size:1.0rem; color: #2A2C2B; margin-top: 2em; margin-bottom: 2em; margin-left: 1.5em;">
                         
-                                    Hola, se adjunta la boleta de notas que usted podrá descargarlo, este documento tiene validez al igual que el documento fisico. 
+                                    Hola, se adjunta adjunta el documento solicitado. 
                                     <br>
                                     <br>
                                     Por favor, no responda sobre este correo.
