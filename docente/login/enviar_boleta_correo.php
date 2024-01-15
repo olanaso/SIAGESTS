@@ -79,7 +79,7 @@ require '../../PHPMailer/SMTP.php';
                                 <h3 style="text-align:center; color: #3c4858;">ENVIO DE DOCUMENTO</h3>
                                 <p style="font-size:1.0rem; color: #2A2C2B; margin-top: 2em; margin-bottom: 2em; margin-left: 1.5em;">
                         
-                                    Hola, se adjunta la boleta de notas que usted podrá descargarlo, este documento tiene validez al igual que el documento fisico. 
+                                    Hola, se adjunta el documento solicitado. 
                                     <br>
                                     <br>
                                     Por favor, no responda sobre este correo.

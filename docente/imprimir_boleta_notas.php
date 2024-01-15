@@ -15,7 +15,7 @@ $num_comprobante = $_POST['comprobante'];
 
 if (!verificar_sesion($conexion) || !verificarDatos($conexion, $dni, $id_periodo)) {
   echo "<script>
-                alert('Ah ocuurido un error, revice los datos ingresados y vuelva a intentarlo, ten en cuenta que si el número de comprobante ya fue utilizado, no se podra registrar.');
+                alert('Ah ocuurido un error, revice los datos ingresados y vuelva a intentarlo.');
                 window.location.replace('boleta_de_notas.php');
     		</script>";
 }else{
@@ -26,6 +26,8 @@ if (!verificar_sesion($conexion) || !verificarDatos($conexion, $dni, $id_periodo
     $estudiante_res = mysqli_fetch_array($estudiante_res);
     $estudiante = $estudiante_res["apellidos_nombres"];
     $seccion    = $estudiante_res["seccion"];
+    $correo = $estudiante_res['correo'];
+
 
     $periodo_ac = buscarPeriodoAcadById($conexion, $id_periodo);
     $periodo = mysqli_fetch_array($periodo_ac);
@@ -282,9 +284,15 @@ if (!verificar_sesion($conexion) || !verificarDatos($conexion, $dni, $id_periodo
                 <div class="x_panel">
                 <div class="">
                     <h2 align="center">Boleta de Nota</h2>
-                    <a href="./login/enviar_boleta_correo.php?documento=<?= $rutaArchivo ?>&dni=<?= $dni ?>" class="btn btn-success"><i class="fa fa-plus-square"></i> Enviar por Correo</a>
                     <a href="boleta_de_notas.php" class="btn btn-danger">Regresar</a>
                     <div class="clearfix"></div>
+                </div>
+                <div class="">
+                  <br>
+                  <input type="email" id="correoInput" class="form-control" style="width:300px; margin-bottom:2px;" value="<?= $correo?>">
+
+                  <!-- Agrega un ID al enlace para facilitar la referencia desde JavaScript -->
+                  <a href="#" id="enviarCorreoBtn" class="btn btn-success"><i class="fa fa-plus-square"></i> Enviar por Correo</a>
                 </div>
                     <iframe src="<?php echo $rutaArchivo ?>" width="100%" height="600px"></iframe>
                   </div>
@@ -304,6 +312,19 @@ if (!verificar_sesion($conexion) || !verificarDatos($conexion, $dni, $id_periodo
         <!-- /footer content -->
       </div>
     </div>
+
+    <script>
+    document.getElementById('enviarCorreoBtn').addEventListener('click', function() {
+        // Obtiene el valor del campo de entrada
+        var correoValue = document.getElementById('correoInput').value;
+
+        // Construye la URL con el valor del correo
+        var url = "./login/enviar_boleta_correo.php?documento=<?= $rutaArchivo ?>&dni=<?= $dni ?>&correo=" + encodeURIComponent(correoValue);
+
+        // Redirecciona a la nueva URL
+        window.location.href = url;
+    });
+  </script>
 
     <!-- jQuery -->
    <script src="../Gentella/vendors/jquery/dist/jquery.min.js"></script>
