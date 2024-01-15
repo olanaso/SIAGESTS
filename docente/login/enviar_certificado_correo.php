@@ -46,7 +46,7 @@ require '../../PHPMailer/SMTP.php';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
             $mail->Port       = $r_b_datos_sistema['puerto_email'];                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
-            $titulo_correo = 'SISPA '.$r_b_datos_sistema['titulo'];
+            $titulo_correo = 'SIAGEST '.$r_b_datos_sistema['titulo'];
             //Recipients
             $mail->setFrom($r_b_datos_sistema['email_email'], $titulo_correo);
             $mail->addAddress($correo);     //Add a recipient

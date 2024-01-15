@@ -17,7 +17,7 @@ $ud = $_POST['ud'];
 $carrera = $_POST['carrera_m'];
 $modulo = $_POST['modulo'];
 $semestre = $_POST['semestre'];
-$creditos = $_POST['creditos'];
+$creditos = floatval($_POST['creditos']);
 $horas = $_POST['horas'];
 $tipo = $_POST['tipo'];
 

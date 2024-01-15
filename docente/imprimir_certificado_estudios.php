@@ -188,7 +188,7 @@ $documento .= '<br /><br />
 
     $consulta = "INSERT INTO certificado_estudios (codigo ,nombre_usuario, dni_estudiante, apellidos_nombres, programa_estudio,ruta_documento,num_comprobante, fecha_emision) 
     VALUES ('$codigo' ,'$usuario','$dni', '$estudiante' ,'$programa','$rutaArchivo','$comprobante', CURRENT_TIMESTAMP())";
-    mysqli_query($conexion, $consulta);
+    mysqli_query($conexion, $consulta); 
 
 };
 ?>
