@@ -25,7 +25,7 @@ if (!verificar_sesion($conexion)) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	  
-    <title>Programa de Estudio<?php include ("../include/header_title.php"); ?></title>
+    <title>Caja <?php include ("../include/header_title.php"); ?></title>
     <!--icono en el titulo-->
     <link rel="shortcut icon" href="../img/favicon.ico">
     <!-- Bootstrap -->
@@ -65,7 +65,7 @@ if (!verificar_sesion($conexion)) {
                 <div class="x_panel">
                   <div class="x_content">
                   <div class="">
-                    <h2 align="center">Movimiestos</h2>
+                    <h2 align="center">Movimientos Anulados</h2>
                   </div>
                     <!-- Tabs -->
                   <ul class="nav nav-tabs">
@@ -132,7 +132,7 @@ if (!verificar_sesion($conexion)) {
                             <td><?php echo $egresos['concepto']; ?></td>
                             <td><?php echo $egresos['comprobante']; ?></td>
                             <td><?php echo $egresos['monto_total']; ?></td>
-                            <td><?php echo $egresos['responable']; ?></td>
+                            <td><?php echo $egresos['responsable']; ?></td>
                             <td><?php echo $egresos['motivo']; ?></td>
                             <td><?php echo $egresos['fecha_anulacion']; ?></td>
                           </tr>  

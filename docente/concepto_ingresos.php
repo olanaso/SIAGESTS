@@ -25,7 +25,7 @@ if (!verificar_sesion($conexion)) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	  
-    <title>Programa de Estudio<?php include ("../include/header_title.php"); ?></title>
+    <title>Caja<?php include ("../include/header_title.php"); ?></title>
     <!--icono en el titulo-->
     <link rel="shortcut icon" href="../img/favicon.ico">
     <!-- Bootstrap -->

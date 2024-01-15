@@ -14,7 +14,9 @@ if (!verificar_sesion($conexion)) {
 	$id_concepto = $_POST['concepto'];
 	$codigo = $_POST['codigo'];
 	$dni_estudiante = $_POST['dni'];
-	$monto = floatval($_POST['monto']);
+
+	$res_estudiante = buscarEstudianteByDni($conexion,$dni_estudiante);
+	$count_estudiante = mysqli_num_rows($res_estudiante);
 
 	$res_ingreso = buscarIngresosByCodigo($conexion, $codigo);
 	$count = mysqli_num_rows($res_ingreso);
@@ -25,13 +27,23 @@ if (!verificar_sesion($conexion)) {
 				  window.history.back();
 			  </script>";
 	}
+	elseif($count_estudiante == 0 ){
+		echo "<script>
+				  alert('El estudiante no esta registrado!.');
+				  window.history.back();
+			  </script>";
+	}
 	else{
 
-		$res_ce = buscarConceptoEgresosById($conexion, $id_concepto);
-		$con_egreso = mysqli_fetch_array($res_ce);
-		$concepto = $con_egreso['concepto'];
+		$res_ci = buscarConceptoIngresosById($conexion, $id_concepto);
+		$con_ingreso = mysqli_fetch_array($res_ci);
+		$estudiante = mysqli_fetch_array($res_estudiante);
+		$concepto = $con_ingreso['concepto'];
+		$monto = $con_ingreso['monto'];
 
-		$insertar = "INSERT INTO `egresos`(`concepto`, `comprobante`, `fecha_pago`, `monto_total`, `estado_pago`, `descripcion`) VALUES ('$concepto','$codigo', CURRENT_TIMESTAMP() ,'$monto', 'PAGADO', '$descripcion')";
+		$estudiante_nombre = $estudiante['apellidos_nombres'];
+
+		$insertar = "INSERT INTO `ingresos`(`dni`, `estudiante`,`concepto`, `comprobante`, `fecha_pago`, `monto_total`, `estado_pago`) VALUES ('$dni_estudiante','$estudiante_nombre','$concepto','$codigo', CURRENT_TIMESTAMP() ,'$monto', 'PAGADO')";
 		$ejecutar_insetar = mysqli_query($conexion, $insertar);
 		if ($ejecutar_insetar) {
 				echo "<script>

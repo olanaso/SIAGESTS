@@ -5,6 +5,11 @@ function buscarConceptoIngresos($conexion){
 	return mysqli_query($conexion, $sql);
 }
 
+function buscarConceptoIngresosById($conexion, $id_ingreso){
+	$sql = "SELECT * FROM concepto_ingreso WHERE id = '$id_ingreso'";
+	return mysqli_query($conexion, $sql);
+}
+
 function buscarConceptoEgresos($conexion){
 	$sql = "SELECT * FROM concepto_egreso";
 	return mysqli_query($conexion, $sql);
@@ -16,7 +21,17 @@ function buscarConceptoEgresosById($conexion, $id_egreso){
 }
 
 function buscarIngresos($conexion){
-	$sql = "SELECT * FROM ingresos";
+	$sql = "SELECT * FROM ingresos WHERE estado_pago = 'PAGADO' ORDER BY fecha_pago DESC";
+	return mysqli_query($conexion, $sql);
+}
+
+function buscarConceptoIngresosBoleta($conexion){
+	$sql = "SELECT * FROM concepto_ingreso WHERE concepto = 'BOLETA DE NOTA'";
+	return mysqli_query($conexion, $sql);
+}
+
+function buscarConceptoIngresosCertificado($conexion){
+	$sql = "SELECT * FROM concepto_ingreso WHERE concepto = 'CERTIFICADO DE ESTUDIOS'";
 	return mysqli_query($conexion, $sql);
 }
 
@@ -26,7 +41,7 @@ function buscarIngresosByCodigo($conexion, $codigo){
 }
 
 function buscarEgresos($conexion){
-	$sql = "SELECT * FROM egresos";
+	$sql = "SELECT * FROM egresos WHERE estado_pago = 'PAGADO' ORDER BY fecha_pago DESC";
 	return mysqli_query($conexion, $sql);
 }
 

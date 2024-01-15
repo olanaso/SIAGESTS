@@ -3,6 +3,7 @@
 include("../include/conexion.php");
 include("../include/busquedas.php");
 include("../include/funciones.php");
+include "../caja/consultas.php";
 include("../functions/funciones.php");
 include("include/verificar_sesion_secretaria.php");
 
@@ -191,6 +192,14 @@ $documento .= '<br /><br />
     $consulta = "INSERT INTO certificado_estudios (codigo ,nombre_usuario, dni_estudiante, apellidos_nombres, programa_estudio,ruta_documento,num_comprobante, fecha_emision) 
     VALUES ('$codigo' ,'$usuario','$dni', '$estudiante' ,'$programa','$rutaArchivo','$comprobante', CURRENT_TIMESTAMP())";
     mysqli_query($conexion, $consulta);
+
+    $concepto = buscarConceptoIngresosCertificado($conexion);
+    $monto = mysqli_fetch_array($concepto);
+    $monto = $monto['monto'];
+
+    $insertar = "INSERT INTO `ingresos`(`dni`, `estudiante`,`concepto`, `comprobante`, `fecha_pago`, `monto_total`, `estado_pago`) 
+    VALUES ('$dni','$estudiante','CERTIFICADO DE ESTUDIOS','$codigo', CURRENT_TIMESTAMP() ,'$monto', 'PAGADO')";
+	  mysqli_query($conexion, $insertar);
 
 };
 ?>

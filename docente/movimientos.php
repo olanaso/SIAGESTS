@@ -25,7 +25,7 @@ if (!verificar_sesion($conexion)) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	  
-    <title>Programa de Estudio<?php include ("../include/header_title.php"); ?></title>
+    <title>Caja <?php include ("../include/header_title.php"); ?></title>
     <!--icono en el titulo-->
     <link rel="shortcut icon" href="../img/favicon.ico">
     <!-- Bootstrap -->
@@ -65,7 +65,7 @@ if (!verificar_sesion($conexion)) {
                 <div class="x_panel">
                   <div class="x_content">
                   <div class="">
-                    <h2 align="center">Movimiestos</h2>
+                    <h2 align="center">Movimientos</h2>
                   </div>
                     <!-- Tabs -->
                   <ul class="nav nav-tabs">
@@ -86,8 +86,8 @@ if (!verificar_sesion($conexion)) {
                             <th>Estudiante</th>
                             <th>Concepto</th>
                             <th>Comprobante</th>
-                            <th>Monto Total</th>
-                            <th>Fecha Pago</th>
+                            <th>Fecha de Pago</th>
+                            <th>Monto Pago</th>
                             <th>Estado</th>
                             <th>Acciones</th>
                           </tr>
@@ -107,10 +107,10 @@ if (!verificar_sesion($conexion)) {
                             <td><?php echo $ingresos['monto_total']; ?></td>
                             <td><?php echo $ingresos['estado_pago']; ?></td>
                             <td>
-                              <a href= <?php echo "operaciones/eliminar_concepto_ingreso.php?id=" .  $ingresos['id']?> class="btn btn-danger"><i class="fa fa-ban"></i> Anular</a></td>
+                            <button class="btn btn-danger" data-toggle="modal" data-target=".anular_ingreso_<?php echo $ingresos['id']; ?>"><i class="fa fa-ban"></i> Nuevo</button>  
                           </tr>  
                           <?php
-                          include('include/acciones_concepto_ingreso.php');
+                          include('include/acciones_anular_ingreso.php');
                             };
                           ?>
 
@@ -148,12 +148,12 @@ if (!verificar_sesion($conexion)) {
                             <td><?php echo $egresos['monto_total']; ?></td>
                             <td><?php echo $egresos['estado_pago']; ?></td>
                             <td>
-                              <a href= <?php echo "operaciones/eliminar_concepto_ingreso.php?id=" .  $egresos['id']?> class="btn btn-danger"><i class="fa fa-ban"></i> Anular</a></td>
+                            <button class="btn btn-danger" data-toggle="modal" data-target=".anular_<?php echo $egresos['id']; ?>"><i class="fa fa-ban"></i> Nuevo</button>  
                           </tr>  
                           <?php
-                          include('include/acciones_concepto_ingreso.php');
-                            };
-                          ?>
+                         include('include/acciones_anular_egreso.php');
+                          };
+                        ?>
 
                         </tbody>
                       </table>
@@ -312,8 +312,101 @@ if (!verificar_sesion($conexion)) {
   </div>
 </div>
 
-<!-- FIN MODAL REGISTRAR-->
+<!-- FIN MODAL-->
 
+       <!--MODAL REGISTRAR ANLUAR-->
+       <div class="modal fade anular_<?php echo $egresos['id']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel" align="center">Anular Egreso</h4>
+                        </div>
+                        <div class="modal-body">
+                          <!--INICIO CONTENIDO DE MODAL-->
+                  <div class="x_panel">
+                    
+                  <div class="" align="center">
+                    <h2 ></h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                  <form role="form" action="operaciones/registrar_egreso.php" class="form-horizontal form-label-left input_mask" method="POST" >
+                  <input type="hidden" name="id" value="<?php echo $egresos['id']; ?>">
+                    <br />
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Describa el Motivo : </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" name="motivo" value="" required="required">
+                          <br>
+                        </div>
+                      </div>
+                      <div align="center">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                          
+                          <button type="submit" class="btn btn-primary">Guardar</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                </div>
+                          <!--FIN DE CONTENIDO DE MODAL-->
+                
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FIN MODAL ANULAR-->
+
+   <!--MODAL REGISTRAR ANLUAR-->
+   <div class="modal fade anular_ingreso_<?php echo $egresos['id']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel" align="center">Anular Ingreso</h4>
+                        </div>
+                        <div class="modal-body">
+                          <!--INICIO CONTENIDO DE MODAL-->
+                  <div class="x_panel">
+                    
+                  <div class="" align="center">
+                    <h2 ></h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                  <form role="form" action="operaciones/registrar_egreso.php" class="form-horizontal form-label-left input_mask" method="POST" >
+                  <input type="hidden" name="id" value="<?php echo $ingresos['id']; ?>">
+                    <br />
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Describa el Motivo : </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" name="motivo" value="" required="required">
+                          <br>
+                        </div>
+                      </div>
+                      <div align="center">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                          
+                          <button type="submit" class="btn btn-primary">Guardar</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                </div>
+                          <!--FIN DE CONTENIDO DE MODAL-->
+                
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FIN MODAL ANULAR-->
 
 
 
@@ -396,7 +489,7 @@ if (!verificar_sesion($conexion)) {
     "lengthMenu": "Mostrar _MENU_ registros",
     "zeroRecords": "No se encontraron resultados",
     "emptyTable": "Ningún dato disponible en esta tabla",
-    "sInfo": "Mostrando del _START_ al _END_ de un total de _TOTAL_ registros",
+    "sInfo": "Mostrando del _END_ al _START_ de un total de _TOTAL_ registros",
     "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
     "infoFiltered": "(filtrado de un total de _MAX_ registros)",
     "search": "Buscar:",

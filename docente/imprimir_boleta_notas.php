@@ -4,6 +4,7 @@ include("../include/conexion.php");
 include("../include/busquedas.php");
 include("../include/funciones.php");
 include("../functions/funciones.php");
+include "../caja/consultas.php";
 require_once('../tcpdf/tcpdf.php');
 include("include/verificar_sesion_secretaria.php");
 
@@ -219,6 +220,15 @@ if (!verificar_sesion($conexion) || !verificarDatos($conexion, $dni, $id_periodo
     $consulta = "INSERT INTO boleta_notas (codigo ,nombre_usuario, dni_estudiante, apellidos_nombres, programa_estudio, periodo_acad ,ruta_documento,num_comprobante, fecha_emision) 
     VALUES ('$codigo' ,'$usuario','$dni', '$estudiante' ,'$programa','$periodo','$rutaArchivo','$num_comprobante', CURRENT_TIMESTAMP())";
     mysqli_query($conexion, $consulta);
+
+    $concepto = buscarConceptoIngresosBoleta($conexion);
+    $monto = mysqli_fetch_array($concepto);
+    $monto = $monto['monto'];
+
+    $insertar = "INSERT INTO `ingresos`(`dni`, `estudiante`,`concepto`, `comprobante`, `fecha_pago`, `monto_total`, `estado_pago`) 
+    VALUES ('$dni','$estudiante','BOLETA DE NOTAS','$codigo', CURRENT_TIMESTAMP() ,'$monto', 'PAGADO')";
+	mysqli_query($conexion, $insertar);
+
 };
 ?>
 
