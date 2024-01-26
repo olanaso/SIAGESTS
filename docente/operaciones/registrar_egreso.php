@@ -11,41 +11,37 @@ if (!verificar_sesion($conexion)) {
 			  </script>";
   }else {
 
-	$id_concepto = $_POST['concepto'];
-	$codigo = $_POST['codigo'];
-	$descripcion = $_POST['descripcion'];
+	$id_docente_sesion = buscar_docente_sesion($conexion, $_SESSION['id_sesion'], $_SESSION['token']);
+	$usuario = buscarDocenteById($conexion, $id_docente_sesion);
+	$usuario = mysqli_fetch_array($usuario);
+	$usuario = $usuario['apellidos_nombres'];
+
+	$empresa = $_POST['ruc'];
+	$tipo = $_POST['tipo'];
+	$concepto = $_POST['concepto'];
+	$serie = $_POST['serie'];
+	$numero = $serie. "-" .$_POST['numero'];
+	$receptor = $_POST['usuario'];
+	$fecha = $_POST['fecha'];
 	$monto = floatval($_POST['monto']);
 
-	$res_egreso = buscarEgresosByCodigo($conexion, $codigo);
-	$count = mysqli_num_rows($res_egreso);
 
-	if($count != 0 ){
-		echo "<script>
-				  alert('Este codigo de comprobante ya fue utilizado con anterioridad!.');
-				  window.history.back();
-			  </script>";
-	}
-	else{
-
-		$res_ce = buscarConceptoEgresosById($conexion, $id_concepto);
-		$con_egreso = mysqli_fetch_array($res_ce);
-		$concepto = $con_egreso['concepto'];
-
-		$insertar = "INSERT INTO `egresos`(`concepto`, `comprobante`, `fecha_pago`, `monto_total`, `estado_pago`, `descripcion`) VALUES ('$concepto','$codigo', CURRENT_TIMESTAMP() ,'$monto', 'PAGADO', '$descripcion')";
-		$ejecutar_insetar = mysqli_query($conexion, $insertar);
-		if ($ejecutar_insetar) {
-				echo "<script>
-					alert('Registro Existoso');
-					window.location= '../movimientos.php'
-					</script>";
-		}else{
+	$insertar = "INSERT INTO `egresos`(`empresa`, `ruc`,`concepto`,`tipo_comprobante`, `comprobante`, `fecha_pago`,`fecha_registro`,`monto_total`,`estado`,`responsable`) 
+	VALUES ('$receptor','$empresa','$concepto','$tipo','$numero','$fecha', CURRENT_TIMESTAMP() ,'$monto', 'PAGADO','$usuario')";
+	$ejecutar_insetar = mysqli_query($conexion, $insertar);
+	if ($ejecutar_insetar) {
 			echo "<script>
-				alert('Error al registrar, por favor verifique sus datos');
-				window.history.back();
-					</script>
-				";
-		};
-	}
+				alert('Registro Existoso');
+				window.location= '../movimientos.php'
+				</script>";
+	}else{
+		echo "<script>
+			alert('Error al registrar, es probable que el codigo ya esté registrado');
+			window.history.back();
+				</script>
+			";
+	};
+	
 	mysqli_close($conexion);
 
 }

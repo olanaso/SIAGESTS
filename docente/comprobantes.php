@@ -64,7 +64,7 @@ if (!verificar_sesion($conexion)) {
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="">
-                    <h2 align="center">Concepto de Egresos</h2>
+                    <h2 align="center">Comprobantes</h2>
                     <button class="btn btn-success" data-toggle="modal" data-target=".registrar"><i class="fa fa-plus-square"></i> Nuevo</button>
 
                     <div class="clearfix"></div>
@@ -76,26 +76,28 @@ if (!verificar_sesion($conexion)) {
                       <thead>
                         <tr>
                           <th>Identificador</th>
-                          <th>Concepto</th>
-                          <th>Unidad</th>
+                          <th>Tipo Comprobante</th>
+                          <th>Serie</th>
+                          <th>Tamaño Correlativo</th>
                           <th>Acciones</th>
                         </tr>
                       </thead>
                       <tbody>
                         <?php 
-                          $busc_conc_egr = buscarConceptoEgresos($conexion); 
+                          $busc_conc_egr = buscarComprobante($conexion); 
                           while ($conc_egr=mysqli_fetch_array($busc_conc_egr)){
                         ?>
                         <tr>
                           <td><?php echo $conc_egr['id']; ?></td>
-                          <td><?php echo $conc_egr['concepto']; ?></td>
-                          <td><?php echo $conc_egr['unidad']; ?></td>
+                          <td><?php echo $conc_egr['comprobante']; ?></td>
+                          <td><?php echo $conc_egr['codigo']; ?></td>
+                          <td><?php echo $conc_egr['longitud']; ?></td>
                           <td>
                             <button class="btn btn-success" data-toggle="modal" data-target=".edit_<?php echo $conc_egr['id']; ?>"><i class="fa fa-pencil-square-o"></i> Editar</button>
-                            <a href= <?php echo "operaciones/eliminar_concepto_egreso.php?id=" .  $conc_egr['id']?> class="btn btn-danger"><i class="fa fa-pencil-square-o"></i> Eliminar</a></td>
+                            <a href= <?php echo "operaciones/eliminar_comprobante.php?id=" .  $conc_egr['id']?> class="btn btn-danger"><i class="fa fa-pencil-square-o"></i> Eliminar</a></td>
                         </tr>  
                         <?php
-                         include('include/acciones_concepto_egreso.php');
+                         include('include/acciones_comprobante.php');
                           };
                         ?>
 
@@ -111,7 +113,7 @@ if (!verificar_sesion($conexion)) {
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
                           </button>
-                          <h4 class="modal-title" id="myModalLabel" align="center">Registrar Nuevo Concepto de Egresos</h4>
+                          <h4 class="modal-title" id="myModalLabel" align="center">Registrar Tipo Comprobante</h4>
                         </div>
                         <div class="modal-body">
                           <!--INICIO CONTENIDO DE MODAL-->
@@ -123,18 +125,25 @@ if (!verificar_sesion($conexion)) {
                   </div>
                   <div class="x_content">
                     <br />
-                    <form role="form" action="operaciones/registrar_concepto_egreso.php" class="form-horizontal form-label-left input_mask" method="POST" >
+                    <form role="form" action="operaciones/registrar_comprobante.php" class="form-horizontal form-label-left input_mask" method="POST" >
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Concepto : </label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre Comprobante : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="concepto" required="required" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                          <input type="text" class="form-control" name="comprobante" required="required" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
                           <br>
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Unidad : </label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Serie : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="unidad" required="required" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                          <input type="text" class="form-control" name="codigo" required="required" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                          <br>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Longitud de N° Correlativo : </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="number" class="form-control" name="longitud" required="required" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
                           <br>
                         </div>
                       </div>

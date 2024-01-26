@@ -27,7 +27,7 @@
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Monto : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="monto" required="" value="<?php echo $conc_ingresos['monto']; ?>" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                          <input type="text" class="form-control" name="monto" required="" value="<?php echo $conc_ingresos['monto']; ?>" style="text-transform:uppercase;" oninput="validateInput(this)" onkeyup="javascript:this.value=this.value.toUpperCase();">
                           <br>
                         </div>
                       </div>

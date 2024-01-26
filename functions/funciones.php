@@ -95,7 +95,6 @@ function verificarDatos($conexion, $dni, $id_periodo){
 function verificarDatosAntiguo($conexion, $dni){
     $res = getEstudianteAntiguo($conexion, $dni);
     $cant_filas = mysqli_fetch_row($res);
-
     if($cant_filas == 0){
         return false;
     }

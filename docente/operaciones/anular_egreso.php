@@ -22,7 +22,7 @@ $motivo = $_POST['motivo'];
     VALUES ('$id','$usuario', CURRENT_TIMESTAMP() ,'$motivo')";
 	$ejecutar_insetar = mysqli_query($conexion, $insertar);
 	if ($ejecutar_insetar) {
-        $consulta = "UPDATE `egresos` SET `estado_pago`='ANULADO' WHERE id = $id";
+        $consulta = "UPDATE `egresos` SET `estado`='ANULADO' WHERE id = $id";
         mysqli_query($conexion, $consulta);
 			echo "<script>
                 alert('Actualización Existosa');

@@ -82,13 +82,14 @@ if (!verificar_sesion($conexion)) {
                         <thead>
                           <tr>
                             <th>N°</th>
-                            <th>DNI</th>
-                            <th>Estudiante</th>
-                            <th>Concepto</th>
+                            <th>Usuario Caja</th>
+                            <th>D.N.I. Usuario</th>
+                            <th>Usuario</th>
                             <th>Comprobante</th>
+                            <th>Serie-Número</th>
+                            <th>Metodo de Pago</th>
                             <th>Fecha de Pago</th>
-                            <th>Monto Pago</th>
-                            <th>Estado</th>
+                            <th>Monto Pagado</th>
                             <th>Acciones</th>
                           </tr>
                         </thead>
@@ -99,15 +100,18 @@ if (!verificar_sesion($conexion)) {
                           ?>
                           <tr>
                             <td><?php echo $ingresos['id']; ?></td>
+                            <td><?php echo $ingresos['responsable']; ?></td>
                             <td><?php echo $ingresos['dni']; ?></td>
-                            <td><?php echo $ingresos['estudiante']; ?></td>
-                            <td><?php echo $ingresos['concepto']; ?></td>
-                            <td><?php echo $ingresos['comprobante']; ?></td>
+                            <td><?php echo $ingresos['usuario']; ?></td>
+                            <td><?php echo $ingresos['tipo_comprobante']; ?></td>
+                            <td><?php echo $ingresos['codigo']; ?></td>
+                            <td><?php echo $ingresos['metodo_pago']; ?></td>
                             <td><?php echo $ingresos['fecha_pago']; ?></td>
                             <td><?php echo $ingresos['monto_total']; ?></td>
-                            <td><?php echo $ingresos['estado_pago']; ?></td>
                             <td>
-                            <button class="btn btn-danger" data-toggle="modal" data-target=".anular_ingreso_<?php echo $ingresos['id']; ?>"><i class="fa fa-ban"></i> Nuevo</button>  
+                            <button class="btn btn-danger" data-toggle="modal" data-target=".anular_ingreso_<?php echo $ingresos['id']; ?>"><i class="fa fa-ban"></i> Anular</button>  
+                            <a title="Ver PDF" class="btn btn-success" href="<?php echo substr($ingresos['ruta_archivo'],3); ?>" target="_blank"><i class="fa fa-file"></i></a></td>
+                              
                           </tr>  
                           <?php
                           include('include/acciones_anular_ingreso.php');
@@ -125,12 +129,15 @@ if (!verificar_sesion($conexion)) {
                         <thead>
                           <tr>
                             <th>N°</th>
+                            <th>Usuario Caja</th>
+                            <th>Nombre Empresa</th>
+                            <th>R.U.C. Empresa</th>
                             <th>Concepto</th>
-                            <th>Descripcion</th>
-                            <th>Comprobante</th>
-                            <th>Monto Total</th>
+                            <th>Tipo Comprobante</th>
+                            <th>Serie-número</th>
+                            <th>Costo Total</th>
                             <th>Fecha Pago</th>
-                            <th>Estado</th>
+                            <th>Fecha Registro</th>
                             <th>Acciones</th>
                           </tr>
                         </thead>
@@ -141,15 +148,19 @@ if (!verificar_sesion($conexion)) {
                           ?>
                           <tr>
                             <td><?php echo $egresos['id']; ?></td>
+                            <td><?php echo $egresos['responsable']; ?></td>
+                            <td><?php echo $egresos['empresa']; ?></td>
+                            <td><?php echo $egresos['ruc']; ?></td>
                             <td><?php echo $egresos['concepto']; ?></td>
-                            <td><?php echo $egresos['descripcion']; ?></td>
+                            <td><?php echo $egresos['tipo_comprobante']; ?></td>
                             <td><?php echo $egresos['comprobante']; ?></td>
-                            <td><?php echo $egresos['fecha_pago']; ?></td>
                             <td><?php echo $egresos['monto_total']; ?></td>
-                            <td><?php echo $egresos['estado_pago']; ?></td>
+                            <td><?php echo $egresos['fecha_pago']; ?></td>
+                            <td><?php echo $egresos['fecha_registro']; ?></td>
                             <td>
-                            <button class="btn btn-danger" data-toggle="modal" data-target=".anular_<?php echo $egresos['id']; ?>"><i class="fa fa-ban"></i> Nuevo</button>  
-                          </tr>  
+                            <button class="btn btn-danger" data-toggle="modal" data-target=".anular_<?php echo $egresos['id']; ?>"><i class="fa fa-ban"></i> Anular</button>  
+                            
+                          </tr>   
                           <?php
                          include('include/acciones_anular_egreso.php');
                           };
@@ -180,27 +191,35 @@ if (!verificar_sesion($conexion)) {
                   </div>
                   <div class="x_content">
                     <br />
-                    <form role="form" action="operaciones/registrar_ingreso.php" class="form-horizontal form-label-left input_mask" method="POST" >
+                    <form role="form" action="registrar_ingreso.php" class="form-horizontal form-label-left input_mask" method="POST" >
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">D.N.I.: </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" id="dni" name="dni" required="required" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                          <input type="text" class="form-control" id="dni" name="dni" required="required" style="text-transform:uppercase;" oninput="validateInput(this)" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                          <button type="button" onclick="buscarPorDNI()" class="btn btn-success">Buscar</button>
+                          <br><br>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Apellidos y Nombres : </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" name="nombres" id="nombres_apellidos" required="required" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
                           <br>
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Concepto : </label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo Comprobante : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <select class="form-control" id="concepto" name="concepto" value="" required="required">
+                          <select class="form-control" id="concepto" name="comprobante" value="" required="required" onkeyup="javascript:this.value=this.value.toUpperCase();">
                             <option></option>
                           <?php 
-                            $res_ci = buscarConceptoIngresos($conexion);
-                            while ($ingresos = mysqli_fetch_array($res_ci)) {
-                              $id_ci = $ingresos['id'];
-                              $concepto = $ingresos['concepto'];
+                            $res_ce = buscarComprobante($conexion);
+                            while ($compro = mysqli_fetch_array($res_ce)) {
+                              $id_ci = $compro['id'];
+                              $compro = $compro['comprobante'];
                               ?>
                               <option value="<?php echo $id_ci;
-                              ?>"><?php echo $concepto; ?></option>
+                              ?>"><?php echo $compro; ?></option>
                             <?php
                             }
                             ?>
@@ -208,17 +227,10 @@ if (!verificar_sesion($conexion)) {
                           <br>
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Código Comprobante : </label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="codigo" value="" required="required">
-                          <br>
-                        </div>
-                      </div>
                       <div align="center">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                           
-                          <button type="submit" class="btn btn-primary">Guardar</button>
+                          <button type="submit" class="btn btn-primary">Ir a Pagos</button>
                       </div>
                     </form>
                   </div>
@@ -253,46 +265,69 @@ if (!verificar_sesion($conexion)) {
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <br />
+                    <b>A travez de esta opción puede registrar los costos/gastos de la IESTP, recuerde que la responsabilidad de autentificar el comprobante no es por medio del sistema.</b>
+                    <br /><br>
+                    
                     <form role="form" action="operaciones/registrar_egreso.php" class="form-horizontal form-label-left input_mask" method="POST" >
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Concepto : </label>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre del emisor : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <select class="form-control" id="concepto" name="concepto" value="" required="required">
-                            <option></option>
-                          <?php 
-                            $res_ce = buscarConceptoEgresos($conexion);
-                            while ($egresos = mysqli_fetch_array($res_ce)) {
-                              $id_ci = $egresos['id'];
-                              $concepto = $egresos['concepto'];
-                              ?>
-                              <option value="<?php echo $id_ci;
-                              ?>"><?php echo $concepto; ?></option>
-                            <?php
-                            }
-                            ?>
+                          <input type="text" class="form-control" name="usuario" value="" required="required" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                          <br>
+                        </div>
+                      </div>  
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Número R.U.C. del emisor : </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" name="ruc" value="" required="required" style="text-transform:uppercase;" oninput="validateInput(this)" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                          <br>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Concepto de egreso : </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" name="concepto" value="" required="required" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                          <br>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo de Comprobante : </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <select class="form-control" id="tipo" name="tipo" required>
+                            <option value="BOLETA">BOLETA</option>
+                            <option value="FACTURA">FACTURA</option>
                           </select>
                           <br>
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Código Comprobante : </label>
+                      <div class="col-md-6 col-sm-3 col-xs-12">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Serie Comprobante: </label>
+                          <div class="col-md-6 col-sm-9 col-xs-12">
+                            <input type="text" class="form-control" name="serie" value="" required="required" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                            <br>
+                          </div>
+                      </div>
+                      <div class="col-md-6 col-sm-3 col-xs-12">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12">Número Comprobante: </label>
+                          <div class="col-md-6 col-sm-9 col-xs-12">
+                            <input type="text" class="form-control" name="numero" value="" required="required" style="text-transform:uppercase;" oninput="validateInput(this)" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                            <br>
+                          </div>
+                      </div>
+                        
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Fecha del Pago : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="codigo" value="" required="required">
+                          <input type="date" class="form-control" name="fecha" value="" required="required" >
                           <br>
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Monto a pagar : </label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Monto Pagado : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="monto" value="" required="required">
-                          <br>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Descripcion : </label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="descripcion" value="" required="required">
+                          <input type="text" class="form-control" name="monto" value="" required="required" oninput="validateInput(this)">
                           <br>
                         </div>
                       </div>
@@ -313,103 +348,6 @@ if (!verificar_sesion($conexion)) {
 </div>
 
 <!-- FIN MODAL-->
-
-       <!--MODAL REGISTRAR ANLUAR-->
-       <div class="modal fade anular_<?php echo $egresos['id']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                      <div class="modal-content">
-
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
-                          </button>
-                          <h4 class="modal-title" id="myModalLabel" align="center">Anular Egreso</h4>
-                        </div>
-                        <div class="modal-body">
-                          <!--INICIO CONTENIDO DE MODAL-->
-                  <div class="x_panel">
-                    
-                  <div class="" align="center">
-                    <h2 ></h2>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                  <form role="form" action="operaciones/registrar_egreso.php" class="form-horizontal form-label-left input_mask" method="POST" >
-                  <input type="hidden" name="id" value="<?php echo $egresos['id']; ?>">
-                    <br />
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Describa el Motivo : </label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="motivo" value="" required="required">
-                          <br>
-                        </div>
-                      </div>
-                      <div align="center">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                          
-                          <button type="submit" class="btn btn-primary">Guardar</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-                </div>
-                          <!--FIN DE CONTENIDO DE MODAL-->
-                
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- FIN MODAL ANULAR-->
-
-   <!--MODAL REGISTRAR ANLUAR-->
-   <div class="modal fade anular_ingreso_<?php echo $egresos['id']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                      <div class="modal-content">
-
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
-                          </button>
-                          <h4 class="modal-title" id="myModalLabel" align="center">Anular Ingreso</h4>
-                        </div>
-                        <div class="modal-body">
-                          <!--INICIO CONTENIDO DE MODAL-->
-                  <div class="x_panel">
-                    
-                  <div class="" align="center">
-                    <h2 ></h2>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                  <form role="form" action="operaciones/registrar_egreso.php" class="form-horizontal form-label-left input_mask" method="POST" >
-                  <input type="hidden" name="id" value="<?php echo $ingresos['id']; ?>">
-                    <br />
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Describa el Motivo : </label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="motivo" value="" required="required">
-                          <br>
-                        </div>
-                      </div>
-                      <div align="center">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                          
-                          <button type="submit" class="btn btn-primary">Guardar</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-                </div>
-                          <!--FIN DE CONTENIDO DE MODAL-->
-                
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- FIN MODAL ANULAR-->
-
-
-
                   </div>
                 </div>
               </div>
@@ -427,6 +365,58 @@ if (!verificar_sesion($conexion)) {
         <!-- /footer content -->
       </div>
     </div>
+
+    <script>
+      function validateInput(input) {
+          // Obtén el valor actual del campo de entrada
+          let inputValue = input.value;
+
+          // Remueve cualquier carácter no permitido (en este caso, letras)
+          inputValue = inputValue.replace(/[^0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g, '');
+
+          // Actualiza el valor del campo de entrada
+          input.value = inputValue.toUpperCase();
+      }
+    </script>
+
+    <script>
+        async function buscarPorDNI() {
+            // Obtener el valor del DNI
+            var dni = document.getElementById("dni").value;
+
+            // Token proporcionado por la API (reemplaza 'TU_TOKEN' con tu token real)
+            var token = '38921056413a314097179eec84229162502967e29eb0076c26c8c303845da65d';
+
+            // Configurar los parámetros de la solicitud
+            var params = {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                },
+                body: JSON.stringify({ dni: dni })
+            };
+
+            try {
+                // Realizar la solicitud a la API con fetch
+                var response = await fetch("https://apiperu.dev/api/dni", params);
+                var data = await response.json();
+
+                // Manejar la respuesta de la API
+                mostrarResultado(data.data.nombre_completo);
+            } catch (error) {
+                // Manejar el error
+                mostrarResultado("Registre manualmente");
+            }
+        }
+
+        function mostrarResultado(resultado) {
+            // Mostrar el resultado en la página
+            document.getElementById("nombres_apellidos").value = resultado;
+        }
+    </script>
+
 <!-- jQuery -->
 <script src="../Gentella/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -510,4 +500,4 @@ if (!verificar_sesion($conexion)) {
      <?php mysqli_close($conexion); ?>
   </body>
 </html>
-<?php }
+<?php } ?>

@@ -14,12 +14,12 @@ if (!verificar_sesion($conexion)) {
 $id_a_eliminar = $_GET['id'];
 
 
-	$delete = "DELETE FROM `concepto_egreso` WHERE id = $id_a_eliminar";
+	$delete = "DELETE FROM `comprobantes_pago` WHERE id = $id_a_eliminar";
 	$ejecutar_delete = mysqli_query($conexion, $delete);
 	if ($ejecutar_delete) {
 			echo "<script>
                 alert('Eliminado Exitosamente');
-                window.location= '../concepto_egresos.php'
+                window.location= '../comprobantes.php'
     			</script>";
 	}else{
 		echo "<script>

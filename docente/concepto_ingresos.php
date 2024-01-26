@@ -138,7 +138,7 @@ if (!verificar_sesion($conexion)) {
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Monto : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="monto" required="required" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                          <input type="text" class="form-control" name="monto" required="required" style="text-transform:uppercase;" oninput="validateInput(this)" onkeyup="javascript:this.value=this.value.toUpperCase();">
                           <br>
                         </div>
                       </div>
@@ -190,6 +190,19 @@ if (!verificar_sesion($conexion)) {
         <!-- /footer content -->
       </div>
     </div>
+
+    <script>
+      function validateInput(input) {
+          // Obtén el valor actual del campo de entrada
+          let inputValue = input.value;
+
+          // Remueve cualquier carácter no permitido (en este caso, letras)
+          inputValue = inputValue.replace(/[^0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g, '');
+
+          // Actualiza el valor del campo de entrada
+          input.value = inputValue.toUpperCase();
+      }
+    </script>
 <!-- jQuery -->
 <script src="../Gentella/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->

@@ -437,6 +437,11 @@ function buscarTutoriaSesGrupalByIdAndIdTutoria($conexion,$id, $id_tutoria){
 
 //-------------------------Nuevas Consultas----------------------------
 
+function buscarComprobante($conexion){
+	$sql = "SELECT * FROM comprobantes_pago";
+	return mysqli_query($conexion, $sql);
+}
+
 function buscarAllBoletasNotas($conexion){
 	$sql = "SELECT * FROM boleta_notas";
 	return mysqli_query($conexion, $sql);
@@ -473,12 +478,12 @@ function getBoletaByCodigo($conexion,$codigo){
 
 //---------------------PARA ESTUDIANTES ANTIGUOS AL USO DEL SISTEMA --------------------
 function getEstudianteAntiguo($conexion, $dni){
-	$sql = "SELECT * from estudiante_antiguo WHERE dni = $dni";
+	$sql = "SELECT * from estudiante_antiguo WHERE dni = '$dni'";
     return mysqli_query($conexion,$sql);
 }
 
 function getEstudianteNotasAntigua($conexion, $dni, $programa){
-    $sql = "SELECT * from notas_antiguo WHERE dni = '$dni' AND nombre_programa = '$programa'";
+    $sql = "SELECT * from notas_antiguo WHERE dni = '$dni' AND nombre_programa = '$programa'" ;
     return mysqli_query($conexion,$sql);
 }
 
@@ -490,6 +495,7 @@ function getCalificacionFinalByDniAndPeriodo($conexion, $dni, $periodo){
     INNER JOIN promedio_final pf ON pf.id_detalle_matricula = dm.id WHERE e.dni = '$dni' AND pa.nombre = '$periodo'";
 	return mysqli_query($conexion,$sql);
 }
+
 
 
 

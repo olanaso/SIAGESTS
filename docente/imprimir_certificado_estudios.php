@@ -12,7 +12,7 @@ $comprobante = $_POST['comprobante'];
 
 if (!verificar_sesion($conexion) || !verificarDatosAntiguo($conexion, $dni)) {
   echo "<script>
-  alert('Ah ocuurido un error, revice los datos ingresados y vuelva a intentarlo.');
+  alert('Ah ocurrido un error, revice los datos ingresados y vuelva a intentarlo.');
   window.location.replace('certificado.php');
 </script>";
 }else{

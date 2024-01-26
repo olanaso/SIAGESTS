@@ -60,41 +60,61 @@ if (!verificar_sesion($conexion)) {
         <div class="">
           <div class="page-title">
             <div class="title_left">
-              <h3>Reportes de Ingresos y Egresos</h3>
+              <h3>Reportes de Caja</h3>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-6">
+                <label>Fecha Inicio:</label>
+                <input type="date" id="fechaInicio" class="form-control">
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-6">
+                <label>Fecha Fin:</label>
+                <input type="date" id="fechaFin" class="form-control">
             </div>
           </div>
           <div class="clearfix"></div>
-
+          <br><br>
           <!-- Contenido de la página -->
-          <div class="row">
-            <!-- Card de Ingresos -->
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2>Reporte de Ingresos</h2>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                  <!-- Lógica para obtener y mostrar datos de ingresos -->
-                  <!-- Puedes utilizar PHP para obtener datos desde la base de datos -->
-                  <p>Datos y gráficos de ingresos aquí...</p>
-                </div>
+            <div class="row">
+              <!-- Card de Ingresos -->
+              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                  <div class="x_panel">
+                      <div class="x_title">
+                          <h2>Reporte de Ingresos</h2>
+                          <div class="clearfix"></div>
+                      </div>
+                      <div class="x_content">
+                          <p>Se tomará en cuenta solo los ingresos que no fueron anulados.</p>
+                          <button  onclick="generarReporte('ingresos')" class="btn btn-primary">Generar Reporte</button>
+                        </div>
+                  </div>
               </div>
-            </div>
 
-            <!-- Card de Egresos -->
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2>Reporte de Egresos</h2>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                  <!-- Lógica para obtener y mostrar datos de egresos -->
-                  <!-- Puedes utilizar PHP para obtener datos desde la base de datos -->
-                  <p>Datos y gráficos de egresos aquí...</p>
-                </div>
+              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                  <div class="x_panel">
+                      <div class="x_title">
+                          <h2>Reporte de Egresos</h2>
+                          <div class="clearfix"></div>
+                      </div>
+                      <div class="x_content">
+                          <p>Se tomará en cuenta solo los egresos que no fueron anulados.</p>
+                          <button  onclick="generarReporte('egresos')" class="btn btn-primary">Generar Reporte</button>
+                      </div>
+                  </div>
               </div>
+
+              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                  <div class="x_panel">
+                      <div class="x_title">
+                          <h2>Reporte de Flujo de Caja</h2>
+                          <div class="clearfix"></div>
+                      </div>
+                      <div class="x_content">
+                          <p>Reporte general de ingresos y egresos que no fueron anulados.</p>
+                          <button  onclick="generarReporte('Flujo-Caja')" class="btn btn-primary">Generar Reporte</button>
+                      </div>
+                  </div>
+              </div>
+
             </div>
           </div>
           <!-- Fin Contenido de la página -->
@@ -109,6 +129,63 @@ if (!verificar_sesion($conexion)) {
         <!-- /footer content -->
       </div>
     </div>
+    <script>
+        // Obtener referencias a los elementos de fecha
+        var fechaInicioInput = document.getElementById('fechaInicio');
+        var fechaFinInput = document.getElementById('fechaFin');
+
+        // Agregar un evento de cambio a la fecha de inicio
+        fechaInicioInput.addEventListener('change', function () {
+            // Obtener valores de fechas como objetos Date
+            var fechaInicio = new Date(this.value);
+            var fechaFin = new Date(fechaFinInput.value);
+
+            // Verificar si la fecha de inicio es mayor que la fecha de fin
+            if (fechaInicio > fechaFin) {
+                // Mostrar un mensaje de error
+                alert('La fecha de inicio no puede ser mayor que la fecha de fin');
+                // Restablecer el valor de la fecha de inicio
+                this.value = '';
+            }
+        });
+
+        // Agregar un evento de cambio a la fecha de fin
+        fechaFinInput.addEventListener('change', function () {
+            // Obtener valores de fechas como objetos Date
+            var fechaInicio = new Date(fechaInicioInput.value);
+            var fechaFin = new Date(this.value);
+
+            // Verificar si la fecha de inicio es mayor que la fecha de fin
+            if (fechaInicio > fechaFin) {
+                // Mostrar un mensaje de error
+                alert('La fecha de fin no puede ser menor que la fecha de inicio');
+                // Restablecer el valor de la fecha de fin
+                this.value = '';
+            }
+        });
+    </script>
+    <script>
+        // Obtener la fecha actual
+        const fechaActual = new Date();
+
+        // Obtener el formato YYYY-MM-DD para la fecha actual
+        const fechaActualFormato = fechaActual.toISOString().split('T')[0];
+
+        // Establecer la fecha actual como valor por defecto
+        document.getElementById('fechaInicio').value = fechaActualFormato;
+        document.getElementById('fechaFin').value = fechaActualFormato;
+    </script>
+
+    <script>
+    function generarReporte(tipo) {
+        // Obtener valores de los campos de fecha
+        var fechaInicio = document.getElementById('fechaInicio').value;
+        var fechaFin = document.getElementById('fechaFin').value;
+
+        // Redirigir a la página de generación de reporte con las fechas y tipo como parámetros
+        window.location.href = 'generar_reporte.php?fechaInicio=' + fechaInicio + '&fechaFin=' + fechaFin + '&tipo=' + tipo;
+    }
+</script>
 <!-- jQuery -->
 <script src="../Gentella/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->

@@ -79,13 +79,13 @@ if (!verificar_sesion($conexion)) {
                       <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                           <tr>
-                            <th>Estudiante</th>
-                            <th>Concepto</th>
-                            <th>Comprobante</th>
-                            <th>Monto Total</th>
-                            <th>Responsable</th>
+                            <th>Usuario/Cliente</th>
+                            <th>Tipo Comprobante</th>
+                            <th>Serie-Número</th>
+                            <th>Monto Pagado</th>
+                            <th>Usuario Caja</th>
                             <th>Motivo</th>
-                            <th>Fecha Anulación</th>
+                            <th>Fecha de Anulación</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -94,16 +94,15 @@ if (!verificar_sesion($conexion)) {
                             while ($ingresos=mysqli_fetch_array($busc_ingr)){
                           ?>
                           <tr>
-                            <td><?php echo $ingresos['estudiante']; ?></td>
-                            <td><?php echo $ingresos['concepto']; ?></td>
-                            <td><?php echo $ingresos['comprobante']; ?></td>
+                            <td><?php echo $ingresos['usuario']; ?></td>
+                            <td><?php echo $ingresos['tipo_comprobante']; ?></td>
+                            <td><?php echo $ingresos['codigo']; ?></td>
                             <td><?php echo $ingresos['monto_total']; ?></td>
                             <td><?php echo $ingresos['responsable']; ?></td>
                             <td><?php echo $ingresos['motivo']; ?></td>
                             <td><?php echo $ingresos['fecha_anulacion']; ?></td>
                           </tr>  
                           <?php
-                          include('include/acciones_concepto_ingreso.php');
                             };
                           ?>
 
@@ -111,14 +110,17 @@ if (!verificar_sesion($conexion)) {
                       </table>
                     </div>
                     <div id="tab2" class="tab-pane fade">
-                      <br>
+                    <br>
                       <table id="exa" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                           <tr>
-                            <th>Concepto</th>
-                            <th>Comprobante</th>
-                            <th>Monto Total</th>
-                            <th>Responsable</th>
+                            <th>Empresa</th>
+                            <th>R.U.C </th>
+                            <th>Concepto </th>
+                            <th>Tipo Comprobante</th>
+                            <th>Serie-Número</th>
+                            <th>Costo Total</th>
+                            <th>Usuario Caja</th>
                             <th>Motivo</th>
                             <th>Fecha Anulación</th>
                           </tr>
@@ -129,161 +131,24 @@ if (!verificar_sesion($conexion)) {
                             while ($egresos=mysqli_fetch_array($busc_egr)){
                           ?>
                           <tr>
+                            <td><?php echo $egresos['empresa']; ?></td>
+                            <td><?php echo $egresos['ruc']; ?></td>
                             <td><?php echo $egresos['concepto']; ?></td>
+                            <td><?php echo $egresos['tipo_comprobante']; ?></td>
                             <td><?php echo $egresos['comprobante']; ?></td>
                             <td><?php echo $egresos['monto_total']; ?></td>
                             <td><?php echo $egresos['responsable']; ?></td>
                             <td><?php echo $egresos['motivo']; ?></td>
                             <td><?php echo $egresos['fecha_anulacion']; ?></td>
-                          </tr>  
+                           </tr>  
                           <?php
-                          include('include/acciones_concepto_ingreso.php');
-                            };
-                          ?>
+                          };
+                        ?>
 
                         </tbody>
                       </table>
                     </div>
                   </div>
-
-                    <!--MODAL REGISTRAR-->
-                <div class="modal fade registrar" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                      <div class="modal-content">
-
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
-                          </button>
-                          <h4 class="modal-title" id="myModalLabel" align="center">Registrar Nuevo Concepto de Ingresos</h4>
-                        </div>
-                        <div class="modal-body">
-                          <!--INICIO CONTENIDO DE MODAL-->
-                  <div class="x_panel">
-                    
-                  <div class="" align="center">
-                    <h2 ></h2>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <br />
-                    <form role="form" action="operaciones/registrar_concepto_ingreso.php" class="form-horizontal form-label-left input_mask" method="POST" >
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Concepto : </label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="concepto" required="required" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
-                          <br>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Monto : </label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="monto" required="required" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
-                          <br>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Código : </label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="codigo" value="" required="required">
-                          <br>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Unidad : </label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="unidad" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
-                          <br>
-                        </div>
-                      </div>
-                      <div align="center">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                          
-                          <button type="submit" class="btn btn-primary">Guardar</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-                </div>
-                          <!--FIN DE CONTENIDO DE MODAL-->
-                
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- FIN MODAL REGISTRAR-->
-
-
-        <!--MODAL REGISTRAR EGRESO-->
-                    <div class="modal fade registrar_egreso" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                      <div class="modal-content">
-
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
-                          </button>
-                          <h4 class="modal-title" id="myModalLabel" align="center">Registrar Nuevo Concepto de Egresos</h4>
-                        </div>
-                        <div class="modal-body">
-                          <!--INICIO CONTENIDO DE MODAL-->
-                  <div class="x_panel">
-                    
-                  <div class="" align="center">
-                    <h2 ></h2>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <br />
-                    <form role="form" action="operaciones/registrar_concepto_ingreso.php" class="form-horizontal form-label-left input_mask" method="POST" >
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Concepto : </label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="concepto" required="required" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
-                          <br>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Monto : </label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="monto" required="required" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
-                          <br>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Código : </label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="codigo" value="" required="required">
-                          <br>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Unidad : </label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="unidad" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
-                          <br>
-                        </div>
-                      </div>
-                      <div align="center">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                          
-                          <button type="submit" class="btn btn-primary">Guardar</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-                </div>
-                          <!--FIN DE CONTENIDO DE MODAL-->
-                
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- FIN MODAL REGISTRAR-->
-
-
-
-
                   </div>
                 </div>
               </div>
@@ -301,6 +166,7 @@ if (!verificar_sesion($conexion)) {
         <!-- /footer content -->
       </div>
     </div>
+
 <!-- jQuery -->
 <script src="../Gentella/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -363,7 +229,7 @@ if (!verificar_sesion($conexion)) {
     "lengthMenu": "Mostrar _MENU_ registros",
     "zeroRecords": "No se encontraron resultados",
     "emptyTable": "Ningún dato disponible en esta tabla",
-    "sInfo": "Mostrando del _START_ al _END_ de un total de _TOTAL_ registros",
+    "sInfo": "Mostrando del _END_ al _START_ de un total de _TOTAL_ registros",
     "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
     "infoFiltered": "(filtrado de un total de _MAX_ registros)",
     "search": "Buscar:",
@@ -380,7 +246,10 @@ if (!verificar_sesion($conexion)) {
 
     } );
     </script>
+
      <?php mysqli_close($conexion); ?>
   </body>
 </html>
-<?php }
+<?php } ?>
+
+                          
