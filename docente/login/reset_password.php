@@ -56,7 +56,7 @@
                 <br />
 
                 <div>
-                  <h1>I.E.S.T.P. "AYACUCHO"</h1>
+                  <h1>SIGAEST</h1>
                 </div>
               </div>
             </form>
