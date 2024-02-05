@@ -93,6 +93,14 @@ if ($enviar) {
         $mail->Subject = $asunto;
 
 
+  $protocol = 'http://';
+if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
+    $protocol = 'https://';
+}
+
+$domain = $_SERVER['HTTP_HOST']; // Obtendrá algo como iestpaurahua.sigaest.com
+$urlLogo = $protocol . $domain. "/img/logo.png";
+
         $link = 'https://'.$r_b_datos_sistema['dominio_sistema'].'/docente/login/recuperar_password.php?id=' . $id_docente . '&token='.$token;
         $mail->Body = '<!DOCTYPE html>
                     <html lang="es">
@@ -102,7 +110,7 @@ if ($enviar) {
                     <body>
                     <div style="width: 100%; font-family: Roboto; font-size: 0.8em; display: inline;">
                         <div style="background-color:'.$r_b_datos_sistema['color_correo'].'; border-radius: 10px 10px 0px 0px; text-align: center;">
-                            <img src="https://sispa.iestphuanta.edu.pe/img/logo.png" alt="'.$r_b_datos_sistema['pagina'].'" style="padding: 0.5em; text-align: center;" height="50px">
+                            <img src="'.$urlLogo.'" alt="'.$r_b_datos_sistema['pagina'].'" style="padding: 0.5em; text-align: center;" height="50px">
                         </div>
                         <div style="background-color:'.$r_b_datos_sistema['color_correo'].'; border-radius: 0px 0px 0px 0px; height: 60px; margin-top: 0px; padding-top: 2px; padding-bottom: 10px;">
                             <p style="text-align: center; font-size: 1.0rem; color: #f1f1f1; text-shadow: 2px 2px 2px #cfcfcf; ">'.$r_b_datos_institucion['nombre_institucion'].'</p>
