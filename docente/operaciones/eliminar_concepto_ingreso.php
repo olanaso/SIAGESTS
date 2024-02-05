@@ -23,7 +23,7 @@ $id_a_eliminar = $_GET['id'];
     			</script>";
 	}else{
 		echo "<script>
-			alert('Error al registrar');
+			alert('Error al registrar, no puede eliminar un concepto de ingreso que ya tiene registrado movimientos!');
 			window.history.back();
 				</script>
 			";

@@ -131,28 +131,28 @@ if (!verificar_sesion($conexion)) {
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Concepto : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="concepto" required="required" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                          <input type="text" class="form-control" name="concepto" required="required" style="text-transform:uppercase;" oninput="validateInputText(this, 40)" onkeyup="javascript:this.value=this.value.toUpperCase();">
                           <br>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Monto : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="monto" required="required" style="text-transform:uppercase;" oninput="validateInput(this)" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                          <input type="text" class="form-control" name="monto" required="required" style="text-transform:uppercase;" oninput="validateInputNum(this, 8)" onkeyup="javascript:this.value=this.value.toUpperCase();">
                           <br>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Código : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="codigo" value="" required="required">
+                          <input type="text" class="form-control" name="codigo" value="" required="required" oninput="limitarTamanio(this, 3)" onkeyup="javascript:this.value=this.value.toUpperCase();">
                           <br>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Unidad : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="unidad" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                          <input type="text" class="form-control" name="unidad" style="text-transform:uppercase;" oninput="validateInputText(this, 20)" onkeyup="javascript:this.value=this.value.toUpperCase();">
                           <br>
                         </div>
                       </div>
@@ -192,16 +192,36 @@ if (!verificar_sesion($conexion)) {
     </div>
 
     <script>
-      function validateInput(input) {
+      function validateInputNum(input, tamanio) {
           // Obtén el valor actual del campo de entrada
           let inputValue = input.value;
 
           // Remueve cualquier carácter no permitido (en este caso, letras)
           inputValue = inputValue.replace(/[^0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g, '');
-
+          inputValue = inputValue.slice(0, tamanio);
           // Actualiza el valor del campo de entrada
           input.value = inputValue.toUpperCase();
       }
+      
+      function validateInputText(input, tamanio) {
+          // Obtén el valor actual del campo de entrada
+          let inputValue = input.value;
+
+          // Remueve cualquier carácter no permitido (en este caso, letras)
+          inputValue = inputValue.replace(/[^a-zA-Z\s!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~]+/g, '');
+          inputValue = inputValue.slice(0, tamanio);
+          // Actualiza el valor del campo de entrada
+          input.value = inputValue.toUpperCase();
+      }
+      function limitarTamanio(input, tamanio) {
+        let inputValue = input.value;
+
+        // Remueve cualquier carácter no permitido (en este caso, letras)
+        //inputValue = inputValue.replace(/[^a-zA-Z\s!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~]+/g, '');
+        inputValue = inputValue.slice(0, tamanio);
+        // Actualiza el valor del campo de entrada
+        input.value = inputValue.toUpperCase();
+        }
     </script>
 <!-- jQuery -->
 <script src="../Gentella/vendors/jquery/dist/jquery.min.js"></script>

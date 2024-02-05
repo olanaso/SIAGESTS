@@ -1622,3 +1622,453 @@
 [19-Dec-2023 12:57:44 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/matriculas.php on line 22
 [19-Dec-2023 12:57:44 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
 [19-Dec-2023 12:57:44 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 110
+[30-Jan-2024 00:37:16 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:37:16 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:37:16 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/secretaria.php on line 62
+[30-Jan-2024 00:37:16 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/secretaria.php on line 65
+[30-Jan-2024 00:37:16 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/secretaria.php on line 79
+[30-Jan-2024 00:37:16 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/secretaria.php on line 87
+[30-Jan-2024 00:37:20 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:37:20 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:37:22 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:37:22 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:37:22 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined function buscarComprobante() in /home/sistemae/iestpalfredosarmiento/docente/comprobantes.php:98
+Stack trace:
+#0 {main}
+  thrown in /home/sistemae/iestpalfredosarmiento/docente/comprobantes.php on line 98
+[30-Jan-2024 00:37:25 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:37:25 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:38:59 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:38:59 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:39:02 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:39:02 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:39:02 America/Lima] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 343434376 bytes) in /home/sistemae/iestpalfredosarmiento/docente/comprobantes.php on line 20
+[30-Jan-2024 00:39:09 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:39:09 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:39:10 America/Lima] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 343434376 bytes) in /home/sistemae/iestpalfredosarmiento/docente/comprobantes.php on line 20
+[30-Jan-2024 00:39:12 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:39:12 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:39:14 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:39:14 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:39:19 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:39:19 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:39:23 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:39:23 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:39:30 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:39:30 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:39:30 America/Lima] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 343434376 bytes) in /home/sistemae/iestpalfredosarmiento/docente/comprobantes.php on line 20
+[30-Jan-2024 00:42:26 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:42:26 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:42:26 America/Lima] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 343434376 bytes) in /home/sistemae/iestpalfredosarmiento/docente/comprobantes.php on line 20
+[30-Jan-2024 00:42:27 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:42:27 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:42:27 America/Lima] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 343434376 bytes) in /home/sistemae/iestpalfredosarmiento/docente/comprobantes.php on line 20
+[30-Jan-2024 00:42:28 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:42:28 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:42:28 America/Lima] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 343434376 bytes) in /home/sistemae/iestpalfredosarmiento/docente/comprobantes.php on line 20
+[30-Jan-2024 00:42:28 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:42:28 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:42:29 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:42:29 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:42:29 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:42:29 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:42:29 America/Lima] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 343434376 bytes) in /home/sistemae/iestpalfredosarmiento/docente/comprobantes.php on line 20
+[30-Jan-2024 00:42:29 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:42:29 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:42:30 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:42:30 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:42:30 America/Lima] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 343434376 bytes) in /home/sistemae/iestpalfredosarmiento/docente/comprobantes.php on line 20
+[30-Jan-2024 00:42:32 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:42:32 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:42:32 America/Lima] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 343434376 bytes) in /home/sistemae/iestpalfredosarmiento/docente/comprobantes.php on line 20
+[30-Jan-2024 00:43:16 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:43:16 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:43:21 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:43:21 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:43:22 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:43:22 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:43:44 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:43:44 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:44:09 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:44:09 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:44:51 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:44:51 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:44:53 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:44:53 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:47:52 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:47:52 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:49:21 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:49:21 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:49:26 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:49:26 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:49:29 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:49:29 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:49:30 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:49:30 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:49:33 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:49:33 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:49:36 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:49:36 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:49:39 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:49:39 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:49:44 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:49:44 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:49:47 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:49:47 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:49:50 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:49:50 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:49:53 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:49:53 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:49:58 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:49:58 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:50:06 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:50:06 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:50:08 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:50:08 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:50:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:50:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:52:08 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:52:08 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 00:52:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 00:52:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 06:42:42 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 06:42:42 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 06:42:42 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/secretaria.php on line 62
+[30-Jan-2024 06:42:42 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/secretaria.php on line 65
+[30-Jan-2024 06:42:42 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/secretaria.php on line 79
+[30-Jan-2024 06:42:42 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/secretaria.php on line 87
+[30-Jan-2024 06:42:49 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 06:42:49 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 06:42:58 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 06:42:58 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 07:29:58 America/Lima] PHP Notice:  Undefined index: id_sesion in /home/sistemae/iestpalfredosarmiento/docente/index.php on line 7
+[30-Jan-2024 07:29:58 America/Lima] PHP Notice:  Undefined index: token in /home/sistemae/iestpalfredosarmiento/docente/index.php on line 7
+[30-Jan-2024 07:29:58 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 169
+[30-Jan-2024 07:30:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 07:30:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 07:30:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/secretaria.php on line 62
+[30-Jan-2024 07:30:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/secretaria.php on line 65
+[30-Jan-2024 07:30:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/secretaria.php on line 79
+[30-Jan-2024 07:30:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/secretaria.php on line 87
+[30-Jan-2024 07:30:11 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 07:30:11 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 07:30:25 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[30-Jan-2024 07:30:25 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[30-Jan-2024 07:30:25 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/secretaria.php on line 62
+[30-Jan-2024 07:30:25 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/secretaria.php on line 65
+[30-Jan-2024 07:30:25 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/secretaria.php on line 79
+[30-Jan-2024 07:30:25 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/secretaria.php on line 87
+[30-Jan-2024 08:29:59 America/Lima] PHP Notice:  Undefined index: id_sesion in /home/sistemae/iestpalfredosarmiento/docente/index.php on line 7
+[30-Jan-2024 08:29:59 America/Lima] PHP Notice:  Undefined index: token in /home/sistemae/iestpalfredosarmiento/docente/index.php on line 7
+[30-Jan-2024 08:29:59 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 169
+[30-Jan-2024 09:32:10 America/Lima] PHP Notice:  Undefined index: id_sesion in /home/sistemae/iestpalfredosarmiento/docente/index.php on line 7
+[30-Jan-2024 09:32:10 America/Lima] PHP Notice:  Undefined index: token in /home/sistemae/iestpalfredosarmiento/docente/index.php on line 7
+[30-Jan-2024 09:32:10 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 169
+[31-Jan-2024 08:15:34 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:15:34 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:15:34 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/secretaria.php on line 62
+[31-Jan-2024 08:15:34 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/secretaria.php on line 65
+[31-Jan-2024 08:15:34 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/secretaria.php on line 79
+[31-Jan-2024 08:15:34 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/secretaria.php on line 87
+[31-Jan-2024 08:15:42 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:15:42 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:15:50 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:15:50 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:15:53 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:15:53 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:16:26 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:16:26 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:16:39 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:16:39 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:16:47 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:16:47 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:17:05 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:17:05 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:17:09 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:17:09 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:17:41 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:17:41 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:18:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:18:01 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:38:24 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:38:24 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:38:32 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:38:32 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:39:38 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:39:38 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:50:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:50:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:50:17 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:50:17 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:50:28 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:50:28 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:50:50 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:50:50 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:50:57 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:50:57 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:51:05 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:51:05 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:51:08 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:51:08 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:51:11 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:51:11 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:51:12 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:51:12 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:51:14 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:51:14 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:51:18 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:51:18 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:52:35 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:52:35 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:52:36 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:52:36 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:52:44 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:52:44 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:52:55 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:52:55 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:53:37 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:53:37 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:53:45 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:53:45 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:54:08 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:54:08 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:54:17 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:54:17 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:54:30 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:54:30 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:55:32 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:55:32 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:55:52 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:55:52 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:58:11 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:58:11 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 08:59:08 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 08:59:08 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 09:10:13 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 09:10:13 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 09:39:13 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 09:39:13 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 09:39:27 America/Lima] PHP Notice:  Undefined index: id_sesion in /home/sistemae/iestpalfredosarmiento/docente/index.php on line 7
+[31-Jan-2024 09:39:27 America/Lima] PHP Notice:  Undefined index: token in /home/sistemae/iestpalfredosarmiento/docente/index.php on line 7
+[31-Jan-2024 09:39:27 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 169
+[31-Jan-2024 09:39:30 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 9
+[31-Jan-2024 09:39:30 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 69
+[31-Jan-2024 09:39:30 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/docente.php on line 65
+[31-Jan-2024 09:39:35 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 9
+[31-Jan-2024 09:39:35 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 69
+[31-Jan-2024 09:39:35 America/Lima] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/sistemae/iestpalfredosarmiento/docente/calificaciones_unidades_didacticas.php on line 135
+[31-Jan-2024 10:46:43 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 9
+[31-Jan-2024 10:46:43 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 69
+[31-Jan-2024 10:46:43 America/Lima] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/sistemae/iestpalfredosarmiento/docente/calificaciones_unidades_didacticas.php on line 135
+[31-Jan-2024 10:46:47 America/Lima] PHP Notice:  Undefined index: id_sesion in /home/sistemae/iestpalfredosarmiento/docente/index.php on line 7
+[31-Jan-2024 10:46:47 America/Lima] PHP Notice:  Undefined index: token in /home/sistemae/iestpalfredosarmiento/docente/index.php on line 7
+[31-Jan-2024 10:46:47 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 169
+[31-Jan-2024 10:46:55 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[31-Jan-2024 10:46:55 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[31-Jan-2024 10:46:55 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/secretaria.php on line 62
+[31-Jan-2024 10:46:55 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/secretaria.php on line 65
+[31-Jan-2024 10:46:55 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/secretaria.php on line 79
+[31-Jan-2024 10:46:55 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/secretaria.php on line 87
+[01-Feb-2024 17:56:50 America/Lima] PHP Notice:  Undefined index: id_sesion in /home/sistemae/iestpalfredosarmiento/docente/index.php on line 7
+[01-Feb-2024 17:56:50 America/Lima] PHP Notice:  Undefined index: token in /home/sistemae/iestpalfredosarmiento/docente/index.php on line 7
+[01-Feb-2024 17:56:50 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 169
+[01-Feb-2024 18:10:10 America/Lima] PHP Notice:  Undefined index: id_sesion in /home/sistemae/iestpalfredosarmiento/docente/index.php on line 7
+[01-Feb-2024 18:10:10 America/Lima] PHP Notice:  Undefined index: token in /home/sistemae/iestpalfredosarmiento/docente/index.php on line 7
+[01-Feb-2024 18:10:10 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 169
+[01-Feb-2024 18:10:50 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[01-Feb-2024 18:10:50 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[01-Feb-2024 18:10:50 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/secretaria.php on line 62
+[01-Feb-2024 18:10:50 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/secretaria.php on line 65
+[01-Feb-2024 18:10:50 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/secretaria.php on line 79
+[01-Feb-2024 18:10:50 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/secretaria.php on line 87
+[01-Feb-2024 18:10:56 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[01-Feb-2024 18:10:56 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[01-Feb-2024 18:11:05 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[01-Feb-2024 18:11:05 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[01-Feb-2024 18:11:26 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[01-Feb-2024 18:11:26 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[01-Feb-2024 18:11:28 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[01-Feb-2024 18:11:28 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[01-Feb-2024 18:11:30 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[01-Feb-2024 18:11:30 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[01-Feb-2024 18:11:32 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[01-Feb-2024 18:11:32 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[01-Feb-2024 18:11:37 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[01-Feb-2024 18:11:37 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[01-Feb-2024 18:11:48 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[01-Feb-2024 18:11:48 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[01-Feb-2024 18:11:51 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[01-Feb-2024 18:11:51 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[01-Feb-2024 18:12:10 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[01-Feb-2024 18:12:10 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[01-Feb-2024 18:12:14 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[01-Feb-2024 18:12:14 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[01-Feb-2024 18:12:22 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[01-Feb-2024 18:12:22 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 125
+[01-Feb-2024 18:13:10 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[01-Feb-2024 18:13:12 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[01-Feb-2024 18:13:16 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[01-Feb-2024 18:13:43 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[01-Feb-2024 18:13:49 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[01-Feb-2024 18:13:50 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[01-Feb-2024 18:13:55 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[01-Feb-2024 18:14:03 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[01-Feb-2024 18:14:05 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[01-Feb-2024 18:14:23 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[01-Feb-2024 18:14:28 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[01-Feb-2024 18:14:35 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[01-Feb-2024 18:14:38 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[01-Feb-2024 18:14:41 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[01-Feb-2024 18:14:49 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_secretaria.php on line 11
+[01-Feb-2024 18:15:07 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 9
+[01-Feb-2024 18:15:10 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 9
+[01-Feb-2024 18:15:22 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 9
+[01-Feb-2024 18:15:41 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 9
+[01-Feb-2024 18:15:45 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 9
+[01-Feb-2024 18:15:53 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 9
+[01-Feb-2024 18:15:55 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/imprimir_sesion.php on line 268
+[01-Feb-2024 18:15:55 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/imprimir_sesion.php on line 271
+[01-Feb-2024 18:16:05 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 9
+[01-Feb-2024 18:16:09 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 9
+[01-Feb-2024 18:16:10 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 9
+[01-Feb-2024 18:16:22 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 9
+[01-Feb-2024 18:16:25 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 9
+[01-Feb-2024 18:16:27 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 9
+[01-Feb-2024 18:16:32 America/Lima] PHP Warning:  include_once(include/busquedas.php): failed to open stream: No such file or directory in /home/sistemae/iestpalfredosarmiento/docente/imprimir_calificaciones.php on line 369
+[01-Feb-2024 18:16:32 America/Lima] PHP Warning:  include_once(): Failed opening 'include/busquedas.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/sistemae/iestpalfredosarmiento/docente/imprimir_calificaciones.php on line 369
+[01-Feb-2024 18:16:43 America/Lima] PHP Notice:  Undefined index: startcolumn in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19670
+[01-Feb-2024 18:16:43 America/Lima] PHP Notice:  Undefined index: startx in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19671
+[01-Feb-2024 18:16:43 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19674
+[01-Feb-2024 18:16:43 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19677
+[01-Feb-2024 18:16:43 America/Lima] PHP Notice:  Undefined index:  in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19677
+[01-Feb-2024 18:16:43 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19677
+[01-Feb-2024 18:16:43 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19678
+[01-Feb-2024 18:16:43 America/Lima] PHP Notice:  Undefined index:  in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19678
+[01-Feb-2024 18:16:43 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19678
+[01-Feb-2024 18:16:43 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19710
+[01-Feb-2024 18:16:43 America/Lima] PHP Notice:  Undefined index: startx in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19930
+[01-Feb-2024 18:16:52 America/Lima] PHP Notice:  Undefined index: startcolumn in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19670
+[01-Feb-2024 18:16:52 America/Lima] PHP Notice:  Undefined index: startx in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19671
+[01-Feb-2024 18:16:52 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19674
+[01-Feb-2024 18:16:52 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19677
+[01-Feb-2024 18:16:52 America/Lima] PHP Notice:  Undefined index:  in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19677
+[01-Feb-2024 18:16:52 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19677
+[01-Feb-2024 18:16:52 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19678
+[01-Feb-2024 18:16:52 America/Lima] PHP Notice:  Undefined index:  in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19678
+[01-Feb-2024 18:16:52 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19678
+[01-Feb-2024 18:16:52 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19710
+[01-Feb-2024 18:16:52 America/Lima] PHP Notice:  Undefined index: startx in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19930
+[01-Feb-2024 18:17:08 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 9
+[01-Feb-2024 18:17:19 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 9
+[01-Feb-2024 18:17:23 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 9
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/imprimir_informe_final.php on line 350
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startcolumn in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19670
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startx in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19671
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19674
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19677
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index:  in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19677
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19677
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19678
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index:  in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19678
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19678
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startcolumn in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19670
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startx in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19671
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19674
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19677
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index:  in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19677
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19677
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19678
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index:  in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19678
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19678
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startcolumn in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19670
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startx in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19671
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19674
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19677
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index:  in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19677
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19677
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19678
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index:  in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19678
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19678
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startcolumn in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19670
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startx in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19671
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19674
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19677
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index:  in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19677
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19677
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19678
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index:  in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19678
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19678
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startcolumn in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19670
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startx in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19671
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19674
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19677
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index:  in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19677
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19677
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19678
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index:  in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19678
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19678
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startcolumn in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19670
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startx in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19671
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19674
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19677
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index:  in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19677
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19677
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19678
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index:  in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19678
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19678
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startcolumn in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19670
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startx in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19671
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19674
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19677
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index:  in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19677
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19677
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19678
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index:  in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19678
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19678
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19710
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19710
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19710
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19710
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19710
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19710
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startpage in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19710
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startx in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19930
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startx in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19930
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startx in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19930
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startx in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19930
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startx in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19930
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startx in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19930
+[01-Feb-2024 18:17:25 America/Lima] PHP Notice:  Undefined index: startx in /home/sistemae/iestpalfredosarmiento/tcpdf/tcpdf.php on line 19930
+[01-Feb-2024 18:17:41 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 9
+[01-Feb-2024 18:17:50 America/Lima] PHP Notice:  Undefined index: id_sesion in /home/sistemae/iestpalfredosarmiento/docente/index.php on line 7
+[01-Feb-2024 18:17:50 America/Lima] PHP Notice:  Undefined index: token in /home/sistemae/iestpalfredosarmiento/docente/index.php on line 7
+[01-Feb-2024 18:17:50 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 169
+[01-Feb-2024 18:17:59 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 9
+[01-Feb-2024 18:17:59 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 69
+[01-Feb-2024 18:17:59 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/docente.php on line 65
+[01-Feb-2024 18:18:02 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 9
+[01-Feb-2024 18:18:02 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 69
+[01-Feb-2024 18:18:02 America/Lima] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/sistemae/iestpalfredosarmiento/docente/calificaciones_unidades_didacticas.php on line 135
+[01-Feb-2024 18:18:04 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 9
+[01-Feb-2024 18:18:04 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 69
+[01-Feb-2024 18:18:04 America/Lima] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/sistemae/iestpalfredosarmiento/docente/calificaciones_unidades_didacticas.php on line 135
+[01-Feb-2024 18:18:06 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 9
+[01-Feb-2024 18:18:06 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 69
+[01-Feb-2024 18:18:06 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/docente.php on line 65
+[01-Feb-2024 18:18:09 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 9
+[01-Feb-2024 18:18:09 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 69
+[01-Feb-2024 18:18:09 America/Lima] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/sistemae/iestpalfredosarmiento/docente/calificaciones_unidades_didacticas.php on line 135
+[01-Feb-2024 18:18:14 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 9
+[01-Feb-2024 18:18:18 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/include/menu_docente.php on line 9
+[01-Feb-2024 18:18:23 America/Lima] PHP Notice:  Undefined index: id_sesion in /home/sistemae/iestpalfredosarmiento/docente/index.php on line 7
+[01-Feb-2024 18:18:23 America/Lima] PHP Notice:  Undefined index: token in /home/sistemae/iestpalfredosarmiento/docente/index.php on line 7
+[01-Feb-2024 18:18:23 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 169
+[04-Feb-2024 05:56:35 America/Lima] PHP Notice:  Undefined index: id_sesion in /home/sistemae/iestpalfredosarmiento/docente/index.php on line 7
+[04-Feb-2024 05:56:35 America/Lima] PHP Notice:  Undefined index: token in /home/sistemae/iestpalfredosarmiento/docente/index.php on line 7
+[04-Feb-2024 05:56:35 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 169
+[04-Feb-2024 05:57:06 America/Lima] PHP Notice:  Undefined index: id_sesion in /home/sistemae/iestpalfredosarmiento/docente/index.php on line 7
+[04-Feb-2024 05:57:06 America/Lima] PHP Notice:  Undefined index: token in /home/sistemae/iestpalfredosarmiento/docente/index.php on line 7
+[04-Feb-2024 05:57:06 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 169
+[04-Feb-2024 05:57:07 America/Lima] PHP Notice:  Undefined index: id_sesion in /home/sistemae/iestpalfredosarmiento/docente/index.php on line 7
+[04-Feb-2024 05:57:07 America/Lima] PHP Notice:  Undefined index: token in /home/sistemae/iestpalfredosarmiento/docente/index.php on line 7
+[04-Feb-2024 05:57:07 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/include/funciones.php on line 169

@@ -6,7 +6,7 @@
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
                           </button>
-                          <h4 class="modal-title" id="myModalLabel" align="center">Editar Datos de la Carrera Profesional</h4>
+                          <h4 class="modal-title" id="myModalLabel" align="center">Editar Concepto de Ingreso</h4>
                         </div>
                         <div class="modal-body">
                           <!--INICIO CONTENIDO DE MODAL-->
@@ -20,21 +20,21 @@
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Concepto : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="concepto" required="" value="<?php echo $conc_ingresos['concepto']; ?>" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                          <input type="text" class="form-control" name="concepto" required="" value="<?php echo $conc_ingresos['concepto']; ?>" style="text-transform:uppercase;"  oninput="validateInputText(this, 40)" onkeyup="javascript:this.value=this.value.toUpperCase();">
                           <br>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Monto : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="monto" required="" value="<?php echo $conc_ingresos['monto']; ?>" style="text-transform:uppercase;" oninput="validateInput(this)" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                          <input type="text" class="form-control" name="monto" required="" value="<?php echo $conc_ingresos['monto']; ?>" style="text-transform:uppercase;" oninput="validateInputNum(this, 8)" onkeyup="javascript:this.value=this.value.toUpperCase();">
                           <br>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Código : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="codigo" required="" value="<?php echo $conc_ingresos['codigo']; ?>" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                          <input type="text" class="form-control" name="codigo" required="" value="<?php echo $conc_ingresos['codigo']; ?>" style="text-transform:uppercase;" oninput="limitarTamanio(this, 3)" onkeyup="javascript:this.value=this.value.toUpperCase();">
                           <br>
                         </div>
                       </div>
@@ -42,7 +42,7 @@
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Unidad : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="unidad" required="" value="<?php echo $conc_ingresos['unidad']; ?>" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                          <input type="text" class="form-control" name="unidad" required="" value="<?php echo $conc_ingresos['unidad']; ?>" style="text-transform:uppercase;"  oninput="validateInputText(this, 20)" onkeyup="javascript:this.value=this.value.toUpperCase();">
                           <br>
                         </div>
                       </div>

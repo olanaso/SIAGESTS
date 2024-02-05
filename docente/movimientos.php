@@ -192,18 +192,27 @@ if (!verificar_sesion($conexion)) {
                   <div class="x_content">
                     <br />
                     <form role="form" action="registrar_ingreso.php" class="form-horizontal form-label-left input_mask" method="POST" >
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">D.N.I.: </label>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo Comprobante : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" id="dni" name="dni" required="required" style="text-transform:uppercase;" oninput="validateInput(this)" onkeyup="javascript:this.value=this.value.toUpperCase();">
-                          <button type="button" onclick="buscarPorDNI()" class="btn btn-success">Buscar</button>
-                          <br><br>
+                          <select class="form-control" id="concepto" name="comprobante" value="" required="required" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                            <option value="natural">PERSONA NATURAL</option>
+                            <option value="juridica">PERSONA JURÍDICA</option>
+                          </select>  
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">D.N.I. / R.U.C. : </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" id="dni" name="dni" required="required" style="text-transform:uppercase;"  oninput="validateInput(this)" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                          <!--<button type="button" onclick="buscarPorDNI()" oninput="validateInputNum(this, 8)" class="btn btn-success">Buscar</button>
+                          <br><br>-->
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Apellidos y Nombres : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="nombres" id="nombres_apellidos" required="required" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                          <input type="text" class="form-control" name="nombres" id="nombres_apellidos" required="required" style="text-transform:uppercase;" oninput="validateInputText(this, 40)" onkeyup="javascript:this.value=this.value.toUpperCase();">
                           <br>
                         </div>
                       </div>
@@ -272,21 +281,21 @@ if (!verificar_sesion($conexion)) {
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre del emisor : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="usuario" value="" required="required" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                          <input type="text" class="form-control" name="usuario" value="" required="required" style="text-transform:uppercase;" oninput="validateInputText(this, 40)" onkeyup="javascript:this.value=this.value.toUpperCase();">
                           <br>
                         </div>
                       </div>  
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Número R.U.C. del emisor : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="ruc" value="" required="required" style="text-transform:uppercase;" oninput="validateInput(this)" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                          <input type="text" class="form-control" name="ruc" value="" required="required" style="text-transform:uppercase;" oninput="validateInputNum(this,11)" onkeyup="javascript:this.value=this.value.toUpperCase();">
                           <br>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Concepto de egreso : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="concepto" value="" required="required" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                          <input type="text" class="form-control" name="concepto" value="" required="required" style="text-transform:uppercase;" oninput="limitarTamanio(this, 80)" onkeyup="javascript:this.value=this.value.toUpperCase();">
                           <br>
                         </div>
                       </div>
@@ -301,20 +310,19 @@ if (!verificar_sesion($conexion)) {
                         </div>
                       </div>
                       <div class="form-group">
-                      <div class="col-md-6 col-sm-3 col-xs-12">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Serie Comprobante: </label>
-                          <div class="col-md-6 col-sm-9 col-xs-12">
-                            <input type="text" class="form-control" name="serie" value="" required="required" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
-                            <br>
-                          </div>
-                      </div>
-                      <div class="col-md-6 col-sm-3 col-xs-12">
-                          <label class="control-label col-md-3 col-sm-3 col-xs-12">Número Comprobante: </label>
-                          <div class="col-md-6 col-sm-9 col-xs-12">
-                            <input type="text" class="form-control" name="numero" value="" required="required" style="text-transform:uppercase;" oninput="validateInput(this)" onkeyup="javascript:this.value=this.value.toUpperCase();">
-                            <br>
-                          </div>
-                      </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Serie Comprobante: </label>
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <input type="text" class="form-control" name="serie" value="" required="required" style="text-transform:uppercase;" oninput="limitarTamanio(this, 3)" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                                <br>
+                            </div>
+
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Número Comprobante: </label>
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <input type="text" class="form-control" name="numero" value="" required="required" style="text-transform:uppercase;" oninput="validateInputNum(this, 8)" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                                <br>
+                            </div>
+                        </div>
                         
                       </div>
                       <div class="form-group">
@@ -327,7 +335,7 @@ if (!verificar_sesion($conexion)) {
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Monto Pagado : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="monto" value="" required="required" oninput="validateInput(this)">
+                          <input type="text" class="form-control" name="monto" value="" required="required" oninput="validateInputNum(this, 8)">
                           <br>
                         </div>
                       </div>
@@ -365,18 +373,71 @@ if (!verificar_sesion($conexion)) {
         <!-- /footer content -->
       </div>
     </div>
+                          
+    <script>
+      // Función para cambiar la longitud máxima del input y limpiar su valor según la opción seleccionada
+      function actualizarLongitudMaxima() {
+        var tipoComprobante = document.getElementById("concepto").value;
+        var inputDNI = document.getElementById("dni");
+
+        if (tipoComprobante === "natural") {
+          inputDNI.maxLength = 8;
+        } else if (tipoComprobante === "juridica") {
+          inputDNI.maxLength = 11;
+        }
+
+        // Limpiar el valor del input cuando cambia la opción en el select
+        inputDNI.value = "";
+      }
+
+      // Agrega un evento onchange al select para llamar a la función cuando cambia la opción seleccionada
+      document.getElementById("concepto").addEventListener("change", actualizarLongitudMaxima);
+
+      // Llama a la función al cargar la página para establecer la longitud máxima inicial y limpiar el valor
+      actualizarLongitudMaxima();
+    </script>
 
     <script>
+      function validateInputNum(input, tamanio) {
+          // Obtén el valor actual del campo de entrada
+          let inputValue = input.value;
+
+          // Remueve cualquier carácter no permitido (en este caso, letras)
+          inputValue = inputValue.replace(/[^0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g, '');
+          inputValue = inputValue.slice(0, tamanio);
+          // Actualiza el valor del campo de entrada
+          input.value = inputValue.toUpperCase();
+      }
+      
       function validateInput(input) {
           // Obtén el valor actual del campo de entrada
           let inputValue = input.value;
 
           // Remueve cualquier carácter no permitido (en este caso, letras)
           inputValue = inputValue.replace(/[^0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g, '');
-
           // Actualiza el valor del campo de entrada
           input.value = inputValue.toUpperCase();
       }
+      
+      function validateInputText(input, tamanio) {
+          // Obtén el valor actual del campo de entrada
+          let inputValue = input.value;
+
+          // Remueve cualquier carácter no permitido (en este caso, letras)
+          inputValue = inputValue.replace(/[^a-zA-Z\s!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~]+/g, '');
+          inputValue = inputValue.slice(0, tamanio);
+          // Actualiza el valor del campo de entrada
+          input.value = inputValue.toUpperCase();
+      }
+      function limitarTamanio(input, tamanio) {
+        let inputValue = input.value;
+
+        // Remueve cualquier carácter no permitido (en este caso, letras)
+        //inputValue = inputValue.replace(/[^a-zA-Z\s!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~]+/g, '');
+        inputValue = inputValue.slice(0, tamanio);
+        // Actualiza el valor del campo de entrada
+        input.value = inputValue.toUpperCase();
+        }
     </script>
 
     <script>

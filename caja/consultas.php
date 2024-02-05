@@ -15,6 +15,11 @@ function buscarConceptoEgresos($conexion){
 	return mysqli_query($conexion, $sql);
 }
 
+function buscarComprobante($conexion){
+	$sql = "SELECT * FROM comprobantes_pago";
+	return mysqli_query($conexion, $sql);
+}
+
 function buscarConceptoEgresosById($conexion, $id_egreso){
 	$sql = "SELECT * FROM concepto_egreso WHERE id = '$id_egreso'";
 	return mysqli_query($conexion, $sql);
@@ -45,12 +50,12 @@ function buscarEgresosByCodigo($conexion, $codigo){
 }
 
 function buscarIngresosAnulados($conexion){
-	$sql = "SELECT usuario, tipo_comprobante, codigo, monto_total, ia.responsable as responsable, motivo, fecha_anulacion FROM ingresos i INNER JOIN ingresos_anulados ia ON i.id = ia.id_ingreso";
+	$sql = "SELECT usuario, tipo_comprobante, codigo, monto_total, i.responsable as usuario_caja ,ia.responsable as responsable, motivo, fecha_anulacion FROM ingresos i INNER JOIN ingresos_anulados ia ON i.id = ia.id_ingreso";
 	return mysqli_query($conexion, $sql);
 }
 
 function buscarEgresosAnulados($conexion){
-	$sql = "SELECT empresa, ruc, concepto ,tipo_comprobante, comprobante ,monto_total, ea.responsable as responsable, motivo, fecha_anulacion FROM egresos e INNER JOIN egresos_anulados ea ON e.id = ea.id_egreso";
+	$sql = "SELECT empresa, ruc, concepto ,tipo_comprobante, comprobante ,monto_total, e.responsable as usuario_caja, ea.responsable as responsable, motivo, fecha_anulacion FROM egresos e INNER JOIN egresos_anulados ea ON e.id = ea.id_egreso";
 	return mysqli_query($conexion, $sql);
 }
 

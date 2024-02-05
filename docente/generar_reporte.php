@@ -69,6 +69,13 @@ if (!verificar_sesion($conexion)) {
                   <div class="x_content">
                   <div class="">
                     <h2 align="center">Reporte de <?php echo $tipo?></h2>
+                    <?php 
+                      if ($inicio == $fin) {
+                        echo "<h2 align='center'>Reporte del día " . date('d/m/Y', strtotime($inicio)) ."</h2>";
+                      } else {
+                          echo "<h2 align='center'>Desde ". date('d/m/Y', strtotime($inicio)) . ' hasta ' . date('d/m/Y', strtotime($fin)) . "</h2>";
+                      }
+                    ?>
                   </div>
                   <a class="btn btn-danger" href="reportes_movimientos.php">Regresar</a>
                     <form action="imprimir_reporte_caja.php" method="post">
@@ -130,7 +137,7 @@ if (!verificar_sesion($conexion)) {
                       </table> 
                         <br>
                         <div>
-                            <h4>El total de ingresos desde <?php echo $inicio . " hasta " . $fin . " es en total " . number_format($total_ingreso, 2, '.', '') . " nuevos soles."?></h4>
+                            <h4>El total de ingresos acumulados en este periodo  es en total <?php echo number_format($total_ingreso, 2, '.', '') . " nuevos soles."?></h4>
                         </div>
                       <?php } ?>
                       <?php 
@@ -175,7 +182,7 @@ if (!verificar_sesion($conexion)) {
                       </table>
                         <br>
                         <div>
-                            <h4>El total de egresos desde <?php echo $inicio . " hasta " . $fin . " es en total " . number_format($total_egreso, 2, '.', '') . " nuevos soles."?></h4>
+                            <h4>El total de egresos acumulados en este periodo es en total <?php echo number_format($total_egreso, 2, '.', '') . " nuevos soles."?></h4>
                         </div>
                       <?php } ?>
                       <?php 
@@ -333,7 +340,7 @@ if (!verificar_sesion($conexion)) {
                                   </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <h4>RESUMEN GENERAL DEL <?php echo $inicio . ' AL ' . $fin ?></h4>
+                                    <h4>RESUMEN GENERAL</h4>
                                     <table class="table table-striped">
                                         <tbody>
                                             <tr>

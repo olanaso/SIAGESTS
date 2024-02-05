@@ -14,6 +14,16 @@ if (!verificar_sesion($conexion)) {
 }else {
   
   $id_docente_sesion = buscar_docente_sesion($conexion, $_SESSION['id_sesion'], $_SESSION['token']);
+  
+  function generarCodigo($prefijo, $longitud, $numero) {
+    // Crear el formato del número con ceros a la izquierda
+    $numeroFormateado = sprintf('%0' . $longitud . 'd', $numero);
+
+    // Combinar el prefijo con el número formateado
+    $codigoCompleto = $prefijo. "-" . $numeroFormateado;
+
+    return $codigoCompleto;
+  }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -79,6 +89,7 @@ if (!verificar_sesion($conexion)) {
                           <th>Tipo Comprobante</th>
                           <th>Serie</th>
                           <th>Tamaño Correlativo</th>
+                          <th>Serie-Número Actual</th>
                           <th>Acciones</th>
                         </tr>
                       </thead>
@@ -86,15 +97,18 @@ if (!verificar_sesion($conexion)) {
                         <?php 
                           $busc_conc_egr = buscarComprobante($conexion); 
                           while ($conc_egr=mysqli_fetch_array($busc_conc_egr)){
+                            $res_ing = buscarIngresosByComprobante($conexion, $conc_egr['comprobante']);
+                            $cont_ing = mysqli_num_rows($res_ing);
                         ?>
                         <tr>
                           <td><?php echo $conc_egr['id']; ?></td>
                           <td><?php echo $conc_egr['comprobante']; ?></td>
                           <td><?php echo $conc_egr['codigo']; ?></td>
                           <td><?php echo $conc_egr['longitud']; ?></td>
+                          <td><?php echo generarCodigo($conc_egr['codigo'], $conc_egr['longitud'], $cont_ing); ?></td>
                           <td>
                             <button class="btn btn-success" data-toggle="modal" data-target=".edit_<?php echo $conc_egr['id']; ?>"><i class="fa fa-pencil-square-o"></i> Editar</button>
-                            <a href= <?php echo "operaciones/eliminar_comprobante.php?id=" .  $conc_egr['id']?> class="btn btn-danger"><i class="fa fa-pencil-square-o"></i> Eliminar</a></td>
+                            <!--<a href= <?php echo "operaciones/eliminar_comprobante.php?id=" .  $conc_egr['id']?> class="btn btn-danger"><i class="fa fa-pencil-square-o"></i> Eliminar</a> --></td>
                         </tr>  
                         <?php
                          include('include/acciones_comprobante.php');
@@ -129,21 +143,21 @@ if (!verificar_sesion($conexion)) {
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre Comprobante : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="comprobante" required="required" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                          <input type="text" class="form-control" name="comprobante" required="required" style="text-transform:uppercase;" oninput="validateInputText(this, 40)" onkeyup="javascript:this.value=this.value.toUpperCase();">
                           <br>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Serie : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="codigo" required="required" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                          <input type="text" class="form-control" name="codigo" required="required" style="text-transform:uppercase;" oninput="limitarTamanio(this, 3)" onkeyup="javascript:this.value=this.value.toUpperCase();">
                           <br>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Longitud de N° Correlativo : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="number" class="form-control" name="longitud" required="required" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                          <input type="number" class="form-control" name="longitud" required="required" style="text-transform:uppercase;" oninput="validateInputNum(this, 1)" onkeyup="javascript:this.value=this.value.toUpperCase();">
                           <br>
                         </div>
                       </div>
@@ -181,6 +195,39 @@ if (!verificar_sesion($conexion)) {
         <!-- /footer content -->
       </div>
     </div>
+
+    <script>
+      function validateInputNum(input, tamanio) {
+          // Obtén el valor actual del campo de entrada
+          let inputValue = input.value;
+
+          // Remueve cualquier carácter no permitido (en este caso, letras)
+          inputValue = inputValue.replace(/[^0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g, '');
+          inputValue = inputValue.slice(0, tamanio);
+          // Actualiza el valor del campo de entrada
+          input.value = inputValue.toUpperCase();
+      }
+      
+      function validateInputText(input, tamanio) {
+          // Obtén el valor actual del campo de entrada
+          let inputValue = input.value;
+
+          // Remueve cualquier carácter no permitido (en este caso, letras)
+          inputValue = inputValue.replace(/[^a-zA-Z\s!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~]+/g, '');
+          inputValue = inputValue.slice(0, tamanio);
+          // Actualiza el valor del campo de entrada
+          input.value = inputValue.toUpperCase();
+      }
+      function limitarTamanio(input, tamanio) {
+        let inputValue = input.value;
+
+        // Remueve cualquier carácter no permitido (en este caso, letras)
+        //inputValue = inputValue.replace(/[^a-zA-Z\s!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~]+/g, '');
+        inputValue = inputValue.slice(0, tamanio);
+        // Actualiza el valor del campo de entrada
+        input.value = inputValue.toUpperCase();
+        }
+    </script>
 <!-- jQuery -->
 <script src="../Gentella/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->

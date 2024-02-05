@@ -81,13 +81,14 @@ if (!verificar_sesion($conexion)) {
         }
         .form-element {
             position:relative;
-            width:120px;
-            height:40px;
+            width:150px;
+            height:50px;
         }
         .form-element input {
             display:none;
         }
         .form-element label {
+            padding-left:20px;
             width:100%;
             display:flex;
             flex-direction:column;
@@ -102,7 +103,7 @@ if (!verificar_sesion($conexion)) {
             border-radius:5px;
         }
         .form-element .title {
-            font-size:10px;
+            font-size:9px;
             color:#555;
             padding:1px 0px;
             transition:all 200ms ease-in-out;
@@ -196,10 +197,10 @@ if (!verificar_sesion($conexion)) {
                                                 <div class="list">
                                                     <?php 
                                                         $res_ser = buscarConceptoIngresos($conexion); 
-                                                        while ($ingresos=mysqli_fetch_array($res_ser)){
+                                                        while ($ingresos = mysqli_fetch_array($res_ser)){
                                                     ?>
                                                     <div class="form-element">
-                                                        <input onclick="actualizarTabla()" type="checkbox" class="<?php echo $ingresos['monto'] ?>" name="conceptos[]" value="<?php echo $ingresos['id'] ?>" id="<?php echo $ingresos['concepto'] ?>">
+                                                        <input onclick="actualizarTabla()" type="checkbox" class="concepto-checkbox" data-monto="<?php echo $ingresos['monto'] ?>" name="conceptos[]" value="<?php echo $ingresos['id'] ?>" id="<?php echo $ingresos['concepto'] ?>">
                                                         <label for="<?php echo $ingresos['concepto'] ?>">
                                                             <div class="title">
                                                                 <?php echo $ingresos['concepto'] ?>
@@ -229,7 +230,7 @@ if (!verificar_sesion($conexion)) {
                                                     <tbody id="tablaSeleccionados"></tbody>
                                                 </table>
                                                 <div class="form-group">
-                                                    <label for="totalGeneral">Total General:</label>
+                                                    <label for="totalGeneral">Total a Pagar:</label>
                                                     <input type="text" class="form-control" id="totalGeneral" name="monto" readonly>
                                                 </div>
                                                 <input type="hidden" class="form-control" id="cantidad" name="cantidad" readonly>
@@ -261,7 +262,7 @@ if (!verificar_sesion($conexion)) {
                                                     <div class="form-group">
                                                         <label for="cantidadPago">Con cuanto pagó:</label>
                                                         <!-- Campo de entrada para la cantidad pagada -->
-                                                        <input type="text" class="form-control" id="cantidadPago" name="cantidadPago" required>
+                                                        <input type="text" class="form-control" id="cantidadPago" oninput="validateInputNum(this, 4)" name="cantidadPago" required>
                                                     </div>
                                                     <div id="vueltoContainer" style="display: none; color: black;">
                                                         <h4>Vuelto: <span id="vueltoSpan"></span></h4>
@@ -280,6 +281,38 @@ if (!verificar_sesion($conexion)) {
             </div>
         </div>
     </div>
+    <script>
+      function validateInputNum(input, tamanio) {
+          // Obtén el valor actual del campo de entrada
+          let inputValue = input.value;
+
+          // Remueve cualquier carácter no permitido (en este caso, letras)
+          inputValue = inputValue.replace(/[^0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g, '');
+          inputValue = inputValue.slice(0, tamanio);
+          // Actualiza el valor del campo de entrada
+          input.value = inputValue.toUpperCase();
+      }
+      
+      function validateInputText(input, tamanio) {
+          // Obtén el valor actual del campo de entrada
+          let inputValue = input.value;
+
+          // Remueve cualquier carácter no permitido (en este caso, letras)
+          inputValue = inputValue.replace(/[^a-zA-Z\s!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~]+/g, '');
+          inputValue = inputValue.slice(0, tamanio);
+          // Actualiza el valor del campo de entrada
+          input.value = inputValue.toUpperCase();
+      }
+      function limitarTamanio(input, tamanio) {
+        let inputValue = input.value;
+
+        // Remueve cualquier carácter no permitido (en este caso, letras)
+        //inputValue = inputValue.replace(/[^a-zA-Z\s!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~]+/g, '');
+        inputValue = inputValue.slice(0, tamanio);
+        // Actualiza el valor del campo de entrada
+        input.value = inputValue.toUpperCase();
+        }
+    </script>
     <script>
         // Agrega un manejador de eventos para el campo cantidadPago
         document.getElementById('cantidadPago').addEventListener('input', function() {
@@ -307,58 +340,92 @@ if (!verificar_sesion($conexion)) {
         }
     </script>
     <script>
-        function actualizarTabla() {
-        // Obtener los elementos seleccionados
-        var elementosSeleccionados = $(".list input:checked");
+    // Guardar información de los elementos seleccionados y sus cantidades
+    var elementosData = {};
 
+    function actualizarTabla() {
         // Limpiar la tabla antes de actualizar
         $("#tablaSeleccionados").empty();
 
         var totalGeneral = 0;
-        var cantidades = "0";
 
-        // Iterar sobre los elementos seleccionados y agregarlos a la tabla
-        elementosSeleccionados.each(function () {
-            var monto =  parseFloat($(this).attr("class"));
-            var nombre = $(this).attr("id");
+        // Iterar sobre los elementos almacenados y actualizar la tabla
+        Object.keys(elementosData).forEach(function (nombre) {
+            var monto = elementosData[nombre].monto;
+            var cantidad = elementosData[nombre].cantidad;
 
             // Agregar fila a la tabla con una celda para la cantidad y otra para el valor total
             $("#tablaSeleccionados").append(
                 "<tr>" +
-                "<td><input type='number' class='cantidad' value='1' min='1'></td>" +
+                "<td><input type='number' oninput='validateInputNum(this, 2)' class='cantidad' value='" + cantidad + "' min='1'></td>" +
                 "<td>" + nombre + "</td>" +
                 "<td>" + monto + "</td>" +
-                "<td class='valorTotal'>"+monto+"</td>" +
+                "<td class='valorTotal'>" + (monto * cantidad) + "</td>" +
                 "</tr>"
             );
-            totalGeneral += monto;
+
+            totalGeneral += monto * cantidad;
         });
 
-        // Actualizar el valor total al cambiar la cantidad
-        $(".cantidad").on("input", function () {
-            var cantidad = $(this).val();
-            var monto = $(this).closest("tr").find("td:nth-child(3)").text();
-            var valorTotal = cantidad * monto;
-            $(this).closest("tr").find(".valorTotal").text(valorTotal);
-
-            var totalGeneral = 0;
-            $(".valorTotal").each(function(index, element) {
-                totalGeneral += parseFloat($(element).text());
-            });
-            $("#totalGeneral").val(totalGeneral);
-            $("#total_modal").text(totalGeneral.toFixed(2));
-
-            var cantidades = "";
-            $(".cantidad").each(function(index, element) {
-                cantidades += ($(element).val()) + "/";
-            });
-            $("#cantidad").val(cantidades.toFixed(2));
-            
-        });
+        // Actualizar el total general
         $("#totalGeneral").val(totalGeneral.toFixed(2));
         $("#total_modal").text(totalGeneral.toFixed(2));
+
+        // Actualizar el valor de las cantidades
+        var cantidades = "";
+        $(".cantidad").each(function (index, element) {
+            cantidades += ($(element).val()) + "/";
+        });
         $("#cantidad").val(cantidades);
     }
+
+    // Evento de cambio en la selección de los elementos
+    $(".concepto-checkbox").on("change", function () {
+        var nombre = $(this).attr("id");
+        var monto = parseFloat($(this).data("monto"));
+
+        if ($(this).is(":checked")) {
+            // Elemento seleccionado, inicializar o actualizar información
+            if (!elementosData[nombre]) {
+                elementosData[nombre] = {
+                    monto: monto,
+                    cantidad: 1
+                };
+            }
+        } else {
+            // Elemento deseleccionado, eliminar información
+            delete elementosData[nombre];
+        }
+
+        // Actualizar la tabla
+        actualizarTabla();
+    });
+
+    $(document).on("input", ".cantidad", function () {
+    var cantidad = $(this).val();
+    var nombre = $(this).closest("tr").find("td:nth-child(2)").text();
+    var monto = elementosData[nombre].monto;
+    elementosData[nombre].cantidad = cantidad;
+
+    // Calcular el subtotal y actualizar la celda correspondiente en la tabla
+    var subtotal = cantidad * monto;
+    $(this).closest("tr").find(".valorTotal").text(subtotal.toFixed(2));
+
+    // Actualizar el total general
+    var totalGeneral = 0;
+    $(".valorTotal").each(function (index, element) {
+        totalGeneral += parseFloat($(element).text());
+    });
+    $("#totalGeneral").val(totalGeneral.toFixed(2));
+    $("#total_modal").text(totalGeneral.toFixed(2));
+
+    // Actualizar el valor de las cantidades
+    var cantidades = "";
+    $(".cantidad").each(function (index, element) {
+        cantidades += ($(element).val()) + "/";
+    });
+    $("#cantidad").val(cantidades);
+});
 </script>
 <!-- jQuery -->
 <script src="../Gentella/vendors/jquery/dist/jquery.min.js"></script>

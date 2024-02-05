@@ -84,6 +84,7 @@ if (!verificar_sesion($conexion)) {
                             <th>Serie-Número</th>
                             <th>Monto Pagado</th>
                             <th>Usuario Caja</th>
+                            <th>Responsable de Anulación</th>
                             <th>Motivo</th>
                             <th>Fecha de Anulación</th>
                           </tr>
@@ -98,6 +99,7 @@ if (!verificar_sesion($conexion)) {
                             <td><?php echo $ingresos['tipo_comprobante']; ?></td>
                             <td><?php echo $ingresos['codigo']; ?></td>
                             <td><?php echo $ingresos['monto_total']; ?></td>
+                            <td><?php echo $ingresos['usuario_caja']; ?></td>
                             <td><?php echo $ingresos['responsable']; ?></td>
                             <td><?php echo $ingresos['motivo']; ?></td>
                             <td><?php echo $ingresos['fecha_anulacion']; ?></td>
@@ -121,6 +123,7 @@ if (!verificar_sesion($conexion)) {
                             <th>Serie-Número</th>
                             <th>Costo Total</th>
                             <th>Usuario Caja</th>
+                            <th>Responsable de Anulación</th>
                             <th>Motivo</th>
                             <th>Fecha Anulación</th>
                           </tr>
@@ -137,6 +140,7 @@ if (!verificar_sesion($conexion)) {
                             <td><?php echo $egresos['tipo_comprobante']; ?></td>
                             <td><?php echo $egresos['comprobante']; ?></td>
                             <td><?php echo $egresos['monto_total']; ?></td>
+                            <td><?php echo $egresos['usuario_caja']; ?></td>
                             <td><?php echo $egresos['responsable']; ?></td>
                             <td><?php echo $egresos['motivo']; ?></td>
                             <td><?php echo $egresos['fecha_anulacion']; ?></td>
