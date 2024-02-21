@@ -1,25 +1,28 @@
 <?php
-include("../include/conexion.php");
-include("../include/busquedas.php");
-include("include/consultas.php");
-include("include/verificar_sesion_empresa.php");
-include("operaciones/sesiones.php");
-include("../include/funciones.php");
 
-$id = isset($_GET['id']) ? $_GET['id'] : null;
+	include("../include/conexion.php");
+	include("../include/busquedas.php");
+	include("../include/funciones.php");
+	include 'include/verificar_sesion_estudiante.php';
+    include("../empresa/include/consultas.php");
 
-if (!verificar_sesion($conexion) && $id == null) {
-    echo "<script>
-                alert('Error Usted no cuenta con permiso para acceder a esta página');
-                window.location.replace('login/');
-    		</script>";
-} else {
+    $id = isset($_GET['id']) ? $_GET['id'] : null;
 
-    $id_empresa = $_SESSION['id_emp'];
-    $res_emp = buscarEmpresaById($conexion, $id_empresa);
-    $empresa = mysqli_fetch_array($res_emp);
-    $oferta_laboral = buscarOfertaLaboralById($conexion, $id);
-    $convocatoria = mysqli_fetch_array($oferta_laboral);    
+	if (!verificar_sesion($conexion)) {
+		echo "<script>
+                  alert('Error Usted no cuenta con permiso para acceder a esta página');
+                  window.location.replace('index.php');
+          </script>";
+	} else {
+
+        $id_estudiante_sesion = buscar_estudiante_sesion($conexion, $_SESSION['id_sesion_est'], $_SESSION['token']);
+		$b_estudiante = buscarEstudianteById($conexion, $id_estudiante_sesion);
+		$r_b_estudiante = mysqli_fetch_array($b_estudiante);
+        $oferta_laboral = buscarOfertaLaboralById($conexion, $id);
+        $convocatoria = mysqli_fetch_array($oferta_laboral);    
+        $empresa = buscarEmpresaById($conexion, $convocatoria['id_empresa']);
+        $empresa = mysqli_fetch_array($empresa);
+
 
 ?>
 <!DOCTYPE html>
@@ -77,16 +80,26 @@ if (!verificar_sesion($conexion) && $id == null) {
 <body class="nav-md">
 	<div class="container body">
 		<div class="main_container">
-			<?php
-			include("include/menu_empresa.php"); ?>
-			<!-- page content -->
+			<!--menu-->
+            <?php
+                $per_select = $_SESSION['periodo'];
+                include("include/menu.php");
+                $b_perido = buscarPeriodoAcadById($conexion, $_SESSION['periodo']);
+                $r_b_per = mysqli_fetch_array($b_perido);
+
+                $b_matricula = buscarMatriculaByEstudiantePeriodo($conexion, $id_estudiante_sesion, $_SESSION['periodo']);
+                $r_b_matricula = mysqli_fetch_array($b_matricula);
+                $id_matricula = $r_b_matricula['id'];
+                $b_det_mat = buscarDetalleMatriculaByIdMatricula($conexion, $id_matricula);
+                $cont_det_mat = mysqli_num_rows($b_det_mat);
+            ?>
 			<div class="right_col">
                 <div class="row">
                     <div class="col-md-3 col-sm-3  ">
                         <section class="panel">
                             <div align="center">
                                 <br>
-                                <a href="convocatoria.php" class="btn btn-danger"><i class="fa fa-mail-reply"></i>  Regresar</a>
+                                <a href="mis_postulaciones.php" class="btn btn-danger"><i class="fa fa-mail-reply"></i>  Regresar</a>
                                 <br><br>
                             </div>
                             <div class="alert-info <?php echo determinarEstado($convocatoria['fecha_inicio'], $convocatoria['fecha_fin'])?>" role="alert" align="center">
@@ -95,19 +108,13 @@ if (!verificar_sesion($conexion) && $id == null) {
                             <div class="panel-body">
                                 <div class="project_detail">
                                     <p class="title"><?php echo $convocatoria['titulo'] ?></p>
-                                    <br>
-                                    <p class="title">Enlace de la convocatoria</p>
-                                    <?php echo '
-                                    <a href="'.$convocatoria['link_postulacion'] .'" class="blue">Ir al enlace</a>
-                                    '; ?>
+                                    
                                 </div>
                                 <br>
                                 <ul class="list-unstyled project_files">
-                                    <li><strong>Ubicación: </strong> <br> <?php echo $convocatoria['ubicacion'] ?>
+                                    <li><strong>Empresa: </strong> <br> <?php echo $empresa['razon_social'] ?>
                                     </li>
-                                    <li><strong>Vacantes: </strong> <br> <?php echo $convocatoria['vacantes'] ?>
-                                    </li>
-                                    <li><strong>Salario: </strong> <br> <?php echo $convocatoria['salario'] ?>
+                                    <li><strong>Lugar de Trabajo: </strong> <br> <?php echo $convocatoria['ubicacion'] ?>
                                     </li>
                                     <li><strong>Inicio de Convocatoria: </strong> <br> <?php echo $convocatoria['fecha_inicio'] ?>
                                     </li>
@@ -123,14 +130,13 @@ if (!verificar_sesion($conexion) && $id == null) {
                                     </p>
                                     </li>
                                 </ul>
-                                <br />
                                 <h5><strong>Documentos del proyecto</strong></h5>
                                 <ul class="list-unstyled project_files">
                                     <?php 
                                         $res = buscarDocumentosByIdOferta($conexion, $id);
                                         while ($documento=mysqli_fetch_array($res)){
                                     ?>
-                                    <li><a href="<?php echo $documento['url_documento'] ?>" target="_blank"><i class="fa fa-file-pdf-o"></i><?php echo $documento['nombre_documento'] ?></a>
+                                    <li><a href="../empresa/<?php echo $documento['url_documento'] ?>" target="_blank"><i class="fa fa-file-pdf-o"></i><?php echo $documento['nombre_documento'] ?></a>
                                     </li>
                                     <?php }?>
                                 </ul>
@@ -155,10 +161,6 @@ if (!verificar_sesion($conexion) && $id == null) {
                                 <p><?php echo $convocatoria['condiciones'] ?></p>
 
                                 <br />
-                                <div class="text-right mtop20">
-                                    <a href="editar_convocatoria.php?id=<?php echo $id ?>" class="btn btn-sm btn-primary">Editar Información</a>
-                                    <a href="convocatoria_documento.php?id=<?php echo $id ?>" class="btn btn-sm btn-warning">Editar Documentos</a>
-                                </div>
                             </div>
                         </section>
                     </div>

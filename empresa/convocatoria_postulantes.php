@@ -16,6 +16,8 @@ if (!verificar_sesion($conexion) && $id == null) {
 } else {
 
     $id_empresa = $_SESSION['id_emp'];
+    $res_emp = buscarEmpresaById($conexion, $id_empresa);
+    $empresa = mysqli_fetch_array($res_emp);
     $oferta_laboral = buscarOfertaLaboralById($conexion, $id);
     $convocatoria = mysqli_fetch_array($oferta_laboral);    
 

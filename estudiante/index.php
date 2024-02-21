@@ -1,11 +1,4 @@
 <?php
-session_start();
-if (!isset($_SESSION['id_sesion_est'])) {
-	echo "<script>
-			window.location.replace('login/');
-		</script>
-		";
-} else {
 
 
 	include("../include/conexion.php");
@@ -15,7 +8,7 @@ if (!isset($_SESSION['id_sesion_est'])) {
 	if (!verificar_sesion($conexion)) {
 		echo "<script>
                   alert('Error Usted no cuenta con permiso para acceder a esta página');
-                  window.location.replace('index.php');
+                  window.location.replace('login/');
           </script>";
 	} else {
 
@@ -147,4 +140,3 @@ if (!isset($_SESSION['id_sesion_est'])) {
 
 		</html>
 <?php }
-}

@@ -21,7 +21,8 @@ if (!verificar_sesion($conexion)) {
         $ubicacion = $_POST["ubicacion"];
         $vacante = intval($_POST["vacante"]);
         $salario = floatval($_POST["salario"]);
-        $horario = $_POST["horario"];
+        $modalidad = $_POST["modalidad"];
+        $turno = $_POST["turno"];
         $inicio = $_POST["inicio"];
         $fin = $_POST["fin"];
         $url = $_POST["url"];
@@ -35,14 +36,14 @@ if (!verificar_sesion($conexion)) {
 
         
         // Consulta para insertar los datos en la base de datos
-        $sql = "INSERT INTO `oferta_laboral`(`id_empresa`, `titulo`, `ubicacion`, `funciones`, `requisitos`, `condiciones`, `beneficios`, `salario`, `vacantes`, `fecha_inicio`, `fecha_fin`, `link_postulacion`, `estado`, `fecha_estado`)
-            VALUES ( $id_empresa ,'$titulo', '$ubicacion', '$funciones', '$requisitos', '$condiciones', '$beneficios', $salario , $vacante ,'$inicio', '$fin', '$url', 'DISPONIBLE', CURRENT_TIMESTAMP())";
+        $sql = "INSERT INTO `oferta_laboral`(`id_empresa`, `titulo`, `ubicacion`, `funciones`, `requisitos`, `condiciones`, `beneficios`, `salario`, `vacantes`,`modalidad`, `turno`, `fecha_inicio`, `fecha_fin`, `link_postulacion`, `estado`, `fecha_estado`)
+            VALUES ( $id_empresa ,'$titulo', '$ubicacion', '$funciones', '$requisitos', '$condiciones', '$beneficios', $salario , $vacante,  '$modalidad' , '$turno' ,'$inicio', '$fin', '$url', 'DISPONIBLE', CURRENT_TIMESTAMP())";
         $res = mysqli_query($conexion, $sql);
         if ($res) {
             $idOL = mysqli_insert_id($conexion);
             for ($i = 0; $i < count($programas); $i++) {
 				$idProm = $programas[$i];
-                $insert_programas = "INSERT INTO oferta_programas(id_ol, id_pr) VALUES ($idOL, $idProm)";
+                $insert_programas = "INSERT INTO oferta_programas(id_ol, id_pr, propietario) VALUES ($idOL, $idProm, 'empresa')";
                 mysqli_query($conexion, $insert_programas);
             }
             echo "<script>

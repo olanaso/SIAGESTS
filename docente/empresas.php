@@ -1,22 +1,30 @@
 <?php
 include("../include/conexion.php");
+include("../caja/consultas.php");
+include("../empresa/include/consultas.php");
 include("../include/busquedas.php");
-include("include/consultas.php");
-include("include/verificar_sesion_empresa.php");
-include("operaciones/sesiones.php");
 include("../include/funciones.php");
 
+include("include/verificar_sesion_secretaria.php");
+
 if (!verificar_sesion($conexion)) {
-    echo "<script>
+  echo "<script>
                 alert('Error Usted no cuenta con permiso para acceder a esta página');
-                window.location.replace('login/');
+                window.location.replace('index.php');
     		</script>";
-} else {
+}else {
+  
+  $id_docente_sesion = buscar_docente_sesion($conexion, $_SESSION['id_sesion'], $_SESSION['token']);
+  
+  function generarCodigo($prefijo, $longitud, $numero) {
+    // Crear el formato del número con ceros a la izquierda
+    $numeroFormateado = sprintf('%0' . $longitud . 'd', $numero);
 
-    $id_empresa = $_SESSION['id_emp'];
-    $res_emp = buscarEmpresaById($conexion, $id_empresa);
-    $empresa = mysqli_fetch_array($res_emp);
+    // Combinar el prefijo con el número formateado
+    $codigoCompleto = $prefijo. "-" . $numeroFormateado;
 
+    return $codigoCompleto;
+  }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -28,7 +36,7 @@ if (!verificar_sesion($conexion)) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	  
-    <title>Caja <?php include ("../include/header_title.php"); ?></title>
+    <title>Caja<?php include ("../include/header_title.php"); ?></title>
     <!--icono en el titulo-->
     <link rel="shortcut icon" href="../img/favicon.ico">
     <!-- Bootstrap -->
@@ -48,7 +56,7 @@ if (!verificar_sesion($conexion)) {
 
     <!-- Custom Theme Style -->
     <link href="../Gentella/build/css/custom.min.css" rel="stylesheet">
-    
+
   </head>
 
   <body class="nav-md">
@@ -56,77 +64,70 @@ if (!verificar_sesion($conexion)) {
       <div class="main_container">
         <!--menu-->
           <?php 
-          include ("include/menu_empresa.php"); ?>
+          include ("include/menu_secretaria.php"); ?>
 
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
+           
             <div class="clearfix"></div>
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
-                  <div class="x_content">
                   <div class="">
-                    <h2 align="center">Mis Convocatorias Laborales Archivadas</h2>
+                    <h2 align="center">Empresas</h2>
+                    <div class="clearfix"></div>
                   </div>
-                  
-                  <div class="tab-content">
-                    <div class="">
-                      <br>
-                      <table id="example" class="table table-striped table-bordered" style="width:100%">
-                        <thead>
-                          <tr>
-                            <th>Título</th>
-                            <th>N° de Vacantes</th>
-                            <th>Inicio de convocatoria</th>
-                            <th>Fin de convocatoria</th>
-                            <th>Fecha anulada</th>
-                            <th>Estado</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <?php 
-                            $res = buscarOfertaLaboralByEmpresaArchivado($conexion, $id_empresa);
-                            while ($ofertas=mysqli_fetch_array($res)){
-                          ?>
-                          <tr>
-                            <td><?php echo $ofertas['titulo']; ?></td>
-                            <td><?php echo $ofertas['vacantes']; ?></td>
-                            <td><?php echo $ofertas['fecha_inicio']; ?></td>
-                            <td><?php echo $ofertas['fecha_fin']; ?></td>
-                            <td><?php echo $ofertas['fecha_fin']; ?></td>
-                            <td>
-                                <span class="badge badge-danger"><?php echo $ofertas['estado']; ?></span>
-                            </td>
-                          </tr>  
-                          <?php
-                            };
-                          ?>
+                  <div class="x_content">
+                    <table id="empresas" class="table table-striped table-bordered" style="width:100%">
+                      <thead>
+                        <tr>
+                          <th>Estado</th>
+                          <th>Logo</th>
+                          <th>Razon Social</th>
+                          <th>RUC</th>
+                          <th>Ubicación</th>
+                          <th>Contacto</th>
+                          <th>Correo Electronico</th>
+                          <th>Celular/Telefono</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php 
+                          $busc_conc_egr = buscarEmpresas($conexion); 
+                          while ($empresa=mysqli_fetch_array($busc_conc_egr)){
+                        ?>
+                        <tr>
+                          <td><?php echo $empresa['estado']; ?></td>
+                          <td><?php echo $empresa['ruta_logo']; ?></td>
+                          <td><?php echo $empresa['razon_social']; ?></td>
+                          <td><?php echo $empresa['ruc']; ?></td>
+                          <td><?php echo $empresa['ubicacion']; ?></td>
+                          <td><?php echo $empresa['contacto']; ?></td>
+                          <td><?php echo $empresa['correo_institucional']; ?></td>
+                          <td><?php echo $empresa['celular_telefono']; ?></td>
+                        </tr>  
+                        <?php
+                          };
+                        ?>
 
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
             </div>
-
-
           </div>
         </div>
-        <!-- /page content -->
-
-         <!-- footer content -->
         <?php
         include ("../include/footer.php"); 
         ?>
-        <!-- /footer content -->
       </div>
     </div>
-
-<!-- jQuery -->
-<script src="../Gentella/vendors/jquery/dist/jquery.min.js"></script>
+          
+                 
+    <!-- jQuery -->
+    <script src="../Gentella/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="../Gentella/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- FastClick -->
@@ -151,14 +152,12 @@ if (!verificar_sesion($conexion)) {
     <script src="../Gentella/vendors/jszip/dist/jszip.min.js"></script>
     <script src="../Gentella/vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="../Gentella/vendors/pdfmake/build/vfs_fonts.js"></script>
-    <script src="../Gentella/vendors/pnotify/dist/pnotify.js"></script>
-    <script src="../Gentella/vendors/pnotify/dist/pnotify.buttons.js"></script>
-    <script src="../Gentella/vendors/pnotify/dist/pnotify.nonblock.js"></script>
+
     <!-- Custom Theme Scripts -->
     <script src="../Gentella/build/js/custom.min.js"></script>
     <script>
     $(document).ready(function() {
-    $('#example').DataTable({
+    $('#empresas').DataTable({
       "language":{
     "processing": "Procesando...",
     "lengthMenu": "Mostrar _MENU_ registros",
@@ -184,5 +183,4 @@ if (!verificar_sesion($conexion)) {
      <?php mysqli_close($conexion); ?>
   </body>
 </html>
-<?php } ?>
-                          
+<?php }

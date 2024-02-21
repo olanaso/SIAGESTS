@@ -16,6 +16,8 @@ if (!verificar_sesion($conexion) && $id == null) {
 } else {
 
     $id_empresa = $_SESSION['id_emp'];
+    $res_emp = buscarEmpresaById($conexion, $id_empresa);
+    $empresa = mysqli_fetch_array($res_emp);
     $oferta_laboral = buscarOfertaLaboralById($conexion, $id);
     $convocatoria = mysqli_fetch_array($oferta_laboral);
 
@@ -112,7 +114,7 @@ if (!verificar_sesion($conexion) && $id == null) {
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="ubicacion">Ubicación <span
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="ubicacion">Lugar de Trabajo <span
                                             class="required">* : </span>
                                     </label>
                                     <div class="col-md-9 col-sm-9 ">
@@ -131,7 +133,7 @@ if (!verificar_sesion($conexion) && $id == null) {
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="salario">Salario <span
-                                            >: </span>
+                                            > * : </span>
                                     </label>
                                     <div class="col-md-9 col-sm-9">
                                         <input type="number" id="salario" name="salario" data-validate-minmax="1,20" value="<?php echo $convocatoria['salario'] ?>"
@@ -139,7 +141,17 @@ if (!verificar_sesion($conexion) && $id == null) {
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="horario" class="col-form-label col-md-3 col-sm-3 label-align">Horario * :</label>
+                                    <label for="modalidad" class="col-form-label col-md-3 col-sm-3 label-align">Modalidad * :</label>
+                                    <div class="col-md-9 col-sm-9 ">
+                                                <select class="form-control" id="modalidad" name="modalidad" required="required" value="<?php echo $convocatoria['modalidad'] ?>" >
+                                                    <option value="Presencial">Presencial</option>
+                                                    <option value="Semipresencial">Semipresencial</option>
+                                                    <option value="Remoto">Remoto</option>
+                                                </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="horario" class="col-form-label col-md-3 col-sm-3 label-align">Turno * :</label>
                                     <div class="col-md-9 col-sm-9 ">
                                                 <select class="form-control" id="horario" name="horario" required="required" value="<?php echo $convocatoria['horario'] ?>" >
                                                     <option value="COMPLETO">Completo</option>
@@ -177,16 +189,23 @@ if (!verificar_sesion($conexion) && $id == null) {
                                 <div class="form-group row">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align">Programa Dirigido * :</label>
                                     <div class="col-md-9 col-sm-9">
-                                        <?php 
-                                        $carreras = buscarCarreras($conexion);
+                                    <?php 
                                         $programasDirigidosSeleccionados = buscarProgramasByOferta($conexion, $id);
-
+                                        $carreras = buscarCarreras($conexion);
                                         while ($carrera = mysqli_fetch_array($carreras)) {
-                                            $marcado = in_array($carrera['id'], $programasDirigidosSeleccionados) ? 'checked' : '';
+                                            $idPrograma = $carrera['id']; // ID del programa actual
+                                            $marcado = false;
+                                            foreach ($programasDirigidosSeleccionados as $programaDirigido) {
+                                                if ($programaDirigido == $idPrograma) {
+                                                    $marcado = true;
+                                                    break;
+                                                }
+                                            }
+                                            $marcadoAttr = $marcado ? 'checked' : ''; // Atributo 'checked' si el programa está marcado
                                         ?>
-                                            <input type="checkbox" class="concepto-checkbox" data-monto="<?php echo $carrera['id'] ?>" name="carreras[]" value="<?php echo $carrera['id'] ?>" id="<?php echo $carrera['id'] ?>" <?php echo $marcado ?>>
-                                            <label class="form-check-label" for="<?php echo $carrera['id']; ?>"><?php echo $carrera['nombre']; ?></label> <br>
-                                        <?php }; ?>            
+                                            <input type="checkbox" class="concepto-checkbox" data-monto="<?php echo $idPrograma ?>" name="carreras[]" value="<?php echo $idPrograma ?>" id="<?php echo $idPrograma ?>" <?php echo $marcadoAttr ?>>
+                                            <label class="form-check-label" for="<?php echo $idPrograma; ?>"><?php echo $carrera['nombre']; ?></label> <br>
+                                        <?php }; ?>          
                                     </div>
                                 </div>
                             </div>

@@ -1,19 +1,17 @@
 <?php
-
-include("../../include/conexion.php");
-include("../../include/busquedas.php");
-include("../include/consultas.php");
-include("../include/verificar_sesion_empresa.php");
-include("../operaciones/sesiones.php");
-
+include "../../include/conexion.php";
+include "../../include/busquedas.php";
+include "../../caja/consultas.php";
+include "../../include/funciones.php";
+include "../../empresa/include/consultas.php";
+include("../include/verificar_sesion_secretaria.php");
 if (!verificar_sesion($conexion)) {
-    echo "<script>
-                alert('Error Usted no cuenta con permiso para acceder a esta página');
-                window.location.replace('login/');
-    		</script>";
-} else {
+	echo "<script>
+				  alert('Error Usted no cuenta con permiso para acceder a esta página');
+				  window.location.replace('../../login/');
+			  </script>";
+  }else {
 
-    $id_empresa = $_SESSION['id_emp'];
     // Verificar si se ha enviado el formulario
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Obtener los datos del formulario
@@ -25,7 +23,7 @@ if (!verificar_sesion($conexion)) {
         // Datos del tercer paso (archivo cargado)
         $nombreArchivo = "DOC".$numeracion.".pdf";
         $rutaTemporal = $_FILES["documento"]["tmp_name"];
-        $directorioDestino = '../files/';
+        $directorioDestino = '../../empresa/files/';
 
         // Mover el archivo de la ruta temporal al directorio destino
         move_uploaded_file($rutaTemporal, $directorioDestino . $nombreArchivo);
@@ -36,8 +34,8 @@ if (!verificar_sesion($conexion)) {
         $rutaFinal = substr($rutaFinal,3);
 
         // Consulta para insertar los datos en la base de datos
-        $sql = "INSERT INTO `oferta_documentos`(`id_ol`, `tipo_documento`, `nombre_documento`, `url_documento`,`propietario`)
-            VALUES ( $id ,'$tipo', '$nombre', '$rutaFinal'), 'empresa'";
+        $sql = "INSERT INTO `oferta_documentos`(`id_ol`, `tipo_documento`, `nombre_documento`, `url_documento`, `propietario`)
+            VALUES ( $id ,'$tipo', '$nombre', '$rutaFinal', 'iestp')";
         $res = mysqli_query($conexion, $sql);
         if ($res) {
             echo "<script>

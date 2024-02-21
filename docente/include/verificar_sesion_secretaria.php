@@ -12,7 +12,7 @@ function verificar_sesion($conexion){
 		if (!$sesion_activa) {
 			echo "<script>
                 alert('La Sesion Caducó, Inicie Sesión');
-                window.location.replace('../../include/cerrar_sesion.php');
+                window.location.replace('../include/cerrar_sesion.php');
     		</script>";
 		}else {
 			if ($id_cargo == 2) {

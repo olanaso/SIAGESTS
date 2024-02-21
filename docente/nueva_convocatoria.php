@@ -1,22 +1,30 @@
 <?php
 include("../include/conexion.php");
+include("../caja/consultas.php");
+include("../empresa/include/consultas.php");
 include("../include/busquedas.php");
-include("include/consultas.php");
-include("include/verificar_sesion_empresa.php");
-include("operaciones/sesiones.php");
 include("../include/funciones.php");
 
+include("include/verificar_sesion_secretaria.php");
+
 if (!verificar_sesion($conexion)) {
-    echo "<script>
+  echo "<script>
                 alert('Error Usted no cuenta con permiso para acceder a esta página');
-                window.location.replace('login/');
+                window.location.replace('index.php');
     		</script>";
-} else {
+}else {
+  
+  $id_docente_sesion = buscar_docente_sesion($conexion, $_SESSION['id_sesion'], $_SESSION['token']);
+  
+  function generarCodigo($prefijo, $longitud, $numero) {
+    // Crear el formato del número con ceros a la izquierda
+    $numeroFormateado = sprintf('%0' . $longitud . 'd', $numero);
 
-    $id_empresa = $_SESSION['id_emp'];
-    $res_emp = buscarEmpresaById($conexion, $id_empresa);
-    $empresa = mysqli_fetch_array($res_emp);
+    // Combinar el prefijo con el número formateado
+    $codigoCompleto = $prefijo. "-" . $numeroFormateado;
 
+    return $codigoCompleto;
+  }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -48,6 +56,22 @@ if (!verificar_sesion($conexion)) {
 
     <!-- Custom Theme Style -->
     <link href="../Gentella/build/css/custom.min.css" rel="stylesheet">
+    
+    <style>
+      .comenzar{
+        background-color: #337AB7;
+      }
+      .proceso{
+        background-color: #26B99A;
+      }
+      .finalizar{
+        background-color: #F0AD4E;
+      }
+      .Finalizado{
+        background-color: #D9534F;
+      }
+    </style>
+
   </head>
 
   <body class="nav-md">
@@ -55,7 +79,7 @@ if (!verificar_sesion($conexion)) {
       <div class="main_container">
         <!--menu-->
           <?php 
-          include ("include/menu_empresa.php"); ?>
+          include ("include/menu_secretaria.php"); ?>
 
         <!-- page content -->
         <div class="right_col" role="main">
@@ -68,7 +92,7 @@ if (!verificar_sesion($conexion)) {
                   <div class="">
                     <h2 align="center">Nueva Convocatoria Laboral</h2>
                   </div>
-                  <a href="convocatoria.php" class="btn btn-danger"><i class="fa fa-mail-reply"></i> Regresar</a>
+                  <a href="mis_convocatorias.php" class="btn btn-danger"><i class="fa fa-mail-reply"></i> Regresar</a>
                   </div>
                   <div class="x_panel">
                     <div class="x_title">
@@ -100,7 +124,14 @@ if (!verificar_sesion($conexion)) {
                                 </li>
                             </ul>
                             <div id="step-1">
-                            
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="empresa">Empresa <span
+                                            class="required">* :</span>
+                                    </label>
+                                    <div class="col-md-9 col-sm-9 ">
+                                        <input type="text" id="empresa" name="empresa" required="required" class="form-control  ">
+                                    </div>
+                                </div>
                                 <div class="form-group row">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="titulo">Título <span
                                             class="required">* :</span>
@@ -129,7 +160,7 @@ if (!verificar_sesion($conexion)) {
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="salario">Salario <span
-                                            >* : </span>
+                                            >: </span>
                                     </label>
                                     <div class="col-md-9 col-sm-9">
                                         <input type="number" id="salario" name="salario" data-validate-minmax="1,20"
@@ -149,7 +180,7 @@ if (!verificar_sesion($conexion)) {
                                 <div class="form-group row">
                                     <label for="horario" class="col-form-label col-md-3 col-sm-3 label-align">Turno * :</label>
                                     <div class="col-md-9 col-sm-9 ">
-                                                <select class="form-control" id="horario" name="turno" required="required">
+                                                <select class="form-control" id="horario" name="horario" required="required">
                                                     <option value="COMPLETO">Completo</option>
                                                     <option value="MAÑANA">Turno Mañana</option>
                                                     <option value="TARDE">Turno Tarde</option>
@@ -176,10 +207,10 @@ if (!verificar_sesion($conexion)) {
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for = "url">U.R.L. (en otra plataforma) :
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for = "url">U.R.L. (en otra plataforma) * :
                                     </label>
                                     <div class="col-md-9 col-sm-9">
-                                        <input id="url" name="url" class="date-picker form-control" type="text">
+                                        <input id="url" name="url" class="date-picker form-control" type="text" required="required">
                                     </div>
                                 </div>
                                 <div class="form-group row">

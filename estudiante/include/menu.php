@@ -37,7 +37,12 @@
                       <li class="sub_menu"><a href="ver_calificaciones.php">Calificaciones</a></li>
                     </ul>
                   </li>
-                  
+                  <li><a><i class="fa fa-briefcase"></i> Bolsa Laboral <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li class="sub_menu"><a href="convocatorias.php">Convocatorias</a></li>
+                      <li class="sub_menu"><a href="mis_postulaciones.php">Mis postulaciones</a></li>
+                    </ul>
+                  </li>
                 </ul>
               </div>
             </div>

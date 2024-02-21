@@ -1,24 +1,24 @@
 <?php
 include("../include/conexion.php");
+include("../caja/consultas.php");
+include("../empresa/include/consultas.php");
 include("../include/busquedas.php");
-include("include/consultas.php");
-include("include/verificar_sesion_empresa.php");
-include("operaciones/sesiones.php");
 include("../include/funciones.php");
+
+include("include/verificar_sesion_secretaria.php");
 
 $id = isset($_GET['id']) ? $_GET['id'] : null;
 
-if (!verificar_sesion($conexion) && $id == null) {
-    echo "<script>
+if (!verificar_sesion($conexion)) {
+  echo "<script>
                 alert('Error Usted no cuenta con permiso para acceder a esta página');
-                window.location.replace('login/');
+                window.location.replace('index.php');
     		</script>";
-} else {
+}else {
 
-    $id_empresa = $_SESSION['id_emp'];
-    $res_emp = buscarEmpresaById($conexion, $id_empresa);
-    $empresa = mysqli_fetch_array($res_emp);
-    $oferta_laboral = buscarOfertaLaboralById($conexion, $id);
+    $id_docente_sesion = buscar_docente_sesion($conexion, $_SESSION['id_sesion'], $_SESSION['token']);
+  
+    $oferta_laboral = buscarOfertaLaboralByIdIestp($conexion, $id);
     $convocatoria = mysqli_fetch_array($oferta_laboral);    
 
 ?>
@@ -78,7 +78,7 @@ if (!verificar_sesion($conexion) && $id == null) {
 	<div class="container body">
 		<div class="main_container">
 			<?php
-			include("include/menu_empresa.php"); ?>
+			include("include/menu_secretaria.php"); ?>
 			<!-- page content -->
 			<div class="right_col">
                 <div class="row">
@@ -86,7 +86,7 @@ if (!verificar_sesion($conexion) && $id == null) {
                         <section class="panel">
                             <div align="center">
                                 <br>
-                                <a href="convocatoria.php" class="btn btn-danger"><i class="fa fa-mail-reply"></i>  Regresar</a>
+                                <a href="mis_convocatorias.php" class="btn btn-danger"><i class="fa fa-mail-reply"></i>  Regresar</a>
                                 <br><br>
                             </div>
                             <div class="alert-info <?php echo determinarEstado($convocatoria['fecha_inicio'], $convocatoria['fecha_fin'])?>" role="alert" align="center">
@@ -103,7 +103,9 @@ if (!verificar_sesion($conexion) && $id == null) {
                                 </div>
                                 <br>
                                 <ul class="list-unstyled project_files">
-                                    <li><strong>Ubicación: </strong> <br> <?php echo $convocatoria['ubicacion'] ?>
+                                    <li><strong>Empresa: </strong> <br> <?php echo $convocatoria['empresa']?>
+                                    </li>
+                                    <li><strong>Lugar de Trabajo: </strong> <br> <?php echo $convocatoria['ubicacion'] ?>
                                     </li>
                                     <li><strong>Vacantes: </strong> <br> <?php echo $convocatoria['vacantes'] ?>
                                     </li>
@@ -115,7 +117,7 @@ if (!verificar_sesion($conexion) && $id == null) {
                                     </li>
                                     <li><strong>Carreras de Interés: </strong> <br> 
                                     <p>
-                                    <?php $programas = buscarProgramasByIdOferta($conexion,$convocatoria['id']);
+                                    <?php $programas = buscarProgramasByIdOfertaIestp($conexion,$convocatoria['id']);
                                         while ($programa = mysqli_fetch_array($programas)) {
                                             echo $programa['nombre']. "<br>";
                                         }
@@ -127,10 +129,10 @@ if (!verificar_sesion($conexion) && $id == null) {
                                 <h5><strong>Documentos del proyecto</strong></h5>
                                 <ul class="list-unstyled project_files">
                                     <?php 
-                                        $res = buscarDocumentosByIdOferta($conexion, $id);
+                                        $res = buscarDocumentosByIdOfertaIestp($conexion, $id);
                                         while ($documento=mysqli_fetch_array($res)){
                                     ?>
-                                    <li><a href="<?php echo $documento['url_documento'] ?>" target="_blank"><i class="fa fa-file-pdf-o"></i><?php echo $documento['nombre_documento'] ?></a>
+                                    <li><a href="../empresa/<?php echo $documento['url_documento'] ?>" target="_blank"><i class="fa fa-file-pdf-o"></i><?php echo $documento['nombre_documento'] ?></a>
                                     </li>
                                     <?php }?>
                                 </ul>

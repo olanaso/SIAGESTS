@@ -1,5 +1,19 @@
-<div class="col-md-3 left_col menu_fixed">
-  <div class="left_col scroll-view">
+<style>
+  .scroll-view::-webkit-scrollbar {
+      width: 5px; /* Anchura del scrollbar */
+  }
+
+  .scroll-view::-webkit-scrollbar-thumb {
+      background-color: #dddddd; /* Color del scrollbar */
+  }
+  .scroll-view {
+      max-height: calc(100vh - 50px); /* Resta la altura del top navigation si lo tienes */
+      overflow-y: auto; /* Agrega scroll vertical si el contenido excede la altura máxima */
+  }
+</style>
+
+<div class="col-md-3 left_col menu_fixed scroll-view">
+  <div class="left_col">
    <!-- <div class="navbar nav_title" style="border: 0;">
       <a href="index.php" class=""><i class=""></i> <span>Biblioteca</span></a>
     </div>-->
@@ -74,6 +88,16 @@
                   <li><a><i class="fa fa-book"></i> Evaluación <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li class="sub_menu"><a href="calificaciones_unidades_didacticas.php">Registro de Evaluación</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-briefcase"></i> Bolsa Laboral <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li class="sub_menu"><a href="solicitudes.php">Solicitudes de Empresas</a></li>
+                      <li class="sub_menu"><a href="empresas.php">Empresas</a></li>
+                      <li class="sub_menu"><a href="convocatorias.php">Convocatorias - Empresas</a></li>
+                      <li class="sub_menu"><a href="mis_convocatorias.php">Mis Convocatorias</a></li>
+                      <li class="sub_menu"><a href="convocatorias_archivadas.php">Convocatorias Archivadas</a></li>
+                      <li class="sub_menu"><a href="convocatoria_reportes.php">Reportes</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-gears"></i>Mantenimiento<span class="fa fa-chevron-down"></span></a>

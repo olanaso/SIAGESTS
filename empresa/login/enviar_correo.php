@@ -79,7 +79,7 @@ if ($enviar) {
         $titulo_correo = 'SISPA '.$r_b_datos_sistema['titulo'];
         //Recipients
         $mail->setFrom($r_b_datos_sistema['email_email'], $titulo_correo);
-        $mail->addAddress($r_b_emp['correo_institucional'], $r_b_emp['nombre_contacto']);     //Add a recipient
+        $mail->addAddress($r_b_emp['correo_institucional'], $r_b_emp['contacto']);     //Add a recipient
         //$mail->addAddress('ellen@example.com');               //Name is optional
         //$mail->addReplyTo('info@example.com', 'Information');
         //$mail->addCC('cc@example.com');

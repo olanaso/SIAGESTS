@@ -437,11 +437,6 @@ function buscarTutoriaSesGrupalByIdAndIdTutoria($conexion,$id, $id_tutoria){
 
 //-------------------------Nuevas Consultas----------------------------
 
-function buscarComprobante($conexion){
-	$sql = "SELECT * FROM comprobantes_pago";
-	return mysqli_query($conexion, $sql);
-}
-
 function buscarAllBoletasNotas($conexion){
 	$sql = "SELECT * FROM boleta_notas";
 	return mysqli_query($conexion, $sql);

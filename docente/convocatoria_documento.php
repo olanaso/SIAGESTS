@@ -1,24 +1,24 @@
 <?php
-
 include("../include/conexion.php");
+include("../caja/consultas.php");
+include("../empresa/include/consultas.php");
 include("../include/busquedas.php");
-include("include/consultas.php");
-include("include/verificar_sesion_empresa.php");
-include("operaciones/sesiones.php");
+include("../include/funciones.php");
+
+include("include/verificar_sesion_secretaria.php");
 
 $id = isset($_GET['id']) ? $_GET['id'] : null;
 
-if (!verificar_sesion($conexion) && $id == null) {
-    echo "<script>
+if (!verificar_sesion($conexion)) {
+  echo "<script>
                 alert('Error Usted no cuenta con permiso para acceder a esta página');
-                window.location.replace('login/');
+                window.location.replace('index.php');
     		</script>";
-} else {
+}else {
 
-    $id_empresa = $_SESSION['id_emp'];
-    $res_emp = buscarEmpresaById($conexion, $id_empresa);
-    $empresa = mysqli_fetch_array($res_emp);
-    $oferta_laboral = buscarOfertaLaboralById($conexion, $id);
+    $id_docente_sesion = buscar_docente_sesion($conexion, $_SESSION['id_sesion'], $_SESSION['token']);
+  
+    $oferta_laboral = buscarOfertaLaboralByIdIestp($conexion, $id);
     $convocatoria = mysqli_fetch_array($oferta_laboral);    
 
 ?>
@@ -43,12 +43,6 @@ if (!verificar_sesion($conexion) && $id == null) {
 	<link href="../Gentella/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
 	<!-- bootstrap-progressbar -->
 	<link href="../Gentella/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-    <!-- Datatables -->
-    <link href="../Gentella/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
-    <link href="../Gentella/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
-    <link href="../Gentella/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
-    <link href="../Gentella/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
-    <link href="../Gentella/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 	<!-- Custom Theme Style -->
 	<link href="../Gentella/build/css/custom.min.css" rel="stylesheet">
     <style>
@@ -127,13 +121,12 @@ if (!verificar_sesion($conexion) && $id == null) {
         background-color: #D9534F;
       }
     </style>
-
 </head>
 <body class="nav-md">
 	<div class="container body">
 		<div class="main_container">
 			<?php
-			include("include/menu_empresa.php"); ?>
+			include("include/menu_secretaria.php"); ?>
 			<!-- page content -->
 			<div class="right_col">
                 <div class="row">
@@ -141,7 +134,7 @@ if (!verificar_sesion($conexion) && $id == null) {
                         <section class="panel">
                             <div align="center">
                                 <br>
-                                <a href="convocatoria.php" class="btn btn-danger"><i class="fa fa-mail-reply"></i>  Ir a convocatorias</a>
+                                <a href="mis_convocatorias.php" class="btn btn-danger"><i class="fa fa-mail-reply"></i>  Regresar</a>
                                 <br><br>
                             </div>
                             <div class="alert-info <?php echo determinarEstado($convocatoria['fecha_inicio'], $convocatoria['fecha_fin'])?>" role="alert" align="center">
@@ -151,6 +144,10 @@ if (!verificar_sesion($conexion) && $id == null) {
                                 <div class="project_detail">
                                     <p class="title"><?php echo $convocatoria['titulo'] ?></p>
                                 </div>
+                                <ul class="list-unstyled project_files">
+                                    <li><strong>Empresa: </strong> <br> <?php echo $convocatoria['empresa']?>
+                                    </li>
+                                </ul>
                                 <br>
                                 <h5><strong>Agregar documentos</strong></h5>
                                 <form action="operaciones/agregar_documentos.php" class="form-horizontal form-label-center"  method="POST" enctype="multipart/form-data">
@@ -197,7 +194,7 @@ if (!verificar_sesion($conexion) && $id == null) {
                     <div class="col-md-9 col-sm-9  ">
                         <section class="panel">
                             <div class="x_title">
-                                <h2 class="blue">Documentos</h2>
+                                <h2 class="blue">Detalle de convocatoria</h2>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="panel-body">
@@ -211,7 +208,7 @@ if (!verificar_sesion($conexion) && $id == null) {
                                     </thead>
                                     <tbody>
                                     <?php 
-                                        $res = buscarDocumentosByIdOferta($conexion, $id);
+                                        $res = buscarDocumentosByIdOfertaIestp($conexion, $id);
                                         while ($documento=mysqli_fetch_array($res)){
                                     ?>
                                     <tr>
@@ -238,7 +235,7 @@ if (!verificar_sesion($conexion) && $id == null) {
 			<!--/footer content -->
 		</div>
 	</div>
-    <script>
+	<script>
         'use strict';
         ;( function ( document, window, index )
         {

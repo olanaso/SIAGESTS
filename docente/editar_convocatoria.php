@@ -1,22 +1,25 @@
 <?php
 include("../include/conexion.php");
+include("../caja/consultas.php");
+include("../empresa/include/consultas.php");
 include("../include/busquedas.php");
-include("include/consultas.php");
-include("include/verificar_sesion_empresa.php");
-include("operaciones/sesiones.php");
 include("../include/funciones.php");
 
+include("include/verificar_sesion_secretaria.php");
+
+$id = isset($_GET['id']) ? $_GET['id'] : null;
+
 if (!verificar_sesion($conexion)) {
-    echo "<script>
+  echo "<script>
                 alert('Error Usted no cuenta con permiso para acceder a esta página');
-                window.location.replace('login/');
+                window.location.replace('index.php');
     		</script>";
-} else {
-
-    $id_empresa = $_SESSION['id_emp'];
-    $res_emp = buscarEmpresaById($conexion, $id_empresa);
-    $empresa = mysqli_fetch_array($res_emp);
-
+}else {
+  
+    $id_docente_sesion = buscar_docente_sesion($conexion, $_SESSION['id_sesion'], $_SESSION['token']);
+  
+    $oferta_laboral = buscarOfertaLaboralByIdIestp($conexion, $id);
+    $convocatoria = mysqli_fetch_array($oferta_laboral);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -48,6 +51,22 @@ if (!verificar_sesion($conexion)) {
 
     <!-- Custom Theme Style -->
     <link href="../Gentella/build/css/custom.min.css" rel="stylesheet">
+    
+    <style>
+      .comenzar{
+        background-color: #337AB7;
+      }
+      .proceso{
+        background-color: #26B99A;
+      }
+      .finalizar{
+        background-color: #F0AD4E;
+      }
+      .Finalizado{
+        background-color: #D9534F;
+      }
+    </style>
+
   </head>
 
   <body class="nav-md">
@@ -55,10 +74,10 @@ if (!verificar_sesion($conexion)) {
       <div class="main_container">
         <!--menu-->
           <?php 
-          include ("include/menu_empresa.php"); ?>
+          include ("include/menu_secretaria.php"); ?>
 
-        <!-- page content -->
-        <div class="right_col" role="main">
+       <!-- page content -->
+       <div class="right_col" role="main">
           <div class="">
             <div class="clearfix"></div>
             <div class="row">
@@ -66,9 +85,9 @@ if (!verificar_sesion($conexion)) {
                 <div class="x_panel">
                   <div class="x_content">
                   <div class="">
-                    <h2 align="center">Nueva Convocatoria Laboral</h2>
+                    <h2 align="center">Actualizar Convocatoria Laboral</h2>
                   </div>
-                  <a href="convocatoria.php" class="btn btn-danger"><i class="fa fa-mail-reply"></i> Regresar</a>
+                  <a href="mis_convocatorias.php" class="btn btn-danger"><i class="fa fa-mail-reply"></i> Regresar</a>
                   </div>
                   <div class="x_panel">
                     <div class="x_title">
@@ -76,7 +95,7 @@ if (!verificar_sesion($conexion)) {
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <form role="form" action="operaciones/agregar_convocatoria.php" class="form-horizontal form-label-center"  method="POST" >
+                        <form role="form" action="operaciones/actualizar_convocatoria.php" class="form-horizontal form-label-center"  method="POST" >
                         <p>Todos los campos con (*), son campos obligatorios.</p>
                         <div id="wizard" class="form_wizard wizard_horizontal">
                             <ul class="wizard_steps">
@@ -100,13 +119,21 @@ if (!verificar_sesion($conexion)) {
                                 </li>
                             </ul>
                             <div id="step-1">
-                            
+                                <input type="hidden" id="id" name="id" required="required" class="form-control" value="<?php echo $convocatoria['id'] ?>">
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="empresa">Título <span
+                                            class="required">* :</span>
+                                    </label>
+                                    <div class="col-md-9 col-sm-9 ">
+                                        <input type="text" id="empresa" name="empresa" required="required" class="form-control" value="<?php echo $convocatoria['empresa'] ?>">
+                                    </div>
+                                </div>
                                 <div class="form-group row">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="titulo">Título <span
                                             class="required">* :</span>
                                     </label>
                                     <div class="col-md-9 col-sm-9 ">
-                                        <input type="text" id="titulo" name="titulo" required="required" class="form-control  ">
+                                        <input type="text" id="titulo" name="titulo" required="required" class="form-control" value="<?php echo $convocatoria['titulo'] ?>">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -114,7 +141,7 @@ if (!verificar_sesion($conexion)) {
                                             class="required">* : </span>
                                     </label>
                                     <div class="col-md-9 col-sm-9 ">
-                                        <input type="text" id="ubicacion" name="ubicacion" required="required"
+                                        <input type="text" id="ubicacion" name="ubicacion" required="required" value="<?php echo $convocatoria['ubicacion'] ?>"
                                             class="form-control ">
                                     </div>
                                 </div>
@@ -123,23 +150,23 @@ if (!verificar_sesion($conexion)) {
                                             class="required">* : </span>
                                     </label>
                                     <div class="col-md-9 col-sm-9">
-                                        <input type="number" id="vacante" name="vacante" data-validate-minmax="1,20" required="required"
+                                        <input type="number" id="vacante" name="vacante" data-validate-minmax="1,20" required="required" value="<?php echo $convocatoria['vacantes'] ?>"
                                             class="form-control ">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="salario">Salario <span
-                                            >* : </span>
+                                            >: </span>
                                     </label>
                                     <div class="col-md-9 col-sm-9">
-                                        <input type="number" id="salario" name="salario" data-validate-minmax="1,20"
+                                        <input type="number" id="salario" name="salario" data-validate-minmax="1,20" value="<?php echo $convocatoria['salario'] ?>"
                                             class="form-control ">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="modalidad" class="col-form-label col-md-3 col-sm-3 label-align">Modalidad * :</label>
                                     <div class="col-md-9 col-sm-9 ">
-                                                <select class="form-control" id="modalidad" name="modalidad" required="required">
+                                                <select class="form-control" id="modalidad" name="modalidad" required="required" value="<?php echo $convocatoria['modalidad'] ?>" >
                                                     <option value="Presencial">Presencial</option>
                                                     <option value="Semipresencial">Semipresencial</option>
                                                     <option value="Remoto">Remoto</option>
@@ -147,9 +174,9 @@ if (!verificar_sesion($conexion)) {
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="horario" class="col-form-label col-md-3 col-sm-3 label-align">Turno * :</label>
+                                    <label for="horario" class="col-form-label col-md-3 col-sm-3 label-align">Horario * :</label>
                                     <div class="col-md-9 col-sm-9 ">
-                                                <select class="form-control" id="horario" name="turno" required="required">
+                                                <select class="form-control" id="horario" name="turno" required="required" value="<?php echo $convocatoria['turno'] ?>" >
                                                     <option value="COMPLETO">Completo</option>
                                                     <option value="MAÑANA">Turno Mañana</option>
                                                     <option value="TARDE">Turno Tarde</option>
@@ -162,7 +189,7 @@ if (!verificar_sesion($conexion)) {
                                             class="required">* : </span>
                                     </label>
                                     <div class="col-md-9 col-sm-9">
-                                        <input type="date" id="inicio" name="inicio" required="required"
+                                        <input type="date" id="inicio" name="inicio" required="required" value="<?php echo $convocatoria['fecha_inicio'] ?>"
                                             class="form-control ">
                                     </div>
                                 </div>
@@ -171,7 +198,7 @@ if (!verificar_sesion($conexion)) {
                                             class="required">* : </span>
                                     </label>
                                     <div class="col-md-9 col-sm-9">
-                                        <input type="date" id="fin" name="fin" required="required"
+                                        <input type="date" id="fin" name="fin" required="required" value="<?php echo $convocatoria['fecha_fin'] ?>"
                                             class="form-control ">
                                     </div>
                                 </div>
@@ -179,19 +206,28 @@ if (!verificar_sesion($conexion)) {
                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for = "url">U.R.L. (en otra plataforma) :
                                     </label>
                                     <div class="col-md-9 col-sm-9">
-                                        <input id="url" name="url" class="date-picker form-control" type="text">
+                                        <input id="url" name="url" class="date-picker form-control" type="text" value="<?php echo $convocatoria['link_postulacion'] ?>">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-md-3 col-sm-3 label-align">Programa Dirigido * :
-                                    </label>
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align">Programa Dirigido * :</label>
                                     <div class="col-md-9 col-sm-9">
                                         <?php 
-                                            $carreras = buscarCarreras($conexion);
-                                            while ($carrera = mysqli_fetch_array($carreras)) {
+                                        $programasDirigidosSeleccionados = buscarProgramasByOfertaIestp($conexion, $id);
+                                        $carreras = buscarCarreras($conexion);
+                                        while ($carrera = mysqli_fetch_array($carreras)) {
+                                            $idPrograma = $carrera['id']; // ID del programa actual
+                                            $marcado = false;
+                                            foreach ($programasDirigidosSeleccionados as $programaDirigido) {
+                                                if ($programaDirigido == $idPrograma) {
+                                                    $marcado = true;
+                                                    break;
+                                                }
+                                            }
+                                            $marcadoAttr = $marcado ? 'checked' : ''; // Atributo 'checked' si el programa está marcado
                                         ?>
-                                           <input  type="checkbox" class="concepto-checkbox" data-monto="<?php echo $carrera['id'] ?>" name="carreras[]" value="<?php echo $carrera['id'] ?>" id="<?php echo $carrera['id'] ?>">
-                                            <label class="form-check-label" for="<?php echo $carrera['id']; ?>"><?php echo $carrera['nombre']; ?></label> <br>
+                                            <input type="checkbox" class="concepto-checkbox" data-monto="<?php echo $idPrograma ?>" name="carreras[]" value="<?php echo $idPrograma ?>" id="<?php echo $idPrograma ?>" <?php echo $marcadoAttr ?>>
+                                            <label class="form-check-label" for="<?php echo $idPrograma; ?>"><?php echo $carrera['nombre']; ?></label> <br>
                                         <?php }; ?>            
                                     </div>
                                 </div>
@@ -201,33 +237,33 @@ if (!verificar_sesion($conexion)) {
                                     <label class="col-form-label col-md-3 col-sm-3 label-align">Requisitos * :
                                     </label>
                                     <div class="col-md-9 col-sm-9 ">
-                                        <textarea class="form-control" required="required" name="requisitos" rows="5"></textarea>
+                                        <textarea class="form-control" required="required" name="requisitos" rows="5"><?php echo $convocatoria['requisitos'] ?></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align">Funciones * :
                                     </label>
                                     <div class="col-md-9 col-sm-9 ">
-                                        <textarea class="form-control" required="required" name="funciones" rows="5"></textarea>
+                                        <textarea class="form-control" required="required" name="funciones" rows="5" ><?php echo $convocatoria['funciones'] ?></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align">Beneficios * :
                                     </label>
                                     <div class="col-md-9 col-sm-9 ">
-                                        <textarea class="form-control" required="required" name="beneficios" rows="5"></textarea>
+                                        <textarea class="form-control" required="required" name="beneficios" rows="5"><?php echo $convocatoria['beneficios'] ?></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align">Condiciones :
                                     </label>
                                     <div class="col-md-9 col-sm-9 ">
-                                        <textarea class="form-control" name="condiciones" rows="5"></textarea>
+                                        <textarea class="form-control" name="condiciones" rows="5"><?php echo $convocatoria['condiciones'] ?></textarea>
                                     </div>
                                 </div>  
                                 <br>   
                                 <div class="form-group" align="center">
-                                    <input class="btn btn-primary" type="submit" value="Registrar Oferta Laboral">
+                                    <input class="btn btn-primary" type="submit" value="Actualizar Oferta Laboral">
                                 </div>
                             </div>
                         </div>
@@ -250,7 +286,7 @@ if (!verificar_sesion($conexion)) {
         <!-- /footer content -->
       </div>
     </div>
-
+   
 <!-- jQuery -->
 <script src="../Gentella/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->

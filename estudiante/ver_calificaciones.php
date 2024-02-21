@@ -110,7 +110,7 @@ if (!verificar_sesion($conexion)) {
                                             <?php
 
                                             //buscar estudiante para su id
-                                            $b_est = buscarEstudianteById($conexion, $id_est);
+                                            $b_est = buscarEstudianteById($conexion, $id_estudiante_sesion);
                                             $r_b_est = mysqli_fetch_array($b_est);
 
                                             $b_ud_pe_sem = buscarUdByCarSem($conexion, $r_b_est['id_programa_estudios'], $r_b_est['id_semestre']);
