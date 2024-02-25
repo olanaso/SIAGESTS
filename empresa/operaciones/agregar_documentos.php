@@ -37,7 +37,7 @@ if (!verificar_sesion($conexion)) {
 
         // Consulta para insertar los datos en la base de datos
         $sql = "INSERT INTO `oferta_documentos`(`id_ol`, `tipo_documento`, `nombre_documento`, `url_documento`,`propietario`)
-            VALUES ( $id ,'$tipo', '$nombre', '$rutaFinal'), 'empresa'";
+            VALUES ( $id ,'$tipo', '$nombre', '$rutaFinal', 'empresa')";
         $res = mysqli_query($conexion, $sql);
         if ($res) {
             echo "<script>

@@ -1,8 +1,7 @@
 <?php
 include("../include/conexion.php");
-include("../caja/consultas.php");
-include("../empresa/include/consultas.php");
 include("../include/busquedas.php");
+include("../caja/consultas.php");
 include("../include/funciones.php");
 
 include("include/verificar_sesion_secretaria.php");
@@ -15,16 +14,6 @@ if (!verificar_sesion($conexion)) {
 }else {
   
   $id_docente_sesion = buscar_docente_sesion($conexion, $_SESSION['id_sesion'], $_SESSION['token']);
-  
-  function generarCodigo($prefijo, $longitud, $numero) {
-    // Crear el formato del número con ceros a la izquierda
-    $numeroFormateado = sprintf('%0' . $longitud . 'd', $numero);
-
-    // Combinar el prefijo con el número formateado
-    $codigoCompleto = $prefijo. "-" . $numeroFormateado;
-
-    return $codigoCompleto;
-  }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -56,21 +45,6 @@ if (!verificar_sesion($conexion)) {
 
     <!-- Custom Theme Style -->
     <link href="../Gentella/build/css/custom.min.css" rel="stylesheet">
-    
-    <style>
-      .comenzar{
-        background-color: #337AB7;
-      }
-      .proceso{
-        background-color: #26B99A;
-      }
-      .finalizar{
-        background-color: #F0AD4E;
-      }
-      .Finalizado{
-        background-color: #D9534F;
-      }
-    </style>
 
   </head>
 
@@ -83,62 +57,67 @@ if (!verificar_sesion($conexion)) {
 
         <!-- page content -->
         <div class="right_col" role="main">
-          <div class="">
-            <div class="clearfix"></div>
-            <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_content">
-                  <div class="">
-                    <h2 align="center">Convocatorias Laborales Archivadas</h2>
-                  </div>
-                  <div class="x_content">
-                    <div class="">
-                      <table id="empresas" class="table table-striped table-bordered" style="width:100%">
-                        <thead>
-                          <tr>
-                            <th>Empresa</th>
-                            <th>Título de la convocatoria</th>
-                            <th>Propietario</th>
-                            <th>Lugar de Trabajo</th>
-                            <th>Fecha de Inicio</th>
-                            <th>Fecha Fin</th>
-                            <th>Fecha Archivado</th>
-                            <th>Estado</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <?php 
-                            $res = buscarTotalOfertasEmpresaArchivadas($conexion);
-                            while ($ofertas=mysqli_fetch_array($res)){
-                          ?>
-                          <tr>
-                            <td><?php echo $ofertas['empresa']; ?></td>
-                            <td><?php echo $ofertas['titulo']; ?></td>
-                            <td> La <?php echo $ofertas['propietario']; ?></td>
-                            <td><?php echo $ofertas['ubicacion']; ?></td>
-                            <td><?php echo $ofertas['fecha_inicio']; ?></td>
-                            <td><?php echo $ofertas['fecha_fin']; ?></td>
-                            <td><?php echo $ofertas['fecha_estado']; ?></td>
-                            <td>
-                                <span class="badge "><?php echo $ofertas['estado'] ?></span>
-                            </td>
-                          </tr>  
-                          <?php
-                            };
-                          ?>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                  </div>
-                </div>
-              </div>
+        <div class="">
+          <div class="page-title">
+            <div class="title_left">
+              <h3>Reportes de Caja</h3>
             </div>
-
-
+            <div class="col-md-3 col-sm-3 col-xs-6">
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-6">
+                <label>Mes y Año:</label>
+                <input type="month" id="fecha" class="form-control">
+            </div>
           </div>
+          <div class="clearfix"></div>
+          <br><br>
+          <!-- Contenido de la página -->
+            <div class="row">
+              <!-- Card de Ingresos -->
+              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                  <div class="x_panel">
+                      <div class="x_title">
+                          <h2>Total de ofertas laborales</h2>
+                          <div class="clearfix"></div>
+                      </div>
+                      <div class="x_content">
+                          <p>Reportar la cantidad de ofertas laborales.</p>
+                          <button  onclick="generarReporte('Total de ofertas laborales')" class="btn btn-primary">Generar Reporte</button>
+                        </div>
+                  </div>
+              </div>
+
+              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                  <div class="x_panel">
+                      <div class="x_title">
+                          <h2>Ranking de empresas</h2>
+                          <div class="clearfix"></div>
+                      </div>
+                      <div class="x_content">
+                          <p>Reportar de empresas con mayor demanda.</p>
+                          <button  onclick="generarReporte('Ranking de empresas')" class="btn btn-primary">Generar Reporte</button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                  <div class="x_panel">
+                      <div class="x_title">
+                          <h2>Total de postulantes</h2>
+                          <div class="clearfix"></div>
+                      </div>
+                      <div class="x_content">
+                          <p>Reporte general de postulantes a las diferentes convocaorias.</p>
+                          <button  onclick="generarReporte('Total de postulantes')" class="btn btn-primary">Generar Reporte</button>
+                      </div>
+                  </div>
+              </div>
+
+            </div>
+          </div>
+          <!-- Fin Contenido de la página -->
         </div>
+      </div>
         <!-- /page content -->
 
          <!-- footer content -->
@@ -148,7 +127,30 @@ if (!verificar_sesion($conexion)) {
         <!-- /footer content -->
       </div>
     </div>
+    <script>
+      // Obtener la fecha actual
+      const fechaActual = new Date();
 
+      // Obtener el año y el mes
+      const year = fechaActual.getFullYear();
+      const month = fechaActual.getMonth() + 1; // Los meses van de 0 a 11, así que sumamos 1
+
+      // Formatear la fecha en el formato YYYY-MM
+      const fechaFormateada = `${year}-${month.toString().padStart(2, '0')}`;
+
+      // Establecer el valor del campo de fecha
+      document.getElementById('fecha').value = fechaFormateada;
+  </script>
+
+    <script>
+    function generarReporte(tipo) {
+        // Obtener valores de los campos de fecha
+        var fecha = document.getElementById('fecha').value;
+        console.log(fecha);
+        // Redirigir a la página de generación de reporte con las fechas y tipo como parámetros
+        window.location.href = 'reporte_bolsa_laboral.php?fecha=' + fecha + '&tipo=' + tipo;
+    }
+  </script>
 <!-- jQuery -->
 <script src="../Gentella/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -175,14 +177,12 @@ if (!verificar_sesion($conexion)) {
     <script src="../Gentella/vendors/jszip/dist/jszip.min.js"></script>
     <script src="../Gentella/vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="../Gentella/vendors/pdfmake/build/vfs_fonts.js"></script>
-    <script src="../Gentella/vendors/pnotify/dist/pnotify.js"></script>
-    <script src="../Gentella/vendors/pnotify/dist/pnotify.buttons.js"></script>
-    <script src="../Gentella/vendors/pnotify/dist/pnotify.nonblock.js"></script>
+
     <!-- Custom Theme Scripts -->
     <script src="../Gentella/build/js/custom.min.js"></script>
     <script>
     $(document).ready(function() {
-    $('#empresas').DataTable({
+    $('#example').DataTable({
       "language":{
     "processing": "Procesando...",
     "lengthMenu": "Mostrar _MENU_ registros",

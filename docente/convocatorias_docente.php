@@ -1,42 +1,32 @@
 <?php
-include("../include/conexion.php");
-include("../caja/consultas.php");
-include("../empresa/include/consultas.php");
-include("../include/busquedas.php");
-include("../include/funciones.php");
+    include("../include/conexion.php");
+    include("../caja/consultas.php");
+    include("../empresa/include/consultas.php");
+    include("../include/busquedas.php");
+    include("../include/funciones.php");
+    include 'include/verificar_sesion_docente.php';
 
-include("include/verificar_sesion_secretaria.php");
-
-if (!verificar_sesion($conexion)) {
-  echo "<script>
-                alert('Error Usted no cuenta con permiso para acceder a esta página');
-                window.location.replace('index.php');
-    		</script>";
-}else {
+  if (!verificar_sesion($conexion)) {
+    echo "<script>
+                  alert('Error Usted no cuenta con permiso para acceder a esta página');
+                  window.location.replace('index.php');
+          </script>";
+  }else {
+    
+    $id_docente_sesion = buscar_docente_sesion($conexion, $_SESSION['id_sesion'], $_SESSION['token']);
+    $b_docente = buscarDocenteById($conexion, $id_docente_sesion);
+    $r_b_docente = mysqli_fetch_array($b_docente);
   
-  $id_docente_sesion = buscar_docente_sesion($conexion, $_SESSION['id_sesion'], $_SESSION['token']);
-  
-  function generarCodigo($prefijo, $longitud, $numero) {
-    // Crear el formato del número con ceros a la izquierda
-    $numeroFormateado = sprintf('%0' . $longitud . 'd', $numero);
-
-    // Combinar el prefijo con el número formateado
-    $codigoCompleto = $prefijo. "-" . $numeroFormateado;
-
-    return $codigoCompleto;
-  }
 ?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="Content-Language" content="es-ES">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	  
-    <title>Caja <?php include ("../include/header_title.php"); ?></title>
+    <title>Inicio<?php include ("../include/header_title.php"); ?></title>
     <!--icono en el titulo-->
     <link rel="shortcut icon" href="../img/favicon.ico">
     <!-- Bootstrap -->
@@ -47,8 +37,16 @@ if (!verificar_sesion($conexion)) {
     <link href="../Gentella/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="../Gentella/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-    <!-- Datatables -->
-    <link href="../Gentella/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="../Gentella/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="../Gentella/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+    <!-- bootstrap-daterangepicker -->
+    <link href="../Gentella/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="../Gentella/build/css/custom.min.css" rel="stylesheet">
+     <!-- Datatables -->
+     <link href="../Gentella/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
     <link href="../Gentella/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
     <link href="../Gentella/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
     <link href="../Gentella/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
@@ -79,7 +77,7 @@ if (!verificar_sesion($conexion)) {
       <div class="main_container">
         <!--menu-->
           <?php 
-          include ("include/menu_secretaria.php"); ?>
+          include ("include/menu_docente.php"); ?>
 
         <!-- page content -->
         <div class="right_col" role="main">
@@ -90,7 +88,7 @@ if (!verificar_sesion($conexion)) {
                 <div class="x_panel">
                   <div class="x_content">
                   <div class="">
-                    <h2 align="center">Convocatorias Laborales Archivadas</h2>
+                    <h2 align="center">Convocatorias Laborales</h2>
                   </div>
                   <div class="x_content">
                     <div class="">
@@ -98,35 +96,36 @@ if (!verificar_sesion($conexion)) {
                         <thead>
                           <tr>
                             <th>Empresa</th>
-                            <th>Título de la convocatoria</th>
-                            <th>Propietario</th>
-                            <th>Lugar de Trabajo</th>
+                            <th>Título</th>
                             <th>Fecha de Inicio</th>
                             <th>Fecha Fin</th>
-                            <th>Fecha Archivado</th>
                             <th>Estado</th>
+                            <th>Acciones</th>
                           </tr>
                         </thead>
                         <tbody>
                           <?php 
-                            $res = buscarTotalOfertasEmpresaArchivadas($conexion);
+                            $res = buscarOfertaLaboralEmpresa($conexion);
                             while ($ofertas=mysqli_fetch_array($res)){
                           ?>
                           <tr>
                             <td><?php echo $ofertas['empresa']; ?></td>
                             <td><?php echo $ofertas['titulo']; ?></td>
-                            <td> La <?php echo $ofertas['propietario']; ?></td>
-                            <td><?php echo $ofertas['ubicacion']; ?></td>
                             <td><?php echo $ofertas['fecha_inicio']; ?></td>
                             <td><?php echo $ofertas['fecha_fin']; ?></td>
-                            <td><?php echo $ofertas['fecha_estado']; ?></td>
                             <td>
-                                <span class="badge "><?php echo $ofertas['estado'] ?></span>
+                                <span class="badge <?php echo determinarEstado($ofertas['fecha_inicio'], $ofertas['fecha_fin'])?>"><?php echo determinarEstado($ofertas['fecha_inicio'], $ofertas['fecha_fin']) ?></span>
                             </td>
+                            <td>
+                            <?php echo '
+                            <a href="detalle_convocatoria_docente.php?id='. $ofertas['id'] . '" class="btn btn-success" data-toggle="tooltip" data-original-title="Ver Detalles" data-placement="bottom"><i class="fa fa-eye"></i></a>
+                            ' ?>
                           </tr>  
+
                           <?php
                             };
                           ?>
+
                         </tbody>
                       </table>
                     </div>

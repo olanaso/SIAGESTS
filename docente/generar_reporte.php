@@ -390,44 +390,6 @@ if (!verificar_sesion($conexion)) {
       </div>
     </div>
 
-    <script>
-        async function buscarPorDNI() {
-            // Obtener el valor del DNI
-            var dni = document.getElementById("dni").value;
-
-            // Token proporcionado por la API (reemplaza 'TU_TOKEN' con tu token real)
-            var token = '38921056413a314097179eec84229162502967e29eb0076c26c8c303845da65d';
-
-            // Configurar los parámetros de la solicitud
-            var params = {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + token
-                },
-                body: JSON.stringify({ dni: dni })
-            };
-
-            try {
-                // Realizar la solicitud a la API con fetch
-                var response = await fetch("https://apiperu.dev/api/dni", params);
-                var data = await response.json();
-
-                // Manejar la respuesta de la API
-                mostrarResultado(data.data.nombre_completo);
-            } catch (error) {
-                // Manejar el error
-                mostrarResultado("Error al buscar por DNI.");
-            }
-        }
-
-        function mostrarResultado(resultado) {
-            // Mostrar el resultado en la página
-            document.getElementById("nombres_apellidos").value = resultado;
-        }
-    </script>
-
 <!-- jQuery -->
 <script src="../Gentella/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->

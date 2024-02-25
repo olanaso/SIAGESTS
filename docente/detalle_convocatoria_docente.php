@@ -5,20 +5,19 @@ include("../empresa/include/consultas.php");
 include("../include/busquedas.php");
 include("../include/funciones.php");
 
-include("include/verificar_sesion_secretaria.php");
-
 $id = isset($_GET['id']) ? $_GET['id'] : null;
 
+include 'include/verificar_sesion_docente.php';
 if (!verificar_sesion($conexion)) {
   echo "<script>
                 alert('Error Usted no cuenta con permiso para acceder a esta página');
                 window.location.replace('index.php');
-    		</script>";
+        </script>";
 }else {
 
     $id_docente_sesion = buscar_docente_sesion($conexion, $_SESSION['id_sesion'], $_SESSION['token']);
   
-    $oferta_laboral = buscarOfertaLaboralById($conexion, $id);
+    $oferta_laboral = buscarOfertaLaboralByIdIestp($conexion, $id);
     $convocatoria = mysqli_fetch_array($oferta_laboral);    
 
 ?>
@@ -86,7 +85,7 @@ if (!verificar_sesion($conexion)) {
                         <section class="panel">
                             <div align="center">
                                 <br>
-                                <a href="convocatorias.php" class="btn btn-danger"><i class="fa fa-mail-reply"></i>  Regresar</a>
+                                <a href="convocatorias_docente.php" class="btn btn-danger"><i class="fa fa-mail-reply"></i>  Regresar</a>
                                 <br><br>
                             </div>
                             <div class="alert-info <?php echo determinarEstado($convocatoria['fecha_inicio'], $convocatoria['fecha_fin'])?>" role="alert" align="center">
@@ -98,12 +97,12 @@ if (!verificar_sesion($conexion)) {
                                     <br>
                                     <p class="title">Enlace de la convocatoria</p>
                                     <?php echo '
-                                    <a href="'.$convocatoria['link_postulacion'] .'" class="blue" target="_blank">Ir al enlace</a>
+                                    <a href="'.$convocatoria['link_postulacion'] .'" class="blue">Ir al enlace</a>
                                     '; ?>
                                 </div>
                                 <br>
                                 <ul class="list-unstyled project_files">
-                                    <li><strong>Empresa: </strong> <br> <?php echo  buscarEmpresaByIdOferta($conexion, $id)?>
+                                    <li><strong>Empresa: </strong> <br> <?php echo $convocatoria['empresa']?>
                                     </li>
                                     <li><strong>Lugar de Trabajo: </strong> <br> <?php echo $convocatoria['ubicacion'] ?>
                                     </li>
@@ -117,7 +116,7 @@ if (!verificar_sesion($conexion)) {
                                     </li>
                                     <li><strong>Carreras de Interés: </strong> <br> 
                                     <p>
-                                    <?php $programas = buscarProgramasByIdOferta($conexion,$convocatoria['id']);
+                                    <?php $programas = buscarProgramasByIdOfertaIestp($conexion,$convocatoria['id']);
                                         while ($programa = mysqli_fetch_array($programas)) {
                                             echo $programa['nombre']. "<br>";
                                         }
@@ -129,7 +128,7 @@ if (!verificar_sesion($conexion)) {
                                 <h5><strong>Documentos del proyecto</strong></h5>
                                 <ul class="list-unstyled project_files">
                                     <?php 
-                                        $res = buscarDocumentosByIdOferta($conexion, $id);
+                                        $res = buscarDocumentosByIdOfertaIestp($conexion, $id);
                                         while ($documento=mysqli_fetch_array($res)){
                                     ?>
                                     <li><a href="../empresa/<?php echo $documento['url_documento'] ?>" target="_blank"><i class="fa fa-file-pdf-o"></i><?php echo $documento['nombre_documento'] ?></a>
@@ -157,7 +156,6 @@ if (!verificar_sesion($conexion)) {
                                 <p><?php echo $convocatoria['condiciones'] ?></p>
 
                                 <br />
-                        
                             </div>
                         </section>
                     </div>

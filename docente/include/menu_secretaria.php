@@ -94,8 +94,8 @@
                     <ul class="nav child_menu">
                       <li class="sub_menu"><a href="solicitudes.php">Solicitudes de Empresas</a></li>
                       <li class="sub_menu"><a href="empresas.php">Empresas</a></li>
-                      <li class="sub_menu"><a href="convocatorias.php">Convocatorias - Empresas</a></li>
-                      <li class="sub_menu"><a href="mis_convocatorias.php">Mis Convocatorias</a></li>
+                      <li class="sub_menu"><a href="convocatorias.php">Convocatorias</a></li>
+                      <!--<li class="sub_menu"><a href="mis_convocatorias.php">Mis Convocatorias</a></li> -->
                       <li class="sub_menu"><a href="convocatorias_archivadas.php">Convocatorias Archivadas</a></li>
                       <li class="sub_menu"><a href="convocatoria_reportes.php">Reportes</a></li>
                     </ul>

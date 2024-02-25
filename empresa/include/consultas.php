@@ -7,7 +7,7 @@ function buscarSolicitudEmpresa($conexion){
 }
 
 function buscarEmpresas($conexion){
-	$sql = "SELECT * FROM empresa WHERE estado = 'Activo'";
+	$sql = "SELECT * FROM empresa WHERE estado = 'Activo' OR estado = 'Inactivo'";
 	$res = mysqli_query($conexion, $sql);
     return $res;
 }
@@ -145,7 +145,7 @@ function buscarDocumentosByIdOfertaIestp($conexion, $id_oferta){
 }
 
 function buscarPostulantesByIdOferta($conexion, $id_ol){
-	$sql = "SELECT op.url_documento, es.dni, es.apellidos_nombres, es.telefono, es.correo FROM oferta_postulantes op INNER JOIN estudiante es ON op.id_es = es.id WHERE op.id_ol = $id_ol AND propietario != 'iestp'";
+	$sql = "SELECT op.url_documento, es.dni, es.apellidos_nombres, es.telefono, es.correo FROM oferta_postulantes op INNER JOIN estudiante es ON op.id_es = es.id WHERE op.id_ol = $id_ol";
 	$res = mysqli_query($conexion, $sql);
 	return $res;
 }
@@ -179,6 +179,75 @@ function buscarTotalOfertasArchivadas($conexion){
 	return $res;
 }
 
+function buscarTotalOfertasEmpresaArchivadas($conexion){
+	$sql = "SELECT ol.*, e.razon_social as empresa, 'empresa' as propietario FROM oferta_laboral ol INNER JOIN empresa e ON e.id = ol.id_empresa WHERE ol.estado = 'ARCHIVADO'";
+	$res = mysqli_query($conexion, $sql);
+	return $res;
+}
+//-----------BUSQUEDA DE REPORTES----------------
+function buscarTotalOfertasReporte($conexion, $year, $month){
+	$sql = "SELECT ol.*, e.razon_social as empresa, 'empresa' as propietario FROM oferta_laboral ol 
+	INNER JOIN empresa e ON e.id = ol.id_empresa WHERE MONTH(ol.fecha_fin) = '$month' AND YEAR(ol.fecha_fin) = '$year'";
+	$res = mysqli_query($conexion, $sql);
+	return $res;
+}
+
+function buscarEmpresasReporte($conexion, $year, $month){
+	$sql = "SELECT e.id, e.estado, e.ruc, e.razon_social as empresa, e.ubicacion, COUNT(op.id_es) as postulantes FROM oferta_laboral ol 
+	INNER JOIN empresa e ON e.id = ol.id_empresa INNER JOIN oferta_postulantes op ON op.id_ol = ol.id WHERE MONTH(ol.fecha_fin) = '$month' 
+	AND YEAR(ol.fecha_fin) = '$year' GROUP BY  e.id
+    UNION
+    SELECT
+    e.id,
+    e.estado,
+    e.ruc,
+    e.razon_social AS empresa,
+    e.ubicacion,
+    0 AS postulantes
+	FROM
+		empresa e
+	WHERE
+		NOT EXISTS (
+			SELECT
+				1
+			FROM
+				oferta_laboral ol
+			WHERE
+				ol.id_empresa = e.id
+				AND MONTH(ol.fecha_fin) = '$month'
+				AND YEAR(ol.fecha_fin) = '$year'
+				
+    ) AND e.estado = 'Activo' OR e.estado = 'Inactivo'" ;
+	$res = mysqli_query($conexion, $sql);
+	return $res;
+}
+
+function buscarProgramasReporte($conexion, $year, $month){
+	$sql = "SELECT p.* , COUNT(op.id_es) as postulantes FROM oferta_laboral ol 
+	INNER JOIN oferta_programas opp ON opp.id_ol = ol.id INNER JOIN oferta_postulantes op ON op.id_ol = ol.id 
+    INNER JOIN programa_estudios p ON op.id_ol = p.id 
+    WHERE MONTH(ol.fecha_fin) = '$month' AND YEAR(ol.fecha_fin) = '$year' GROUP BY  p.id
+    UNION
+    SELECT
+    p.*,
+    0 AS postulantes
+	FROM
+		programa_estudios p
+	WHERE
+		NOT EXISTS (
+			SELECT
+				1
+			FROM
+				oferta_programas opp
+				INNER JOIN oferta_laboral ol ON opp.id_ol = ol.id
+			WHERE
+				opp.id_pr = p.id
+				AND MONTH(ol.fecha_fin) = '$month'
+				AND YEAR(ol.fecha_fin) = '$year'
+		)" ;
+	$res = mysqli_query($conexion, $sql);
+	return $res;
+}
 
 /*       SESIONES EMPRESA       */
 

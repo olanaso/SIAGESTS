@@ -82,6 +82,7 @@ if (!verificar_sesion($conexion)) {
                             <th>Fin de convocatoria</th>
                             <th>Fecha anulada</th>
                             <th>Estado</th>
+                            <th>Acciones</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -94,14 +95,51 @@ if (!verificar_sesion($conexion)) {
                             <td><?php echo $ofertas['vacantes']; ?></td>
                             <td><?php echo $ofertas['fecha_inicio']; ?></td>
                             <td><?php echo $ofertas['fecha_fin']; ?></td>
-                            <td><?php echo $ofertas['fecha_fin']; ?></td>
+                            <td><?php echo $ofertas['fecha_estado']; ?></td>
                             <td>
                                 <span class="badge badge-danger"><?php echo $ofertas['estado']; ?></span>
                             </td>
+                            <td>
+                            <?php echo '
+                            <button class="btn btn-danger" data-toggle="modal" title="Eliminar documentos" data-placement="bottom" data-target=".eliminar'.$ofertas['id'].'"><i class="fa fa-trash"></i></button>
+                            </td> ' ?>
                           </tr>  
-                          <?php
-                            };
-                          ?>
+                            <div class="modal fade eliminar<?php echo  $ofertas['id'] ?>" tabindex="-1" role="dialog" aria-hidden="true">
+                              <div class="modal-dialog modal-lg">
+                                  <div class="modal-content">
+                                      <div class="modal-header">
+                                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                          </button>
+                                          <h4 class="modal-title" id="myModalLabel" align="center">Eliminar Archivos de  Convocatoria</h4>
+                                      </div>
+                                      <div class="modal-body">
+                                          <!--INICIO CONTENIDO DE MODAL-->
+                                          <div class="x_panel">
+
+                                              <div class="" align="center">
+                                                  <h2></h2>
+                                                  <div class="clearfix"></div>
+                                              </div>
+                                              <div class="x_content">
+                                                  <b>Tenga en consideración que al momento de aceptar, se eliminaran todos los archivos relacionados con la convocatoria "<?php echo $ofertas['titulo']; ?>". Mas no la información sensible para los reportes.</b>
+                                                  <br /><br>
+                                                  <form role="form" action="operaciones/eliminar_documentos.php" class="form-horizontal form-label-left input_mask" method="POST">
+                                                    <input type="hidden" name="id" value="<?php echo $ofertas['id']; ?>">
+                                                    <div align="center">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+
+                                                        <input type="submit" class="btn btn-primary" value="Eliminar">
+                                                    </div>
+                                                  </form>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                            <?php
+                              };
+                            ?>
 
                         </tbody>
                       </table>

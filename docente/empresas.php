@@ -79,6 +79,7 @@ if (!verificar_sesion($conexion)) {
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
+                    <a href="registrar_empresa.php" class="btn btn-primary"><i class="fa fa-plus-square"></i> Registrar Empresa</a> <br><br>
                     <table id="empresas" class="table table-striped table-bordered" style="width:100%">
                       <thead>
                         <tr>
@@ -90,6 +91,7 @@ if (!verificar_sesion($conexion)) {
                           <th>Contacto</th>
                           <th>Correo Electronico</th>
                           <th>Celular/Telefono</th>
+                          <th>Acciones</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -99,17 +101,99 @@ if (!verificar_sesion($conexion)) {
                         ?>
                         <tr>
                           <td><?php echo $empresa['estado']; ?></td>
-                          <td><?php echo $empresa['ruta_logo']; ?></td>
+                          <td>
+                            <img height="45" src=" <?php echo $empresa['ruta_logo']; ?>" alt="">  
+                          </td>
                           <td><?php echo $empresa['razon_social']; ?></td>
                           <td><?php echo $empresa['ruc']; ?></td>
                           <td><?php echo $empresa['ubicacion']; ?></td>
                           <td><?php echo $empresa['contacto']; ?></td>
                           <td><?php echo $empresa['correo_institucional']; ?></td>
                           <td><?php echo $empresa['celular_telefono']; ?></td>
-                        </tr>  
-                        <?php
-                          };
-                        ?>
+                          <td>
+                            <?php echo '
+                            <a href="editar_empresa.php?id='. $empresa['id'] . '" class="btn btn-warning" data-toggle="tooltip" data-original-title="Editar" data-placement="bottom"><i class="fa fa-edit"></i></a>';
+                            if($empresa['estado'] == 'Activo'){
+                              echo '<button class="btn btn-danger" data-toggle="modal" title="Deshabilitar" data-placement="bottom" data-target=".deshabilitar'. $empresa['id'].'"><i class="fa fa-lock"></i></button>';}
+                            if ($empresa['estado'] == 'Inactivo'){
+                              echo '<button class="btn btn-success" data-toggle="modal" title="Habilitar" data-placement="bottom" data-target=".habilitar'. $empresa['id'].'"><i class="fa fa-check-square"></i></button>
+                             </td> ';
+                              }
+                             ?>
+                          </tr>  
+
+                          <div class="modal fade deshabilitar<?php echo $empresa['id'] ?>" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                        </button>
+                                        <h4 class="modal-title" id="myModalLabel" align="center">Deshabilitar Empresa</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <!--INICIO CONTENIDO DE MODAL-->
+                                        <div class="x_panel">
+
+                                            <div class="" align="center">
+                                                <h2></h2>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="x_content">
+                                                <b>Tenga en consideración que al aceptar, la empresa ya no tendra acceso a publicar ofertas laborales.
+                                                  Desea deshabilitar la empresa "<?php echo $empresa['razon_social']; ?>"?</b>
+                                                <br /><br>
+                                                <form role="form" action="operaciones/deshabilitar_empresa.php" class="form-horizontal form-label-left input_mask" method="POST">
+                                                  <input type="hidden" name="id" value="<?php echo $empresa['id']; ?>">
+                                                  <div align="center">
+                                                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+
+                                                      <input type="submit" class="btn btn-primary" value="Deshabilitar">
+                                                  </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade habilitar<?php echo $empresa['id'] ?>" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                        </button>
+                                        <h4 class="modal-title" id="myModalLabel" align="center">Habilitar Empresa</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <!--INICIO CONTENIDO DE MODAL-->
+                                        <div class="x_panel">
+
+                                            <div class="" align="center">
+                                                <h2></h2>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="x_content">
+                                                <b>Tenga en consideración que al aceptar, la empresa tendrá acceso a publicar ofertas laborales.
+                                                  Desea habilitar la empresa "<?php echo $empresa['razon_social']; ?>"?</b>
+                                                <br /><br>
+                                                <form role="form" action="operaciones/habilitar_empresa.php" class="form-horizontal form-label-left input_mask" method="POST">
+                                                  <input type="hidden" name="id" value="<?php echo $empresa['id']; ?>">
+                                                  <div align="center">
+                                                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+
+                                                      <input type="submit" class="btn btn-primary" value="Habilitar">
+                                                  </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                          <?php
+                            };
+                          ?>
 
                       </tbody>
                     </table>

@@ -12,7 +12,7 @@ $ejec_busc = buscarEmpresaUsuario($conexion, $usuario);
 $res_busc = mysqli_fetch_array($ejec_busc);
 $cont = mysqli_num_rows($ejec_busc);
 
-if (($cont == 1) && (password_verify($pass, $res_busc['password']))) {
+if (($cont == 1) && (password_verify($pass, $res_busc['password'])) && $res_busc['estado'] == "Activo") {
 	$id_empresa = $res_busc['id'];
 
 	session_start();

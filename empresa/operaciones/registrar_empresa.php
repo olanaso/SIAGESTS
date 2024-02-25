@@ -20,6 +20,10 @@
 
         $rutaDestino = "";
 
+        if ($tamañoArchivo === 0) {
+            // No se ha subido ningún archivo
+            $rutaDestino = '../files/img_defaul_empresa.png';
+        }
         // Verificar si no hubo errores al subir la imagen
         if($errorArchivo === 0) {
             // Mover la imagen de la ubicación temporal a la ubicación deseada

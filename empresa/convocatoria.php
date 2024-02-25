@@ -118,7 +118,7 @@ if (!verificar_sesion($conexion)) {
                             <a href="convocatoria_documento.php?id='. $ofertas['id'] . '" class="btn btn-primary" data-toggle="tooltip" data-original-title="Ver Documentos" data-placement="bottom"><i class="fa fa-file"></i></a>
                             <a href="convocatoria_postulantes.php?id='. $ofertas['id'] . '" class="btn btn-info" data-toggle="tooltip" data-original-title="Ver Postulantes" data-placement="bottom"><i class="fa fa-bar-chart"></i></a>
                             <a href="editar_convocatoria.php?id='. $ofertas['id'] . '" class="btn btn-warning" data-toggle="tooltip" data-original-title="Editar" data-placement="bottom"><i class="fa fa-edit"></i></a>
-                            <button class="btn btn-danger" data-toggle="modal" data-original-title="Archivar" data-placement="bottom" data-target=".anular'. $ofertas['id'].'"><i class="fa fa-lock"></i></button>
+                            <button class="btn btn-danger" data-toggle="modal" title="Archivar" data-placement="bottom" data-target=".anular'. $ofertas['id'].'">Archivar</button>
                             </td> ' ?>
                           </tr>  
 

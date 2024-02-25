@@ -130,7 +130,11 @@
                                             <td><?php echo $ofertas['fecha_inicio']; ?></td>
                                             <td><?php echo $ofertas['fecha_fin']; ?></td>
                                             <td>
-                                                <span class="badge <?php echo determinarEstado($ofertas['fecha_inicio'], $ofertas['fecha_fin'])?>"><?php echo determinarEstado($ofertas['fecha_inicio'], $ofertas['fecha_fin']) ?></span>
+                                                <?php if($ofertas['estado'] == "ARCHIVADO"){?>
+                                                    <span class="badge <?php echo $ofertas['estado']?>"><?php echo $ofertas['estado'] ?></span>
+                                                <?php }else{ ?>
+                                                    <span class="badge <?php echo determinarEstado($ofertas['fecha_inicio'], $ofertas['fecha_fin'])?>"><?php echo determinarEstado($ofertas['fecha_inicio'], $ofertas['fecha_fin']) ?></span>
+                                                <?php } ?>
                                             </td>
                                             <td>
                                             <?php

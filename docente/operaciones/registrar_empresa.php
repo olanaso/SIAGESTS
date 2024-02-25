@@ -1,4 +1,5 @@
 <?php
+
 include "../../include/conexion.php";
 include "../../include/busquedas.php";
 include "../../caja/consultas.php";
@@ -20,9 +21,6 @@ if (!verificar_sesion($conexion)) {
 				  window.location.replace('../../login/');
 			  </script>";
   }else {
-
-    $id = $_POST["id"];
-    $motivo = $_POST["motivo"];
 
     function generarPass() {
         // Generar 5 letras minúsculas aleatorias
@@ -46,40 +44,47 @@ if (!verificar_sesion($conexion)) {
 
     
 
-    if (isset($_POST['rechazar'])) {
+    include("../../include/conexion.php");
+    // Verificar si se ha enviado el formulario
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Obtener los datos del formulario
+        $nombre_empresa = $_POST["nombre_empresa"];
+        $ruc = $_POST["ruc"];
+        $ubicacion = $_POST["ubicacion"];
+        $contacto = $_POST["contacto"];
+        $cargo = $_POST["cargo"];
+        $correo = $_POST["correo"];
+        $celular = $_POST["celular"];
 
-        // Consulta para insertar los datos en la base de datos
-        $sql = "UPDATE `empresa` SET `estado`='Rechazado',`motivo_estado`='$motivo' WHERE id = $id";
-        $res = mysqli_query($conexion, $sql);
-        if ($res) {
-            
-            echo "<script>
-            alert('Se ha rechazado a la empresa!!');
-            window.location.replace('../solicitudes.php');
-            </script>";
-        } else {
-            echo "<script>
-            alert('Ops, Ocurrio un error al guardar!');
-            window.history.back();
-            </script>";
+        $nombreArchivo = $_FILES['logo']['name'];
+        $tipoArchivo = $_FILES['logo']['type'];
+        $tamañoArchivo = $_FILES['logo']['size'];
+        $tempArchivo = $_FILES['logo']['tmp_name'];
+        $errorArchivo = $_FILES['logo']['error'];
+
+        $rutaDestino = "";
+
+        if ($tamañoArchivo === 0) {
+            // No se ha subido ningún archivo
+            $rutaDestino = '../../empresa/files/img_defaul_empresa.png
+            ';
         }
-
-        // Cerrar la conexión a la base de datos
-        $conexion->close();
+        // Verificar si no hubo errores al subir la imagen
+        if($errorArchivo === 0) {
+            // Mover la imagen de la ubicación temporal a la ubicación deseada
+            $rutaDestino = '../../empresa/files/' . $nombreArchivo;
+            move_uploaded_file($tempArchivo, $rutaDestino);
         
-    } elseif (isset($_POST['aceptar'])) {
+        }
 
         $passPlano = generarPass();
         $pass = password_hash($passPlano, PASSWORD_DEFAULT);
+
         // Consulta para insertar los datos en la base de datos
-        $sql = "UPDATE `empresa` SET `estado`='Activo',`motivo_estado`='$motivo',`password`='$pass' WHERE id = $id";
+        $sql = "INSERT INTO `empresa`(`razon_social`, `ruc`, `correo_institucional`, `ubicacion`, `contacto`, `cargo` , `celular_telefono`, `estado`, `usuario`, `ruta_logo`)
+            VALUES ('$nombre_empresa' ,'$ruc', '$correo', '$ubicacion', '$contacto', '$cargo', '$celular', 'Activo', '$correo', '$rutaDestino')";
         $res = mysqli_query($conexion, $sql);
-
-        $b_emp = buscarEmpresaById($conexion, $id);
-        $r_b_emp = mysqli_fetch_array($b_emp);
-        
         if ($res) {
-
             $b_datos_institucion = buscarDatosGenerales($conexion);
             $r_b_datos_institucion = mysqli_fetch_array($b_datos_institucion);
 
@@ -104,7 +109,7 @@ if (!verificar_sesion($conexion)) {
                 $titulo_correo = 'SISPA '.$r_b_datos_sistema['titulo'];
                 //Recipients
                 $mail->setFrom($r_b_datos_sistema['email_email'], $titulo_correo);
-                $mail->addAddress($r_b_emp['correo_institucional'], $r_b_emp['contacto']);     //Add a recipient
+                $mail->addAddress($correo, $contacto);     //Add a recipient
                 //$mail->addAddress('ellen@example.com');               //Name is optional
                 //$mail->addReplyTo('info@example.com', 'Information');
                 //$mail->addCC('cc@example.com');
@@ -138,7 +143,7 @@ if (!verificar_sesion($conexion)) {
                             
                                         Hola, para poder acceder a su modulo de bolsa laboral, Haz click <a href="'.$link.'">Aquí</a>.<br>
                                         
-                                        Usuario: '.$r_b_emp['correo_institucional'].'<br>
+                                        Usuario: '.$correo.'<br>
                                         Contraseña: '.$passPlano.'<br>
 
                                         <br>
@@ -165,21 +170,17 @@ if (!verificar_sesion($conexion)) {
                 //$mail->AltBody = '';
 
                 $mail->send();
-                //echo 'Correo enviado';
-                $sql = "UPDATE empresa SET reset_password=1, token_password='$llave' WHERE id='$id_emp'";
-                $ejec_consulta = mysqli_query($conexion, $sql);
                 
             } catch (Exception $e) {
                 echo "Error correo: {$mail->ErrorInfo}";
             }
-
             echo "<script>
-            alert('Se ha aceptado a la empresa de manera exitosa!!');
-            window.location.replace('../solicitudes.php');
+            alert('Su registro ha sido exitoso y se ha enviado un correo a la empresa!');
+            window.location.replace('../empresas.php');
             </script>";
         } else {
             echo "<script>
-            alert('Ops, Ocurrio un error al guardar!');
+            alert('Ops, Tuvimos un problema, vuelva a intentarlo despúes de un rato!');
             window.history.back();
             </script>";
         }

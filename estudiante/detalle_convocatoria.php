@@ -21,6 +21,7 @@
         $oferta_laboral = buscarOfertaLaboralByIdIestp($conexion, $id);
         $convocatoria = mysqli_fetch_array($oferta_laboral);    
 
+        $estado = determinarEstado($convocatoria['fecha_inicio'], $convocatoria['fecha_fin']);
 ?>
 <!DOCTYPE html>
 <html lang="es">

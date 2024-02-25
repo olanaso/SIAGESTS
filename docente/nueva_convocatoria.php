@@ -129,7 +129,7 @@ if (!verificar_sesion($conexion)) {
                                             class="required">* :</span>
                                     </label>
                                     <div class="col-md-9 col-sm-9 ">
-                                        <input type="text" id="empresa" name="empresa" required="required" class="form-control  ">
+                                        <input type="text" id="empresa" name="empresa" required="required" onkeyup="javascript:this.value=this.value.toUpperCase();" class="form-control  ">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -137,7 +137,7 @@ if (!verificar_sesion($conexion)) {
                                             class="required">* :</span>
                                     </label>
                                     <div class="col-md-9 col-sm-9 ">
-                                        <input type="text" id="titulo" name="titulo" required="required" class="form-control  ">
+                                        <input type="text" id="titulo" name="titulo" required="required" onkeyup="javascript:this.value=this.value.toUpperCase();" class="form-control  ">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -145,7 +145,7 @@ if (!verificar_sesion($conexion)) {
                                             class="required">* : </span>
                                     </label>
                                     <div class="col-md-9 col-sm-9 ">
-                                        <input type="text" id="ubicacion" name="ubicacion" required="required"
+                                        <input type="text" id="ubicacion" name="ubicacion" required="required" onkeyup="javascript:this.value=this.value.toUpperCase();"
                                             class="form-control ">
                                     </div>
                                 </div>
@@ -154,7 +154,7 @@ if (!verificar_sesion($conexion)) {
                                             class="required">* : </span>
                                     </label>
                                     <div class="col-md-9 col-sm-9">
-                                        <input type="number" id="vacante" name="vacante" data-validate-minmax="1,20" required="required"
+                                        <input type="number" id="vacante" name="vacante" data-validate-minmax="1,20" required="required" 
                                             class="form-control ">
                                     </div>
                                 </div>
@@ -171,9 +171,9 @@ if (!verificar_sesion($conexion)) {
                                     <label for="modalidad" class="col-form-label col-md-3 col-sm-3 label-align">Modalidad * :</label>
                                     <div class="col-md-9 col-sm-9 ">
                                                 <select class="form-control" id="modalidad" name="modalidad" required="required">
-                                                    <option value="Presencial">Presencial</option>
-                                                    <option value="Semipresencial">Semipresencial</option>
-                                                    <option value="Remoto">Remoto</option>
+                                                    <option value="PRESENCIAL">Presencial</option>
+                                                    <option value="SEMIPRESENCIAL">Semipresencial</option>
+                                                    <option value="REMOTO">Remoto</option>
                                                 </select>
                                     </div>
                                 </div>
@@ -232,7 +232,7 @@ if (!verificar_sesion($conexion)) {
                                     <label class="col-form-label col-md-3 col-sm-3 label-align">Requisitos * :
                                     </label>
                                     <div class="col-md-9 col-sm-9 ">
-                                        <textarea class="form-control" required="required" name="requisitos" rows="5"></textarea>
+                                        <textarea class="form-control" required="required" name="requisitos" rows="5" ></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">

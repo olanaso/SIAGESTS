@@ -14,12 +14,12 @@ if (!verificar_sesion($conexion)) {
 
     $id = $_POST['id'];
 
-    $sql = "UPDATE oferta_laboral_propia SET estado = 'ARCHIVADO' WHERE id = $id";
+    $sql = "UPDATE oferta_laboral SET estado = 'ARCHIVADO' WHERE id = $id";
     $res = mysqli_query($conexion, $sql);
         if ($res) {
             echo "<script>
             alert('Se ha archivado la convocatoria de manera exitosa!!');
-            window.location.replace('../mis_convocatorias.php');
+            window.location.replace('../convocatorias.php');
             </script>";
         } else {
             echo "<script>

@@ -121,7 +121,7 @@ if (!verificar_sesion($conexion)) {
                             <td>
                             <?php echo '
                             <a href="detalle_convocatoria_empresa.php?id='. $ofertas['id'] . '" class="btn btn-success" data-toggle="tooltip" data-original-title="Ver Detalles" data-placement="bottom"><i class="fa fa-eye"></i></a>
-                            <button class="btn btn-danger" data-toggle="modal" data-original-title="Archivar" data-placement="bottom" data-target=".anular'. $ofertas['id'].'"><i class="fa fa-lock"></i></button>
+                            <button class="btn btn-danger" data-toggle="modal" title="Archivar" data-placement="bottom" data-target=".anular'. $ofertas['id'].'">Archivar</button>
                             </td> ' ?>
                           </tr>  
 

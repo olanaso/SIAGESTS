@@ -21,6 +21,7 @@
         $oferta_laboral = buscarOfertaLaboralById($conexion, $id);
         $convocatoria = mysqli_fetch_array($oferta_laboral);    
 
+        $estado = determinarEstado($convocatoria['fecha_inicio'], $convocatoria['fecha_fin']);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -166,9 +167,13 @@
                                 <p><?php echo $convocatoria['condiciones'] ?></p>
 
                                 <br />
+                                <?php
+                                if($estado == "En proceso") {
+                                ?>
                                 <div class="text-right mtop20">
                                     <a href="postular.php?id=<?php echo $convocatoria['id']; ?>"  class="btn btn-sm btn-primary">Quiero Postular</a>
                                 </div>
+                                <?php }?>
                             </div>
                         </section>
                     </div>

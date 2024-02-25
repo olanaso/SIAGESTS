@@ -23,7 +23,7 @@
                 <ul class="nav side-menu">
                   <li><a href="../empresa/"><i class="fa fa-home"></i>Inicio</a>
                   </li>
-                  <li><a><i class="fa fa-pencil-square-o"></i> Ofertas Laborales <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-briefcase"></i> Ofertas Laborales <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li class="sub_menu"><a href="convocatoria.php"> Convocatorias </a></li>
                       <li class="sub_menu"><a href="archivado.php"> Archivados</a></li>

@@ -66,16 +66,15 @@ if (!verificar_sesion($conexion)) {
                     <div class="col-md-3 col-sm-3  ">
                         <section class="panel">
                             <div class="panel-body">
-                                <div class="project_detail">
+                                <div class="project_detail" align="center" >
+                                    <img src="<?php echo $empresa['ruta_logo'] ?>" height="80" width="80" target = "Logo de la empresa" class="img-circle ">
                                     <h3 class="title"><?php echo $empresa['razon_social'] ?></h3>
                                     <p>R.U.C. <?php echo $empresa['ruc'] ?></p>
                                 </div>
-                                <br>
                                 <ul class="list-unstyled project_files">
                                     <li><strong>Ubicación: </strong> <br> <?php echo $empresa['ubicacion'] ?>
                                     </li>
                                 </ul>
-                                <br />
                                 <h5><strong>Información de contacto</strong></h5>
                                 <ul class="list-unstyled project_files">
                                     <li><a href><i class="fa fa-user"></i> <?php echo $empresa['contacto']?></a>
@@ -87,7 +86,10 @@ if (!verificar_sesion($conexion)) {
                                     <li><a href><i class="fa fa-user"></i><?php echo $empresa['celular_telefono'] ?></a>
                                     </li>
                                 </ul>
-                                
+                                <br>
+                                <div align="center">
+                                    <a href="editar_empresa.php" class="btn btn-primary" data-toggle="tooltip" data-original-title="Actualizar información" data-placement="bottom"><i class="fa fa-edit"></i> Editar</a>
+                                </div>
                             </div>
                         </section>
                     </div>

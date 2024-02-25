@@ -140,9 +140,9 @@ if (!verificar_sesion($conexion)) {
                                     <label for="modalidad" class="col-form-label col-md-3 col-sm-3 label-align">Modalidad * :</label>
                                     <div class="col-md-9 col-sm-9 ">
                                                 <select class="form-control" id="modalidad" name="modalidad" required="required">
-                                                    <option value="Presencial">Presencial</option>
-                                                    <option value="Semipresencial">Semipresencial</option>
-                                                    <option value="Remoto">Remoto</option>
+                                                    <option value="PRESENCIAL">Presencial</option>
+                                                    <option value="SEMIPRESENCIAL">Semipresencial</option>
+                                                    <option value="REMOTO">Remoto</option>
                                                 </select>
                                     </div>
                                 </div>
