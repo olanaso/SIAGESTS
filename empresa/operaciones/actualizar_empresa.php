@@ -27,17 +27,26 @@ if (!verificar_sesion($conexion)) {
     $errorArchivo = $_FILES['logo']['error'];
 
     $rutaDestino = "";
+    $tieneLogo = false;
 
-    if ($nombreArchivo !== "Actualizar") {
-        // No se ha subido ningún archivo
-        $rutaDestino = '../files/img_defaul_empresa.png';
+    $empresa = buscarEmpresaById($conexion, $id);
+    $empresa = mysqli_fetch_array($empresa);
+    $empresaLogo = $empresa['ruta_logo'];
+
+    if($empresaLogo != "files/img_defaul_empresa.png"){
+        $tieneLogo = true;
     }
-    // Verificar si no hubo errores al subir la imagen
+
     if($errorArchivo === 0) {
-        // Mover la imagen de la ubicación temporal a la ubicación deseada
         $rutaDestino = '../files/' . $nombreArchivo;
         move_uploaded_file($tempArchivo, $rutaDestino);
-    
+        $tieneLogo = true;
+    } else {
+        if(!$tieneLogo){
+            $rutaDestino = '../files/img_defaul_empresa.png';
+        }else{
+            $rutaDestino = "../". $empresaLogo;
+        }
     }
 
     $rutaDestino = substr($rutaDestino,3);
@@ -53,7 +62,7 @@ if (!verificar_sesion($conexion)) {
         </script>";
     } else {
         echo "<script>
-        alert('Ops, Ocurrio un error al guardar!');
+        alert('Ops, ha ocurrido un error! No utilice un RUC o correo electrónico ya registrados.');
         window.history.back();
         </script>";
     }

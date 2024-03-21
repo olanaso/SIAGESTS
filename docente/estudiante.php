@@ -65,6 +65,7 @@ if (!verificar_sesion($conexion)) {
                   <div class="">
                     <h2 align="center">Estudiantes</h2>
                     <button class="btn btn-success" data-toggle="modal" data-target=".registrar"><i class="fa fa-plus-square"></i> Nuevo</button>
+                    <a href="importar_estudiantes.php" class="btn btn-primary"><i class="fa fa-cloud-upload"></i> Importar Estudiantes</a>
 
                     <div class="clearfix"></div>
                   </div>
@@ -79,7 +80,7 @@ if (!verificar_sesion($conexion)) {
                           <th>Apellidos y Nombres</th>
                           <th>Telefono</th>
                           <th>Programa de Estudios</th>
-                          <th>Semestre</th>
+                          <th>Semestre / Ciclo</th>
                           <th>Acciones</th>
                         </tr>
                       </thead>
@@ -242,7 +243,7 @@ if (!verificar_sesion($conexion)) {
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Semestre : </label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Semestre / Ciclo : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                           <select class="form-control" id="semestre" name="semestre" value="" required="required">
                             <option></option>
@@ -271,7 +272,10 @@ if (!verificar_sesion($conexion)) {
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Turno : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="turno" required="required" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" maxlength="20" value="MAÑANA">
+                          <select class="form-control" name="turno" value="" required="required">
+                            <option value="MAÑANA">MAÑANA</option>
+                            <option value="TARDE">TARDE</option>
+                          </select>
                           <br>
                         </div>
                       </div>

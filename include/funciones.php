@@ -122,7 +122,7 @@ function sesion_si_activa_estudiante($conexion, $id_sesion, $token)
 function actualizar_sesion($conexion, $id_sesion)
 {
     $hora_actual = date("Y-m-d H:i:s");
-    $nueva_fecha_hora_fin = strtotime('+1 minute', strtotime($hora_actual));
+    $nueva_fecha_hora_fin = strtotime('+30 minute', strtotime($hora_actual));
     $nueva_fecha_hora_fin = date("Y-m-d H:i:s", $nueva_fecha_hora_fin);
 
     $actualizar = "UPDATE sesion SET fecha_hora_fin='$nueva_fecha_hora_fin' WHERE id=$id_sesion";
@@ -132,7 +132,7 @@ function actualizar_sesion($conexion, $id_sesion)
 function actualizar_sesion_estudiante($conexion, $id_sesion)
 {
     $hora_actual = date("Y-m-d H:i:s");
-    $nueva_fecha_hora_fin = strtotime('+1 minute', strtotime($hora_actual));
+    $nueva_fecha_hora_fin = strtotime('+30 minute', strtotime($hora_actual));
     $nueva_fecha_hora_fin = date("Y-m-d H:i:s", $nueva_fecha_hora_fin);
 
     $actualizar = "UPDATE sesion_estudiante SET fecha_hora_fin='$nueva_fecha_hora_fin' WHERE id=$id_sesion";

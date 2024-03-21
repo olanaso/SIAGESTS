@@ -17,7 +17,7 @@ if (!verificar_sesion($conexion)) {
 
     $id_docente_sesion = buscar_docente_sesion($conexion, $_SESSION['id_sesion'], $_SESSION['token']);
   
-    $oferta_laboral = buscarOfertaLaboralByIdIestp($conexion, $id);
+    $oferta_laboral = buscarOfertaLaboralById($conexion, $id);
     $convocatoria = mysqli_fetch_array($oferta_laboral);    
 
 ?>
@@ -77,7 +77,7 @@ if (!verificar_sesion($conexion)) {
 	<div class="container body">
 		<div class="main_container">
 			<?php
-			include("include/menu_secretaria.php"); ?>
+			include("include/menu_docente.php"); ?>
 			<!-- page content -->
 			<div class="right_col">
                 <div class="row">
@@ -88,7 +88,7 @@ if (!verificar_sesion($conexion)) {
                                 <a href="convocatorias_docente.php" class="btn btn-danger"><i class="fa fa-mail-reply"></i>  Regresar</a>
                                 <br><br>
                             </div>
-                            <div class="alert-info <?php echo determinarEstado($convocatoria['fecha_inicio'], $convocatoria['fecha_fin'])?>" role="alert" align="center">
+                            <div class="alert-error <?php echo determinarEstado($convocatoria['fecha_inicio'], $convocatoria['fecha_fin'])?>" role="alert" align="center">
                                 <strong><?php echo determinarEstado($convocatoria['fecha_inicio'], $convocatoria['fecha_fin'])?></strong>
                             </div>
                             <div class="panel-body">
@@ -116,7 +116,7 @@ if (!verificar_sesion($conexion)) {
                                     </li>
                                     <li><strong>Carreras de Interés: </strong> <br> 
                                     <p>
-                                    <?php $programas = buscarProgramasByIdOfertaIestp($conexion,$convocatoria['id']);
+                                    <?php $programas = buscarProgramasByIdOferta($conexion,$convocatoria['id']);
                                         while ($programa = mysqli_fetch_array($programas)) {
                                             echo $programa['nombre']. "<br>";
                                         }

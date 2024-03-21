@@ -442,6 +442,12 @@ function buscarAllBoletasNotas($conexion){
 	return mysqli_query($conexion, $sql);
 }
 
+function buscarNotaReptida($conexion, $dni, $id_progama, $unidad, $calificacion, $semestre, $periodo){
+	$sql = "SELECT * FROM notas_antiguo WHERE dni = '$dni' AND id_programa = '$id_progama' AND unidad_didactica = '$unidad' AND
+	calificacion = '$calificacion' AND semestre_academico = '$semestre' AND periodo = '$periodo'";
+	return mysqli_query($conexion, $sql);
+}
+
 function buscarAllCertificados($conexion){
 	$sql = "SELECT * FROM certificado_estudios";
 	return mysqli_query($conexion, $sql);
@@ -466,21 +472,55 @@ function getCertificadoByCodigo($conexion,$codigo){
 	return mysqli_query($conexion, $sql);
 }
 
+function getEstudianteNotasCertificado($conexion, $dni){
+    $sql = "SELECT unidad_didactica, cantidad_creditos, calificacion, semestre_academico 
+	FROM (
+			SELECT CONVERT(u.descripcion USING utf8mb4) AS unidad_didactica,
+			   u.creditos AS cantidad_creditos,
+			   CAST(pf.promedio AS SIGNED) AS calificacion,
+			   CONVERT(pa.nombre USING utf8mb4) AS semestre_academico
+		FROM estudiante e 
+		INNER JOIN matricula m ON e.id = m.id_estudiante
+		INNER JOIN programa_estudios p ON m.id_programa_estudio = p.id 
+		INNER JOIN periodo_academico pa ON pa.id = m.id_periodo_acad
+		INNER JOIN detalle_matricula_unidad_didactica dm ON dm.id_matricula = m.id 
+		INNER JOIN programacion_unidad_didactica pu ON pu.id_unidad_didactica = dm.id_programacion_ud 
+		INNER JOIN unidad_didactica u ON u.id = pu.id_unidad_didactica
+		INNER JOIN promedio_final pf ON pf.id_detalle_matricula = dm.id 
+		WHERE e.dni = '$dni' 
+		UNION 
+		SELECT CONVERT(na.unidad_didactica USING utf8mb4) AS unidad_didactica,
+			   na.cantidad_creditos AS cantidad_creditos,
+			   CAST(na.calificacion AS SIGNED) AS calificacion,
+			   CONVERT(na.semestre_academico USING utf8mb4) AS semestre_academico  
+		FROM notas_antiguo na 
+		WHERE dni = '$dni'
+	) AS datos_ordenados WHERE calificacion >= 13 ORDER BY semestre_academico ASC";
+    return mysqli_query($conexion,$sql);
+}
+
 function getBoletaByCodigo($conexion,$codigo){
 	$sql = "SELECT * FROM boleta_notas WHERE codigo = '$codigo'";
 	return mysqli_query($conexion, $sql);
 }
 
 //---------------------PARA ESTUDIANTES ANTIGUOS AL USO DEL SISTEMA --------------------
-function getEstudianteAntiguo($conexion, $dni){
-	$sql = "SELECT * from estudiante_antiguo WHERE dni = '$dni'";
+
+function getNotasEgresado($conexion, $dni, $programa){
+    $sql = "SELECT * FROM notas_antiguo WHERE dni = '$dni' AND id_programa = '$programa'";
     return mysqli_query($conexion,$sql);
 }
 
-function getEstudianteNotasAntigua($conexion, $dni, $programa){
-    $sql = "SELECT * from notas_antiguo WHERE dni = '$dni' AND nombre_programa = '$programa'" ;
+function getNotasImportada($conexion){
+    $sql = "SELECT * FROM notas_antiguo";
     return mysqli_query($conexion,$sql);
 }
+
+function getNotasImportadaByDni($conexion, $dni){
+    $sql = "SELECT na.*, pe.nombre  FROM notas_antiguo na INNER JOIN programa_estudios pe ON na.id_programa = pe.id WHERE dni = '$dni'";
+    return mysqli_query($conexion,$sql);
+}
+
 
 function getCalificacionFinalByDniAndPeriodo($conexion, $dni, $periodo){
 	$sql = "SELECT u.descripcion, u.creditos , CAST(ROUND(pf.promedio) AS SIGNED)  as promedio_final FROM estudiante e INNER JOIN matricula m ON e.id = m.id_estudiante
@@ -490,7 +530,6 @@ function getCalificacionFinalByDniAndPeriodo($conexion, $dni, $periodo){
     INNER JOIN promedio_final pf ON pf.id_detalle_matricula = dm.id WHERE e.dni = '$dni' AND pa.nombre = '$periodo'";
 	return mysqli_query($conexion,$sql);
 }
-
 
 
 

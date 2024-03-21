@@ -173,7 +173,6 @@ if (!verificar_sesion($conexion)) {
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Director : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12" >
                           <select class="form-control" id="director" name="director" value="" required="required">
-                            <option></option>
                           <?php
                             $busc_dir = buscarDirector_All($conexion);
                             while ($res_busc_dir = mysqli_fetch_array($busc_dir)) {
@@ -197,7 +196,7 @@ if (!verificar_sesion($conexion)) {
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Unidades Didácticas a Programar :
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Programas de Estudio a Programar :
                         </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                           <?php 

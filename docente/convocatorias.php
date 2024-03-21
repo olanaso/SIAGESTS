@@ -90,7 +90,7 @@ if (!verificar_sesion($conexion)) {
                 <div class="x_panel">
                   <div class="x_content">
                   <div class="">
-                    <h2 align="center">Convocatorias Laborales - Empresas</h2>
+                    <h2 align="center">Convocatorias Laborales</h2>
                   </div>
                   <div class="x_content">
                     <div class="">

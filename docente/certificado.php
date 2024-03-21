@@ -64,8 +64,7 @@ if (!verificar_sesion($conexion)) {
                 <div class="x_panel">
                   <div class="">
                     <h2 align="center">Certificado de Estudios</h2>
-                    <button class="btn btn-success" data-toggle="modal" data-target=".registrar"><i class="fa fa-plus-square"></i> Nuevo (Antiguo)</button>
-                    <button class="btn btn-success" data-toggle="modal" data-target=".registrar_actual"><i class="fa fa-plus-square"></i> Nuevo (Actual)</button>
+                    <button class="btn btn-success" data-toggle="modal" data-target=".registrar"><i class="fa fa-plus-square"></i> Nuevo </button>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -113,7 +112,7 @@ if (!verificar_sesion($conexion)) {
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
               </button>
-              <h4 class="modal-title" id="myModalLabel" align="center">Registrar Certificado de Estudios - Sistema Anterior</h4>
+              <h4 class="modal-title" id="myModalLabel" align="center">Registrar Certificado de Estudios</h4>
             </div>
             <div class="modal-body">
               <!--INICIO CONTENIDO DE MODAL-->

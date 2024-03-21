@@ -99,7 +99,6 @@ if (!verificar_sesion($conexion)) {
                           <tr>
                             <th>Empresa</th>
                             <th>Título de la convocatoria</th>
-                            <th>Propietario</th>
                             <th>Lugar de Trabajo</th>
                             <th>Fecha de Inicio</th>
                             <th>Fecha Fin</th>
@@ -115,7 +114,6 @@ if (!verificar_sesion($conexion)) {
                           <tr>
                             <td><?php echo $ofertas['empresa']; ?></td>
                             <td><?php echo $ofertas['titulo']; ?></td>
-                            <td> La <?php echo $ofertas['propietario']; ?></td>
                             <td><?php echo $ofertas['ubicacion']; ?></td>
                             <td><?php echo $ofertas['fecha_inicio']; ?></td>
                             <td><?php echo $ofertas['fecha_fin']; ?></td>

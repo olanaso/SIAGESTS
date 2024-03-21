@@ -12,6 +12,8 @@ include("include/verificar_sesion_secretaria.php");
 $dni = $_POST['dni'];
 $id_periodo = $_POST['periodo'];
 $num_comprobante = $_POST['comprobante'];
+$res = buscarEstudianteByDni($conexion, $dni);
+$cont = mysqli_num_rows($res);
 
 if (!verificar_sesion($conexion) || !verificarDatos($conexion, $dni, $id_periodo)) {
   echo "<script>
@@ -19,6 +21,14 @@ if (!verificar_sesion($conexion) || !verificarDatos($conexion, $dni, $id_periodo
                 window.location.replace('boleta_de_notas.php');
     		</script>";
 }else{
+    
+    if($cont == 0){
+    echo "<script>
+      alert('El alumno no exíste en la base de datos.');
+      window.location.replace('certificado.php');
+    </script>";
+  }else{
+    
     $id_docente_sesion = buscar_docente_sesion($conexion, $_SESSION['id_sesion'], $_SESSION['token']);
 
     //OPTENCIÓN DE DATOS
@@ -219,11 +229,11 @@ if (!verificar_sesion($conexion) || !verificarDatos($conexion, $dni, $id_periodo
     // Enviar el PDF al navegador
     file_put_contents($rutaArchivo, $pdfContent);
 
-    $consulta = "INSERT INTO boleta_notas (codigo ,nombre_usuario, dni_estudiante, apellidos_nombres, programa_estudio, periodo_acad ,ruta_documento,num_comprobante, fecha_emision) 
-    VALUES ('$codigo' ,'$usuario','$dni', '$estudiante' ,'$programa','$periodo','$rutaArchivo','$num_comprobante', CURRENT_TIMESTAMP())";
+    $consulta = "INSERT INTO boleta_notas (codigo ,nombre_usuario, dni_estudiante, apellidos_nombres, programa_estudio, periodo_acad ,ruta_documento,num_comprobante) 
+    VALUES ('$codigo' ,'$usuario','$dni', '$estudiante' ,'$programa','$periodo','$rutaArchivo','$num_comprobante')";
     mysqli_query($conexion, $consulta);
 
-};
+}};
 ?>
 
 <!DOCTYPE html>
@@ -375,5 +385,3 @@ if (!verificar_sesion($conexion) || !verificarDatos($conexion, $dni, $id_periodo
      <?php mysqli_close($conexion); ?>
   </body>
 </html>
-<?php
-

@@ -240,11 +240,12 @@ if ($fecha_fin_per >= $fecha_actual) {
                                         while ($res__busc_docente = mysqli_fetch_array($ejec_busc_doc)) {
                                           $id_doc = $res__busc_docente['id'];
                                           $doc = $res__busc_docente['apellidos_nombres'];
+                                          if($res__busc_docente['id_cargo'] == 4 || $res__busc_docente['id_cargo'] == 5){
                                         ?>
                                           <option value="<?php echo $id_doc;
                                                           ?>"><?php echo $doc; ?></option>
                                         <?php
-                                        }
+                                        }}
                                         ?>
                                       </select>
                                       <br>

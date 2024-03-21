@@ -1,1 +1,1 @@
-:: Sistema Gesti&oacute;n Acad&eacute;mico para IESTP | SIGAEST ::
+:: Sistema Gestion Academico para IESTP | SIGAEST ::

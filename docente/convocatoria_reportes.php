@@ -103,7 +103,7 @@ if (!verificar_sesion($conexion)) {
               <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                   <div class="x_panel">
                       <div class="x_title">
-                          <h2>Total de postulantes</h2>
+                          <h2>Total de postulantes por programas</h2>
                           <div class="clearfix"></div>
                       </div>
                       <div class="x_content">

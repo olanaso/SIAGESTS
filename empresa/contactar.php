@@ -27,7 +27,8 @@
           <div class="hidden lg:flex relative h-screen items-end px-4 pb-10 pt-60 sm:pb-16 md:justify-center lg:pb-24 bg-gray-50 sm:px-6 lg:px-8">
             <div class="absolute inset-0">
               <img
-                class="object-cover w-full h-full md:min-h-[800px]"
+                class="object-cover w-full"
+                style="height: 100vh"
                 src="https://images.pexels.com/photos/2325717/pexels-photo-2325717.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 alt=""
               />
@@ -36,23 +37,22 @@
                     $buscar = buscarDatosSistema($conexion);
                     $res = mysqli_fetch_array($buscar);
                   ?>
-            <div class="md:min-h-[850px] absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
       
             <div class="relative">
               <div class="w-full max-w-xl xl:w-full xl:mx-auto xl:pr-24 xl:max-w-xl">
                 <h3 class="text-4xl font-bold text-white">
-                  En nuestra intitución <?php echo $res['titulo']; ?> <br class="hidden xl:block" />valoramos su ínteres
+                  En nuestra intitución <?php echo $res['titulo']; ?> <br class="hidden xl:block" />valoramos su interés
                 </h3>
               </div>
             </div>
           </div>
       
-          <div class="flex   items-center justify-center px-4 py-10 bg-white sm:px-1 lg:px-8 sm:py-1 lg:py-8">
+          <div class="flex items-center justify-center px-4 py-4 bg-white sm:px-1 lg:px-8 sm:py-1 lg:py-4" >
             
-                <form class="mt-1" action="../../SIAGESTS/empresa/operaciones/registrar_empresa.php" method="post" enctype="multipart/form-data">
+                <form class="mt-1" action="operaciones/registrar_empresa.php" method="post" enctype="multipart/form-data">
                     <div class="max-w-2xl mx-auto text-center">
-                        <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-3xl">Solicita una cuenta</h2>
-                        <p class="max-w-xl mx-auto mt-4 text-base leading-relaxed text-gray-600">Publica sus ofertas laborales con nosotros</p>
+                        <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-3xl">Solicita una cuenta de bolsa laboral</h2>
                     </div>
                             <div class="px-4 mx-auto sm:px-1 lg:px-1">                          
                                 <div class="relative max-w-md mx-auto mt-8 md:mt-1">
@@ -61,21 +61,22 @@
                                             <form action="#" method="POST">
                                                 <div class="space-y-2">
                                                     <div>
-                                                        <label for="" class="text-base font-medium text-gray-900"> Nombre de la empresa </label>
+                                                        <label for="" class="text-base font-medium text-gray-900"> Nombre de la empresa *</label>
                                                         <div class="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
                                                             <input
                                                                 type="text"
                                                                 name="nombre_empresa"
                                                                 placeholder="Razón social de la empresa"
                                                                 id=""
+                                                                onkeyup="javascript:this.value=this.value.toUpperCase();"
                                                                 required
-                                                                class="block w-full py-4 pl-4 pr-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
+                                                                class="block w-full py-1 pl-4 pr-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
                                                             />
                                                         </div>
                                                     </div>
 
                                                     <div>
-                                                        <label for="" class="text-base font-medium text-gray-900"> RUC </label>
+                                                        <label for="" class="text-base font-medium text-gray-900"> RUC *</label>
                                                         <div class="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
                                                             <input
                                                                 type="text"
@@ -83,13 +84,14 @@
                                                                 placeholder="N° de RUC"
                                                                 required
                                                                 id=""
-                                                                class="block w-full py-4 pl-4 pr-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
+                                                                oninput="validateInputNum(this,11)" 
+                                                                class="block w-full py-1 pl-4 pr-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
                                                             />
                                                         </div>
                                                     </div>
 
                                                     <div>
-                                                        <label for="" class="text-base font-medium text-gray-900"> Ciudad </label>
+                                                        <label for="" class="text-base font-medium text-gray-900"> Ciudad *</label>
                                                         <div class="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
                                                             <input
                                                                 type="text"
@@ -97,13 +99,14 @@
                                                                 placeholder="Locación de la empresa"
                                                                 required
                                                                 id=""
-                                                                class="block w-full py-4 pl-4 pr-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
+                                                                onkeyup="javascript:this.value=this.value.toUpperCase();"
+                                                                class="block w-full py-1 pl-4 pr-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
                                                             />
                                                         </div>
                                                     </div>
                           
                                                     <div>
-                                                        <label for="" class="text-base font-medium text-gray-900"> Correo Institucional </label>
+                                                        <label for="" class="text-base font-medium text-gray-900"> Correo Institucional *</label>
                                                         <div class="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
                                                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                                                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -117,13 +120,13 @@
                                                                 placeholder="Correo de la institución"
                                                                 required
                                                                 id=""
-                                                                class="block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
+                                                                class="block w-full py-1 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
                                                             />
                                                         </div>
                                                     </div>
 
                                                     <div>
-                                                        <label for="" class="text-base font-medium text-gray-900"> Telefono / Celular </label>
+                                                        <label for="" class="text-base font-medium text-gray-900"> Telefono / Celular *</label>
                                                         <div class="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
                                                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                                                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -137,7 +140,9 @@
                                                                 placeholder="N° telefónico o celular"
                                                                 required
                                                                 id=""
-                                                                class="block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
+                                                                oninput="validateInputNum(this,9)" 
+                                                                onkeyup="javascript:this.value=this.value.toUpperCase();"
+                                                                class="block w-full py-1 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
                                                             />
                                                         </div>
                                                     </div>
@@ -157,7 +162,8 @@
                                                                 required
                                                                 id=""
                                                                 placeholder="Apellidos y nombres"
-                                                                class="block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
+                                                                onkeyup="javascript:this.value=this.value.toUpperCase();"
+                                                                class="block w-full py-1 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
                                                             />
                                                         </div>
                                                     </div>
@@ -177,13 +183,14 @@
                                                                 required
                                                                 id="Cargo en la empresa"
                                                                 placeholder="Cargo que desempeña"
-                                                                class="block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
+                                                                onkeyup="javascript:this.value=this.value.toUpperCase();"
+                                                                class="block w-full py-1 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
                                                             />
                                                         </div>
                                                     </div>
 
                                                     <div>
-                                                        <label for="" class="text-base font-medium text-gray-900"> Logo </label>
+                                                        <label for="" class="text-base font-medium text-gray-900"> Logo con el nombre de la empresa (opcional)</label>
                                                         <div class="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
                                                             <input
                                                                 type="file"
@@ -191,9 +198,18 @@
                                                                 id=""
                                                                 placeholder=""
                                                                 accept="{.png, .jpg, .ico}"
-                                                                class="block w-full py-4 pl-4 pr-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
+                                                                class="block w-full py-1 pl-4 pr-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
                                                             />
                                                         </div>
+                                                    </div>
+                                                    <div>
+                                                            <input
+                                                                type="checkbox"
+                                                                name="terminos"
+                                                                required
+                                                                id="terminos"
+                                                            />
+                                                            <label>Aceptar terminos y condiciones.</label>
                                                     </div>
                           
                                                     <div class="flex items-center">                          
@@ -218,7 +234,18 @@
         </div>
       </section>
       
-      
+    <script>
+      function validateInputNum(input, tamanio) {
+          // Obtén el valor actual del campo de entrada
+          let inputValue = input.value;
+
+          // Remueve cualquier carácter no permitido (en este caso, letras)
+          inputValue = inputValue.replace(/[^0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g, '');
+          inputValue = inputValue.slice(0, tamanio);
+          // Actualiza el valor del campo de entrada
+          input.value = inputValue.toUpperCase();
+      }
+    </script>
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/c09f996d50.js" crossorigin="anonymous"></script>

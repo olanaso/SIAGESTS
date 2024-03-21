@@ -55,6 +55,10 @@ if (!verificar_sesion($conexion)) {
     }
 
 
+    //echo "<br><br><br><br>LISTA ORDENADA <br>";
+    $collator = collator_create("es");
+    $collator->sort($array_in);
+
 
     /*foreach($array_in as $key => $val){
     $key+=1;

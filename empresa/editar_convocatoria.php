@@ -153,7 +153,7 @@ if (!verificar_sesion($conexion) && $id == null) {
                                 <div class="form-group row">
                                     <label for="horario" class="col-form-label col-md-3 col-sm-3 label-align">Turno * :</label>
                                     <div class="col-md-9 col-sm-9 ">
-                                                <select class="form-control" id="horario" name="horario" required="required" value="<?php echo $convocatoria['horario'] ?>" >
+                                                <select class="form-control" id="horario" name="turno" required="required" value="<?php echo $convocatoria['turno'] ?>" >
                                                     <option value="COMPLETO">Completo</option>
                                                     <option value="MAÑANA">Turno Mañana</option>
                                                     <option value="TARDE">Turno Tarde</option>

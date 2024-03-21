@@ -85,12 +85,12 @@ if (!verificar_sesion($conexion)) {
                         <tr>
                           <th>Estado</th>
                           <th>Logo</th>
-                          <th>Razon Social</th>
+                          <th>Razón Social</th>
                           <th>RUC</th>
                           <th>Ubicación</th>
                           <th>Contacto</th>
-                          <th>Correo Electronico</th>
-                          <th>Celular/Telefono</th>
+                          <th>Correo Electrónico</th>
+                          <th>Celular/Teléfono</th>
                           <th>Acciones</th>
                         </tr>
                       </thead>
@@ -102,7 +102,7 @@ if (!verificar_sesion($conexion)) {
                         <tr>
                           <td><?php echo $empresa['estado']; ?></td>
                           <td>
-                            <img height="45" src=" <?php echo $empresa['ruta_logo']; ?>" alt="">  
+                            <img height="45" src=" <?php echo '../empresa/'.$empresa['ruta_logo']; ?>" alt="">  
                           </td>
                           <td><?php echo $empresa['razon_social']; ?></td>
                           <td><?php echo $empresa['ruc']; ?></td>

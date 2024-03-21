@@ -109,7 +109,7 @@ if (!verificar_sesion($conexion)) {
                                         <span class="step_no">1</span>
                                         <span class="step_descr">
                                             Paso 1<br />
-                                            <small>Información Especifica</small>
+                                            <small>Información Específica</small>
                                         </span>
                                     </a>
                                 </li>

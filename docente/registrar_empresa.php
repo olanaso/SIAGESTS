@@ -172,15 +172,15 @@ if (!verificar_sesion($conexion)) {
                                         </div>
                                         <div class="form-group">
                                             <label for="ruc">RUC*:</label>
-                                            <input type="text" class="form-control" id="ruc" name="ruc" required>
+                                            <input type="text" class="form-control" id="ruc" name="ruc"  oninput="validateInputNum(this,11)"  required>
                                         </div>
                                         <div class="form-group">
-                                            <label for="ubicacion">Ciuadad*:</label>
+                                            <label for="ubicacion">Ciudad*:</label>
                                             <input type="text" class="form-control" id="ubicacion" name="ubicacion" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="col-form-label label-align" for="logo"><i class="fa fa-file-pdf-o"></i> Subir Logo:
+                                            <label class="col-form-label label-align" for="logo"><i class="fa fa-file-pdf-o"></i> Logo con el nombre de la empresa:
                                             </label>                                                
                                             <div class="">
                                                 <div class="container-input">
@@ -209,8 +209,8 @@ if (!verificar_sesion($conexion)) {
                                             <input type="email" class="form-control" id="correo" name="correo" onkeyup="javascript:this.value=this.value.toLowerCase();" required>
                                         </div>
                                         <div class="form-group">
-                                            <label for="celular">Telefono - Celular*:</label>
-                                            <input type="text" class="form-control" id="celular" name="celular" required>
+                                            <label for="celular">Teléfono - Celular*:</label>
+                                            <input type="text" class="form-control" id="celular" name="celular"  oninput="validateInputNum(this,9)"  required>
                                         </div>
                                     </section>
                                 </div>
@@ -270,6 +270,18 @@ if (!verificar_sesion($conexion)) {
             });
         }( document, window, 0 ));
     </script> 
+    <script>
+      function validateInputNum(input, tamanio) {
+          // Obtén el valor actual del campo de entrada
+          let inputValue = input.value;
+
+          // Remueve cualquier carácter no permitido (en este caso, letras)
+          inputValue = inputValue.replace(/[^0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g, '');
+          inputValue = inputValue.slice(0, tamanio);
+          // Actualiza el valor del campo de entrada
+          input.value = inputValue.toUpperCase();
+      }
+    </script>
     <!-- Scripts de Gentella y otros scripts necesarios (si es necesario) -->
     <!-- jQuery -->
 	<script src="../Gentella/vendors/jquery/dist/jquery.min.js"></script>

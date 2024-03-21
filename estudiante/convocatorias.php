@@ -159,15 +159,8 @@
                                                 <span class="badge <?php echo determinarEstado($ofertas['fecha_inicio'], $ofertas['fecha_fin'])?>"><?php echo determinarEstado($ofertas['fecha_inicio'], $ofertas['fecha_fin']) ?></span>
                                             </td>
                                             <td>
-                                            <?php
-                                            if($ofertas['propietario'] == "empresa"){
-                                                echo '
-                                                <a href="detalle_convocatoria_empresa.php?id='. $ofertas['id'] . '" class="btn btn-success" data-toggle="tooltip" data-original-title="Ver Detalles" data-placement="bottom"><i class="fa fa-eye"></i></a>
-                                                </td> ';
-                                            }else{
-                                                echo '
-                                                <a href="detalle_convocatoria.php?id='. $ofertas['id'] . '" class="btn btn-success" data-toggle="tooltip" data-original-title="Ver Detalles" data-placement="bottom"><i class="fa fa-eye"></i></a>
-                                                </td> '; }?>
+                                                <a href="detalle_convocatoria_empresa.php?id= <?php echo $ofertas['id']?>" class="btn btn-success" data-toggle="tooltip" data-original-title="Ver Detalles" data-placement="bottom"><i class="fa fa-eye"></i></a>
+                                        </td>
                                         </tr>  
                                         <?php
                                                 };

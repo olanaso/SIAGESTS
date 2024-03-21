@@ -27,19 +27,29 @@ if (!verificar_sesion($conexion)) {
     $errorArchivo = $_FILES['logo']['error'];
 
     $rutaDestino = "";
-    if ($tamañoArchivo === 0) {
-        // No se ha subido ningún archivo
-        $rutaDestino = '../../empresa/files/img_defaul_empresa.png';
-    }
-    // Verificar si no hubo errores al subir la imagen
-    if($errorArchivo === 0) {
-        // Mover la imagen de la ubicación temporal a la ubicación deseada
-        $rutaDestino = '../../empresa/files/' . $nombreArchivo;
-        move_uploaded_file($tempArchivo, $rutaDestino);
-    
+    $tieneLogo = false;
+
+    $empresa = buscarEmpresaById($conexion, $id);
+    $empresa = mysqli_fetch_array($empresa);
+    $empresaLogo = $empresa['ruta_logo'];
+
+    if($empresaLogo != "files/img_defaul_empresa.png"){
+        $tieneLogo = true;
     }
 
-    $rutaDestino = substr($rutaDestino,3);
+    if($errorArchivo === 0) {
+        $rutaDestino = '../../empresa/files/' . $nombreArchivo;
+        move_uploaded_file($tempArchivo, $rutaDestino);
+        $tieneLogo = true;
+    } else {
+        if(!$tieneLogo){
+            $rutaDestino = '../../empresa/files/img_defaul_empresa.png';
+        }else{
+            $rutaDestino = "../../empresa/".$empresaLogo;
+        }
+    }
+
+    $rutaDestino = substr($rutaDestino,14);
 
     // Consulta para insertar los datos en la base de datos
     $sql = "UPDATE `empresa` SET `correo_institucional`='$correo',`ubicacion`='$ubicacion',`ruta_logo`='$rutaDestino',
@@ -53,7 +63,8 @@ if (!verificar_sesion($conexion)) {
         </script>";
     } else {
         echo "<script>
-        alert('Ops, Ocurrio un error al guardar!');
+        alert('Ops, Ocurrio un error al guardar!
+        Recuerde no utilizar un RUC o el correo electronico ya registrados.');
         window.history.back();
         </script>";
     }

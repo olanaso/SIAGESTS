@@ -26,7 +26,6 @@ require '../../PHPMailer/SMTP.php';
         $r_b_datos_sistema = mysqli_fetch_array($b_datos_sistema);
 
         $estudiante_res = buscarEstudianteByDni($conexion, $dni_estudiante);
-        $est_ant_res = getEstudianteAntiguo($conexion, $dni_estudiante);
 
         //enviamos correo
 

@@ -37,3 +37,30 @@
 [31-Jan-2024 10:46:55 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/login/iniciar_sesion.php on line 17
 [01-Feb-2024 18:10:50 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/login/iniciar_sesion.php on line 17
 [01-Feb-2024 18:17:59 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/iestpalfredosarmiento/docente/login/iniciar_sesion.php on line 17
+[29-Feb-2024 12:34:07 America/Lima] PHP Notice:  Undefined index: usuario in /home/sistemae/demo.sistema.edu.pe/docente/login/iniciar_sesion.php on line 5
+[29-Feb-2024 12:34:07 America/Lima] PHP Notice:  Undefined index: password in /home/sistemae/demo.sistema.edu.pe/docente/login/iniciar_sesion.php on line 6
+[04-Mar-2024 20:33:03 America/Lima] PHP Warning:  include(../include/header_title.php): Failed to open stream: No such file or directory in /home/sistemae/demo.sistema.edu.pe/docente/login/recuperar_password.php on line 38
+[04-Mar-2024 20:33:03 America/Lima] PHP Warning:  include(): Failed opening '../include/header_title.php' for inclusion (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/sistemae/demo.sistema.edu.pe/docente/login/recuperar_password.php on line 38
+[05-Mar-2024 06:16:21 America/Lima] PHP Warning:  include(../include/header_title.php): Failed to open stream: No such file or directory in /home/sistemae/demo.sistema.edu.pe/docente/login/recuperar_password.php on line 38
+[05-Mar-2024 06:16:21 America/Lima] PHP Warning:  include(): Failed opening '../include/header_title.php' for inclusion (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/sistemae/demo.sistema.edu.pe/docente/login/recuperar_password.php on line 38
+[05-Mar-2024 10:47:17 America/Lima] PHP Warning:  include(../include/header_title.php): Failed to open stream: No such file or directory in /home/sistemae/demo.sistema.edu.pe/docente/login/recuperar_password.php on line 38
+[05-Mar-2024 10:47:17 America/Lima] PHP Warning:  include(): Failed opening '../include/header_title.php' for inclusion (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/sistemae/demo.sistema.edu.pe/docente/login/recuperar_password.php on line 38
+[05-Mar-2024 12:35:17 America/Lima] PHP Warning:  include(../include/header_title.php): Failed to open stream: No such file or directory in /home/sistemae/demo.sistema.edu.pe/docente/login/recuperar_password.php on line 38
+[05-Mar-2024 12:35:17 America/Lima] PHP Warning:  include(): Failed opening '../include/header_title.php' for inclusion (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/sistemae/demo.sistema.edu.pe/docente/login/recuperar_password.php on line 38
+[05-Mar-2024 19:31:00 America/Lima] PHP Warning:  Undefined variable $mostrar in /home/sistemae/demo.sistema.edu.pe/docente/login/recuperar_password.php on line 24
+[07-Mar-2024 21:03:11 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined function getEstudianteAntiguo() in /home/sistemae/demo.sistema.edu.pe/docente/login/enviar_certificado_correo.php:29
+Stack trace:
+#0 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/login/enviar_certificado_correo.php on line 29
+[07-Mar-2024 23:47:17 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined function getEstudianteAntiguo() in /home/sistemae/demo.sistema.edu.pe/docente/login/enviar_certificado_correo.php:29
+Stack trace:
+#0 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/login/enviar_certificado_correo.php on line 29
+[08-Mar-2024 08:28:37 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined function getEstudianteAntiguo() in /home/sistemae/demo.sistema.edu.pe/docente/login/enviar_certificado_correo.php:29
+Stack trace:
+#0 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/login/enviar_certificado_correo.php on line 29
+[08-Mar-2024 09:11:03 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined function getEstudianteAntiguo() in /home/sistemae/demo.sistema.edu.pe/docente/login/enviar_certificado_correo.php:29
+Stack trace:
+#0 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/login/enviar_certificado_correo.php on line 29

@@ -83,11 +83,11 @@ if (!verificar_sesion($conexion)) {
                       <thead>
                         <tr>
                           <th>Fecha de Solicitud</th>
-                          <th>Razon Social</th>
+                          <th>Razón Social</th>
                           <th>RUC</th>
                           <th>Contacto</th>
-                          <th>Correo Electronico</th>
-                          <th>Celular/Telefono</th>
+                          <th>Correo Electrónico</th>
+                          <th>Celular/Teléfono</th>
                           <th>Acciones</th>
                         </tr>
                       </thead>

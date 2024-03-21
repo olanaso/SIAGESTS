@@ -44,7 +44,7 @@
             $res = mysqli_query($conexion, $sql);
             if ($res) {
                 echo "<script>
-                alert('Se ha guardado la convocatoria de manera exitosa!!');
+                alert('Su registro se ha realizado de manera exitosa!!');
                 window.location.replace('../mis_postulaciones.php');
                 </script>";
             } else {

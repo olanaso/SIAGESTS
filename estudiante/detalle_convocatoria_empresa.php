@@ -67,11 +67,8 @@
       .proceso{
         background-color: #26B99A;
       }
-      .finalizar{
-        background-color: #F0AD4E;
-      }
       .Finalizado{
-        background-color: #D9534F;
+          background-color: #242424;
       }
     </style>
 </head>
@@ -100,7 +97,7 @@
                                 <a href="convocatorias.php" class="btn btn-danger"><i class="fa fa-mail-reply"></i>  Regresar</a>
                                 <br><br>
                             </div>
-                            <div class="alert-info <?php echo determinarEstado($convocatoria['fecha_inicio'], $convocatoria['fecha_fin'])?>" role="alert" align="center">
+                            <div class="alert-error <?php echo determinarEstado($convocatoria['fecha_inicio'], $convocatoria['fecha_fin'])?>" role="alert" align="center">
                                 <strong><?php echo determinarEstado($convocatoria['fecha_inicio'], $convocatoria['fecha_fin'])?></strong>
                             </div>
                             <div class="panel-body">

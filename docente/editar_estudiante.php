@@ -200,7 +200,7 @@ $res_busc_est = mysqli_fetch_array($ejec_busc_est);
                           </div>
                         </div>
                         <div class="form-group">
-                          <label class="control-label col-md-3 col-sm-3 col-xs-12">Semestre : </label>
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12">Semestre / Ciclo : </label>
                           <div class="col-md-9 col-sm-9 col-xs-12">
                             <select class="form-control" id="semestre" name="semestre" value="<?php echo $res_busc_est['id_semestre']; ?>" required="required">
                               <option></option>
@@ -231,7 +231,14 @@ $res_busc_est = mysqli_fetch_array($ejec_busc_est);
                         <div class="form-group">
                           <label class="control-label col-md-3 col-sm-3 col-xs-12">Turno : </label>
                           <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" class="form-control" name="turno" required="required" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" maxlength="20" value="<?php echo $res_busc_est['turno']; ?>">
+                            <select class="form-control" name="turno" value="" required="required">
+                              <option value="MAÑANA" <?php if ("MAÑANA" == $res_busc_est['turno']) :
+                                                    echo 'selected';
+                                                  endif ?>>MAÑANA</option>
+                              <option value="TARDE" <?php if ("TARDE" == $res_busc_est['turno']) :
+                                                    echo 'selected';
+                                                  endif ?>>TARDE</option>
+                            </select>
                             <br>
                           </div>
                         </div>

@@ -77,13 +77,13 @@ if (!verificar_sesion($conexion)) {
                                 </ul>
                                 <h5><strong>Información de contacto</strong></h5>
                                 <ul class="list-unstyled project_files">
-                                    <li><a href><i class="fa fa-user"></i> <?php echo $empresa['contacto']?></a>
+                                    <li><a><i class="fa fa-user"></i> <?php echo $empresa['contacto']?></a>
                                     </li>
-                                    <li><a href><i class="fa fa-user"></i> <?php echo $empresa['cargo']?></a>
+                                    <li><a ><i class="fa fa-user"></i> <?php echo $empresa['cargo']?></a>
                                     </li>
-                                    <li><a href><i class="fa fa-user"></i><?php echo $empresa['correo_institucional'] ?></a>
+                                    <li><a ><i class="fa fa-user"></i><?php echo $empresa['correo_institucional'] ?></a>
                                     </li>
-                                    <li><a href><i class="fa fa-user"></i><?php echo $empresa['celular_telefono'] ?></a>
+                                    <li><a ><i class="fa fa-user"></i><?php echo $empresa['celular_telefono'] ?></a>
                                     </li>
                                 </ul>
                                 <br>

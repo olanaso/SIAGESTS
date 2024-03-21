@@ -1,0 +1,15 @@
+[27-Feb-2024 11:02:19 America/Lima] PHP Notice:  Undefined index: horario in /home/sistemae/demo.sistema.edu.pe/empresa/editar_convocatoria.php on line 156
+[27-Feb-2024 16:25:11 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/empresa/include/menu_empresa.php on line 48
+[27-Feb-2024 16:25:11 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/empresa/index.php on line 70
+[27-Feb-2024 16:25:11 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/empresa/index.php on line 71
+[27-Feb-2024 16:25:11 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/empresa/index.php on line 72
+[27-Feb-2024 16:25:11 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/empresa/index.php on line 75
+[27-Feb-2024 16:25:11 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/empresa/index.php on line 80
+[27-Feb-2024 16:25:11 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/empresa/index.php on line 82
+[27-Feb-2024 16:25:11 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/empresa/index.php on line 84
+[27-Feb-2024 16:25:11 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/empresa/index.php on line 86
+[28-Feb-2024 06:27:46 America/Lima] PHP Notice:  Undefined index: horario in /home/sistemae/demo.sistema.edu.pe/empresa/editar_convocatoria.php on line 156
+[28-Feb-2024 11:56:13 America/Lima] PHP Notice:  Undefined index: horario in /home/sistemae/demo.sistema.edu.pe/empresa/editar_convocatoria.php on line 156
+[28-Feb-2024 11:57:56 America/Lima] PHP Notice:  Undefined index: horario in /home/sistemae/demo.sistema.edu.pe/empresa/editar_convocatoria.php on line 156
+[28-Feb-2024 11:59:41 America/Lima] PHP Notice:  Undefined index: horario in /home/sistemae/demo.sistema.edu.pe/empresa/editar_convocatoria.php on line 156
+[28-Feb-2024 12:17:42 America/Lima] PHP Notice:  Undefined index: horario in /home/sistemae/demo.sistema.edu.pe/empresa/editar_convocatoria.php on line 156

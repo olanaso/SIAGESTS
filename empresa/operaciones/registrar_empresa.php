@@ -31,6 +31,8 @@
             move_uploaded_file($tempArchivo, $rutaDestino);
         
         }
+        
+        $rutaDestino = substr($rutaDestino,3);
 
         // Consulta para insertar los datos en la base de datos
         $sql = "INSERT INTO `empresa`(`razon_social`, `ruc`, `correo_institucional`, `ubicacion`, `contacto`, `cargo` , `celular_telefono`, `estado`, `usuario`, `ruta_logo`)
@@ -43,7 +45,7 @@
             </script>";
         } else {
             echo "<script>
-            alert('Ops, Tuvimos un problema, vuelva a intentarlo despúes de un rato!');
+            alert('Ops, ha ocurrido un error! Recuerde no registrar una empresa ya existente.');
             window.history.back();
             </script>";
         }

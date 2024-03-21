@@ -409,3 +409,677 @@ Stack trace:
 [01-Feb-2024 18:13:49 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
 [01-Feb-2024 18:14:04 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 7
 [01-Feb-2024 18:14:04 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/iestpalfredosarmiento/docente/operaciones/obtener_ud_sem.php on line 8
+[27-Feb-2024 11:54:26 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[27-Feb-2024 11:54:26 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[27-Feb-2024 12:02:00 America/Lima] PHP Notice:  Undefined variable: llave in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/evaluar_empresa.php on line 169
+[27-Feb-2024 12:02:00 America/Lima] PHP Notice:  Undefined variable: id_emp in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/evaluar_empresa.php on line 169
+[27-Feb-2024 13:27:25 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[27-Feb-2024 13:27:25 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[27-Feb-2024 15:58:09 America/Lima] PHP Notice:  Undefined variable: llave in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/evaluar_empresa.php on line 169
+[27-Feb-2024 15:58:09 America/Lima] PHP Notice:  Undefined variable: id_emp in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/evaluar_empresa.php on line 169
+[27-Feb-2024 16:01:54 America/Lima] PHP Notice:  Undefined variable: llave in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/evaluar_empresa.php on line 169
+[27-Feb-2024 16:01:54 America/Lima] PHP Notice:  Undefined variable: id_emp in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/evaluar_empresa.php on line 169
+[27-Feb-2024 16:06:47 America/Lima] PHP Notice:  Undefined variable: llave in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/evaluar_empresa.php on line 169
+[27-Feb-2024 16:06:47 America/Lima] PHP Notice:  Undefined variable: id_emp in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/evaluar_empresa.php on line 169
+[27-Feb-2024 16:24:48 America/Lima] PHP Notice:  Undefined variable: llave in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/evaluar_empresa.php on line 169
+[27-Feb-2024 16:24:48 America/Lima] PHP Notice:  Undefined variable: id_emp in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/evaluar_empresa.php on line 169
+[28-Feb-2024 06:19:28 America/Lima] PHP Notice:  Undefined variable: llave in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/evaluar_empresa.php on line 169
+[28-Feb-2024 06:19:28 America/Lima] PHP Notice:  Undefined variable: id_emp in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/evaluar_empresa.php on line 169
+[28-Feb-2024 06:46:20 America/Lima] PHP Notice:  Undefined variable: llave in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/evaluar_empresa.php on line 169
+[28-Feb-2024 06:46:20 America/Lima] PHP Notice:  Undefined variable: id_emp in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/evaluar_empresa.php on line 169
+[28-Feb-2024 08:55:38 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Feb-2024 08:55:38 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Feb-2024 08:55:45 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Feb-2024 08:55:45 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 388
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 389
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 392
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 395
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 388
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 389
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 392
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 395
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 388
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 389
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 392
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 395
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 388
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 389
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 392
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 395
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 388
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 389
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 392
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 395
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 388
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 389
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 392
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 395
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 388
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 389
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 392
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 395
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 388
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 389
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 392
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 395
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 388
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 389
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 392
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 395
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 388
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 389
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 392
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 395
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 388
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 389
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 392
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 395
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 388
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 389
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 392
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 395
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 388
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 389
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 392
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 395
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 388
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 389
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 392
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 395
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 388
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 389
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 392
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 395
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 388
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 389
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 392
+[28-Feb-2024 21:21:15 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 395
+[28-Feb-2024 21:52:52 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Feb-2024 21:52:52 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Feb-2024 21:56:57 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Feb-2024 21:56:57 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Feb-2024 21:58:10 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 17
+[28-Feb-2024 21:58:10 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 18
+[28-Feb-2024 21:58:10 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 19
+[28-Feb-2024 21:58:10 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 20
+[28-Feb-2024 21:58:11 America/Lima] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php on line 12
+[28-Feb-2024 21:58:54 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Feb-2024 21:58:54 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Feb-2024 22:01:45 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/registrar_matricula.php on line 53
+[28-Feb-2024 22:01:45 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/registrar_matricula.php on line 131
+[28-Feb-2024 22:02:01 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Feb-2024 22:02:01 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Feb-2024 22:02:09 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Feb-2024 22:02:09 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Feb-2024 22:02:18 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 494
+[28-Feb-2024 22:02:18 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 497
+[28-Feb-2024 22:02:18 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 494
+[28-Feb-2024 22:02:18 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 497
+[28-Feb-2024 22:02:18 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 494
+[28-Feb-2024 22:02:18 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 497
+[28-Feb-2024 22:02:18 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 494
+[28-Feb-2024 22:02:18 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 497
+[28-Feb-2024 22:02:18 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 494
+[28-Feb-2024 22:02:18 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 497
+[28-Feb-2024 22:02:18 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 494
+[28-Feb-2024 22:02:18 America/Lima] PHP Notice:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 497
+[28-Feb-2024 22:02:20 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Feb-2024 22:02:20 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Feb-2024 22:02:29 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Feb-2024 22:02:29 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Feb-2024 22:03:34 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Feb-2024 22:03:34 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Feb-2024 22:04:38 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Feb-2024 22:04:38 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Feb-2024 22:04:43 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Feb-2024 22:04:43 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Feb-2024 22:04:46 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Feb-2024 22:04:46 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Feb-2024 22:04:56 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Feb-2024 22:04:56 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Feb-2024 22:05:06 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Feb-2024 22:05:06 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Feb-2024 22:21:33 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Feb-2024 22:21:33 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Feb-2024 22:22:27 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Feb-2024 22:22:27 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Feb-2024 22:22:34 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Feb-2024 22:22:34 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Feb-2024 22:22:40 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Feb-2024 22:22:40 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Feb-2024 22:22:49 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Feb-2024 22:22:49 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Feb-2024 22:24:06 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Feb-2024 22:24:06 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Feb-2024 22:24:15 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Feb-2024 22:24:15 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Feb-2024 22:24:49 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Feb-2024 22:24:49 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Feb-2024 22:25:06 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Feb-2024 22:25:06 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[28-Feb-2024 22:25:18 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[28-Feb-2024 22:25:18 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[29-Feb-2024 08:13:37 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[29-Feb-2024 08:13:37 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[29-Feb-2024 08:15:59 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[29-Feb-2024 08:15:59 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[29-Feb-2024 12:35:22 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[29-Feb-2024 12:35:22 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[29-Feb-2024 12:35:31 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[29-Feb-2024 12:35:31 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[01-Mar-2024 09:20:23 America/Lima] PHP Notice:  Undefined index: id_modulo in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[01-Mar-2024 09:20:23 America/Lima] PHP Notice:  Undefined index: id_semestre in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[04-Mar-2024 13:11:24 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[04-Mar-2024 13:11:24 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[04-Mar-2024 13:11:28 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[04-Mar-2024 13:11:28 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[04-Mar-2024 13:11:35 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[04-Mar-2024 13:11:35 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[04-Mar-2024 14:09:14 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[04-Mar-2024 14:09:14 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[04-Mar-2024 14:09:56 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[04-Mar-2024 14:09:56 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[04-Mar-2024 14:09:59 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[04-Mar-2024 14:09:59 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[04-Mar-2024 17:38:55 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[04-Mar-2024 17:38:55 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[04-Mar-2024 17:39:06 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[04-Mar-2024 17:39:06 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[04-Mar-2024 17:39:32 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[04-Mar-2024 17:39:32 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[04-Mar-2024 17:39:34 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[04-Mar-2024 17:39:34 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[04-Mar-2024 17:39:46 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[04-Mar-2024 17:39:46 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[04-Mar-2024 17:39:47 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[04-Mar-2024 17:39:47 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[04-Mar-2024 21:09:35 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined function getNotasImportadaByDni() in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_notas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_notas.php on line 12
+[04-Mar-2024 21:09:37 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined function getNotasImportadaByDni() in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_notas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_notas.php on line 12
+[04-Mar-2024 21:09:38 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined function getNotasImportadaByDni() in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_notas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_notas.php on line 12
+[04-Mar-2024 21:09:41 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined function getNotasImportadaByDni() in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_notas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_notas.php on line 12
+[04-Mar-2024 21:10:16 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined function getNotasImportadaByDni() in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_notas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_notas.php on line 12
+[04-Mar-2024 21:10:16 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined function getNotasImportadaByDni() in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_notas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_notas.php on line 12
+[04-Mar-2024 21:10:16 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined function getNotasImportadaByDni() in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_notas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_notas.php on line 12
+[04-Mar-2024 21:10:17 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined function getNotasImportadaByDni() in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_notas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_notas.php on line 12
+[04-Mar-2024 21:10:17 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined function getNotasImportadaByDni() in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_notas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_notas.php on line 12
+[04-Mar-2024 21:10:33 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined function getNotasImportadaByDni() in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_notas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_notas.php on line 12
+[04-Mar-2024 21:10:34 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined function getNotasImportadaByDni() in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_notas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_notas.php on line 12
+[04-Mar-2024 21:10:34 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined function getNotasImportadaByDni() in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_notas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_notas.php on line 12
+[05-Mar-2024 11:01:11 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[05-Mar-2024 11:01:11 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[05-Mar-2024 11:01:16 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[05-Mar-2024 11:01:16 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[05-Mar-2024 11:06:43 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[05-Mar-2024 11:06:43 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[05-Mar-2024 14:20:53 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[05-Mar-2024 14:20:53 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[05-Mar-2024 14:20:57 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[05-Mar-2024 14:20:57 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[05-Mar-2024 14:21:02 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[05-Mar-2024 14:21:02 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[05-Mar-2024 18:24:03 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[05-Mar-2024 18:24:03 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[05-Mar-2024 21:53:24 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[05-Mar-2024 21:53:24 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[05-Mar-2024 21:53:28 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[05-Mar-2024 21:53:28 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[05-Mar-2024 21:53:59 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[05-Mar-2024 21:53:59 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[05-Mar-2024 21:54:03 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[05-Mar-2024 21:54:03 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[05-Mar-2024 21:54:08 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[05-Mar-2024 21:54:08 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[05-Mar-2024 21:54:12 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[05-Mar-2024 21:54:12 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[05-Mar-2024 21:55:15 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[05-Mar-2024 21:55:15 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[05-Mar-2024 21:55:20 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[05-Mar-2024 21:55:20 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[05-Mar-2024 21:55:37 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[05-Mar-2024 21:55:37 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[05-Mar-2024 21:55:49 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[05-Mar-2024 21:55:49 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[06-Mar-2024 10:35:22 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[06-Mar-2024 10:35:22 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[06-Mar-2024 10:58:53 America/Lima] PHP Warning:  Undefined variable $llave in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/evaluar_empresa.php on line 169
+[06-Mar-2024 10:58:53 America/Lima] PHP Warning:  Undefined variable $id_emp in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/evaluar_empresa.php on line 169
+[07-Mar-2024 08:30:37 America/Lima] PHP Warning:  Undefined array key "fecha_1" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 08:30:37 America/Lima] PHP Warning:  Undefined array key "fecha_2" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 08:30:37 America/Lima] PHP Warning:  Undefined array key "fecha_3" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 08:30:37 America/Lima] PHP Warning:  Undefined array key "fecha_4" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 08:30:37 America/Lima] PHP Warning:  Undefined array key "fecha_5" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 08:30:37 America/Lima] PHP Warning:  Undefined array key "fecha_6" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 08:30:37 America/Lima] PHP Warning:  Undefined array key "fecha_7" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 08:30:37 America/Lima] PHP Warning:  Undefined array key "fecha_8" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 08:30:37 America/Lima] PHP Warning:  Undefined array key "fecha_9" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 08:30:37 America/Lima] PHP Warning:  Undefined array key "fecha_10" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 08:30:37 America/Lima] PHP Warning:  Undefined array key "fecha_11" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 08:30:37 America/Lima] PHP Warning:  Undefined array key "fecha_12" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 08:30:37 America/Lima] PHP Warning:  Undefined array key "fecha_13" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 08:30:37 America/Lima] PHP Warning:  Undefined array key "fecha_14" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 08:30:37 America/Lima] PHP Warning:  Undefined array key "fecha_15" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 08:30:37 America/Lima] PHP Warning:  Undefined array key "fecha_16" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 08:30:37 America/Lima] PHP Warning:  Undefined array key "fecha_17" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 08:48:32 America/Lima] PHP Warning:  Undefined variable $llave in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/evaluar_empresa.php on line 169
+[07-Mar-2024 08:48:32 America/Lima] PHP Warning:  Undefined variable $id_emp in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/evaluar_empresa.php on line 169
+[07-Mar-2024 11:27:22 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 11:27:22 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 11:27:27 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 11:27:27 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 11:27:30 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 11:27:30 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 11:30:09 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 11:30:09 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 11:54:17 America/Lima] PHP Warning:  Undefined variable $llave in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/evaluar_empresa.php on line 169
+[07-Mar-2024 11:54:17 America/Lima] PHP Warning:  Undefined variable $id_emp in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/evaluar_empresa.php on line 169
+[07-Mar-2024 12:07:21 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 12:07:21 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 12:20:26 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 12:20:26 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 12:23:18 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 12:23:18 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 12:23:36 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 12:23:36 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 17:28:55 America/Lima] PHP Warning:  Undefined variable $llave in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/evaluar_empresa.php on line 169
+[07-Mar-2024 17:28:55 America/Lima] PHP Warning:  Undefined variable $id_emp in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/evaluar_empresa.php on line 169
+[07-Mar-2024 17:38:52 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 17:38:52 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 17:39:07 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 17:39:07 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 17:47:19 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 17:47:19 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 17:51:03 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 17:51:03 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 17:51:08 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 17:51:08 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 17:59:23 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 17:59:23 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 17:59:25 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 17:59:25 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 17:59:26 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 17:59:26 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 18:08:31 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 18:08:31 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 18:09:52 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 18:09:52 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 18:09:55 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 18:09:55 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 18:13:20 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 18:13:20 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 18:15:58 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 17
+[07-Mar-2024 18:15:58 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 18
+[07-Mar-2024 18:15:58 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 19
+[07-Mar-2024 18:15:58 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 20
+[07-Mar-2024 18:15:58 America/Lima] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_array(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php:12
+Stack trace:
+#0 /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php(12): mysqli_fetch_array()
+#1 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php on line 12
+[07-Mar-2024 18:16:11 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 17
+[07-Mar-2024 18:16:11 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 18
+[07-Mar-2024 18:16:11 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 19
+[07-Mar-2024 18:16:11 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 20
+[07-Mar-2024 18:16:11 America/Lima] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_array(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php:12
+Stack trace:
+#0 /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php(12): mysqli_fetch_array()
+#1 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php on line 12
+[07-Mar-2024 18:17:20 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 17
+[07-Mar-2024 18:17:20 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 18
+[07-Mar-2024 18:17:20 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 19
+[07-Mar-2024 18:17:20 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 20
+[07-Mar-2024 18:17:21 America/Lima] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_array(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php:12
+Stack trace:
+#0 /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php(12): mysqli_fetch_array()
+#1 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php on line 12
+[07-Mar-2024 18:17:21 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 17
+[07-Mar-2024 18:17:21 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 18
+[07-Mar-2024 18:17:21 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 19
+[07-Mar-2024 18:17:21 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 20
+[07-Mar-2024 18:17:21 America/Lima] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_array(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php:12
+Stack trace:
+#0 /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php(12): mysqli_fetch_array()
+#1 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php on line 12
+[07-Mar-2024 18:17:56 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 17
+[07-Mar-2024 18:17:56 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 18
+[07-Mar-2024 18:17:56 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 19
+[07-Mar-2024 18:17:56 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 20
+[07-Mar-2024 18:17:56 America/Lima] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_array(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php:12
+Stack trace:
+#0 /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php(12): mysqli_fetch_array()
+#1 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php on line 12
+[07-Mar-2024 18:17:57 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 17
+[07-Mar-2024 18:17:57 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 18
+[07-Mar-2024 18:17:57 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 19
+[07-Mar-2024 18:17:57 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 20
+[07-Mar-2024 18:17:58 America/Lima] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_array(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php:12
+Stack trace:
+#0 /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php(12): mysqli_fetch_array()
+#1 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php on line 12
+[07-Mar-2024 18:18:12 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 17
+[07-Mar-2024 18:18:12 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 18
+[07-Mar-2024 18:18:12 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 19
+[07-Mar-2024 18:18:12 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 20
+[07-Mar-2024 18:18:12 America/Lima] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_array(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php:12
+Stack trace:
+#0 /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php(12): mysqli_fetch_array()
+#1 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php on line 12
+[07-Mar-2024 18:18:12 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 17
+[07-Mar-2024 18:18:12 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 18
+[07-Mar-2024 18:18:12 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 19
+[07-Mar-2024 18:18:12 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 20
+[07-Mar-2024 18:18:12 America/Lima] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_array(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php:12
+Stack trace:
+#0 /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php(12): mysqli_fetch_array()
+#1 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php on line 12
+[07-Mar-2024 18:18:12 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 17
+[07-Mar-2024 18:18:12 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 18
+[07-Mar-2024 18:18:12 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 19
+[07-Mar-2024 18:18:12 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 20
+[07-Mar-2024 18:18:13 America/Lima] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_array(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php:12
+Stack trace:
+#0 /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php(12): mysqli_fetch_array()
+#1 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php on line 12
+[07-Mar-2024 18:18:13 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 17
+[07-Mar-2024 18:18:13 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 18
+[07-Mar-2024 18:18:13 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 19
+[07-Mar-2024 18:18:13 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 20
+[07-Mar-2024 18:18:13 America/Lima] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_array(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php:12
+Stack trace:
+#0 /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php(12): mysqli_fetch_array()
+#1 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php on line 12
+[07-Mar-2024 18:18:13 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 17
+[07-Mar-2024 18:18:13 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 18
+[07-Mar-2024 18:18:13 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 19
+[07-Mar-2024 18:18:13 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 20
+[07-Mar-2024 18:18:13 America/Lima] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_array(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php:12
+Stack trace:
+#0 /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php(12): mysqli_fetch_array()
+#1 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php on line 12
+[07-Mar-2024 18:18:13 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 17
+[07-Mar-2024 18:18:13 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 18
+[07-Mar-2024 18:18:13 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 19
+[07-Mar-2024 18:18:13 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 20
+[07-Mar-2024 18:18:13 America/Lima] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_array(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php:12
+Stack trace:
+#0 /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php(12): mysqli_fetch_array()
+#1 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php on line 12
+[07-Mar-2024 18:18:35 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 17
+[07-Mar-2024 18:18:35 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 18
+[07-Mar-2024 18:18:35 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 19
+[07-Mar-2024 18:18:35 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 20
+[07-Mar-2024 18:18:35 America/Lima] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_array(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php:12
+Stack trace:
+#0 /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php(12): mysqli_fetch_array()
+#1 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php on line 12
+[07-Mar-2024 18:18:35 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 17
+[07-Mar-2024 18:18:35 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 18
+[07-Mar-2024 18:18:35 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 19
+[07-Mar-2024 18:18:35 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 20
+[07-Mar-2024 18:18:35 America/Lima] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_array(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php:12
+Stack trace:
+#0 /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php(12): mysqli_fetch_array()
+#1 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php on line 12
+[07-Mar-2024 18:19:04 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 18:19:04 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 18:19:15 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 18:19:15 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 18:19:23 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 18:19:23 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 18:19:25 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 18:19:25 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 18:19:33 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 18:19:33 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 18:19:46 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 494
+[07-Mar-2024 18:19:46 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 497
+[07-Mar-2024 18:19:46 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 494
+[07-Mar-2024 18:19:46 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 497
+[07-Mar-2024 18:19:46 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 494
+[07-Mar-2024 18:19:46 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/include/funciones.php on line 497
+[07-Mar-2024 18:19:48 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 18:19:48 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 18:20:02 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 18:20:02 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 18:20:12 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 18:20:12 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 18:20:16 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 18:20:16 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 18:20:24 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 18:20:24 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 20:26:00 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 20:26:00 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 20:26:09 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 20:26:09 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 20:26:12 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 20:26:12 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 20:26:14 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 20:26:14 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 20:26:17 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 20:26:17 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 20:26:19 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 20:26:19 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 20:26:23 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 20:26:23 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 20:27:07 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 20:27:07 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 20:27:22 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 17
+[07-Mar-2024 20:27:22 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 18
+[07-Mar-2024 20:27:22 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 19
+[07-Mar-2024 20:27:22 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_estudiante.php on line 20
+[07-Mar-2024 20:27:22 America/Lima] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_array(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php:12
+Stack trace:
+#0 /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php(12): mysqli_fetch_array()
+#1 {main}
+  thrown in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_pe.php on line 12
+[07-Mar-2024 20:28:13 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 20:28:13 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 20:29:17 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 20:29:17 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 20:31:19 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 20:31:19 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 20:52:47 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 20:52:47 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:05:24 America/Lima] PHP Warning:  Undefined array key "fecha_1" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 21:05:24 America/Lima] PHP Warning:  Undefined array key "fecha_2" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 21:05:24 America/Lima] PHP Warning:  Undefined array key "fecha_3" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 21:05:24 America/Lima] PHP Warning:  Undefined array key "fecha_4" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 21:05:24 America/Lima] PHP Warning:  Undefined array key "fecha_5" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 21:05:24 America/Lima] PHP Warning:  Undefined array key "fecha_6" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 21:05:24 America/Lima] PHP Warning:  Undefined array key "fecha_7" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 21:05:24 America/Lima] PHP Warning:  Undefined array key "fecha_8" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 21:05:24 America/Lima] PHP Warning:  Undefined array key "fecha_9" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 21:05:24 America/Lima] PHP Warning:  Undefined array key "fecha_10" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 21:05:24 America/Lima] PHP Warning:  Undefined array key "fecha_11" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 21:05:24 America/Lima] PHP Warning:  Undefined array key "fecha_12" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 21:05:24 America/Lima] PHP Warning:  Undefined array key "fecha_13" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 21:05:24 America/Lima] PHP Warning:  Undefined array key "fecha_14" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 21:05:24 America/Lima] PHP Warning:  Undefined array key "fecha_15" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 21:05:24 America/Lima] PHP Warning:  Undefined array key "fecha_16" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 21:05:24 America/Lima] PHP Warning:  Undefined array key "fecha_17" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/actualizar_silabo.php on line 30
+[07-Mar-2024 21:09:08 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:09:08 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:09:54 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:09:54 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:09:56 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:09:56 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:09:58 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:09:58 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:09:59 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:09:59 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:10:02 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:10:02 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:10:05 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:10:05 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:10:09 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:10:09 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:10:11 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:10:11 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:10:12 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:10:12 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:10:14 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:10:14 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:10:15 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:10:15 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:10:17 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:10:17 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:10:19 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:10:19 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:10:20 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:10:20 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:10:24 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:10:24 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:10:25 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:10:25 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:10:30 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:10:30 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:10:31 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:10:31 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:10:35 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:10:35 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:10:36 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:10:36 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:10:40 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:10:40 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:10:42 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:10:42 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:10:48 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:10:48 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:10:49 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:10:49 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:10:51 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:10:51 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:10:53 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:10:53 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:10:56 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:10:56 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:10:57 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:10:57 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:10:59 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:10:59 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:11:01 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:11:01 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:11:02 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:11:02 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:11:04 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:11:04 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:11:06 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:11:06 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:11:10 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:11:10 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:11:12 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:11:12 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:11:14 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:11:14 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:11:15 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:11:15 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:11:16 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:11:16 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:15:52 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:15:52 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 21:17:43 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 21:17:43 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 23:32:17 America/Lima] PHP Warning:  Undefined variable $llave in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/evaluar_empresa.php on line 169
+[07-Mar-2024 23:32:17 America/Lima] PHP Warning:  Undefined variable $id_emp in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/evaluar_empresa.php on line 169
+[07-Mar-2024 23:38:37 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 23:38:37 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[07-Mar-2024 23:49:20 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[07-Mar-2024 23:49:20 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[08-Mar-2024 08:58:20 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[08-Mar-2024 08:58:20 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[08-Mar-2024 08:58:37 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[08-Mar-2024 08:58:37 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[08-Mar-2024 08:58:48 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[08-Mar-2024 08:58:48 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[08-Mar-2024 08:59:58 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[08-Mar-2024 08:59:58 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[08-Mar-2024 09:00:14 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[08-Mar-2024 09:00:14 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[08-Mar-2024 09:00:25 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[08-Mar-2024 09:00:25 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[08-Mar-2024 09:00:38 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[08-Mar-2024 09:00:38 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[08-Mar-2024 09:01:22 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[08-Mar-2024 09:01:22 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[08-Mar-2024 09:01:35 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[08-Mar-2024 09:01:35 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[08-Mar-2024 09:01:51 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[08-Mar-2024 09:01:51 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[08-Mar-2024 09:01:55 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[08-Mar-2024 09:01:55 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[08-Mar-2024 09:02:08 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[08-Mar-2024 09:02:08 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[08-Mar-2024 09:02:38 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[08-Mar-2024 09:02:38 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[08-Mar-2024 09:02:52 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[08-Mar-2024 09:02:52 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[08-Mar-2024 09:02:55 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[08-Mar-2024 09:02:55 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[08-Mar-2024 09:07:25 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[08-Mar-2024 09:07:25 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[08-Mar-2024 09:07:39 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[08-Mar-2024 09:07:39 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[08-Mar-2024 09:26:55 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[08-Mar-2024 09:26:55 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[08-Mar-2024 17:56:02 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[08-Mar-2024 17:56:02 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[08-Mar-2024 17:56:24 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[08-Mar-2024 17:56:24 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[08-Mar-2024 17:56:36 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[08-Mar-2024 17:56:36 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[08-Mar-2024 17:56:55 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[08-Mar-2024 17:56:55 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[08-Mar-2024 20:43:36 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[08-Mar-2024 20:43:36 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[08-Mar-2024 20:43:39 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[08-Mar-2024 20:43:39 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8
+[08-Mar-2024 22:46:35 America/Lima] PHP Warning:  Undefined array key "id_modulo" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 7
+[08-Mar-2024 22:46:35 America/Lima] PHP Warning:  Undefined array key "id_semestre" in /home/sistemae/demo.sistema.edu.pe/docente/operaciones/obtener_ud_sem.php on line 8

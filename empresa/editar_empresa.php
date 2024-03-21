@@ -165,19 +165,19 @@ if (!verificar_sesion($conexion)) {
                                         </div>
                                         <div class="form-group">
                                             <label for="ruc">RUC*:</label>
-                                            <input type="text" class="form-control" id="ruc" name="ruc" value="<?php echo $empresa['ruc'] ?>" required>
+                                            <input type="text" class="form-control" id="ruc" name="ruc"  oninput="validateInputNum(this,11)"  value="<?php echo $empresa['ruc'] ?>" required>
                                         </div>
                                         <div class="form-group">
-                                            <label for="ubicacion">Ciuadad*:</label>
+                                            <label for="ubicacion">Ciudad*:</label>
                                             <input type="text" class="form-control" id="ubicacion" name="ubicacion" value="<?php echo $empresa['ubicacion'] ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="col-form-label label-align" for="logo"><i class="fa fa-file-pdf-o"></i> Subir Logo:
+                                            <label class="col-form-label label-align" for="logo"><i class="fa fa-file-pdf-o"></i> Logo con el nombre de la empresa:
                                             </label>                                                
                                             <div class="">
                                                 <div class="container-input">
-                                                    <input type="file" name="logo" id="file-3" class="inputfile inputfile-3" data-multiple-caption="{count} archivos seleccionados" multiple  accept=".png, .jpeg, .jpg" />
+                                                    <input type="file" name="logo" value="actualizar.png" id="file-3" class="inputfile inputfile-3" data-multiple-caption="{count} archivos seleccionados" multiple  accept=".png, .jpeg, .jpg" />
                                                     <label for="file-3">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
                                                     <span class="iborrainputfile"><?php 
@@ -208,8 +208,8 @@ if (!verificar_sesion($conexion)) {
                                             <input type="email" class="form-control" id="correo" name="correo" value="<?php echo $empresa['correo_institucional'] ?>" onkeyup="javascript:this.value=this.value.toLowerCase();" required>
                                         </div>
                                         <div class="form-group">
-                                            <label for="celular">Telefono - Celular*:</label>
-                                            <input type="text" class="form-control" id="celular" value="<?php echo $empresa['celular_telefono'] ?>" name="celular" required>
+                                            <label for="celular">Teléfono - Celular*:</label>
+                                            <input type="text" class="form-control" id="celular"  oninput="validateInputNum(this,9)"  value="<?php echo $empresa['celular_telefono'] ?>" name="celular" required>
                                         </div>
                                     </section>
                                 </div>
@@ -269,6 +269,18 @@ if (!verificar_sesion($conexion)) {
             });
         }( document, window, 0 ));
     </script> 
+    <script>
+      function validateInputNum(input, tamanio) {
+          // Obtén el valor actual del campo de entrada
+          let inputValue = input.value;
+
+          // Remueve cualquier carácter no permitido (en este caso, letras)
+          inputValue = inputValue.replace(/[^0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g, '');
+          inputValue = inputValue.slice(0, tamanio);
+          // Actualiza el valor del campo de entrada
+          input.value = inputValue.toUpperCase();
+      }
+    </script>
     <!-- Scripts de Gentella y otros scripts necesarios (si es necesario) -->
     <!-- jQuery -->
 	<script src="../Gentella/vendors/jquery/dist/jquery.min.js"></script>

@@ -76,7 +76,9 @@ if (!verificar_sesion($conexion)) {
             move_uploaded_file($tempArchivo, $rutaDestino);
         
         }
-
+            
+        $rutaDestino = substr($rutaDestino,14);
+        
         $passPlano = generarPass();
         $pass = password_hash($passPlano, PASSWORD_DEFAULT);
 
@@ -180,7 +182,8 @@ if (!verificar_sesion($conexion)) {
             </script>";
         } else {
             echo "<script>
-            alert('Ops, Tuvimos un problema, vuelva a intentarlo despúes de un rato!');
+            alert('Ops, ha ocurrido un error! Recuerde no registrar un RUC o correo eledctrónico ya existente.
+            ');
             window.history.back();
             </script>";
         }
