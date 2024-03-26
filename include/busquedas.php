@@ -533,21 +533,439 @@ function getCalificacionFinalByDniAndPeriodo($conexion, $dni, $periodo){
 
 
 
-// -------------------------- FUNCIONES ACTUALIZAR --------------------------
+// -------------------------- MODULO ADMISIÓN --------------------------
+
+// Para la tabla Proceso_Admision
+function buscarTodosProcesosAdmision($conexion) {
+    $sql = "SELECT * FROM Proceso_Admision";
+    return mysqli_query($conexion, $sql);
+}
+
+// Para la tabla Proceso_Admision
+function cantidadPostulaciones($conexion) {
+    $sql = "SELECT COUNT(*) as total FROM detalle_postulacion";
+    $res_total = mysqli_query($conexion, $sql);
+	$total = mysqli_fetch_array($res_total);
+	return $total['total'];
+}
+
+// Para la tabla Proceso_Admision por periodo
+function buscarTodosProcesosAdmisionPeriodo($conexion, $periodo) {
+    $sql = "SELECT * FROM Proceso_Admision WHERE Periodo = '$periodo'";
+    return mysqli_query($conexion, $sql);
+}
+
+// Para la tabla Documento_Admision
+function buscarTodosDocumentosAdmision($conexion) {
+    $sql = "SELECT * FROM Documento_Admision";
+    return mysqli_query($conexion, $sql);
+}
+
+// Para la tabla Resultados_Examen
+function buscarTodosResultadosExamen($conexion) {
+    $sql = "SELECT * FROM Resultados_Examen";
+    return mysqli_query($conexion, $sql);
+}
+
+// Para la tabla Metodo_Pago
+function buscarTodosMetodosPago($conexion) {
+    $sql = "SELECT * FROM Metodo_Pago";
+    return mysqli_query($conexion, $sql);
+}
+
+// Para la tabla Metodo_Pago
+function buscarTodosMetodosPagoPorId($conexion, $id) {
+    $sql = "SELECT * FROM Metodo_Pago WHERE Id = '$id'";
+    return mysqli_query($conexion, $sql);
+}
+
+// Para la tabla Cuadro_Vacantes
+function buscarTodosCuadrosVacantes($conexion) {
+    $sql = "SELECT * FROM Cuadro_Vacantes";
+    return mysqli_query($conexion, $sql);
+}
+
+// Para la tabla Proceso_Admision por ID
+function buscarProcesoAdmisionPorId($conexion, $id) {
+    $sql = "SELECT * FROM Proceso_Admision WHERE Id = '$id'";
+    return mysqli_query($conexion, $sql);
+}
+
+// Para la tabla Documento_Admision por ID de proceso
+function buscarDocumentosAdmisionPorIdProceso($conexion, $idProceso) {
+    $sql = "SELECT * FROM Documento_Admision WHERE Id_Proceso_Admision = '$idProceso'";
+    return mysqli_query($conexion, $sql);
+}
+
+// Para la tabla Resultados_Examen por ID de postulante
+function buscarResultadosExamenPorIdPostulante($conexion, $idPostulante) {
+    $sql = "SELECT * FROM Resultados_Examen WHERE Id_Postulante = '$idPostulante'";
+    return mysqli_query($conexion, $sql);
+}
+
+// Para la tabla Cuadro_Vacantes por ID de proceso
+function buscarCuadrosVacantesPorIdProceso($conexion, $idProceso) {
+    $sql = "SELECT * FROM Cuadro_Vacantes WHERE Id_Proceso_Admision = '$idProceso'";
+    return mysqli_query($conexion, $sql);
+}
+
+function buscarDocumentoAdmisionPorIdProceso($conexion, $idProceso) {
+    $sql = "SELECT * FROM Documento_Admision WHERE Id_Proceso_Admision = '$idProceso'";
+    return mysqli_query($conexion, $sql);
+}
+
+function buscarCuadroVacantesPorPeriodoPrograma($conexion, $periodo, $id_programa) {
+    $sql = "SELECT cv.*, m.Descripcion FROM Cuadro_Vacantes cv INNER JOIN proceso_admision pa ON pa.Id = cv.Id_Proceso_Admision INNER JOIN modalidad m ON m.Id = cv.Id_Modalidad 
+	WHERE pa.Periodo = '$periodo' AND cv.Id_Programa = '$id_programa' 
+	ORDER BY  cv.Id_Programa ASC, CASE WHEN m.Descripcion = 'Ordinario' THEN 1 ELSE 0 END, cv.Id_Modalidad ASC";
+    return mysqli_query($conexion, $sql);
+}
+
+function buscarTotalVacantesPorPeriodoPrograma($conexion, $periodo, $id_programa) {
+    $sql = "SELECT 
+	SUM(cv.Vacantes) AS total_vacante_programa
+	FROM 
+		Cuadro_Vacantes cv 
+	INNER JOIN 
+		proceso_admision pa ON pa.Id = cv.Id_Proceso_Admision 
+	INNER JOIN 
+		modalidad m ON m.Id = cv.Id_Modalidad 
+	WHERE 
+		pa.Periodo = '$periodo' 
+		AND cv.Id_Programa = '$id_programa' ";
+    return mysqli_query($conexion, $sql);
+}
+
+// Para traer todos los registros de la tabla Ajustes_Admision
+function buscarTodosAjustesAdmision($conexion) {
+    $sql = "SELECT * FROM Ajustes_Admision";
+    return mysqli_query($conexion, $sql);
+}
+
+// Para buscar ajustes de admisión por ID de proceso de admisión
+function buscarAjustesAdmisionPorIdProceso($conexion, $idProceso) {
+    $sql = "SELECT aa.Id, aa.Estado, r.Titulo, r.Tipo, r.Descripcion, r.Id_Modalidad FROM ajustes_admision aa INNER JOIN requisito r ON r.Id = aa.Id_Requisito
+	WHERE Id_Proceso_admision = '$idProceso'";
+    return mysqli_query($conexion, $sql);
+}
+
+// Para buscar ajustes de admisión por su ID
+function buscarAjustesAdmisionPorId($conexion, $id) {
+    $sql = "SELECT * FROM Ajustes_Admision WHERE Id = '$id'";
+    return mysqli_query($conexion, $sql);
+}
+
+function buscarProcesoAdmisionPorPeriodoTipo($conexion, $tipo, $periodo) {
+    $sql = "SELECT COUNT(*) AS num_rows FROM Proceso_Admision WHERE Tipo = '$tipo' AND Periodo = '$periodo'";
+    return mysqli_query($conexion, $sql);
+}
+
+//TABLA Postulante
+function buscarTodosPostulantes($conexion) {
+    $sql = "SELECT * FROM Postulante";
+    return mysqli_query($conexion, $sql);
+}
+
+//Obtener postulantes por proceso
+function buscarTodosPostulantesPorProceso($conexion, $proceso) {
+    $sql = "SELECT p.*, dp.Fecha FROM `detalle_postulacion` dp INNER JOIN postulante p ON p.Id = dp.Id_Postulante WHERE dp.Id_Proceso_Admision = '$proceso' AND dp.Estado = 1";
+    return mysqli_query($conexion, $sql);
+}
+//obtener postulantes aptos por proceso
+function buscarTodosPostulantesPorProcesoAptos($conexion, $proceso) {
+    $sql = "SELECT p.*, dp.Fecha FROM `detalle_postulacion` dp INNER JOIN postulante p ON p.Id = dp.Id_Postulante WHERE dp.Id_Proceso_Admision = '$proceso' AND dp.Estado = 2";
+    return mysqli_query($conexion, $sql);
+}
+//obtener postulantes no aptos por proceso
+function buscarTodosPostulantesPorProcesoNoAptos($conexion, $proceso) {
+    $sql = "SELECT p.*, dp.Fecha FROM `detalle_postulacion` dp INNER JOIN postulante p ON p.Id = dp.Id_Postulante WHERE dp.Id_Proceso_Admision = '$proceso' AND dp.Estado = 3";
+    return mysqli_query($conexion, $sql);
+}
+
+//TABLA Detalle_Colegio
+function buscarTodosDetalleColegio($conexion) {
+    $sql = "SELECT * FROM Detalle_Colegio";
+    return mysqli_query($conexion, $sql);
+}
+
+//TABLA Modalidad
+function buscarTodasModalidades($conexion) {
+    $sql = "SELECT * FROM Modalidad";
+    return mysqli_query($conexion, $sql);
+}
+
+//TABLA Modalidad
+function buscarModalidadOrdinario($conexion) {
+    $sql = "SELECT * FROM Modalidad WHERE Descripcion = 'Ordinario'";
+    return mysqli_query($conexion, $sql);
+}
+
+//Procesos Activos
+function buscarProcesosActivos($conexion) {
+    $sql = "SELECT *
+	FROM proceso_admision
+	WHERE CURDATE() BETWEEN Fecha_Inicio AND Fecha_Fin;";
+    return mysqli_query($conexion, $sql);
+}
+
+//Modalidad por cuadro vacante
+function buscarModalidadesCuadroVacantes($conexion, $proceso) {
+    $sql = "SELECT m.*
+	FROM proceso_admision pa INNER JOIN cuadro_vacantes cv ON pa.Id = cv.Id_Proceso_Admision INNER JOIN modalidad m ON m.Id = cv.Id_Modalidad
+	WHERE CURDATE() BETWEEN pa.Fecha_Inicio AND pa.Fecha_Fin AND cv.Id_Proceso_Admision = '$proceso' AND m.Descripcion != 'Ordinario' GROUP BY m.Id";
+    return mysqli_query($conexion, $sql);
+}
+
+//Modalidad programas con vacantes por modalidad y periodo
+function buscarProgramaPorProcesoModalidad($conexion, $periodo, $modalidad) {
+    $sql = "SELECT pe.nombre, pe.id
+	FROM proceso_admision pa INNER JOIN cuadro_vacantes cv ON pa.Id = cv.Id_Proceso_Admision INNER JOIN modalidad m ON m.Id = cv.Id_Modalidad INNER JOIN programa_estudios pe ON pe.id = cv.Id_Programa
+	WHERE CURDATE() BETWEEN pa.Fecha_Inicio AND pa.Fecha_Fin AND pa.Periodo = '$periodo' AND m.Id = '$modalidad' AND cv.Vacantes != 0";
+    return mysqli_query($conexion, $sql);
+}
+
+//Requisitos generales por proceso de admision
+function buscarRequisitosGeneralesPorProceso($conexion, $proceso) {
+    $sql = "SELECT r.* FROM ajustes_admision aa INNER JOIN requisito r ON aa.Id_Requisito = r.Id WHERE aa.Id_Proceso_admision = '$proceso' AND aa.Estado = 1 AND r.Tipo = 'General'";
+    return mysqli_query($conexion, $sql);
+}
+
+//Requisitos generales por proceso de admision
+function buscarRequisitosEspecificosPorProcesoModalidad($conexion, $proceso, $modalidad) {
+    $sql = "SELECT r.* FROM ajustes_admision aa INNER JOIN requisito r ON aa.Id_Requisito = r.Id INNER JOIN modalidad m ON m.Id = r.Id_Modalidad 
+	WHERE aa.Id_Proceso_admision = '$proceso' AND aa.Estado = 1 AND r.Tipo = 'Especifico' AND m.Id = '$modalidad'";
+    return mysqli_query($conexion, $sql);
+}
+
+function buscarTodasModalidadesOrdenadas($conexion) {
+    $sql = "SELECT * FROM Modalidad ORDER BY CASE WHEN Descripcion = 'Ordinario' THEN 1 ELSE 0 END, Id ASC";
+    return mysqli_query($conexion, $sql);
+}
 
 
+//TABLADetalle_Postulacion
+function buscarTodosDetallePostulacion($conexion) {
+    $sql = "SELECT * FROM Detalle_Postulacion";
+    return mysqli_query($conexion, $sql);
+}
+
+//TABLA Requisito
+function buscarTodosRequisitos($conexion) {
+    $sql = "SELECT * FROM Requisito";
+    return mysqli_query($conexion, $sql);
+}
+
+//TABLA Postulacion_Documento
+function buscarTodosPostulacionDocumento($conexion) {
+    $sql = "SELECT * FROM Postulacion_Documento";
+    return mysqli_query($conexion, $sql);
+}
+
+// Utilizando su ID TABLA Postulante
+function buscarPostulantePorId($conexion, $id) {
+    $sql = "SELECT * FROM Postulante WHERE Id = '$id'";
+    return mysqli_query($conexion, $sql);
+}
+
+// Utilizando su ID TABLA Detalle_Colegio
+function buscarDetalleColegioPorId($conexion, $id) {
+    $sql = "SELECT * FROM Detalle_Colegio WHERE Id = '$id'";
+    return mysqli_query($conexion, $sql);
+}
+
+// Utilizando su ID TABLA Modalidad
+function buscarModalidadPorId($conexion, $id) {
+    $sql = "SELECT * FROM Modalidad WHERE Id = '$id'";
+    return mysqli_query($conexion, $sql);
+}
+
+// Utilizando su ID TABLA Detalle_Postulacion
+function buscarDetallePostulacionPorId($conexion, $id) {
+    $sql = "SELECT * FROM Detalle_Postulacion WHERE Id = '$id'";
+    return mysqli_query($conexion, $sql);
+}
+
+// Utilizando su ID de Postulante
+function buscarDetallePostulacionPorIdPostulante($conexion, $id_postulante) {
+    $sql = "SELECT * FROM Detalle_Postulacion WHERE Id_Postulante = '$id_postulante'";
+    return mysqli_query($conexion, $sql);
+}
+
+// Utilizando su ID TABLA Requisito
+function buscarRequisitoPorId($conexion, $id) {
+    $sql = "SELECT * FROM Requisito WHERE Id = '$id'";
+    return mysqli_query($conexion, $sql);
+}
+
+// Utilizando su ID TABLA Postulacion_Documento
+function buscarPostulacionDocumentoPorId($conexion, $id) {
+    $sql = "SELECT * FROM Postulacion_Documento WHERE Id = '$id'";
+    return mysqli_query($conexion, $sql);
+}
+
+// 	Buscar Postulantes por DNI:
+function buscarPostulantePorDni($conexion, $dni) {
+    $sql = "SELECT * FROM Postulante WHERE Dni = '$dni'";
+    return mysqli_query($conexion, $sql);
+}
+
+//Buscar Postulantes por Lugar de Procedencia:
+function buscarPostulantesPorLugarProcedencia($conexion, $lugar) {
+    $sql = "SELECT * FROM Postulante WHERE Lugar_Procedencia = '$lugar'";
+    return mysqli_query($conexion, $sql);
+}
+
+// Buscar Postulaciones por Fecha:
+function buscarPostulacionesPorFecha($conexion, $fecha) {
+    $sql = "SELECT * FROM Detalle_Postulacion WHERE Fecha = '$fecha'";
+    return mysqli_query($conexion, $sql);
+}
+
+//Buscar Modalidades por Monto:
+function buscarModalidadesPorMonto($conexion, $monto) {
+    $sql = "SELECT * FROM Modalidad WHERE Monto = '$monto'";
+    return mysqli_query($conexion, $sql);
+}
+
+//Buscar Requisitos por Modalidad:
+function buscarRequisitosPorModalidad($conexion, $id_modalidad) {
+    $sql = "SELECT * FROM Requisito WHERE Id_Modalidad = '$id_modalidad'";
+    return mysqli_query($conexion, $sql);
+}
+
+//Buscar Documentos de Postulación por ID de Detalle de Postulación:
+function buscarDocumentosDePostulacionPorDetalle($conexion, $id_detalle) {
+    $sql = "SELECT * FROM Postulacion_Documento WHERE Id_Detalle_Postulacion = '$id_detalle'";
+    return mysqli_query($conexion, $sql);
+}
+
+// Buscar Detalle de Colegio por Nombre:
+function buscarDetalleColegioPorNombre($conexion, $nombre) {
+    $sql = "SELECT * FROM Detalle_Colegio WHERE Nombre LIKE '%$nombre%'";
+    return mysqli_query($conexion, $sql);
+}
+
+// Buscar Detalles de Postulación por Proceso de Admisión:
+function buscarDetallesPostulacionPorProcesoAdmision($conexion, $idProceso) {
+    $sql = "SELECT * FROM Detalle_Postulacion WHERE Id_Proceso_Admision = '$idProceso'";
+    return mysqli_query($conexion, $sql);
+}
+
+// Buscar Postulantes por Lengua Materna:
+function buscarPostulantesPorLenguaMaterna($conexion, $lengua) {
+    $sql = "SELECT * FROM Postulante WHERE Lengua_Materna = '$lengua'";
+    return mysqli_query($conexion, $sql);
+}
+
+//Buscar Postulantes por Programa de Estudio:
+function buscarPostulantesPorProgramaEstudio($conexion, $idPrograma) {
+    $sql = "SELECT * FROM Detalle_Postulacion WHERE Id_Programa_Estudio = '$idPrograma'";
+    return mysqli_query($conexion, $sql);
+}
+
+//Buscar Requisitos generales:
+function buscarRequisitosGenerales($conexion) {
+    $sql = "SELECT * FROM Requisito WHERE Tipo = 'General'";
+    return mysqli_query($conexion, $sql);
+}
+
+//determinar_periodos_activos
+function determinarPeriodosActivos($conexion, $periodo) {
+	$sql = "SELECT COUNT(*) AS cantidad_procesos
+	FROM proceso_admision
+	WHERE Periodo = '$periodo' 
+	AND Fecha_Inicio <= CURDATE()";
+	return mysqli_query($conexion, $sql);
+}
 
 
+// --------------------------- FUNCIONES COLEGIO----------------------------
 
+function obtenerColegioByID($conexion, $id) {
+    $sql = "SELECT * FROM `colegio` WHERE Id = '$id'";
+    return mysqli_query($conexion, $sql);
+}
 
+function obtenerRegiones($conexion) {
+    $sql = "SELECT Departamento FROM `colegio` GROUP BY Departamento";
+    return mysqli_query($conexion, $sql);
+}
 
+function obtenerProvinciaPorRegion($conexion, $region) {
+    $sql = "SELECT Provincia FROM `colegio` WHERE Departamento = '$region' GROUP BY Provincia";
+    return mysqli_query($conexion, $sql);
+}
 
-// --------------------------- FUNCIONES ELIMINAR----------------------------
+function obtenerDistritoPorRegionProvincia($conexion, $region, $provincia) {
+    $sql = "SELECT Distrito FROM `colegio` WHERE Departamento = '$region' AND Provincia = '$provincia' GROUP BY Distrito";
+    return mysqli_query($conexion, $sql);
+}
 
+function obtenerColegioPorProvinciaDistrito($conexion, $distrito, $provincia) {
+    $sql = "SELECT Id, Nombre FROM `colegio`  WHERE Distrito = '$distrito' AND Provincia = '$provincia'";
+    return mysqli_query($conexion, $sql);
+}
 
+function obtenerDatosPostulantePorProcesoAdmision($conexion, $idProcesoAdmision) {
+	$sql = "SELECT dp.*, p.*, re.*, pe.* 
+			FROM detalle_postulacion dp
+			INNER JOIN postulante p ON dp.Id_Postulante = p.Id
+			INNER JOIN resultados_examen re ON dp.Id_Postulante = re.Id_Postulante
+			INNER JOIN programa_estudios pe ON dp.Id_Programa_Estudio = pe.id
+			WHERE dp.Id_Proceso_Admision = '$idProcesoAdmision'";
+	return mysqli_query($conexion, $sql);
+}
 
+function obtenerDatosPostulantePorDni($conexion, $dni) {
+	$sql = "SELECT p.*, dp.*
+			FROM postulante p
+			INNER JOIN detalle_postulacion dp ON p.Id = dp.Id_Postulante
+			WHERE p.Dni = '$dni'";
+	return mysqli_query($conexion, $sql);
+}
 
+function obtenerDatosPostulancionPorId($conexion, $id) {
+	$sql = "SELECT p.*, dp.*, m. Descripcion, pa. Periodo, pe. nombre
+			FROM postulante p
+			INNER JOIN detalle_postulacion dp ON p.Id = dp.Id_Postulante
+			INNER JOIN modalidad m ON dp.Id_Modalidad = m.Id
+			INNER JOIN proceso_admision pa ON dp.Id_Proceso_Admision = pa.Id
+			INNER JOIN programa_estudios pe ON dp.Id_Programa_Estudio = pe.Id
+			WHERE p.Id = '$id'";
+	return mysqli_query($conexion, $sql);
+}
 
+function obtenerDatosPostulancionCompletaPorId($conexion, $id) {
+	$sql = "SELECT p.*, dp.*, re.*, m. Descripcion, pa. Periodo, pe. nombre
+			FROM postulante p
+			INNER JOIN detalle_postulacion dp ON p.Id = dp.Id_Postulante
+			INNER JOIN resultados_examen re ON p.Id = re.Id_Postulante
+			INNER JOIN modalidad m ON dp.Id_Modalidad = m.Id
+			INNER JOIN proceso_admision pa ON dp.Id_Proceso_Admision = pa.Id
+			INNER JOIN programa_estudios pe ON dp.Id_Programa_Estudio = pe.Id
+			WHERE p.Id = '$id'";
+	return mysqli_query($conexion, $sql);
+}
+
+function obtenerDocumentosdePostulancionPorPeriodo($conexion, $periodo) {
+	$sql = "SELECT da.*, pa.*
+			FROM documento_admision da
+			INNER JOIN proceso_admision pa ON da.Id_Proceso_Admision = pa.Id
+			WHERE pa.Periodo = '$periodo'";
+	return mysqli_query($conexion, $sql);
+}
+
+function obtenerDocumentosdeDePostulancion($conexion, $id) {
+	$sql = "SELECT dp.*, r.Titulo FROM `documento_postulacion` dp INNER JOIN requisito r ON dp.Id_Requisito = r.Id WHERE Id_Detalle_Postulacion = '$id'";
+	return mysqli_query($conexion, $sql);
+}
+
+function obtenerPostulantesAptosProcesoAdmision($conexion, $id) {
+	$sql = "SELECT p.Dni, p.Apellido_Paterno, p.Apellido_Materno, p.Nombres, pe.nombre, dp.Id_Segunda_Opcion FROM `detalle_postulacion` dp 
+	INNER JOIN postulante p ON p.Id = dp.Id_Postulante 
+	INNER JOIN programa_estudios pe ON pe.id = dp.Id_Programa_Estudio WHERE Id_Proceso_Admision = '$id' AND Estado = 2";
+	return mysqli_query($conexion, $sql);
+}
 
 
 ?>

@@ -509,3 +509,43 @@ function buscar_cantidad_criterios_programacion($conexion, $id_prog, $det_evalua
 
 
 /// FIN DE FUNCIONES DE CALIFICACIONES ------------------------------------------------------------
+function determinarEstadoAdmision($fechaInicio, $fechaFin) {
+    
+    echo "<script>console.log('".$fechaInicio."');</script>";
+
+    $zonaHorariaCliente = 'America/Lima';
+
+    $fechaActualObj = new DateTime("now", new DateTimeZone($zonaHorariaCliente));
+
+    $fechaInicioObj = DateTime::createFromFormat('Y-m-d', $fechaInicio, new DateTimeZone($zonaHorariaCliente));
+    
+    $fechaInicioObj->setTime(0, 0, 0);
+    
+    $fechaFinObj = DateTime::createFromFormat('Y-m-d', $fechaFin, new DateTimeZone($zonaHorariaCliente));
+    $fechaFinObj->setTime(23, 59, 59);
+    
+    if ($fechaActualObj < $fechaInicioObj) {
+        return "Por comenzar";
+    } elseif ($fechaActualObj >= $fechaInicioObj && $fechaActualObj <= $fechaFinObj) {
+        return "En proceso";
+    } else {
+        return "Finalizado";
+    }
+}
+
+//FUNCIONES PARA CODIGO DE POSTULACION DE PROCESO DE ADMISION
+function generarCodigoAdmision($dni, $numero) {
+   // Obtener los últimos 2 dígitos del año actual
+   $año = substr(date("Y"), -2);
+    
+   // Obtener los últimos 2 dígitos del DNI
+   $ultimos_dni = substr($dni, -2);
+   
+   // Completar el número de 1, 2 o 3 dígitos con ceros por delante para tener 4 dígitos
+   $numero_completo = str_pad($numero, 4, "0", STR_PAD_LEFT);
+   
+   // Generar el código numérico concatenando las partes
+   $codigo = $año . $ultimos_dni . $numero_completo;
+   
+   return $codigo;
+}
