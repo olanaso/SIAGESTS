@@ -509,3 +509,26 @@ function buscar_cantidad_criterios_programacion($conexion, $id_prog, $det_evalua
 
 
 /// FIN DE FUNCIONES DE CALIFICACIONES ------------------------------------------------------------
+function determinarEstadoAdmision($fechaInicio, $fechaFin) {
+    
+    echo "<script>console.log('".$fechaInicio."');</script>";
+
+    $zonaHorariaCliente = 'America/Lima';
+
+    $fechaActualObj = new DateTime("now", new DateTimeZone($zonaHorariaCliente));
+
+    $fechaInicioObj = DateTime::createFromFormat('Y-m-d', $fechaInicio, new DateTimeZone($zonaHorariaCliente));
+    
+    $fechaInicioObj->setTime(0, 0, 0);
+    
+    $fechaFinObj = DateTime::createFromFormat('Y-m-d', $fechaFin, new DateTimeZone($zonaHorariaCliente));
+    $fechaFinObj->setTime(23, 59, 59);
+    
+    if ($fechaActualObj < $fechaInicioObj) {
+        return "Por comenzar";
+    } elseif ($fechaActualObj >= $fechaInicioObj && $fechaActualObj <= $fechaFinObj) {
+        return "En proceso";
+    } else {
+        return "Finalizado";
+    }
+}

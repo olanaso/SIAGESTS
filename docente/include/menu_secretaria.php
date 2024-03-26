@@ -47,6 +47,15 @@
                 <ul class="nav side-menu">
                   <li><a href="../docente/"><i class="fa fa-home"></i>Inicio</a>
                   </li>
+                  <li><a><i class="fa fa-table"></i> Admisión <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li class="sub_menu"><a href="periodo_academico.php">Estadisticas</a></li>
+                      <li><a href="requisitos.php">Requisitos Generales</a></li>
+                      <li><a href="modalidades.php">Modalidades</a></li>
+                      <li><a href="medios_pago.php">Medios de Pago</a></li>
+                      <li><a href="procesos_admision.php">Proceso de Admisión</a></li>
+                    </ul>
+                  </li>
                   <li><a><i class="fa fa-calendar"></i> Planificacion <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li class="sub_menu"><a href="periodo_academico.php">Periodos Academicos</a></li>
