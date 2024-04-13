@@ -61,7 +61,17 @@ if (!verificar_sesion($conexion)) {
           <?php
           
           $per_select = $_SESSION['periodo'];
-          if($r_b_docente['id_cargo']==5){//si es docente
+          $director = false;
+          $unidad = false;
+          if($r_b_docente['id_cargo']== 1 AND  $r_b_docente['carga_academica'] == 1){
+            $director = true;
+          }
+
+          if($r_b_docente['id_cargo']== 3 AND  $r_b_docente['carga_academica'] == 1){
+            $unidad = true;
+          }
+
+          if($r_b_docente['id_cargo'] ==5 || $director || $unidad ){//si es docente
             $m_caratula = 1;
             $m_silabos = 1;
             $m_sesiones = 1;

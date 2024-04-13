@@ -39,6 +39,7 @@ if (!verificar_sesion($conexion)) {
     $header = array(
             'N°' => 'N°',
             'PROGRAMA DE ESTUDIOS' => 'PROGRAMA DE ESTUDIOS', 
+            'PROGRAMA SEGUNDA OPCIÓN' => 'PROGRAMA SEGUNDA OPCIÓN', 
             'DNI' => 'DNI',
             'APELLIDO PATERNO' => 'APELLIDO PATERNO',
             'APELLIDO MATERNO' => 'APELLIDO MATERNO',
@@ -54,8 +55,21 @@ if (!verificar_sesion($conexion)) {
         $busc_ingr = obtenerPostulantesAptosProcesoAdmision($conexion, $id_proceso_admision); 
         while ($postulantes=mysqli_fetch_array($busc_ingr)){
             //imprime contenido
+            $res_segunda_opcion = $postulantes['Id_Segunda_Opcion'];
+            $segunda_opcion = "NINGUNO";
+
+            if($res_segunda_opcion > 0){
+                //recuperar programa segunda opcion
+                $res_programa2 = buscarCarrerasById($conexion, $res_segunda_opcion);
+                $cont_programa2 = mysqli_num_rows($res_programa2);
+                if($cont_programa2 > 0){
+                    $programa2 = mysqli_fetch_array($res_programa2);
+                    $segunda_opcion = $programa2['nombre'];
+                }
+            }
+
             $writer->writeSheetRow('Plantilla', $rowdata = array(
-                $ord, $postulantes['nombre'], $postulantes['Dni'], $postulantes['Apellido_Paterno'], 
+                $ord, $postulantes['nombre'], $segunda_opcion, $postulantes['Dni'], $postulantes['Apellido_Paterno'], 
                 $postulantes['Apellido_Materno'], $postulantes['Nombres'], "", 
                "",""), $styles9);
 

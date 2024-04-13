@@ -96,7 +96,15 @@
                                     <br>
                                 </div>
                             </div>
-                            <div align="center">
+                            <div class="form-group form-group col-md-6 col-sm-6 col-xs-12">
+                                <label class="control-label">Fecha de Examen de Admisión *:
+                                </label>
+                                <div class="">
+                                    <input type="date" class="form-control" name="fecha_examen" value="<?php echo $proceso['Fecha_Examen']; ?>" required="required">
+                                    <br>
+                                </div>
+                            </div>
+                            <div class="form-group form-group col-md-12 col-sm-12 col-xs-12" align="center">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                                 <button type="submit" class="btn btn-primary">Guardar</button>
                             </div>

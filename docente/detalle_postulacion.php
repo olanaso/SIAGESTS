@@ -50,12 +50,13 @@ if (!verificar_sesion($conexion)) {
     $res_metodo_pago = buscarTodosMetodosPagoPorId($conexion, $detalle_post['Id_Metodo_Pago']);
     $metodo_pago = mysqli_fetch_array($res_metodo_pago);
 
-    $segunda_opcion = $detalle_post['Id_Segunda_Opcion'];
-    if($segunda_opcion > 0){
+    $res_segunda_opcion = $detalle_post['Id_Segunda_Opcion'];
+    $segunda_opcion = "No Indicado";
+
+    if($res_segunda_opcion > 0){
         //recuperar programa segunda opcion
         $res_programa2 = buscarCarrerasById($conexion, $detalle_post['Id_Segunda_Opcion']);
         $cont_programa2 = mysqli_num_rows($res_programa2);
-        $segunda_opcion = "-";
         if($cont_programa2 > 0){
             $programa2 = mysqli_fetch_array($res_programa2);
             $segunda_opcion = $programa2['nombre'];
@@ -79,6 +80,7 @@ if (!verificar_sesion($conexion)) {
 
     //DOCUMENTOS DEL POSTULANTE
     $documentos = obtenerDocumentosdeDePostulancion($conexion, $id_detalle_post);
+    $documentos_modal = obtenerDocumentosdeDePostulancion($conexion, $id_detalle_post);
     
 ?>
 <!DOCTYPE html>
@@ -245,13 +247,14 @@ if (!verificar_sesion($conexion)) {
                                 </div>
                                 </center>
                                 <div class="documentos">
-                                    <?php while($documento = mysqli_fetch_array($documentos)){?>
-                                    <div>
-                                        <a href="#" class="col-xs-12" onclick="abrirModal('<?php echo '../admision/'.$documento['Documento']; ?>')">
-                                        <span align="start" class="gray"><i class="fa fa-file-o red"></i><b> <?php echo $documento['Titulo']; ?></b></span>
-                                    </a><br><br>
-                                    </div>
-                                    <?php } ?>
+                                    <?php while($documento = mysqli_fetch_array($documentos)){
+                                        if($documento['Titulo'] !== 'Fotografías'){ ?>
+                                        <div>
+                                            <a href="#" class="col-xs-12" onclick="abrirModal('<?php echo '../admision/'.$documento['Documento']; ?>')">
+                                            <span align="start" class="gray"><i class="fa fa-file-o red"></i><b> <?php echo $documento['Titulo']; ?></b></span>
+                                        </a><br><br>
+                                        </div>
+                                    <?php }} ?>
                                 </div>
                                 
                                 <div>
@@ -324,9 +327,10 @@ if (!verificar_sesion($conexion)) {
                                         <th colspan="3" align="center">TIPO DISCAPACIDAD</th>
                                     </tr>
                                     <tr>
-                                        <td  colspan="1" align="center"><?php if($postulante['Presenta_Discapacidad']== 0) echo "No";
+                                        <td  colspan="1" align="center"><?php if($postulante['Presenta_Discapacidad'] == "0") echo "No";
                                         else echo "SI";?></td>
-                                        <td colspan="3" align="center"><?php echo $postulante['Tipo_Discapacidad'];?></td>
+                                        <td colspan="3" align="center"><?php if($postulante['Tipo_Discapacidad'] == "") echo "No Indicado";
+                                        else echo $postulante['Tipo_Discapacidad']; ?></td>
                                     </tr>
                                 </table>
                                 <?php if(calcularEdad($postulante['Fecha_Nacimiento']) < 18){ ?>
@@ -392,7 +396,7 @@ if (!verificar_sesion($conexion)) {
                                     </tr>
                                 </table>
                                  <!--MODAL APTO-->
-                                 <?php if($estado_detalle_post == '1'){ ?>
+                                 <?php if($estado_detalle_post == '1' or $estado_detalle_post == '4'){ ?>
                                  <div align="right">
                                     <button title="Editar documento" class="btn btn-warning" data-toggle="modal" data-target=".observar">OBSERVAR</button>
                                     <button title="Editar documento" class="btn btn-success" data-toggle="modal" data-target=".aceptar">MARCAR COMO APTO</button>
@@ -450,7 +454,7 @@ if (!verificar_sesion($conexion)) {
                             </div>
                             
                             <div class="modal fade observar" tabindex="-1" role="dialog" aria-hidden="true">
-                                                    <div class="modal-dialog modal-lg">
+                                                    <div class="modal-dialog modal-mg">
                                                     <div class="modal-content">
 
                                                         <div class="modal-header">
@@ -468,7 +472,16 @@ if (!verificar_sesion($conexion)) {
                                                     <input type="hidden" name="id" value="<?php echo $id_detalle_post ?>">
                                                     <input type="hidden" name="correo" value="<?php echo $postulante['Correo'] ?>">
                                                     <input type="hidden" name="tipo" value="observado">
-                                                    
+                                                    <h4><b>Seleccione las observaciones</b></h4>
+                                                    <?php while($documento = mysqli_fetch_array($documentos_modal)){
+                                                    ?>
+                                                        <div class="">
+                                                            <label>
+                                                                <input type="checkbox" name="requisitos_observados[]" value="<?php echo $documento['Id'] ?>">  <b><?php echo $documento['Titulo']; ?></b>
+                                                            </label>
+                                                        </div>
+                                                    <?php } ?>
+                                                    <br>
                                                     <div class="form-group row">
                                                         <label class="col-form-label label-align" for="motivo"><i class="fa fa-file-pdf-o"></i> Explique las observaciones * :
                                                         </label>

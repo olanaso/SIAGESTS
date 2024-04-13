@@ -20,23 +20,34 @@ if (!verificar_sesion($conexion)) {
 	$fin_ins = $_POST['fin_ins'];
 	$inicio_ext = $_POST['inicio_ext'];
 	$fin_ext = $_POST['fin_ext'];
+	$fecha_examen = $_POST['fecha_examen'];
 
-	$insertar = "UPDATE proceso_admision SET Tipo='$tipo',Periodo='$periodo',Fecha_Inicio= '$inicio',Fecha_Fin= '$fin',
-	Inicio_Inscripcion= '$inicio_ins',Fin_Inscripcion= '$fin_ins',Inicio_Extemporaneo= '$inicio_ext',Fin_Extemporaneo= '$fin_ext' WHERE Id = $id";
-	$ejecutar_insetar = mysqli_query($conexion, $insertar);
-	if ($ejecutar_insetar) {
-			echo "<script>
-                alert('Actualización Existosa');
-                window.location= '../procesos_admision.php'
-    			</script>";
-	}else{
+	$res_procesos = buscarProcesosActivosPorFechasActualizar($conexion, $inicio, $id);
+	$contador = mysqli_num_rows($res_procesos);
+
+	if($contador > 0){
 		echo "<script>
-			alert('Error al actualizar');
+			alert('La fecha de inicio o fin de un proceso no debe coincidir entre la fecha inicio y fin de un proceso de admisión!');
 			window.history.back();
-				</script>
-			";
-	};
+		</script>";
+	}else{
+		$insertar = "UPDATE proceso_admision SET Tipo='$tipo',Periodo='$periodo',Fecha_Inicio= '$inicio',Fecha_Fin= '$fin',
+		Inicio_Inscripcion= '$inicio_ins',Fin_Inscripcion= '$fin_ins',Inicio_Extemporaneo= '$inicio_ext',Fin_Extemporaneo= '$fin_ext', Fecha_Examen= '$fecha_examen' WHERE Id = $id";
+		$ejecutar_insetar = mysqli_query($conexion, $insertar);
+		if ($ejecutar_insetar) {
+				echo "<script>
+					alert('Actualización Existosa');
+					window.location= '../procesos_admision.php'
+					</script>";
+		}else{
+			echo "<script>
+				alert('Error al actualizar');
+				window.history.back();
+					</script>
+				";
+		};
 
-mysqli_close($conexion);
+		mysqli_close($conexion);
+	}
 
 }

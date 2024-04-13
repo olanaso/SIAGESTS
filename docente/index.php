@@ -9,19 +9,22 @@ $id_cargo = buscar_rol_sesion($conexion, $_SESSION['id_sesion'], $_SESSION['toke
 
 switch ($id_cargo) {
     case 1:
-        header("location: direccion.php");
+        header("location: docente.php");
         break;
     case 2:
         header("location: secretaria.php");
         break;
     case 3:
-        header("location: unidad_academica.php");
+        header("location: docente.php");
         break;
     case 4:
         header("location: coordinador.php");
         break;
     case 5:
         header("location: docente.php");
+        break;
+    case 6:
+        header("location: ../caja/index.php");
         break;
 
     default:

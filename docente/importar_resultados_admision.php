@@ -59,6 +59,10 @@ if (!verificar_sesion($conexion)) {
           opacity: 0;
           display: none;
       }
+      .dataTables_filter{
+        display: none;
+      }
+      
     </style>
 
   </head>
@@ -91,8 +95,18 @@ if (!verificar_sesion($conexion)) {
                     <div class="tab-content">
                         <div id="tab1" class="tab-pane fade in active">
                           <h4 align="center"><b>Resultados del Proceso de Admisión - <?php echo $res_b_proc_adm['Periodo'] ?></b></h4>
-                          <!-- <a class="blue" href="https://drive.google.com/uc?id=1q-vb3Q7Qr63u6lR8T9pAcPYeBNRCHage&export=download"><i class="fa fa-file-excel-o"></i> Descargar Archivo</a> -->
-                          
+                          <div class=""><b>Filtrar Por Programa: </b></div>
+                          <div class="form-group col-lg-4 col-sm-6 col-xs-12">
+                              <select id="filtro" class="form-control">
+                                  <option value="" selected >TODOS</option>
+                                  <?php 
+                                    $carreras = buscarCarreras($conexion);
+                                    while($carrera = mysqli_fetch_array($carreras)){
+                                    ?>
+                                  <option value="<?php echo $carrera['nombre'] ?>"><?php echo $carrera['nombre'] ?></option>
+                                  <?php } ?>
+                              </select>
+                          </div>
                           <section class="">
                             <table id="example" class="table table-striped table-bordered" style="width:100%">
                               <thead>
@@ -123,17 +137,11 @@ if (!verificar_sesion($conexion)) {
                                   <td align="center"><?php echo $res_busc_postulantes['Puntaje']; ?></td>
                                   <td align="center"><?php echo $res_busc_postulantes['Orden_Merito']; ?></td>
                                   <td><?php echo $res_busc_postulantes['nombre']; ?></td>
-                                  <td align="center" class="<?php echo $res_busc_postulantes['Condicion'] === 'Admitido' ? 'text-success' : 'text-danger'; ?>">
-                                      <?php echo $res_busc_postulantes['Condicion']; ?>
+                                  <td align="center" class="<?php echo $res_busc_postulantes['Condicion'] === '1' ? 'text-success' : 'text-danger'; ?>">
+                                      <b><?php echo $res_busc_postulantes['Condicion'] === "1" ? 'ALCANZÓ VACANTE' : 'NO ALCANZÓ VACANTE'; ?></b>
                                   </td>
-
-                                  <!-- <td align="center">
-                                    <button title="Editar Modalidad" class="btn btn-success" data-toggle="modal" data-target=".edit_<?php echo $res_busc_mod['Id']; ?>"><i class="fa fa-pencil-square-o"></i> Editar</button>
-                                    <a title="Ver Requisitos de la Modalidad" class="btn btn-primary" href="requisitos_por_modalidad.php?id=<?php echo $res_busc_mod['Id']; ?>"><i class="fa fa-sitemap"></i> </a>
-                                  </td> -->
                                 </tr>  
                                 <?php
-                                  include('include/acciones_modalidad.php');
                                   };
                                 ?>
 
@@ -144,7 +152,7 @@ if (!verificar_sesion($conexion)) {
 
                         <div id="tab2" class="tab-pane fade">
                         <h4><b>Formato en Excel</b></h4>
-                          <a class="blue" href="imprimir_excel_relacion_postulantes.php?id=<?php echo $id_proc_adm; ?>"><i class="fa fa-file-excel-o"></i> Descargar Archivo</a>
+                          <a class="blue" href=""><i class="fa fa-file-excel-o"></i> Descargar Archivo</a>
                           <br>
                           <h4><b>Importante!!</b></h4>
                           <p>Subir el formato de excel con las información completa. Subir separado por programa.
@@ -152,6 +160,7 @@ if (!verificar_sesion($conexion)) {
                           <br>
                           <section class="">
                             <form action="../composer/importar_resultados_admision.php" method="post" enctype="multipart/form-data">
+                              <input type="hidden" name="id_proceso" value="<?php echo $id_proc_adm; ?>">
                             <div class="col-md-5 col-sm-5">
                               <label class="control-label ">Programas de Estudio *: </label>
                                 <div class="">
@@ -169,7 +178,7 @@ if (!verificar_sesion($conexion)) {
                             <div class="col-md-7 col-sm-7">
                               <h4><b>Subir Documento</b></h4>
                                 <label for="estudaintes">Seleccionar el archivo excel:</label>
-                                <input class="form-control" type="file" name="calificaciones" id="estudiantes" required="required" accept=".xlsx">
+                                <input class="form-control" type="file" name="resultados" id="resultados" required="required" accept=".xlsx">
                                 <br>
                                 <input class="btn btn-success" type="submit" value="Importar">
                             </div>
@@ -195,214 +204,6 @@ if (!verificar_sesion($conexion)) {
       </div>
     </div>
            
-    <!-- FUNCION AJAX PARA RECUPERAR NOTAS DEL ESTUDIANTE -->
-    <script type="text/javascript">
-        function getNotas(){
-
-          var calificacion = document.getElementById("dni_es").value;
-
-        // Realizar la petición AJAX
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'operaciones/obtener_notas.php', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                // Manejar la respuesta de la petición
-                
-                var response = JSON.parse(xhr.responseText);
-
-                var notas = response.notas;
-                var estudiante = response.estudiante;
-                if (response.error || notas.length == 0) {
-                    // Si hay un error, mostrarlo en la consola
-                    var tableHTML = '<b class ="red">No cuenta con calificaciones.</b>';
-                } else {
-                    // Si no hay error, construir la tabla
-                    var tableHTML = `
-                            <b class ="">${estudiante}</b> <br><br>
-                            <table id="example" class="table table-striped table-bordered" style="width:100%">
-                              <thead>
-                                <tr>
-                                  <th>Programa de estudio</th>
-                                  <th>Asignatura</th>
-                                  <th>Calificación</th>
-                                  <th>Semestre</th>
-                                  <th>Fecha Importada</th>
-                                  <th>Observacion</th>
-                                  <th>Acciones</th>
-                                </tr>
-                              </thead>
-                              <tbody>`;
-                    for (var i = 0; i < notas.length; i++) {
-                        var row = notas[i];
-                        
-                        tableHTML += `<tr>
-                                  <td>${row.nombre}</td>
-                                  <td>${row.unidad_didactica}</td>
-                                  <td>${row.calificacion}</td>
-                                  <td>${row.semestre_academico}</td>
-                                  <td>${row.date_create}</td>
-                                  <td>${row.observacion}</td>
-                                  <td>                      
-                                    <button class="btn btn-warning" data-toggle="modal" title="Editar" data-placement="bottom" data-target=".editar_${row.id}">Editar</button>
-                                    <button type="button" class="btn btn-danger" onclick="eliminarNota(${row.id})">Eliminar</button>
-                                  </td>
-                                </tr>  
-                                <div class="modal fade editar_${row.id}" tabindex="-1" role="dialog" aria-hidden="true">
-                                  <div class="modal-dialog modal-sm">
-                                      <div class="modal-content">
-                                          <div class="modal-header">
-                                              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
-                                              </button>
-                                              <div align="center">
-                                                <h4 class="modal-title" id="myModalLabel" align="center">Editar Calificación</h4>
-                                                <b>${row.dni}</b>
-                                              </div>
-                                          </div>
-                                          <div class="modal-body">
-                                              <!--INICIO CONTENIDO DE MODAL-->
-                                              <div class="x_panel">
-                                                  <div class="x_content">
-                                                    <form role="form" action="operaciones/actualizar_nota_importada.php" id="${row.id}" class="form-horizontal form-label-left input_mask" method="POST">
-                                                      <input type="hidden" name="id" id="id_${row.id}" value="${row.id}">
-                                                      <div class="form-group">
-                                                          <label class="control-label col-md-12 col-sm-12">Unidad Académica : </label>
-                                                          <div class="col-md-12 col-sm-12">
-                                                              <input type="text" id="unidad_${row.id}" class="form-control" name="unidad_didactica" required="required" value="${row.unidad_didactica}">
-                                                              <br>
-                                                          </div>
-                                                      </div>
-                                                      <div class="form-group">
-                                                          <label class="control-label col-md-12 col-sm-12">Calificación Final : </label>
-                                                          <div class="col-md-12 col-sm-12">
-                                                              <input type="number" id="calificacion_${row.id}" class="form-control" name="calificacion_final" required="required" maxlength="2" max="20" min="0" value="${row.calificacion}">
-                                                              <br>
-                                                          </div>
-                                                      </div>
-                                                      <div class="form-group">
-                                                          <label class="control-label col-md-12 col-sm-12">Semestre Académico : </label>
-                                                          <div class="col-md-12 col-sm-12">
-                                                              <input type="text" id="semestre_${row.id}" class="form-control" name="semestre_academico" required="required" value="${row.semestre_academico}">
-                                                              <br>
-                                                          </div>
-                                                      </div>
-                                                      <div align="center">
-                                                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                                          <!-- Cambiado type="button" a type="submit" -->
-                                                          <button type="button" class="btn btn-primary" onclick="enviarFormulario(${row.id})">Guardar</button
-                                                      </div>
-                                                  </form>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                                `;
-                    }
-                    tableHTML += '</table>';
-                }
-                // Insertar la tabla en algún elemento del DOM
-                document.getElementById("tablaNotas").innerHTML = tableHTML;
-            }
-        };
-        xhr.send('dni=' + encodeURIComponent(calificacion));
-    }
-  </script>
-  <script>
-    function enviarFormulario(id) {
-        // Obtener el formulario
-        var id_up = document.getElementById("id_"+id).value;
-        var calificacion = document.getElementById("calificacion_"+id).value;
-        var semestre = document.getElementById("semestre_"+id).value;
-        var unidad = document.getElementById("unidad_"+id).value;
-        
-        // Crear el objeto XMLHttpRequest
-        var xhr = new XMLHttpRequest();
-
-        // Especificar el tipo de solicitud y la URL de destino
-        xhr.open("POST", "operaciones/actualizar_nota_importada.php", true);
-
-        // Configurar el encabezado de la solicitud
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-        // Definir la función de callback que se ejecutará cuando la solicitud haya finalizado
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                  getNotas();
-                  $('.modal').modal('hide');
-                  new PNotify({
-                                  title: 'Exitoso!',
-                                  text: 'Se ha actualizado de manera correcta!',
-                                  type: 'success',
-                                  styling: 'bootstrap3'
-                  });
-                } else {
-                  getNotas();
-                  $('.modal').modal('hide');
-                  new PNotify({
-                                  title: 'Error!',
-                                  text: 'Pueda que la información proporcionada sea incorrecta.',
-                                  type: 'error',
-                                  styling: 'bootstrap3'
-                  });
-                }
-            }
-        };
-
-        // Construir los datos a enviar
-        var datos = "id=" + encodeURIComponent(id_up) + "&calificacion_final=" + encodeURIComponent(calificacion) 
-        + "&semestre_academico=" + encodeURIComponent(semestre)  + "&unidad_didactica=" + encodeURIComponent(unidad);
-
-        // Enviar la solicitud con los datos
-        xhr.send(datos);
-    }
-  </script>
-
-<script>
-    function eliminarNota(id) {      
-    // Mostrar una alerta de confirmación
-    if (confirm("¿Estás seguro de que quieres eliminar esta nota?")) {
-        // Crear el objeto XMLHttpRequest
-        var xhr = new XMLHttpRequest();
-
-        // Especificar el tipo de solicitud y la URL de destino
-        xhr.open("POST", "operaciones/eliminar_nota_importada.php", true);
-
-        // Configurar el encabezado de la solicitud
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-        // Definir la función de callback que se ejecutará cuando la solicitud haya finalizado
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    getNotas();
-                    $('.modal').modal('hide');
-                    new PNotify({
-                        title: 'Exitoso!',
-                        text: 'Se ha eliminado de manera correcta!',
-                        type: 'success',
-                        styling: 'bootstrap3'
-                    });
-                } else {
-                    getNotas();
-                    $('.modal').modal('hide');
-                    new PNotify({
-                        title: 'Error!',
-                        text: 'Ah ocurrido un error inesperado.',
-                        type: 'error',
-                        styling: 'bootstrap3'
-                    });
-                }
-            }
-        };
-
-        // Enviar la solicitud con los datos
-        xhr.send("id=" + id);
-    }
-}
-  </script>
 
     <!-- jQuery -->
    <script src="../Gentella/vendors/jquery/dist/jquery.min.js"></script>
@@ -440,53 +241,41 @@ if (!verificar_sesion($conexion)) {
 
     <script>
     $(document).ready(function() {
-    $('#example').DataTable({
-      "language":{
-    "processing": "Procesando...",
-    "lengthMenu": "Mostrar _MENU_ registros",
-    "zeroRecords": "No se encontraron resultados",
-    "emptyTable": "Ningún dato disponible en esta tabla",
-    "sInfo": "Mostrando del _START_ al _END_ de un total de _TOTAL_ registros",
-    "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-    "infoFiltered": "(filtrado de un total de _MAX_ registros)",
-    "search": "Buscar:",
-    "infoThousands": ",",
-    "loadingRecords": "Cargando...",
-    "paginate": {
-        "first": "Primero",
-        "last": "Último",
-        "next": "Siguiente",
-        "previous": "Anterior"
-    },
-      }
-    });
-
-    } );
-    </script>
-
-  <script type="text/javascript">
-    $(document).ready(function(){
-      // Función para recargar la tabla con los datos filtrados por el nombre del postulante
-      function filtrarTabla(nombre) {
-        // $('#example tbody tr').hide(); // Oculta todas las filas de la tabla
-        $('#example tbody tr').each(function() {
-          // Compara el nombre del postulante en la fila actual con el nombre seleccionado
-          if ($(this).find('td:eq(3)').text().trim() === nombre) {
-            $(this).show(); // Muestra la fila si el nombre del postulante coincide
-          }
-        });
-      }
-
-      // Evento para filtrar la tabla cuando se seleccione un nuevo postulante
-      $('#nombre').change(function(){
-        var nombre = $(this).val(); // Obtener el valor seleccionado
-        filtrarTabla(nombre); // Filtrar la tabla con el nombre del postulante seleccionado
+      var tabla = $('#example').DataTable({
+        "language":{
+      "processing": "Procesando...",
+      "lengthMenu": "Mostrar _MENU_ registros",
+      "zeroRecords": "No se encontraron resultados",
+      "emptyTable": "Ningún dato disponible en esta tabla",
+      "sInfo": "Mostrando del _START_ al _END_ de un total de _TOTAL_ registros",
+      "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+      "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+      "search": "Buscar:",
+      "infoThousands": ",",
+      "loadingRecords": "Cargando...",
+      "paginate": {
+          "first": "Primero",
+          "last": "Último",
+          "next": "Siguiente",
+          "previous": "Anterior"
+      },
+        },
+        "order": [ 4, "asc" ],
+        "searching": true,
       });
 
-      // Función inicial para cargar la tabla sin filtrar al cargar la página
-      filtrarTabla($('#nombre').val());
-    });
-  </script>
+      // Capturar el cambio en el select y realizar la búsqueda
+      $('#filtro').on('change', function() {
+          var valorSeleccionado = $(this).val(); // Obtener el valor seleccionado del select
+          tabla.search(valorSeleccionado).draw(); // Realizar la búsqueda en DataTables y dibujar la tabla
+      });
+
+      } );
+
+
+    </script>
+
+  
 
      <?php mysqli_close($conexion); ?>
   </body>

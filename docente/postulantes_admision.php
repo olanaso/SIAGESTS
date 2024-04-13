@@ -19,6 +19,7 @@ if (!verificar_sesion($conexion)) {
   $res_postulantes =  buscarTodosPostulantesPorProceso($conexion, $proceso);
   $res_postulantes_aptos = buscarTodosPostulantesPorProcesoAptos($conexion, $proceso);
   $res_postulantes_no_aptos = buscarTodosPostulantesPorProcesoNoAptos($conexion, $proceso);
+  $res_postulantes_subsanados = buscarTodosPostulantesPorProcesoSubsanados($conexion, $proceso);
 
 ?>
 <!DOCTYPE html>
@@ -88,6 +89,7 @@ if (!verificar_sesion($conexion)) {
                         <li class="active"><a data-toggle="tab" href="#tab1">Postulantes Inscritos</a></li>
                         <li><a data-toggle="tab" href="#tab2" class="green">Postulantes aptos</a></li>
                         <li><a data-toggle="tab" href="#tab3" class="red">Postulantes Observados</a></li>
+                        <li><a data-toggle="tab" href="#tab4" class="green">Postulantes Subsanados</a></li>
                     </ul>
                     <!-- Contenido de los Tabs -->
                     <div class="tab-content">
@@ -143,15 +145,16 @@ if (!verificar_sesion($conexion)) {
                         </div>
                         <div id="tab2" class="tab-pane fade">
                           <br />
-
+                          <a class="btn btn-info" href="imprimir_excel_relacion_postulantes.php?id=<?php echo $proceso; ?>"><i class="fa fa-file-excel-o"></i>  Descargar Excel</a>
+                          <br>
                           <table id="example" class="table table-striped table-bordered" style="width:100%">
                               <thead>
                                   <tr>
                                       <th>N°</th>
+                                      <th>DNI</th>
                                       <th>Apellidos</th>
                                       <th>Nombres</th>
-                                      <th>DNI</th>
-                                      <th>Fecha Inscripción</th>
+                                      <th>Fecha Aceptada</th>
                                       <th>Acciones</th>
                                   </tr>
                               </thead>
@@ -166,14 +169,15 @@ if (!verificar_sesion($conexion)) {
                                           <?php echo $contador; ?>
                                       </td>
                                       <td>
+                                          <?php echo $postulantes['Dni']; ?>
+                                      </td>
+                                      <td>
                                           <?php echo $postulantes['Apellido_Paterno'] . " ". $postulantes['Apellido_Materno']; ?>
                                       </td>
                                       <td>
                                           <?php echo $postulantes['Nombres']; ?>
                                       </td>
-                                      <td>
-                                          <?php echo $postulantes['Dni']; ?>
-                                      </td>
+                                      
                                       <td>
                                           <?php echo $postulantes['Fecha']; ?>
                                       </td>
@@ -198,10 +202,10 @@ if (!verificar_sesion($conexion)) {
                               <thead>
                                   <tr>
                                       <th>N°</th>
+                                      <th>DNI</th>
                                       <th>Apellidos</th>
                                       <th>Nombres</th>
-                                      <th>DNI</th>
-                                      <th>Fecha Inscripción</th>
+                                      <th>Fecha Observada</th>
                                       <th>Acciones</th>
                                   </tr>
                               </thead>
@@ -216,14 +220,67 @@ if (!verificar_sesion($conexion)) {
                                           <?php echo $contador; ?>
                                       </td>
                                       <td>
+                                          <?php echo $postulantes['Dni']; ?>
+                                      </td>
+                                      <td>
                                           <?php echo $postulantes['Apellido_Paterno'] . " ". $postulantes['Apellido_Materno']; ?>
                                       </td>
                                       <td>
                                           <?php echo $postulantes['Nombres']; ?>
                                       </td>
+                                      
+                                      <td>
+                                          <?php echo $postulantes['Fecha']; ?>
+                                      </td>
+                                      <td>
+                                            <a title="Detalle de Postulación" class="btn btn-dark"
+                                              href="detalle_postulacion.php?id=<?php echo $postulantes['Id']; ?>"><i
+                                                  class="fa fa-cubes"></i></a>
+                                      </td>
+                                  </tr>
+                                  <?php
+                                  };
+                                  ?>
+
+
+                              </tbody>
+                          </table>
+                        </div>
+
+                        <div id="tab4" class="tab-pane fade">
+                        <br />
+
+                          <table id="example" class="table table-striped table-bordered" style="width:100%">
+                              <thead>
+                                  <tr>
+                                      <th>N°</th>
+                                      <th>DNI</th>
+                                      <th>Apellidos</th>
+                                      <th>Nombres</th>
+                                      <th>Fecha Subsanada</th>
+                                      <th>Acciones</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <?php           
+                          $contador = 0; 
+                          while ($postulantes=mysqli_fetch_array($res_postulantes_subsanados)){
+                          $contador++;
+                          ?>
+                                  <tr>
+                                      <td>
+                                          <?php echo $contador; ?>
+                                      </td>
                                       <td>
                                           <?php echo $postulantes['Dni']; ?>
                                       </td>
+                                      <td>
+                                          <?php echo $postulantes['Apellido_Paterno'] . " ". $postulantes['Apellido_Materno']; ?>
+                                      </td>
+                                      <td>
+                                          <?php echo $postulantes['Nombres']; ?>
+                                      </td>
+                                      
                                       <td>
                                           <?php echo $postulantes['Fecha']; ?>
                                       </td>

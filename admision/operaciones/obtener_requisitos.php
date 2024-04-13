@@ -14,16 +14,17 @@ $modalidad = $_POST['id_modalidad'];
 	$cadena = '';
 
 	while ($req_generales = mysqli_fetch_array($ejec_cons)) {
-		$cadena=$cadena.'
-			<div class="form-group form-group col-md-6 col-sm-6 col-xs-12">
-				<label class="control-label">'. $req_generales['Titulo'] .' *:
-				</label>
-				<div class="">
-					<input type="file" class="form-control" name="'. $req_generales['Id'] .'" required="required"  accept=".pdf">
+		if($req_generales['Titulo'] !== 'Fotografías'){
+			$cadena=$cadena.'
+				<div class="form-group form-group col-md-6 col-sm-6 col-xs-12">
+					<label class="control-label">'. $req_generales['Titulo'] .' *:
+					</label>
+					<div class="">
+						<input type="file" class="form-control" name="'. $req_generales['Id'] .'" required="required"  accept=".pdf">
+					</div>
 				</div>
-			</div>
-			<?php }?>';
-	}
+				<?php }?>';
+	}}
 
 	while ($req_especiales = mysqli_fetch_array($res_especiales)) {
 		$cadena=$cadena.'

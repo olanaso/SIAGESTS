@@ -49,7 +49,7 @@
                   </li>
                   <li><a><i class="fa fa-table"></i> Admisión <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li class="sub_menu"><a href="periodo_academico.php">Estadisticas</a></li>
+                      <li class="sub_menu"><a href="estadisticas.php">Estadisticas</a></li>
                       <li><a href="requisitos.php">Requisitos Generales</a></li>
                       <li><a href="modalidades.php">Modalidades</a></li>
                       <li><a href="medios_pago.php">Medios de Pago</a></li>

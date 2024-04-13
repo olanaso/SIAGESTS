@@ -13,13 +13,13 @@ $id = $_POST['id_metodo'];
 		$banco = "";
 		$cuenta = "";
 		$cci = "";
-		if($metodo['Banco'] !== "No requiere") $banco = ' - ' .$metodo['Banco'];
-		if($metodo['Cuenta'] !== "No requiere") $cuenta = ' - '.$metodo['Cuenta'];
-		if($metodo['CCI'] !== "No requiere") $cci = ' - '.$metodo['CCI'];
+		if($metodo['Banco'] !== "No requiere") $banco = 'Entidad: ' .$metodo['Banco'];
+		if($metodo['Cuenta'] !== "No requiere" ) $cuenta = 'Cuenta: '.$metodo['Cuenta'];
+		if($metodo['CCI'] !== "No requiere") $cci = 'CCI: '.$metodo['CCI'];
 		$cadena= '
 		<div class="custom-container">
 		<div class="custom-card">
-			<p class="custom-card-title">'.$metodo['Metodo'] .' '. $banco .' '. $cuenta  .' '. $cci .'</p>
+			<p class="custom-card-title">'.$metodo['Metodo'] .'<br> '. $banco .'<br> '. $cuenta  .' <br>'. $cci .'</p>
 			<div class="custom-card-content">
 				<p class="custom-card-text">'.$metodo['Titular'].'</p>
 			</div>

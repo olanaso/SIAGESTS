@@ -79,8 +79,17 @@ if (!verificar_sesion($conexion)) {
         <div class="main_container">
           <!--menu-->
           <?php
+          $director = false;
+          $unidad = false;
+          if($r_b_docente['id_cargo']== 1 AND  $r_b_docente['carga_academica'] == 1){
+            $director = true;
+          }
 
-          if ($r_b_docente['id_cargo'] == 5) {
+          if($r_b_docente['id_cargo']== 3 AND  $r_b_docente['carga_academica'] == 1){
+            $unidad = true;
+          }
+
+          if($r_b_docente['id_cargo'] ==5 || $director || $unidad ){//si es docente
             include("include/menu_docente.php");
           } elseif ($r_b_docente['id_cargo'] == 4) {
             include("include/menu_coordinador.php");

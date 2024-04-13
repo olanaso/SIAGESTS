@@ -125,7 +125,7 @@ if (!verificar_sesion($conexion)) {
                                             </td>
                                             <td>
 
-                                                <?php if ($estado !== "Finalizado") {
+                                                <?php if ($estado !== "Terminado") {
                               ?>
                                                 <button title="Editar" class="btn btn-warning"
                                                 data-toggle="modal" data-target=".edit_<?php echo $proceso['Id']; ?>"><i
@@ -146,11 +146,18 @@ if (!verificar_sesion($conexion)) {
                                                         class="fa fa-users"></i></a>
                                                   <a title="Resultados Examen" class="btn btn-primary"
                                                     href="importar_resultados_admision.php?id=<?php echo $proceso['Id']; ?>"><i
+
                                                         class="fa fa-file-excel-o"></i></a>
-                                                  <a title="Reportes" class="btn btn-success"
-                                                    href="silabos.php?id=<?php echo $proceso['Id']; ?>"><i
-                                                        class="fa fa-bar-chart"></i></a>
-                                                  
+                                                 <a title="Reportes" class="btn btn-success"
+                                                    href="estadisticas_reportes.php?id=<?php echo $proceso['Id']; ?>"><i
+                                                        class="fa fa-bar-chart"></i></a> 
+                                                <?php $estado = determinarEstadoAdmision($proceso['Fecha_Inicio'], $proceso['Fecha_Fin']);
+                                                
+                                                if($estado == "Terminado"){?>
+                                                  <a title="Ajudicar Aptos" class="btn btn-success"
+                                                    href="operaciones/adjudicar.php?id=<?php echo $proceso['Id']; ?>"><i
+                                                        class="fa fa-bar-check"></i></a>
+                                                  <?php } ?>
                                             </td>
                                         </tr>
                                         <?php
@@ -246,7 +253,16 @@ if (!verificar_sesion($conexion)) {
                                                                     <br>
                                                                 </div>
                                                             </div>
-                                                            <div align="center">
+                                                            <div class="form-group form-group col-md-6 col-sm-6 col-xs-12">
+                                                                <label class="control-label">Fecha de Examen de Admisión *:
+                                                                </label>
+                                                                <div class="">
+                                                                    <input type="date" class="form-control" name="fecha_examen" required="required">
+                                                                    <br>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group form-group col-md-12 col-sm-12 col-xs-12" align="center">
                                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                                                                 <button type="submit" class="btn btn-primary">Guardar</button>
                                                             </div>
@@ -421,7 +437,7 @@ if (!verificar_sesion($conexion)) {
                         "previous": "Anterior"
                     },
                 },
-                "order": [[0, 'desc']]
+                "order": [[4, 'asc']]
             });
 
         });

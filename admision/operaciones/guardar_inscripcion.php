@@ -3,11 +3,25 @@ include "../../include/conexion.php";
 include "../../include/busquedas.php";
 include "../../include/funciones.php";
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+//enviar correo
+require '../../PHPMailer/Exception.php';
+require '../../PHPMailer/PHPMailer.php';
+require '../../PHPMailer/SMTP.php';
+
+$id_proceso_admision = $_POST['proceso'];
+$dni = $_POST['dni'];
+
+$cantidad = buscarDetallePostulantesByDNIProcesoAdmision($conexion, $id_proceso_admision, $dni);
+
+if(intval($cantidad) === 0){
+
     //EVALUADOR
     $exito = False;
 
     //POSTULANTE
-    $dni = $_POST['dni'];
     $apellido_paterno = $_POST['paterno'];
     $apellido_materno = $_POST['materno'];
     $nombres = $_POST['nombres'];
@@ -67,7 +81,7 @@ include "../../include/funciones.php";
             $ap_celular = isset($_POST['ap_celular']) ? $_POST['ap_celular'] : null;
             
             //DETALLE INSCRIPCION
-            $id_proceso_admision = $_POST['proceso'];
+            
             $id_modalidad = $_POST['modalidad'];
             $id_programa = $_POST['programa'];
             $id_programa_opcional = isset($_POST['segun_opcion']) ? $_POST['segun_opcion'] : "0";
@@ -102,18 +116,27 @@ include "../../include/funciones.php";
                 $res_generales = buscarRequisitosGeneralesPorProceso($conexion, $id_proceso_admision);
                 while ($req_generales = mysqli_fetch_array($res_generales)) {
                     // (archivo cargado)
-                    $id_requisito = $req_generales['Id'];
-                    $nombreArchivo =$id_requisito.$dni.".pdf";
-                    $rutaTemporal = $_FILES[$id_requisito]["tmp_name"];
-                    $rutaFinal = substr($directorioDestino . $nombreArchivo,3);
-                    $sql_requisito = "INSERT INTO `documento_postulacion`(`Id_Detalle_Postulacion`, `Id_Requisito`, `Documento`) 
-                    VALUES ('$id_detalle_postulacion','$id_requisito','$rutaFinal')";
-                    $res_requisito = mysqli_query($conexion, $sql_requisito);
-                    if($res_requisito){
-                        $exito = True;
-                        // Mover el archivo de la ruta temporal al directorio destino
-                        move_uploaded_file($rutaTemporal, $directorioDestino . $nombreArchivo);
-                    }
+                    
+                        $id_requisito = $req_generales['Id'];
+                        $nombreArchivo =$id_requisito.$dni.".pdf";
+                        
+                        if($req_generales['Titulo'] === 'Fotografías'){
+                            $rutaFinal = $fotografia;
+                        }else{
+                            $rutaTemporal = $_FILES[$id_requisito]["tmp_name"];
+                            $rutaFinal = substr($directorioDestino . $nombreArchivo,3);
+                        }
+                        $sql_requisito = "INSERT INTO `documento_postulacion`(`Id_Detalle_Postulacion`, `Id_Requisito`, `Documento`) 
+                        VALUES ('$id_detalle_postulacion','$id_requisito','$rutaFinal')";
+                        $res_requisito = mysqli_query($conexion, $sql_requisito);
+                        if($res_requisito){
+                            $exito = True;
+                            // Mover el archivo de la ruta temporal al directorio destino
+                            if($req_generales['Titulo'] !== 'Fotografías'){
+                                move_uploaded_file($rutaTemporal, $directorioDestino . $nombreArchivo);
+                            }
+                        }
+                    
                 }
                 $res_especiales = buscarRequisitosEspecificosPorProcesoModalidad($conexion, $id_proceso_admision, $id_modalidad);
                 while ($req_especiales = mysqli_fetch_array($res_especiales)) {
@@ -157,7 +180,95 @@ include "../../include/funciones.php";
     }
     
 
-    if($exito){ ?>
+    if($exito){ 
+        
+            $b_datos_institucion = buscarDatosGenerales($conexion);
+            $r_b_datos_institucion = mysqli_fetch_array($b_datos_institucion);
+
+            $b_datos_sistema = buscarDatosSistema($conexion);
+            $r_b_datos_sistema = mysqli_fetch_array($b_datos_sistema);
+
+            $asunto = "Inscripción de procesos de admisión con éxito";
+            //Create an instance; passing `true` enables exceptions
+            $mail = new PHPMailer(true);
+
+            try {
+                //Server settings
+                $mail->SMTPDebug = 0;                      //Enable verbose debug output
+                $mail->isSMTP();                                            //Send using SMTP
+                $mail->Host       = $r_b_datos_sistema['host_email'];                     //Set the SMTP server to send through
+                $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+                $mail->Username   = $r_b_datos_sistema['email_email'];                     //SMTP username
+                $mail->Password   = $r_b_datos_sistema['password_email'];                               //SMTP password
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+                $mail->Port       = $r_b_datos_sistema['puerto_email'];                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+                $titulo_correo = 'SIGAEST '.$r_b_datos_sistema['titulo'];
+                //Recipients
+                $mail->setFrom($r_b_datos_sistema['email_email'], $titulo_correo);
+                $mail->addAddress($correo, $nombres);     //Add a recipient
+                //$mail->addAddress('ellen@example.com');               //Name is optional
+                //$mail->addReplyTo('info@example.com', 'Information');
+                //$mail->addCC('cc@example.com');
+                //$mail->addBCC('bcc@example.com');
+
+                //Attachments
+                //$mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
+                //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+
+                //Content
+                $mail->isHTML(true);                                  //Set email format to HTML
+                $mail->CharSet = 'UTF-8';
+                $mail->Subject = $asunto;
+                $link = 'https://'.$r_b_datos_sistema['dominio_sistema'].'admision/login_postulante/';
+                $mail->Body = '<!DOCTYPE html>
+                            <html lang="es">
+                            <head>
+                                <meta charset="UTF-8">
+                            </head>
+                            <body>
+                            <div style="width: 100%; font-family: Roboto; font-size: 0.8em; display: inline;">
+                                <div style="background-color:'.$r_b_datos_sistema['color_correo'].'; border-radius: 10px 10px 0px 0px; text-align: center;">
+                                </div>
+                                <div style="background-color:'.$r_b_datos_sistema['color_correo'].'; border-radius: 0px 0px 0px 0px; height: 60px; margin-top: 0px; padding-top: 2px; padding-bottom: 10px;">
+                                    <p style="text-align: center; font-size: 1.0rem; color: #f1f1f1; text-shadow: 2px 2px 2px #cfcfcf; ">'.$r_b_datos_institucion['nombre_institucion'].'</p>
+                                </div>
+                                <div>
+                                    <h2 style="text-align:center;">SA (Sistema Académico)</h2>
+                                    <h3 style="text-align:center; color: #3c4858;">ADMISIÓN</h3>
+                                    <p style="font-size:1.0rem; color: #2A2C2B; margin-top: 2em; margin-bottom: 2em; margin-left: 1.5em;">
+                            
+                                        Hola, usted a realizado su inscripción con éxito, para poder acceder a su modulo de postulante, haz click <a href="'.$link.'">Aquí</a>.<br>
+                                        Contraseña: '.$codigo_unico.'<br>
+                                        <br>
+                                        <br>
+                                        Por favor, no responda sobre este correo. Y se recomienda cambiar la contraseña.
+                                        <br><br><br>
+                            
+                                    </p>
+                                </div>
+                                <div style="color: #f1f1f1; width: 100%; height: 120px; background:'.$r_b_datos_sistema['color_correo'].'; text-align: center;  border-radius: 0px 0px 10px 10px; ">
+                                    <br>
+                                    <p style="margin: 0px;">
+                                        <strong>
+                                            <a"
+                                            style="text-decoration: none; color: #f1f1f1; ">'.$r_b_datos_institucion['direccion'].'
+                                                &nbsp;|&nbsp; Teléfono: '.$r_b_datos_institucion['telefono'].'</a>
+                                            <br> '.$r_b_datos_institucion['nombre_institucion'].'
+                                        </strong>
+                                    </p>
+                                </div>
+                            </div>
+                            </body>
+                            </html>';
+                //$mail->AltBody = '';
+
+                $mail->send();
+                
+            } catch (Exception $e) {
+                echo "Error correo: {$mail->ErrorInfo}";
+            }
+    ?>
     <!DOCTYPE html>
     <html lang="es">
 
@@ -170,7 +281,6 @@ include "../../include/funciones.php";
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Admisión
-            <?php include ("../include/header_title.php"); ?>
         </title>
         <!--icono en el titulo-->
         <link rel="shortcut icon" href="../img/favicon.ico">
@@ -251,18 +361,18 @@ include "../../include/funciones.php";
             <span>Su código para acceder a su perfil de postulante es: <b> <?php echo $codigo_unico; ?> </b> </span>
             <p>De igual manera se envio al correo propocionado la credencial para acceder al perfil del postulante.</p>
             <br>
-            <a href="../login_postulante/index.php"><button class="btn btn-success">Ir al Perfil de Postulante</button></a>
+            <a href="../login_postulante/index.php" target="_blank"><button class="btn btn-success">Ir al Perfil de Postulante</button></a>
             <br><br>
-            <p id="contador">La página se cerrará en <span id="segundos">60</span> segundos.</p>
+            <p id="contador">La página se cerrará en <span id="segundos">10</span> segundos.</p>
         </div>
     </div>
     <script>
         setTimeout(function () {
-            window.location.replace('../inscripcion.php'); // Redirige a otra página después de 1 minuto
-        }, 60000); // 60000 milisegundos = 1 minuto
+            window.location.replace('../portal.php'); // Redirige a otra página después de 1 minuto
+        }, 10000); // 60000 milisegundos = 10 segundos
     </script>
     <script>
-        var segundos = 60; // Inicializar el contador de segundos
+        var segundos = 10; // Inicializar el contador de segundos
 
         // Función para actualizar el contador de segundos y cerrar la ventana después de 1 minuto
         var temporizador = setInterval(function () {
@@ -278,4 +388,14 @@ include "../../include/funciones.php";
     </script>
 </body>
 <?php }   
-    mysqli_close($conexion); ?>
+    mysqli_close($conexion); 
+    
+}
+else{
+    echo "<script>
+			alert('El postulante ya realizado con anterioridad la inscripción para este proceso de admisión');
+            window.location.replace('../portal.php');
+				</script>
+			";
+    exit();
+}?>

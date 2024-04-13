@@ -4,13 +4,17 @@ include "../../include/busquedas.php";
 include "../../include/funciones.php";
 
 
-$proceso = $_POST['id_proceso'];
+	$proceso = $_POST['id_proceso'];
 
-	$ejec_cons = buscarModalidadesCuadroVacantes($conexion, $proceso);
+	$res_proceso = buscarProcesoAdmisionPorId($conexion, $proceso);
+	$proceso = mysqli_fetch_array($res_proceso);
+	$periodo = $proceso['Periodo'];
+
+	$ejec_cons = buscarModalidadesPeriodo($conexion, $periodo);
 	$contador = mysqli_num_rows($ejec_cons);
 	$cadena = '<option value="" disabled selected>Seleccionar</option>';
 
-	if($contador > 0){
+	if($proceso['Tipo'] !== "ORDINARIO"){
 		while ($modalidad=mysqli_fetch_array($ejec_cons)) {
 			$cadena=$cadena.'<option value="'.$modalidad['Id'].'">'.$modalidad['Descripcion'].'</option>';
 		}

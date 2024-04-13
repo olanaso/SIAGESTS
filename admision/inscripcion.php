@@ -2,17 +2,21 @@
   include "../include/conexion.php";
   include "../include/busquedas.php";
 
-  $res_procesos = buscarProcesosActivos($conexion);
+  $res_procesos = buscarProcesosActivosParaInscripción($conexion);
+  $res_extemporaneo = buscarProcesosActivosParaInscripciónExtemporaneo($conexion);
   $contador = mysqli_num_rows($res_procesos);
-  if ($contador === 0) {
+  $contador_extemporaneo = mysqli_num_rows($res_extemporaneo);
+
+  if ($contador  === 0 and $contador_extemporaneo === 0) {
     echo "<script>
                   alert('No hay procesos de admisión activos en este momento!');
                   window.history.back();
               </script>";
-  }else {
+  }elseif($contador  === 0 and $contador_extemporaneo > 0) {
+    $res_procesos = $res_extemporaneo;
+}else{
   $res_medios_pago = buscarTodosMetodosPago($conexion);
   $res_programas = buscarCarreras($conexion);
-  $res_modalidades = buscarTodasModalidades($conexion);
   $res_regiones = obtenerRegiones($conexion);
 
 ?>
@@ -26,7 +30,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	  
-    <title>Inscripciones <?php include ("../include/header_title.php"); ?></title>
+    <title>Admisión - Inscripciones</title>
    
        <!--icono en el titulo-->
    <link rel="shortcut icon" href="../img/favicon.ico">
@@ -109,8 +113,9 @@
         height: 280px;
         margin: 0 auto;
         overflow: hidden;
-        border: 1px solid #ddd;
+        border: 1px solid red;
         border-radius: 5px;
+        background-color: #e6898980;
     }
 
     .image-container img {
@@ -177,7 +182,7 @@
                                                 <div class="image-container">
                                                     <img id="carnet-image" src="utils/carnet_default.png" alt="Carnet Image">
                                                 </div>
-                                                <input type="file" name="fotografia" id="upload" accept="image/*" onchange="loadImage(event)">
+                                                <input type="file" name="fotografia" id="upload" accept="image/*" onchange="loadImage(event)" required>
                                                 <label for="upload" class="custom-file-upload">Seleccionar imagen</label>
                                             </div>
                                         </div>
@@ -191,27 +196,27 @@
                                         <div class="form-group col-md-3 col-sm-6 col-xs-12">
                                             <label class="control-label ">D.N.I. *: </label>
                                             <div class="">
-                                                <input type="text" class="form-control" name="dni" required="required" >
+                                                <input type="text" class="form-control" name="dni" id="dni" required="required" >
                                             </div>
                                         </div>
                                         <div class="form-group form-group col-md-3 col-sm-6 col-xs-12">
                                             <label class="control-label">Apellido Paterno *:
                                             </label>
                                             <div class="">
-                                                <input type="text" class="form-control" name="paterno" required="required">
+                                                <input type="text" class="form-control" name="paterno" id="apellidoPaterno" required="required">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-3 col-sm-6 col-xs-12">
                                             <label class="control-label ">Apellido Materno *: </label>
                                             <div class="">
-                                                <input type="text" class="form-control" name="materno" required="required" >
+                                                <input type="text" class="form-control" name="materno" id="apellidoMaterno" required="required" >
                                             </div>
                                         </div>
                                         <div class="form-group form-group col-md-3 col-sm-6 col-xs-12">
                                             <label class="control-label">Nombres *:
                                             </label>
                                             <div class="">
-                                                <input type="text" class="form-control" name="nombres" required="required">
+                                                <input type="text" class="form-control" name="nombres" id="nombres" required="required">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-3 col-sm-6 col-xs-12">
@@ -266,18 +271,18 @@
                                             <div class="">
                                                 <div class="row">
                                                     <label class="col-md-6">
-                                                            <input type="radio" name="discapacidad" value="1">
+                                                            <input type="radio" name="discapacidad" value="1" onclick="mostrarTipoDiscapacidad()">
                                                             Si
                                                         </label>
                                                         
                                                         <label class="col-md-6" >
-                                                            <input type="radio" name="discapacidad" value="0">
+                                                            <input type="radio" name="discapacidad" value="0" onclick="ocultarTipoDiscapacidad()">
                                                             No
                                                     </label>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group form-group col-md-3 col-sm-6 col-xs-12">
+                                        <div class="form-group form-group col-md-3 col-sm-6 col-xs-12" id="tipo_discapacidad">
                                             <label class="control-label">Tipo de Discapacidad *:
                                             </label>
                                             <div class="">
@@ -496,7 +501,7 @@
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                             <label class="control-label ">Programa - Segunda Opción *: </label>
                                             <div class="">
-                                                <select class="form-control" id="" name="segun_opcion" value="">
+                                                <select class="form-control" id="programa_opcional" name="segun_opcion" value="">
                                                     <option value="0" disabled selected>Seleccionar</option>
                                                 
                                                 </select>
@@ -521,7 +526,7 @@
                                 <div class="">
                                     <div class="x_content">
                                         <div class="form-group form-group col-md-12 col-sm-12 col-xs-12">
-                                            <h4><b>Total a pagar <span id="monto_pagar"></span></b></h4>
+                                            <h4><b>Total a pagar S/. <span id="monto_pagar"></span></b></h4>
                                             <label class="control-label">Método de Pago *:
                                             </label>
                                             <div class="">
@@ -574,7 +579,7 @@
                             <div class="col-md-8 col-sm-7 col-xs-12">
                                 <div class="">
                                     <div class="x_content">
-                                    <div class="form-group form-group col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                             <label class="control-label">Medio de Difusión *:
                                             </label>
                                             <div class="">
@@ -587,6 +592,13 @@
                                                 </select>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-6">
+                                            <input type="checkbox" name="" id="" required>
+                                         Aceptar terminos y condiciones
+                                        </label>
+                                                        
                                     </div>
                                 </div>
                             </div>
@@ -655,22 +667,40 @@
 
     } );
     </script>
+
+    <script>
+        function mostrarTipoDiscapacidad() {
+            document.getElementById("tipo_discapacidad").style.display = "block";
+        }
+
+        function ocultarTipoDiscapacidad() {
+            document.getElementById("tipo_discapacidad").style.display = "none";
+        }
+    </script>
+
     <!--script para obtener los modulos dependiendo de la carrera que seleccione-->
     <script type="text/javascript">
       $(document).ready(function(){
         recargarlista();
         recargarListaProgramas();
         recargarListaRequisitos();
+        recargarListaProgramasOpcionales();
         $('#proceso').change(function(){
           recargarlista();
           recargarListaProgramas();
           recargarListaRequisitos();
+          recargarListaProgramasOpcionales();
 
         });
         $('#modalidad').change(function(){
             recargarListaProgramas();
             recargarListaRequisitos();
             obtenerPrecioModalidad();
+            recargarListaProgramasOpcionales();
+
+        });
+        $('#programa').change(function(){
+            recargarListaProgramasOpcionales();
 
         });
         $('#metodo_pago').change(function(){
@@ -715,6 +745,28 @@
         },
           success:function(r){
             $('#programa').html(r);
+          }
+      });
+     }
+    </script>
+
+    <script type="text/javascript">
+     function recargarListaProgramasOpcionales(){
+
+        var idProceso = $('#proceso').val();
+        var idModalidad = $('#modalidad').val();
+        var idPrograma = $('#programa').val();
+
+      $.ajax({
+        type:"POST",
+        url:"operaciones/obtener_programas_segunda_opcion.php",
+        data: {
+            id_proceso: idProceso,
+            id_modalidad: idModalidad,
+            id_programa: idPrograma
+        },
+          success:function(r){
+            $('#programa_opcional').html(r);
           }
       });
      }
@@ -898,6 +950,30 @@
                 window.scrollTo(0, 0);
             }
         }
+    </script>
+
+    <script>
+        $('input[name="dni"]').focusout(function() {
+        var dni = $(this).val();
+        if(dni.length == 8) {
+            $.ajax({
+                url: 'https://md-lst4.euromedia.net.pe/api/obtener-dni?dni=' + dni,
+                type: "GET",
+                success: function(data) {
+                    if(data.success) {
+                        $('input[name="paterno"]').val(data.apellidoPaterno);
+                        $('input[name="materno"]').val(data.apellidoMaterno);
+                        $('input[name="nombres"]').val(data.nombres);
+                    } else {
+                        alert("No se encontraron datos para el DNI ingresado.");
+                    }
+                },
+                error: function(error) {
+                    alert("Hubo un error al realizar la solicitud.");
+                }
+            });
+        }
+    });
     </script>
     
     <?php mysqli_close($conexion); ?>

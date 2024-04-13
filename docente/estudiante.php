@@ -374,7 +374,8 @@ if (!verificar_sesion($conexion)) {
         "next": "Siguiente",
         "previous": "Anterior"
     },
-      }
+      },
+      
     });
 
     } );

@@ -33,6 +33,9 @@
                               <option value="Modular" <?php if("Modular" == $res_busc_carrera['tipo']){
                                 echo 'selected=""';
                               };?>>Modular</option>
+                              <option value="Transversal" <?php if("Transversal" == $res_busc_carrera['tipo']){
+                                echo 'selected=""';
+                              };?>>Transversal</option>
                               <option value="Empleabilidad" <?php if("Empleabilidad" == $res_busc_carrera['tipo']){
                                 echo 'selected=""';
                               };?>>Empleabilidad</option>

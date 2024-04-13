@@ -93,7 +93,8 @@ if (!verificar_sesion($conexion)) {
                           while ($res_busc_requisitos=mysqli_fetch_array($ejec_busc_requisitos)){
                   
                         ?>
-                        <tr>
+
+                        <tr align="center">
                           <td><?php echo $res_busc_requisitos['Id']; ?></td>
                           
                           <td><?php echo $res_busc_requisitos['Titulo']; ?></td>

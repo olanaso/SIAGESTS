@@ -24,9 +24,13 @@ if (!verificar_sesion($conexion)) {
 
   $tipo_admision = $proceso_admision['Tipo'];
   
-  //AJUSTES DE ADMISION
+  //AJUSTES DE ADMISION - REQUISITOS
+  $res_ajustes_segunda_opcion = buscarAjustesSegundaOpcionPorProceso($conexion, $id_proceso_admision);
+
+  //AJUSTES DE ADMISION - PROGRAMAS DE SEGUNDA OPCION
   $res_ajustes_admision = buscarAjustesAdmisionPorIdProceso($conexion, $id_proceso_admision);
   $res_ajustes_admision_especificos = buscarAjustesAdmisionPorIdProceso($conexion, $id_proceso_admision);
+
 
   //MODALIDADES
   $res_modalidades = buscarTodasModalidadesOrdenadas($conexion);
@@ -178,9 +182,12 @@ if (!verificar_sesion($conexion)) {
                                         <?php echo $titulo_pagina; ?>
                                     </h2>
                                     <div class="clearfix"></div>
+                                    <a href="procesos_admision.php" class="btn btn-danger">Regresar</a>
                                 </div>
+                                <br>
                                 <div class="x_content">
-                                    <br />
+                                    <h4><b>REQUISITOS</b></h4>
+                                    <hr />
                                     <?php if($tipo_admision == "ORDINARIO"){ ?>
                                     <h4>Requisitos Generales</h4>
                                     <table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -327,6 +334,51 @@ if (!verificar_sesion($conexion)) {
                                     </table>
                                     <?php } ?>
                                 </div>
+                                <br>
+                                <br>
+                                <div class="x_content">
+                                    <h4><b>PROGRAMAS DE SEGUNDA OPCIÓN</b></h4>
+                                    <hr />
+                                    <h4>Programas Elegibles</h4>
+                                    <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Nombre del Programa</th>
+                                                <th>Plan de Estudios</th>
+                                                <th>Estado</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php 
+                                            while ($ajustes_segunda_opcion = mysqli_fetch_array($res_ajustes_segunda_opcion)){
+                                            ?>
+                                            <tr>
+                                                <td>
+                                                    <?php echo $ajustes_segunda_opcion['nombre']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $ajustes_segunda_opcion['plan_estudio']; ?>
+                                                </td>
+                                                <td>
+                                                    <center>
+                                                    <label class="switch">
+                                                        <input type="checkbox" class="checkbox_estado_programa" id="<?php echo $ajustes_segunda_opcion['Id']; ?>" <?php  if($ajustes_segunda_opcion['Estado'] === "1") echo "checked"; ?>>
+                                                        <div class="slider"></div>
+                                                        <div class="slider-card">
+                                                            <div class="slider-card-face slider-card-front"></div>
+                                                            <div class="slider-card-face slider-card-back"></div>
+                                                        </div>
+                                                    </label>
+                                                    </center>
+                                                </td>
+                                            </tr>
+                                            <?php
+                                            };
+                                            ?>
+
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -385,7 +437,7 @@ if (!verificar_sesion($conexion)) {
                 // Enviar el ID mediante AJAX al archivo PHP
                 $.ajax({
                     type: "POST",
-                    url: "operaciones/cambiarEstadoAjustesAdmision.php",
+                    url: "operaciones/cambiar_estado_ajustes_admision.php",
                     data: { id: id, estado: estado },
                     success: function(response){
                         // Manejar la respuesta si es necesario
@@ -393,6 +445,27 @@ if (!verificar_sesion($conexion)) {
                     }
                 });
             });
+
+            // Detectar cambios en los checkboxes de programas segunda opcion
+            $('.checkbox_estado_programa').change(function(){
+                // Obtener el ID único del checkbox modificado
+                var id = $(this).attr('id');
+                // Obtener el estado actual del checkbox (true o false)
+                var estado = $(this).prop('checked');
+                if (estado) var estado_num = 1;
+                else var estado_num = 0;
+                // Enviar el ID mediante AJAX al archivo PHP
+                $.ajax({
+                    type: "POST",
+                    url: "operaciones/cambiar_estado_ajustes_programa.php",
+                    data: { id: id, estado: estado },
+                    success: function(response){
+                        // Manejar la respuesta si es necesario
+                        
+                    }
+                });
+            });
+
         });
     </script>
 

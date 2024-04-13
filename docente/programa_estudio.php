@@ -141,6 +141,7 @@ if (!verificar_sesion($conexion)) {
                           <select class="form-control" name="tipo" value="" required="required">
                               <option></option>
                               <option value="Modular">Modular</option>
+                              <option value="Transversal">Transversal</option>
                               <option value="Empleabilidad">Empleabilidad</option>
                           </select>
                           <br>

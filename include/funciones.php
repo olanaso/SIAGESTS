@@ -529,7 +529,7 @@ function determinarEstadoAdmision($fechaInicio, $fechaFin) {
     } elseif ($fechaActualObj >= $fechaInicioObj && $fechaActualObj <= $fechaFinObj) {
         return "En proceso";
     } else {
-        return "Finalizado";
+        return "Terminado";
     }
 }
 

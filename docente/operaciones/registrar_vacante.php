@@ -29,12 +29,12 @@ if (!verificar_sesion($conexion)) {
                 $id_modalidad = $modalidad['Id'];
                 if ($modalidad['Descripcion'] !== "Ordinario") {
                     $vacante =  $vacantes_modalidad[$contador];
-                    $consulta = "UPDATE `Cuadro_Vacantes` SET `Vacantes`='$vacante' WHERE Id = '$id_cv' AND Id_Programa = '$id_programa' AND Id_Modalidad = '$id_modalidad'";
+                    $consulta = "UPDATE `cuadro_vacantes` SET `Vacantes`='$vacante' WHERE Id = '$id_cv' AND Id_Programa = '$id_programa' AND Id_Modalidad = '$id_modalidad'";
                     mysqli_query($conexion,$consulta);
                     $total_vacantes_exonerado += $vacantes_modalidad[$contador];
                 } else { 
                     $vacante = $total_vacante - $total_vacantes_exonerado;
-                    $consulta = "UPDATE `Cuadro_Vacantes` SET `Vacantes`='$vacante' WHERE Id = '$id_cv' AND Id_Programa = '$id_programa' AND Id_Modalidad = '$id_modalidad'";
+                    $consulta = "UPDATE `cuadro_vacantes` SET `Vacantes`='$vacante' WHERE Id = '$id_cv' AND Id_Programa = '$id_programa' AND Id_Modalidad = '$id_modalidad'";
                     mysqli_query($conexion,$consulta);
                 }
 
