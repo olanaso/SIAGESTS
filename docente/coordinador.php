@@ -13,6 +13,15 @@ if (!verificar_sesion($conexion)) {
 } else {
 
   $id_docente_sesion = buscar_docente_sesion($conexion, $_SESSION['id_sesion'], $_SESSION['token']);
+  $b_docente = buscarDocenteById($conexion, $id_docente_sesion);
+  $r_b_docente = mysqli_fetch_array($b_docente);
+
+  $res_asistencia = buscarAsistenciaDocenteId($conexion, $id_docente_sesion);
+  $cantidad_asistencia = mysqli_num_rows($res_asistencia);
+  $tomar_asistencia = false;
+  if($cantidad_asistencia == 1){
+    $tomar_asistencia = true;
+  }
 ?>
   <!DOCTYPE html>
   <html lang="es">
@@ -53,61 +62,124 @@ if (!verificar_sesion($conexion)) {
         <div class="right_col" role="main">
           <!-- top tiles -->
           <div class="row tile_count">
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-calendar"></i> Periodo Académico</span>
-              <?php
-              $b_p = buscarPeriodoAcadById($conexion, $_SESSION['periodo']);
-              $r_b_p = mysqli_fetch_array($b_p);
-              ?>
-              <div class="count"><?php echo $r_b_p['nombre']; ?></div>
-              <span class="count_bottom"><a href=""><i class="green">.</i></a></span>
+          <div class="col-md-4 col-sm-5 col-xs-12">
+              <?php if($tomar_asistencia){ ?>
+                <div class="row">
+                  <div>
+                    <?php
+                    $asistencia = mysqli_fetch_array($res_asistencia);
+                    $res_ud = buscarUdById($conexion, $asistencia['id_unidad_didactica']);
+                    $unidad_didactica = mysqli_fetch_array($res_ud);
+                    ?>
+                      <div class="x_panel">
+                          <div class="col-md-3 col-sm-3 col-xs-3">
+                            <br><br>
+                              <i class="fa fa-clock-o red" style="font-size: 70px;"></i>
+                          </div>
+                          <div class="col-md-9 col-sm-9 col-xs-9">
+                              <h4 class="red"><b>ASISTENCIA A CLASE</b></h4>
+                              <h5><b><?php echo $unidad_didactica['descripcion'] ?></b></h5>
+                              <h5><b><?php echo $asistencia['dia'].' de '.substr($asistencia['hora_inicio'],0,5).' a '.substr($asistencia['hora_fin'],0,5) ?></b></h5>
+                              <form action="operaciones/marcar_asistencia.php" method="POST">
+                                <input type="hidden" name="id" value="<?php echo $asistencia['id'] ?>">
+                                <button type="submit" class="btn btn-danger">MARCAR ASISTENCIA</button>
+                              </form>
+                            </div>
+                      </div>
+                  </div>
+                </div>
+              <?php 
+              }
+                $res_anuncion = buscarAnunciosActivos($conexion);
+                $cantidad_anuncio = mysqli_num_rows($res_anuncion);
+                $no_tiene_anuncio = true;
+                if($cantidad_anuncio != 0){
+                  while ($anuncio = mysqli_fetch_array($res_anuncion)) {
+                    $anuncio_cargo = $anuncio['usuarios'];
+                    $cargos_seleccionados = explode('-', $anuncio_cargo);
+                    if(in_array($r_b_docente['id_cargo'],$cargos_seleccionados)){
+                      $no_tiene_anuncio = false;
+                  ?>
+                    <div class="row">
+                        <div>
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <div class="">
+                                      <h2>
+                                        <i class="fa fa-bullhorn blue">
+                                          <b><?php echo $anuncio['tipo'] ?></b>
+                                        </i>
+                                      </h2>
+                                    </div class="">
+                                      <ul class="panel_toolbox" style="list-style: none;">
+                                          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                          </li>
+                                      </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <div class="row">
+                                      <b style="font-size: 14px;color: #37809f;"><?php echo $anuncio['titulo'] ?></b>
+                                      <p style="text-align: justify;
+                                                font-size: 14px;">
+                                                <?php echo $anuncio['descripcion'] ?>
+                                      </p>
+                                    </div >
+                                    <?php if($anuncio['enlace'] !== ""){?>
+                                      <div class="text-right"><a class="btn btn-success" href="<?php echo $anuncio['enlace'] ?>" target="_blank">Ir al enlace</a></div>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php } }
+                  }if($no_tiene_anuncio){
+                    echo "NO HAY ANUNCIOS PARA MOSTRAR";
+                  } ?>
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-child"></i> Estudiantes Matriculados</span>
-              <div class="count">
+            <div class="col-md-8 col-sm-7 col-xs-5">
+              <div class="col-md-4 col-sm-6 col-xs-12 tile_stats_count">
+                <span class="count_top"><i class="fa fa-calendar"></i> Periodo Académico</span>
                 <?php
-                $b_est = buscarMatriculaByIdPeriodoCarrera($conexion, $_SESSION['periodo'], $res_b_u_sesion['id_programa_estudio']);
-                $count_est = mysqli_num_rows($b_est);
-                echo $count_est; ?>
+                $b_p = buscarPeriodoAcadById($conexion, $_SESSION['periodo']);
+                $r_b_p = mysqli_fetch_array($b_p);
+                ?>
+                <div class="count"><?php echo $r_b_p['nombre']; ?></div>
+                <span class="count_bottom"><a href=""><i class="green">.</i></a></span>
+              </div>
+              <div class="col-md-4 col-sm-6 col-xs-12 tile_stats_count">
+                <span class="count_top"><i class="fa fa-child"></i> Estudiantes Matriculados</span>
+                <div class="count">
+                  <?php
+                  $b_est = buscarMatriculaByIdPeriodoCarrera($conexion, $_SESSION['periodo'], $res_b_u_sesion['id_programa_estudio']);
+                  $count_est = mysqli_num_rows($b_est);
+                  echo $count_est; ?>
+                </div>
+
               </div>
 
-            </div>
+              <div class="col-md-4 col-sm-6 col-xs-12 tile_stats_count">
+                <span class="count_top"><i class="fa fa-book"></i>Unidades Didácticas Programadas</span>
+                <div class="count"><?php
+                                    $b_ud_prog = buscarProgramacionByIdPeriodo($conexion, $_SESSION['periodo']);
+                                    $count_b_prog = 0;
+                                    while ($r_b_ud_prog = mysqli_fetch_array($b_ud_prog)) {
+                                      $b_ud = buscarUdById($conexion, $r_b_ud_prog['id_unidad_didactica']);
+                                      $r_b_ud = mysqli_fetch_array($b_ud);
 
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-book"></i>Unidades Didácticas Programadas</span>
-              <div class="count"><?php
-                                  $b_ud_prog = buscarProgramacionByIdPeriodo($conexion, $_SESSION['periodo']);
-                                  $count_b_prog = 0;
-                                  while ($r_b_ud_prog = mysqli_fetch_array($b_ud_prog)) {
-                                    $b_ud = buscarUdById($conexion, $r_b_ud_prog['id_unidad_didactica']);
-                                    $r_b_ud = mysqli_fetch_array($b_ud);
-
-                                    if ($r_b_ud['id_programa_estudio'] == $res_b_u_sesion['id_programa_estudio']) {
-                                      $count_b_prog += 1;
+                                      if ($r_b_ud['id_programa_estudio'] == $res_b_u_sesion['id_programa_estudio']) {
+                                        $count_b_prog += 1;
+                                      }
                                     }
-                                  }
 
 
-                                  echo $count_b_prog; ?></div>
+                                    echo $count_b_prog; ?></div>
 
+              </div>
             </div>
-
-            <!--
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-line-chart"></i>Reportes</span>
-              <div class="count"><?php echo ""; ?>2022-II</div>
-              <span class="count_bottom"><a href="reportes.php"><i class="green">Ver </i></a></span>
-            </div>-->
-
-
           </div>
-
-
-
-
         </div>
         <!-- /page content -->
-
 
         <!-- footer content -->
         <?php

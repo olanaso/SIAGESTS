@@ -205,7 +205,7 @@ if (!verificar_sesion($conexion)) {
                           ?>
                           <div class="checkbox">
                             <label>
-                              <input type="checkbox" class="flat" name="pe_<?php echo $r_b_pe['id']; ?>"> <?php echo $r_b_pe['nombre'];  ?>
+                             <input type="checkbox" class="flat" name="pe_<?php echo $r_b_pe['id']; ?>"> <?php echo $r_b_pe['nombre'].'-'.$r_b_pe['plan_estudio'];  ?>
                             </label>
                           </div>
                           <?php } ?>
@@ -294,7 +294,8 @@ if (!verificar_sesion($conexion)) {
         "next": "Siguiente",
         "previous": "Anterior"
     },
-      }
+      },
+      "order":[1, "DESC"]
     });
 
     } );

@@ -124,7 +124,7 @@ if (!verificar_sesion($conexion) && $id == null) {
                                     </li>
                                 </ul>
                                 <br />
-                                <h5><strong>Documentos del proyecto</strong></h5>
+                                <h5><strong>Documentos de la convocatoria</strong></h5>
                                 <ul class="list-unstyled project_files">
                                     <?php 
                                         $res = buscarDocumentosByIdOferta($conexion, $id);
@@ -146,13 +146,13 @@ if (!verificar_sesion($conexion) && $id == null) {
                             </div>
                             <div class="panel-body">
                                 <h4 class="title">Requisitos</h4>
-                                <p><?php echo $convocatoria['requisitos'] ?></p>
+                                <p><?php echo nl2br(htmlspecialchars($convocatoria['requisitos'])) ?></p>
                                 <h4 class="title">Funciones</h4>
-                                <p><?php echo $convocatoria['funciones'] ?></p>
+                                <p><?php echo nl2br(htmlspecialchars($convocatoria['funciones'])) ?></p>
                                 <h4 class="title">Beneficios</h4>
-                                <p><?php echo $convocatoria['beneficios'] ?></p>
+                                <p><?php echo nl2br(htmlspecialchars($convocatoria['beneficios'])) ?></p>
                                 <h4 class="title">Condiciones</h4>
-                                <p><?php echo $convocatoria['condiciones'] ?></p>
+                                <p><?php echo nl2br(htmlspecialchars($convocatoria['condiciones'])) ?></p>
 
                                 <br />
                                 <div class="text-right mtop20">

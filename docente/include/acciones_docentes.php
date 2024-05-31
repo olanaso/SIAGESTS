@@ -61,6 +61,15 @@
                 </div>
               </div>
               <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12"> Profesión : </label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" name="profesion" required="required"
+                    style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();"
+                    value="<?php echo $res_busc_doc['profesion']; ?>">
+                  <br>
+                </div>
+              </div>
+              <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Nivel de Formación : </label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
                   <input type="text" class="form-control" name="niv_formacion" required="required"
@@ -157,7 +166,7 @@
                       ?>
                       <option value="<?php echo $id_pe; ?>" <?php if ($id_pe == $res_busc_doc['id_programa_estudio']) {
                           echo "selected";
-                        } ?>><?php echo $pe; ?></option>
+                        } ?>><?php echo $pe.' - '.$res_b_busc_car['plan_estudio']; ?></option>
                       <?php
                     }
                     ?>

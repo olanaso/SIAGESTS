@@ -7,7 +7,7 @@ include "../../include/funciones.php";
 $usuario = $_POST['dni'];
 $pass = $_POST['codigo_unico'];
 
-$ejec_busc = obtenerDatosPostulantePorDni($conexion, $usuario);
+$ejec_busc = obtenerDatosPostulantePorDniCodigoUnico($conexion, $usuario, $pass);
 $res_busc = mysqli_fetch_array($ejec_busc);
 
 if ($usuario == $res_busc['Dni'] && $pass == $res_busc['Codigo_Unico']) {

@@ -126,6 +126,20 @@ $res_busc_prog = mysqli_fetch_array($ejec_busc_prog);
                             <br>
                           </div>
                         </div>
+                        <div class="form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12">Activar Asistencia del Docente : </label>
+                          <div class="col-md-9 col-sm-9 col-xs-12">
+                            <select class="form-control" id="activar_asistencia" name="activar_asistencia" value="<?php echo $res_busc_prog['activar_asistencia']; ?>" required="required">
+                              <option value="SI" <?php if($res_busc_prog['activar_asistencia'] == 'SI'){
+                                echo "selected";
+                              } ?>>SI</option>
+                              <option value="NO" <?php if($res_busc_prog['activar_asistencia'] == 'NO'){
+                                echo "selected";
+                              } ?>>NO</option>
+                            </select>
+                            <br>
+                          </div>
+                        </div>
                         <div align="center">
                           <a class="btn btn-danger" href="programacion.php"> Cancelar</a>
                           <button type="submit" class="btn btn-primary">Guardar</button>

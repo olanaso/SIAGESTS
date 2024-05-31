@@ -45,10 +45,17 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Landing Page</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Language" content="es-ES">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	  
+    <title>Admisión - Portal</title>
+   
+       <!--icono en el titulo-->
+   <link rel="shortcut icon" href="../img/favicon.ico">
 </head>
 <style>
   body,
@@ -305,7 +312,7 @@
 
   .modalidades .card .content {
     width: auto;
-    max-width: 80%;
+    max-width: 100%;
   }
 
   .modalidades .card .logo {
@@ -326,15 +333,11 @@
   .modalidades .card .hover_content {
     overflow: hidden;
     max-height: 0;
+    width: 100%;
     transform: translateY(1em);
     transition: all 0.55s ease;
   }
 
-  .modalidades .card .hover_content p {
-    margin: 1.5em 0 0;
-    color: #6E6E70;
-    line-height: 1.4em;
-  }
 
   .modalidades .card:hover {
     <?php if($proceso['Tipo'] !== "ORDINARIO"){ ?>
@@ -410,6 +413,12 @@
     .modalidades .card:hover {
       width: 100%;
     }
+    
+    .modalidades .card:hover .hover_content {
+    max-height: 18em;
+    transform: none;
+    }
+    
   }
 
 
@@ -447,6 +456,11 @@
   <div class="container">
     <div class="image-container">
       <div class="image-wrapper">
+          <?php $res_sistema = buscarDatosSistema($conexion);
+            $sistema = mysqli_fetch_array($res_sistema);
+            $logo = $sistema['logo'];
+          ?>
+          <img src="../<?php echo $logo; ?>" width="300px">
         <center>
           <h2>PROCESO DE ADMISIÓN <?php echo $periodo; if($es_extemporaneo) echo ' - EXTEMPORANEO' ?></h2>
         </center>
@@ -459,6 +473,14 @@
           <a href="inscripcion.php">
             <button>
               <span>Inscribase aquí</span>
+            </button>
+          </a>
+        </center>
+        <br>
+        <center>
+          <a href="login_postulante/">
+            <button style="background-color: #36aa4d;">
+              <span>Módulo postulante</span>
             </button>
           </a>
         </center>
@@ -585,7 +607,7 @@
       </center>
       <?php 
         //MODALIDADES
-        $res_modalidades = buscarTodasModalidadesOrdenadas($conexion);
+        $res_modalidades = buscarModalidadPorPeriodo($conexion, $proceso['Periodo']);
         $modalidades_exonerados = mysqli_num_rows($res_modalidades);
         $modalidades_exonerados = $modalidades_exonerados - 1;
 

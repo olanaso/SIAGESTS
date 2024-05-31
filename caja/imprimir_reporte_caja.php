@@ -189,7 +189,7 @@ if($tipo == 'egresos'){
             <th width="20%" align="center"><font size="8">FECHA INICIAL</font></th>
             <th width="20%" align="center"><font size="8">FECHA FINAL</font></th>
             <th width="40%" align="center"><font size="8">DESCRIPCIÓN</font></th>
-            <th width="20%" align="center"><font size="8">TOTAL INGRESOS</font></th>
+            <th width="20%" align="center"><font size="8">TOTAL EGRESOS</font></th>
 
         </tr>
         <tr>

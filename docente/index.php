@@ -26,7 +26,9 @@ switch ($id_cargo) {
     case 6:
         header("location: ../caja/index.php");
         break;
-
+    case 7:
+        header("location: ../bolsa_laboral/index.php");
+        break;
     default:
         header("location: login/");
         break;

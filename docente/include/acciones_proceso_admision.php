@@ -14,23 +14,43 @@
                         <form role="form" action="operaciones/actualizar_proceso_admision.php"
                             class="form-vertical form-label-right input_mask formularioEdit" method="POST">
                             <input type="hidden" name="id" value="<?php echo $proceso['Id']; ?>">
+                            <input type="hidden" name="periodo" value="<?php echo $proceso['Periodo']; ?>">
+        
                             <div class="form-group">
                                 <label class="control-label col-md-12 col-sm-12 col-xs-12">Periodo *: </label>
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <select class="form-control" name="periodo" value="<?php echo $proceso['Periodo']; ?>"  required="required">
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <select class="form-control" name="periodo_anio" value="<?php echo substr($proceso['Periodo'],0,4); ?>"  required="required">
                                         <?php $anio = date("Y"); ?>
-                                        <option value="<?php echo $anio."-I" ?>"
-                                        <?php if($anio."-I" == $proceso['Periodo']){
+                                        <option value="<?php echo strval($anio-1) ?>"
+                                        <?php if(strval($anio-1) == substr($proceso['Periodo'],0,4)){
                                           echo 'selected=""';};?>
-                                        ><?php echo $anio."-I" ?></option>
-                                        <option value="<?php echo $anio."-II" ?>"
-                                        <?php if($anio."-II" == $proceso['Periodo']){
+                                        ><?php echo $anio-1 ?></option>
+                                        <option value="<?php echo strval($anio) ?>"
+                                        <?php if(strval($anio) == substr($proceso['Periodo'],0,4)){
                                           echo 'selected=""';};?>
-                                        ><?php echo $anio."-II" ?></option>
-                                        <option value="<?php echo $anio."-III" ?>"
-                                        <?php if($anio."-III" == $proceso['Periodo']){
+                                        ><?php echo $anio ?></option>
+                                        <option value="<?php echo strval($anio+1) ?>"
+                                        <?php if(strval($anio+1) == substr($proceso['Periodo'],0,4)){
                                           echo 'selected=""';};?>
-                                        ><?php echo $anio."-III" ?></option>
+                                        ><?php echo $anio+1 ?></option>
+                                    </select>
+                                    <br>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <select class="form-control" name="periodo_unidad" value="<?php echo substr($proceso['Periodo'],5); ?>"  required="required">
+                                       
+                                        <option value="I"
+                                        <?php if("I" == substr($proceso['Periodo'],5)){
+                                          echo 'selected=""';};?>
+                                        >I</option>
+                                        <option value="II"
+                                        <?php if("II" == substr($proceso['Periodo'],5)){
+                                          echo 'selected=""';};?>
+                                        >II</option>
+                                        <option value="III"
+                                        <?php if("III" == substr($proceso['Periodo'],5)){
+                                          echo 'selected=""';};?>
+                                        >III</option>
                                     </select>
                                     <br>
                                 </div>
@@ -100,7 +120,15 @@
                                 <label class="control-label">Fecha de Examen de Admisión *:
                                 </label>
                                 <div class="">
-                                    <input type="date" class="form-control" name="fecha_examen" value="<?php echo $proceso['Fecha_Examen']; ?>" required="required">
+                                    <input type="datetime-local" class="form-control" name="fecha_examen" value="<?php echo $proceso['Fecha_Examen']; ?>" required="required">
+                                    <br>
+                                </div>
+                            </div>
+                            <div class="form-group form-group col-md-6 col-sm-6 col-xs-12">
+                                <label class="control-label">Lugar de Examen de Admisión *:
+                                </label>
+                                <div class="">
+                                    <input type="text" class="form-control" name="lugar_examen" value="<?php echo $proceso['Lugar_Examen']; ?>" required="required">
                                     <br>
                                 </div>
                             </div>

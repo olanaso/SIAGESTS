@@ -21,6 +21,13 @@ if(!isset($_SESSION['Id_Postulante'])) {
   } else {
     
     $detalle_postulacion = $_GET['id'];
+    //detalle_postulante
+    $res_d_p = buscarDetallePostulacionPorId($conexion, $detalle_postulacion);
+    $d_p = mysqli_fetch_array($res_d_p);
+    //postulante
+    $res_postulante = buscarPostulantePorId($conexion, $d_p['Id_Postulante']);
+    $postulante = mysqli_fetch_array($res_postulante);
+    //docuementos
     $res_documentos = bucarDocumentosObservadosPorDetallePostulacion($conexion, $detalle_postulacion);
     $res_documentos_duplicado = bucarDocumentosObservadosPorDetallePostulacion($conexion, $detalle_postulacion);
 ?>
@@ -123,8 +130,11 @@ if(!isset($_SESSION['Id_Postulante'])) {
     }
 
     .image-container img {
-        max-width: 100%;
+        width: 100%;
         max-height: 100%;
+        width: 200px;
+        height: 280px;
+        object-fit: cover;
         display: block;
     }
 
@@ -186,10 +196,10 @@ if(!isset($_SESSION['Id_Postulante'])) {
                                             ?>
                                         <center>
                                         <div class="card">
-                                            <p class="custom-card-text">La foto del postulante tiene que contar con fondo blanco y con la mirada al frente. Procure que la imagen encage en el cuadro de abajo.</p>
+                                            <p class="custom-card-text">La foto del postulante tiene que contar con fondo blanco y con la mirada al frente. Procure que la imagen encage en el cuadro de abajo. Se recomienda subir una imagen de 200px de ancho y 280 px de alto.</p>
                                             <div class="card-content">
                                                 <div class="image-container">
-                                                    <img id="carnet-image" src="utils/carnet_default.png" alt="Carnet Image">
+                                                    <img id="carnet-image" src="<?php echo $postulante['Fotografia']; ?>" alt="Carnet Image">
                                                 </div>
                                                 <input type="file" name="fotografia" id="upload" accept="image/*" onchange="loadImage(event)" required>
                                                 <label for="upload" class="custom-file-upload">Seleccionar imagen</label>

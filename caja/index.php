@@ -12,6 +12,8 @@ if (!verificar_sesion($conexion)) {
 } else {
 
     $id_docente_sesion = buscar_docente_sesion($conexion, $_SESSION['id_sesion'], $_SESSION['token']);
+	$b_docente = buscarDocenteById($conexion, $id_docente_sesion);
+    $r_b_docente = mysqli_fetch_array($b_docente);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -57,12 +59,61 @@ if (!verificar_sesion($conexion)) {
 			<?php
 			include("include/menu_caja.php"); ?>
 			<!-- page content -->
-			<div class="right_col">
-                <div class="row">
+			<div class="right_col row">
+				<div class="col-md-8 col-sm-7 col-xs-5">
                     <center>
-                    <h3>Bienvenido al modulo de Caja</h3>
+                    <h3>Bienvenido al módulo de Caja</h3>
                     </center>
                 </div>
+				<div class="col-md-4 col-sm-5 col-xs-7">
+				<?php 
+					$res_anuncion = buscarAnunciosActivos($conexion);
+					$cantidad_anuncio = mysqli_num_rows($res_anuncion);
+					$no_tiene_anuncio = true;
+					if($cantidad_anuncio != 0){
+					while ($anuncio = mysqli_fetch_array($res_anuncion)) {
+						$anuncio_cargo = $anuncio['usuarios'];
+						$cargos_seleccionados = explode('-', $anuncio_cargo);
+						if(in_array($r_b_docente['id_cargo'],$cargos_seleccionados)){
+						$no_tiene_anuncio = false;
+					?>
+						<div class="row">
+							<div>
+								<div class="x_panel">
+									<div class="x_title">
+										<div class="">
+										<h2>
+											<i class="fa fa-bullhorn blue">
+											<b><?php echo $anuncio['tipo'] ?></b>
+											</i>
+										</h2>
+										</div class="">
+										<ul class="panel_toolbox" style="list-style: none;">
+											<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+											</li>
+										</ul>
+										<div class="clearfix"></div>
+									</div>
+									<div class="x_content">
+										<div class="row">
+										<b style="font-size: 14px;color: #37809f;"><?php echo $anuncio['titulo'] ?></b>
+										<p style="text-align: justify;
+													font-size: 14px;">
+													<?php echo $anuncio['descripcion'] ?>
+										</p>
+										</div >
+										<?php if($anuncio['enlace'] !== ""){?>
+										<div class="text-right"><a class="btn btn-success" href="<?php echo $anuncio['enlace'] ?>" target="_blank">Ir al enlace</a></div>
+										<?php } ?>
+									</div>
+								</div>
+							</div>
+						</div>
+					<?php } }
+					}if($no_tiene_anuncio){
+						echo "NO HAY ANUNCIOS PARA MOSTRAR";
+					} ?>
+				</div>
 			</div>
 			<?php
 			include("../include/footer.php");

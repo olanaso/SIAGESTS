@@ -435,6 +435,7 @@ if (!verificar_sesion($conexion)) {
                 if (estado) var estado_num = 1;
                 else var estado_num = 0;
                 // Enviar el ID mediante AJAX al archivo PHP
+                console.log(estado_num);
                 $.ajax({
                     type: "POST",
                     url: "operaciones/cambiar_estado_ajustes_admision.php",
@@ -455,6 +456,7 @@ if (!verificar_sesion($conexion)) {
                 if (estado) var estado_num = 1;
                 else var estado_num = 0;
                 // Enviar el ID mediante AJAX al archivo PHP
+                console.log(estado_num);
                 $.ajax({
                     type: "POST",
                     url: "operaciones/cambiar_estado_ajustes_programa.php",

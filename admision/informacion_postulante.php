@@ -99,17 +99,24 @@ if(!isset($_SESSION['Id_Postulante'])) {
   $id_postulante = $_SESSION['Id_Postulante'];
   $buscar_pos = obtenerDatosPostulancionCompletaPorId($conexion, $id_postulante);
   $res_b_pos_c = mysqli_fetch_array($buscar_pos);
+  $contador = mysqli_num_rows($buscar_pos);
 
   $res_detalle_post = obtenerIdDetallePostulacion($conexion, $id_postulante);
   $id_detalle_postulacion = mysqli_fetch_array($res_detalle_post);
   $id_detalle_postulacion = $id_detalle_postulacion['Id'];
+  
+  $id_segunda_opcion = $res_b_pos['Id_Segunda_Opcion'];
+  $buscar_seg_opc = obtenerProgramaEstudiosPorId($conexion, $id_segunda_opcion);
+  $res_b_seg_opc = mysqli_fetch_array($buscar_seg_opc);
+
+  $fechaExamenCompleta = $res_b_pos['Fecha_Examen'];
+  
+  // Separar la fecha y la hora
+  $fecha = date('d-m-Y', strtotime($fechaExamenCompleta)); // Formato DD-MM-YYYY
+  $hora = date('H:i', strtotime($fechaExamenCompleta)); // Formato HH:MM:SS
+  
   ?>
   <h3 class="text-center text-xlg font-bold">Información del Postulante </h3>
-  <div class="border-t border-gray-300 mx-auto w-1/2 pt-2 mt-10"></div>
-  <h4 class="text-center text-xlg font-bold">Proceso de Admisión <span class="text-blue-700"><?php echo $res_b_pos['Periodo']?></span></h4>
-  <h4 class="text-center text-xlg font-bold">Fecha de Exámen: <span class="text-blue-700"><?php echo cambiar_formato_fecha($res_b_pos['Fecha_Examen']); ?></span></h4>
-
-  <div class="border-b border-gray-300 mx-auto w-1/2 pb-2 mb-10"></div>
 
   <!-- <div class="border-t border-gray-300 mx-auto w-1/2 pt-2"></div> -->
   <h4 class="text-center text-xlg ">¡Bienvenido(a) <?php echo $res_b_pos['Apellido_Paterno'] ?> <?php echo $res_b_pos['Apellido_Materno'] ?> <?php echo $res_b_pos['Nombres'] ?>!</h4>
@@ -128,18 +135,25 @@ if(!isset($_SESSION['Id_Postulante'])) {
     <img class="h-56 w-56 rounded-full image-responsive" src="<?php echo $ruta_fotografia; ?>" alt="Fotografía">
   </div>
 
-
-
+  <div class="border-t border-gray-300 mx-auto w-1/2 pt-2 mt-10"></div>
+  <h4 class="text-center text-xlg font-bold">Proceso de Admisión <span class="text-blue-700"><?php echo $res_b_pos['Periodo']?></span></h4>
+  <div class="border-b border-gray-300 mx-auto w-1/2 pb-2 mb-10"></div>
+  <h4 class="text-center text-xlg font-bold">Fecha de Exámen: <span class="text-blue-700"><?php echo $fecha ?></span></h4>
+  <h4 class="text-center text-xlg font-bold">Hora del Exámen de Admisión: <span class="text-blue-700"><?php echo $hora;
+  if($hora > 12) echo ' p.m.';
+  else echo ' a.m.' ?></span></h4>
+  <h4 class="text-center text-xlg font-bold">Lugar del Exámen de Admisión: <span class="text-blue-700"><?php echo $res_b_pos['Lugar_Examen']?></span></h4>
+  <div class="border-b border-gray-300 mx-auto w-1/2 pb-2 mb-10"></div>
           
   <div class="container border border-gray-300 mb-4">
     <dl class="divide-y divide-gray-300 mb-0">
       <?php
-      if (!empty($res_b_pos_c['Condicion'])) {
+      if ($contador != 0) {
           $condicion_color = '';
           if ($res_b_pos_c['Condicion'] == 1) {
               $condicion_color = 'text-green-600';
               $text_condicion = "ADMITIDO";
-          } elseif ($res_b_pos_c['Condicion'] == 0) {
+          } if ($res_b_pos_c['Condicion'] == 0) {
               $condicion_color = 'text-red-600';
               $text_condicion = "NO ADMITIDO";
           }
@@ -190,7 +204,7 @@ if(!isset($_SESSION['Id_Postulante'])) {
     <div class="mt-6 border-t border-gray-300">
       <dl class="divide-y divide-gray-300 mb-0">
         <?php
-        if (!empty($res_b_pos_c['Condicion'])) {
+        if ($contador != 0) {
             echo "<div class='px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0'>
                     <dt class=' leading-6 text-center'>Orden de mérito</dt>
                     <dd class='mt-1 leading-6 sm:col-span-2 sm:mt-0 text-center'>" . $res_b_pos_c['Orden_Merito'] . "</dd>
@@ -205,10 +219,69 @@ if(!isset($_SESSION['Id_Postulante'])) {
           <dt class=" leading-6 text-center">Programa de Estudios</dt>
           <dd class="mt-1 leading-6 sm:col-span-2 sm:mt-0 text-center"><?php echo $res_b_pos['nombre']?></dd>
         </div>
+
+        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+          <dt class=" leading-6 text-center">Segunda Opción</dt>
+          <dd class="mt-1 leading-6 sm:col-span-2 sm:mt-0 text-center"><?php echo $res_b_seg_opc['nombre'] ?></dd>
+        </div>
+        
+
         <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
           <dt class=" leading-6 text-center">Modalidad de postulación</dt>
           <dd class="mt-1 leading-6 sm:col-span-2 sm:mt-0 text-center"><?php echo $res_b_pos['Descripcion']?></dd>
         </div>
+        
+        <?php
+        $buscar_doc_pos = obtenerDocumentosdeDePostulancion($conexion, $id_postulante);
+        
+        echo '<div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt class=" leading-6 text-center">Documentos del Postulante</dt>
+            <dd class="mt-2   sm:col-span-2 sm:mt-0">
+                <ul role="list" class="divide-y divide-gray-300 rounded-md border border-gray-300">';
+        
+        while ($res_b_doc_pos = mysqli_fetch_array($buscar_doc_pos)) {
+            $nombreArchivo = $res_b_doc_pos['Titulo'];
+            $rutaArchivo = $res_b_doc_pos['Documento'];
+            // Verificar si la extensión del archivo es .pdf
+            if (pathinfo($rutaArchivo, PATHINFO_EXTENSION) === 'pdf') {
+                // Obtener el tamaño del archivo en bytes
+                $tamañoBytes = filesize($rutaArchivo);
+        
+                // Convertir bytes a megabytes (MB)
+                $tamañoMB = round($tamañoBytes / (1024 * 1024), 2);
+        
+                echo '<li class="flex items-center justify-between py-4 pl-4 pr-5  leading-6">
+                    <div class="flex w-0 flex-1 items-center">
+                        <svg class="h-5 w-5 flex-shrink-0 text-gray-300" viewBox="0 0 20 20" fill="currentColor"
+                            aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M15.621 4.379a3 3 0 00-4.242 0l-7 7a3 3 0 004.241 4.243h.001l.497-.5a.75.75 0 011.064 1.057l-.498.501-.002.002a4.5 4.5 0 01-6.364-6.364l7-7a4.5 4.5 0 016.368 6.36l-3.455 3.553A2.625 2.625 0 119.52 9.52l3.45-3.451a.75.75 0 111.061 1.06l-3.45 3.451a1.125 1.125 0 001.587 1.595l3.454-3.553a3 3 0 000-4.242z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <div class="ml-4 flex min-w-0 flex-1 gap-2">
+                            <span class="">' . $nombreArchivo . '</span>
+                            <span class="flex-shrink-0 text-gray-300">' . $tamañoMB . ' MB</span>
+                        </div>
+                    </div>
+                    <div class="ml-4 flex-shrink-0">
+                        <div class="mr-4 fa-hover col-md-3 col-sm-4"><a href="../admision/' . $rutaArchivo . '"><i
+                                    class="fa fa-eye"></i></a>
+                        </div>
+                        <a href="' . $rutaArchivo . '" download="' . $nombreArchivo . '"
+                            class="font-medium text-indigo-600 hover:text-indigo-500" target="_blank">
+                            Descargar
+                        </a>
+                    </div>
+                </li>';
+            }
+        }
+        
+        echo '</ul>
+            </dd>
+        </div>';
+        ?>
+
+
 
         <?php
           $Periodo = $res_b_pos['Id_Proceso_Admision'];
@@ -218,7 +291,10 @@ if(!isset($_SESSION['Id_Postulante'])) {
           $buscar_doc_pos = obtenerDocumentosdePostulancionPorPeriodo($conexion, $Periodo);
 
           echo '<div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                  <dt class=" leading-6 text-center">Documentos</dt>
+                  <dt class=" leading-6 text-center">Documentos <br>
+                  <a class="mt-3 btn btn-success" href="../docente/imprimir_constancia_ingreso.php?id='.$id_detalle_postulacion.'" target="_blank">Descargar constancia de ingreso</a> 
+                  </dt>
+                  
                   <dd class="mt-2   sm:col-span-2 sm:mt-0">
                     <ul role="list" class="divide-y divide-gray-300 rounded-md border border-gray-300">';
           if(isset($ficha_postulante)){

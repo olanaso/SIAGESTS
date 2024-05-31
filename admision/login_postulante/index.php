@@ -129,17 +129,17 @@
                         </center>
                         <form role="form" action="iniciar_sesion.php" method="POST">
                             <div class="mb-3">
-                                <label for="dni" class="form-label fw-bold">Usuario (Dni) </label>
+                                <label for="dni" class="form-label fw-bold">Usuario (DNI) </label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
-                                    <input type="text" class="form-control" id="dni" name="dni" placeholder="Ingrese su Dni" required>
+                                    <input type="text" class="form-control" id="dni" name="dni" pattern="[0-9]{8}"  title="El DNI debe tener 8 dígitos" placeholder="Ingrese su DNI" required>
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label for="codigo_unico" class="form-label fw-bold">Contraseña (Código de postulanción)</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
-                                    <input type="password" class="form-control" id="codigo_unico" name="codigo_unico" placeholder="Ingese su Código de Postulación" required>
+                                    <input type="password" class="form-control" id="codigo_unico" name="codigo_unico" placeholder="Ingrese su Código de Postulación" required>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary w-100"> 

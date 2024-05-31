@@ -1,3 +1,15 @@
+<style>
+  .new-label {
+    display: inline-block;
+    background-color: green;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 5px;
+    font-size: smaller;
+  }
+</style>
+
 <div class="col-md-3 left_col menu_fixed">
   <div class="left_col scroll-view">
 
@@ -27,17 +39,31 @@
     <!-- sidebar menu -->
     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
       <div class="menu_section">
-        <h3>Menu de Navegación</h3>
+        <h3>Menú de Navegación</h3>
         <ul class="nav side-menu">
           <li><a href="../docente/"><i class="fa fa-home"></i>Inicio</a>
           </li>
           <li><a><i class="fa fa-pencil-square-o"></i> Unidades Didácticas <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
               <li class="sub_menu"><a href="calificaciones_unidades_didacticas.php">Mis Unidades Didácticas</a></li>
-              <li class="sub_menu"><a href="pe_calificaciones_unidades_didacticas.php">Todas las Unidades Didácticas</a></li>
+              <li class="sub_menu"><a href="pe_calificaciones_unidades_didacticas.php">Todas las Unidades Didácticas</a>
+              </li>
             </ul>
           </li>
           <li><a href="reportes_coordinador.php"><i class="fa fa-bar-chart"></i> Reportes</a>
+          </li>
+          <li>
+            <a>
+              <i class="fa fa-wrench"></i>Soporte<span class="fa fa-chevron-down"></span><span
+                class="new-label">Nuevo</span>
+            </a>
+            <ul class="nav child_menu">
+              <li><a href="tickets_coordinador.php">Tickets </a></li>
+              <li><a href="preguntas_frecuentes_coordinador.php">Preguntas Frecuentes </a>
+              </li>
+              <li><a href="manuales_videotutoriales_coordinador.php">Manuales y tutoriales </a>
+              </li>
+            </ul>
           </li>
         </ul>
       </div>
@@ -59,6 +85,7 @@
             <span class=" fa fa-angle-down"></span>
           </a>
           <ul class="dropdown-menu dropdown-usermenu pull-right">
+            <li><a href="mi_perfil.php"> Mi perfil <span class="new-label">Nuevo</span></a></li>
             <li><a href="login/enviar_correo.php"> Cambiar mi contraseña</a></li>
             <li><a href="../include/cerrar_sesion.php"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesión</a></li>
           </ul>
@@ -75,13 +102,14 @@
             <?php
             $buscar_periodos = buscarPeriodoAcademicoInvert($conexion);
             while ($res_busc_periodos = mysqli_fetch_array($buscar_periodos)) {
-            ?>
+              ?>
               <li><a href="operaciones/actualizar_sesion_periodo.php?dato=<?php echo $res_busc_periodos['id']; ?>"><?php if ($res_busc_periodos['id'] == $id_per_act_m) {
-                                                                                                                      echo "<b>";
-                                                                                                                    } ?><?php echo $res_busc_periodos['nombre']; ?><?php if ($res_busc_periodos['id'] == $id_per_act_m) {
-                                                                                                                                                                                                                                  echo "</b>";
-                                                                                                                                                                                                                                } ?></a></li>
-            <?php
+                   echo "<b>";
+                 } ?><?php echo $res_busc_periodos['nombre']; ?><?php if ($res_busc_periodos['id'] == $id_per_act_m) {
+                       echo "</b>";
+                     } ?></a>
+              </li>
+              <?php
             }
             ?>
           </ul>

@@ -102,7 +102,7 @@ if ($fileType === 'application/vnd.openxmlformats-officedocument.spreadsheetml.s
 
     // Definir las cabeceras para forzar la descarga del archivo
     header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-    header('Content-Disposition: attachment;filename="reporte_migraci√≥n.xlsx"');
+    header('Content-Disposition: attachment;filename="reporte_migraci®Æn.xlsx"');
     header('Cache-Control: max-age=0');
 
     // Enviar el archivo al navegador

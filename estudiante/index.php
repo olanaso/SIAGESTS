@@ -58,7 +58,7 @@
 
 					$b_matricula = buscarMatriculaByEstudiantePeriodo($conexion, $id_estudiante_sesion, $_SESSION['periodo']);
 					$r_b_matricula = mysqli_fetch_array($b_matricula);
-					$id_matricula = $r_b_matricula['id'];
+					$id_matricula = isset($r_b_matricula['id']);
 					$b_det_mat = buscarDetalleMatriculaByIdMatricula($conexion, $id_matricula);
 					$cont_det_mat = mysqli_num_rows($b_det_mat);
 					?>
@@ -66,23 +66,69 @@
 					<div class="right_col" role="main">
 						<!-- top tiles -->
 						<div class="row tile_count">
-							<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-								<span class="count_top"><i class="fa fa-calendar"></i> Periodo Académico</span>
-								<div class="count"><?php echo $r_b_per['nombre']; ?></div>
-								<span class="count_bottom"><a href=""><i class="green">.</i></a></span>
+							<div class="col-md-8 col-sm-7 col-xs-12">
+								<div class="col-md-4 col-sm-6 col-xs-12 tile_stats_count">
+									<span class="count_top"><i class="fa fa-calendar"></i> Periodo Académico</span>
+									<div class="count"><?php echo $r_b_per['nombre']; ?></div>
+									<span class="count_bottom"><a href=""><i class="green">.</i></a></span>
+								</div>
+								<div class="col-md-4 col-sm-6 col-xs-12 tile_stats_count">
+									<span class="count_top"><i class="fa fa-pencil-square-o"></i> Mis Unidades Didácticas</span>
+									<div class="count"><?php echo $cont_det_mat; ?></div>
+									<span class="count_bottom"><a href="mis_unidades_didacticas.php"><i class="green">Ver</i></a></span>
+								</div>
 							</div>
-							<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-								<span class="count_top"><i class="fa fa-pencil-square-o"></i> Mis Unidades Didácticas</span>
-								<div class="count"><?php echo $cont_det_mat; ?></div>
-								<span class="count_bottom"><a href="mis_unidades_didacticas.php"><i class="green">Ver</i></a></span>
+							
+							<div class="col-md-4 col-sm-5 col-xs-12">
+							<?php 
+								$res_anuncion = buscarAnunciosActivos($conexion);
+								$cantidad_anuncio = mysqli_num_rows($res_anuncion);
+								$no_tiene_anuncio = true;
+								if($cantidad_anuncio != 0){
+								while ($anuncio = mysqli_fetch_array($res_anuncion)) {
+									$anuncio_cargo = $anuncio['usuarios'];
+									$cargos_seleccionados = explode('-', $anuncio_cargo);
+									if(in_array(0,$cargos_seleccionados)){
+									$no_tiene_anuncio = false;
+								?>
+									<div class="row">
+										<div>
+											<div class="x_panel">
+												<div class="x_title">
+													<div class="">
+													<h2>
+														<i class="fa fa-bullhorn blue">
+														<b><?php echo $anuncio['tipo'] ?></b>
+														</i>
+													</h2>
+													</div class="">
+													<ul class="panel_toolbox" style="list-style: none;">
+														<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+														</li>
+													</ul>
+													<div class="clearfix"></div>
+												</div>
+												<div class="x_content">
+													<div class="row">
+													<b style="font-size: 14px;color: #37809f;"><?php echo $anuncio['titulo'] ?></b>
+													<p style="text-align: justify;
+																font-size: 14px;">
+																<?php echo $anuncio['descripcion'] ?>
+													</p>
+													</div >
+													<?php if($anuncio['enlace'] !== ""){?>
+													<div class="text-right"><a class="btn btn-success" href="<?php echo $anuncio['enlace'] ?>" target="_blank">Ir al enlace</a></div>
+													<?php } ?>
+												</div>
+											</div>
+										</div>
+									</div>
+								<?php } }
+								}if($no_tiene_anuncio){
+									echo "NO HAY ANUNCIOS PARA MOSTRAR";
+								} ?>
 							</div>
-
-
-
 						</div>
-
-
-
 
 					</div>
 					<!-- /page content -->

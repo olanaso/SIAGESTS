@@ -261,7 +261,7 @@ $res_busc_est = mysqli_fetch_array($ejec_busc_est);
 
 
                         <div align="center">
-                          <a class="btn btn-danger" href="estudiante.php"> Cancelar</a>
+                          <a class="btn btn-danger" href="javascript:history.back()"> Cancelar</a>
                           <button type="submit" class="btn btn-success">Guardar</button>
                         </div>
                       </form>

@@ -42,7 +42,7 @@ if ($fileType === 'application/vnd.openxmlformats-officedocument.spreadsheetml.s
                 $puntaje = floatval($puntaje);
                 
                 //OBTENER ID DEL POSTULANTE
-                $res_postulante = buscarPostulantePorDni($conexion, $dni);
+                $res_postulante = obtenerDatosPostulantePorDniProcesoAdmision($conexion, $dni, $proceso_admision);
                 $postulante = mysqli_fetch_array($res_postulante);
                 $id_postulante = $postulante['Id'];
 
@@ -56,7 +56,7 @@ if ($fileType === 'application/vnd.openxmlformats-officedocument.spreadsheetml.s
                     if ($ejecutar_insetar) {
                         $observacion = "Ninguna";
                     }else{
-                        $observacion = "Error desconocido";
+                        $observacion = "El postulante no se encuentra inscrito en el proceso de admisión actual.";
                     }
                 }else{
                     $observacion = "Postulante ya registrado con anterioridad";

@@ -209,8 +209,11 @@ if (!verificar_sesion($conexion)) {
     }
 
     .image-container img {
-        max-width: 100%;
+        width: 100%;
         max-height: 100%;
+        width: 200px;
+        height: 280px;
+        object-fit: cover;
         display: block;
     }
     </style>

@@ -70,18 +70,57 @@ if (!verificar_sesion($conexion)) {
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
+                    <br>
+                      <div class="col-lg-4">
+                        <div><b>Filtrar Por Programa de Estudios: </b></div>
+                        <div class="form-group ">
+                          <select id="filtro_programa" class="form-control">
+                            <option value="">TODOS</option>
+                            <?php
+                            $ejec_busc_carr = buscarCarreras($conexion);
+                            while ($res__busc_carr = mysqli_fetch_array($ejec_busc_carr)) {
+                              $id_carr = $res__busc_carr['id'];
+                              $carr = $res__busc_carr['nombre'];
+                              ?>
+                              <option value="<?php echo $carr;
+                              ?>"><?php echo $carr; ?></option>
+                              <?php
+                            }
+                            ?>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div><b>Filtrar Por Semestre: </b></div>
+                        <div class="form-group ">
+                          <select id="filtro_semestre" class="form-control">
+                            <option value="">TODOS</option>
+                            <?php
+                            $ejec_busc_sem = buscarSemestre($conexion);
+                            while ($res_busc_sem = mysqli_fetch_array($ejec_busc_sem)) {
+                              $id_sem = $res_busc_sem['id'];
+                              $sem = $res_busc_sem['descripcion'];
+                              ?>
+                              <option value="<?php echo $sem;
+                              ?>"><?php echo $sem; ?></option>
+                              <?php
+                            }
+                            ?>
+                          </select>
+                        </div>
+                      </div>
                     <br />
 
-                    <table id="example" class="table table-striped table-bordered" style="width:100%">
+                    <table id="tabla-estudiantes" class="table table-striped table-bordered" style="width:100%">
                       <thead>
                         <tr>
-                          <th>Identificador</th>
+                          <th>N°</th>
                           <th>DNI</th>
                           <th>Apellidos y Nombres</th>
-                          <th>Telefono</th>
+                          <th>Teléfono / Celular</th>
                           <th>Programa de Estudios</th>
                           <th>Semestre / Ciclo</th>
-                          <th>Acciones</th>
+                          <th style="width:20%">Acciones</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -102,12 +141,19 @@ if (!verificar_sesion($conexion)) {
                           <td><?php echo $res_busc_p_e['nombre']; ?></td>
                           <?php
                             $id_sem = $res_busc_est['id_semestre'];
-                            $ejec_busc_sem = buscarSemestreById($conexion, $id_sem);
-                            $res_busc_sem=mysqli_fetch_array($ejec_busc_sem);
+                            $semestre = "No registrado";
+                            if($id_sem != 0){
+                              $ejec_busc_sem = buscarSemestreById($conexion, $id_sem);
+                              $res_busc_sem=mysqli_fetch_array($ejec_busc_sem);
+                              $semestre = $res_busc_sem['descripcion'];
+                            }
+                            
                           ?>
-                          <td><?php echo $res_busc_sem['descripcion']; ?></td>
+                          <td><?php echo $semestre; ?></td>
                           <td>
-                          <a class="btn btn-success" href="editar_estudiante.php?id=<?php echo $res_busc_est['id']; ?>"><i class="fa fa-pencil-square-o"></i> Editar</a></td>
+                          <a class="btn btn-success" href="editar_estudiante.php?id=<?php echo $res_busc_est['id']; ?>"><i class="fa fa-pencil-square-o"></i> Editar</a>
+                          <a class="btn btn-info" href="informacion_academica.php?id=<?php echo $res_busc_est['id']; ?>" data-toggle="tooltip" data-original-title="Información Académica" data-placement="bottom"><i class="fa fa-list-alt"></i></a>
+                          <a class="btn btn-dark" href="informacion_socioeconomica.php?id=<?php echo $res_busc_est['id']; ?>" data-toggle="tooltip" data-original-title="Información Socioeconómica" data-placement="bottom"><i class="fa fa-info"></i></a></td>
                         </tr>  
                         <?php
                           
@@ -356,7 +402,7 @@ if (!verificar_sesion($conexion)) {
     <script src="../Gentella/build/js/custom.min.js"></script>
     <script>
     $(document).ready(function() {
-    $('#example').DataTable({
+    $('#tabla-estudiantes').DataTable({
       "language":{
     "processing": "Procesando...",
     "lengthMenu": "Mostrar _MENU_ registros",
@@ -379,6 +425,30 @@ if (!verificar_sesion($conexion)) {
     });
 
     } );
+    </script>
+
+<script>
+      $(document).ready(function () {
+        var table = $('#tabla-estudiantes').DataTable();
+
+        $.fn.dataTable.ext.search.push(
+          function (settings, data, dataIndex) {
+            var programa = $('#filtro_programa').val().trim();
+            var semestre = $('#filtro_semestre').val().trim();
+            var programaCell = data[4] || ''; // Índice de columna para Programa de Estudios
+            var semestreCell = data[5] || ''; // Índice de columna para Semestre
+
+            if ((programa === '' || programaCell === programa) &&
+              (semestre === '' || semestreCell === semestre)) {
+              return true;
+            }
+            return false;
+          }
+        );
+        $('#filtro_programa, #filtro_semestre').on('change', function () {
+          table.draw();
+        });
+      });
     </script>
      <?php mysqli_close($conexion); ?>
   </body>

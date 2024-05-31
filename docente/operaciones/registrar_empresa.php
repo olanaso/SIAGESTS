@@ -2,7 +2,6 @@ o<?php
 
 include "../../include/conexion.php";
 include "../../include/busquedas.php";
-include "../../caja/consultas.php";
 include "../../include/funciones.php";
 include "../../empresa/include/consultas.php";
 include("../include/verificar_sesion_secretaria.php");

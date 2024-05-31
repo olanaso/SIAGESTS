@@ -1,7 +1,6 @@
 <?php
 include "../../include/conexion.php";
 include "../../include/busquedas.php";
-include "../../caja/consultas.php";
 include "../../include/funciones.php";
 include "../../empresa/include/consultas.php";
 include("../include/verificar_sesion_secretaria.php");
@@ -16,7 +15,7 @@ if (!verificar_sesion($conexion)) {
     $estado = $_POST["estado"];
 
     // Consulta para insertar los datos en la base de datos
-    $sql = "UPDATE `ajustes_admision` SET `estado`= $estado WHERE id = $id";
+    $sql = "UPDATE `ajustes_admision` SET `Estado`= $estado WHERE Id = $id";
     $res = mysqli_query($conexion, $sql);
     $conexion->close();
 }

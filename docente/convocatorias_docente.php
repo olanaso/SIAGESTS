@@ -1,6 +1,5 @@
 <?php
     include("../include/conexion.php");
-    include("../caja/consultas.php");
     include("../empresa/include/consultas.php");
     include("../include/busquedas.php");
     include("../include/funciones.php");
@@ -91,12 +90,36 @@
                     <h2 align="center">Convocatorias Laborales</h2>
                   </div>
                   <div class="x_content">
+                  <div class="col-lg-4">
+                    <div><b>Filtrar Por Administrador de Convocatoria: </b></div>
+                        <div class="form-group ">
+                          <select id="filtro_administrado" class="form-control">
+                            <option value="">TODOS</option>
+                            <option value="EMPRESA">EMPRESA</option>
+                            <option value="INSTITUTO">INSTITUTO</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div><b>Filtrar Por Estado: </b></div>
+                        <div class="form-group ">
+                          <select id="filtro_estado" class="form-control">
+                            <option value="">TODOS</option>
+                            <option value="Por comenzar">POR COMENZAR</option>
+                            <option value="En proceso">EN PROCESO</option>
+                            <option value="Finalizado">FINALIZADO</option>
+                          </select>
+                        </div>
+                      </div>
+                      <br><br><br><br>
                     <div class="">
                       <table id="empresas" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                           <tr>
-                            <th>Empresa</th>
+                            <th>N°</th>
+                            <th>Nombre de la empresa, persona natural o jurídica</th>
                             <th>Título</th>
+                            <th>Aministrado por</th>
                             <th>Fecha de Inicio</th>
                             <th>Fecha Fin</th>
                             <th>Estado</th>
@@ -105,12 +128,25 @@
                         </thead>
                         <tbody>
                           <?php 
-                            $res = buscarOfertaLaboralEmpresa($conexion);
+                            $res = buscarTotalOfertas($conexion);
+                            $cantidad = 0;
                             while ($ofertas=mysqli_fetch_array($res)){
+                              $cantidad++;
                           ?>
                           <tr>
+                          <td><?php echo $cantidad; ?></td>
                             <td><?php echo $ofertas['empresa']; ?></td>
                             <td><?php echo $ofertas['titulo']; ?></td>
+                            
+                            <?php 
+                            if($ofertas['propietario'] == 0){
+                              echo '<td class="green"><i class="fa fa-building"></i> <b>EMPRESA</b></td>';
+
+                            }else{
+                              echo '<td class="blue"><i class="fa fa-bank"></i>  <b>INSTITUTO</b></td>';
+
+                            }
+                            ?>
                             <td><?php echo $ofertas['fecha_inicio']; ?></td>
                             <td><?php echo $ofertas['fecha_fin']; ?></td>
                             <td>
@@ -118,7 +154,7 @@
                             </td>
                             <td>
                             <?php echo '
-                            <a href="detalle_convocatoria_docente.php?id='. $ofertas['id'] . '" class="btn btn-success" data-toggle="tooltip" data-original-title="Ver Detalles" data-placement="bottom"><i class="fa fa-eye"></i></a>
+                                <a href="detalle_convocatoria_docente.php?id='. $ofertas['id'] . '&type='.$ofertas['propietario'].'" class="btn btn-success" data-toggle="tooltip" data-original-title="Ver Detalles" data-placement="bottom"><i class="fa fa-eye"></i></a>
                             ' ?>
                           </tr>  
 
@@ -204,6 +240,33 @@
 
     } );
     </script>
+
+<script>
+      $(document).ready(function () {
+        var table = $('#empresas').DataTable();
+
+        // Custom filter for Programa de Estudios
+        $('#filtro_administrado').on('change', function () {
+          var filtro = $(this).val();
+          table.column(3).search(filtro).draw();
+        }    
+      );
+      });
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        var table = $('#empresas').DataTable();
+        // Filtro por estado
+        $('#filtro_estado').on('change', function () {
+          var filtro = $(this).val();
+          table.column(6).search(filtro).draw();
+        }
+                
+      );
+      });
+    </script>
+
      <?php mysqli_close($conexion); ?>
   </body>
 </html>

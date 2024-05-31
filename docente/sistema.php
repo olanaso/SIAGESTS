@@ -160,8 +160,22 @@
                           <br>
                         </div>
                       </div>
-                      
-                      
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12"><nav></nav>Términos y Condisiones - Admisión : </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="req_admision" class="form-control" name="req_admision" id="req_admision" required="" value="<?php echo $res['req_admision'];?>">
+                          <p>U.R.L. de los términos y condiciones para el tratamiento de información del postulante en una inscripción en un proceso de admisión.</p>
+                          <br>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Términos y Condisiones - Bolsa Laboral : </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="req_bolsa_laboral" class="form-control" name="req_bolsa_laboral" id="req_bolsa_laboral" required="" value="<?php echo $res['req_bolsa_laboral'];?>">
+                          <p>U.R.L. de los términos y condiciones para el tratamiento de información de empresas que solicitan una cuenta en el modulo de bolsa laboral.</p>
+                          <br>
+                        </div>
+                      </div>
                       <div align="center">
                         <button type="submit" class="btn btn-primary" id="btn_guardar">Guardar</button> 
                         <button type="button" class="btn btn-warning" id="btn_cancelar" onclick="desactivar_controles(); cancelar();">Cancelar</button>
@@ -235,6 +249,8 @@
             document.getElementById('password_email').disabled = true
             document.getElementById('puerto_email').disabled = true
             document.getElementById('color_correo').disabled = true
+            document.getElementById('req_bolsa_laboral').disabled = true
+            document.getElementById('req_admision').disabled = true
             
             document.getElementById('btn_cancelar').style.display = 'none'
             document.getElementById('btn_guardar').style.display = 'none'
@@ -252,6 +268,8 @@
             document.getElementById('password_email').disabled = false
             document.getElementById('puerto_email').disabled = false
             document.getElementById('color_correo').disabled = false
+            document.getElementById('req_bolsa_laboral').disabled = false
+            document.getElementById('req_admision').disabled = false
             
             document.getElementById('btn_cancelar').removeAttribute('style')
             document.getElementById('btn_guardar').removeAttribute('style')

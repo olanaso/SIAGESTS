@@ -20,7 +20,7 @@ $modalidad = $_POST['id_modalidad'];
 					<label class="control-label">'. $req_generales['Titulo'] .' *:
 					</label>
 					<div class="">
-						<input type="file" class="form-control" name="'. $req_generales['Id'] .'" required="required"  accept=".pdf">
+						<input type="file" class="form-control" name="'. $req_generales['Id'] .'" required="required" onchange="loadRequisito(event)" accept=".pdf">
 					</div>
 				</div>
 				<?php }?>';
@@ -32,7 +32,7 @@ $modalidad = $_POST['id_modalidad'];
 				<label class="control-label">'. $req_especiales['Titulo'] .' *:
 				</label>
 				<div class="">
-					<input type="file" class="form-control" name="'. $req_especiales['Id'] .'" required="required"  accept=".pdf">
+					<input type="file" class="form-control" name="'. $req_especiales['Id'] .'" required="required" onchange="loadRequisito(event)" accept=".pdf">
 				</div>
 			</div>
 			<?php }?>';

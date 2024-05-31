@@ -33,7 +33,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Inicio<?php include("../include/header_title.php"); ?></title>
+	<title>Bolsa Laboral<?php include("../include/header_title.php"); ?></title>
 	<!--icono en el titulo-->
 	<link rel="shortcut icon" href="../img/favicon.ico">
 	<!-- Bootstrap -->
@@ -86,12 +86,6 @@
                 include("include/menu.php");
                 $b_perido = buscarPeriodoAcadById($conexion, $_SESSION['periodo']);
                 $r_b_per = mysqli_fetch_array($b_perido);
-
-                $b_matricula = buscarMatriculaByEstudiantePeriodo($conexion, $id_estudiante_sesion, $_SESSION['periodo']);
-                $r_b_matricula = mysqli_fetch_array($b_matricula);
-                $id_matricula = $r_b_matricula['id'];
-                $b_det_mat = buscarDetalleMatriculaByIdMatricula($conexion, $id_matricula);
-                $cont_det_mat = mysqli_num_rows($b_det_mat);
             ?>
 			<div class="right_col">
                 <div class="row">
@@ -130,7 +124,7 @@
                                     </p>
                                     </li>
                                 </ul>
-                                <h5><strong>Documentos del proyecto</strong></h5>
+                                <h5><strong>Documentos de la convocatoria</strong></h5>
                                 <ul class="list-unstyled project_files">
                                     <?php 
                                         $res = buscarDocumentosByIdOferta($conexion, $id);
@@ -147,18 +141,18 @@
                     <div class="col-md-9 col-sm-9  ">
                         <section class="panel">
                             <div class="x_title">
-                                <h2 class="blue">Detalle de convocatoria</h2>
+                                <h2 class="blue">Detalle de la convocatoria</h2>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="panel-body">
                                 <h4 class="title">Requisitos</h4>
-                                <p><?php echo $convocatoria['requisitos'] ?></p>
+                                <p><?php echo nl2br(htmlspecialchars($convocatoria['requisitos'])) ?></p>
                                 <h4 class="title">Funciones</h4>
-                                <p><?php echo $convocatoria['funciones'] ?></p>
+                                <p><?php echo nl2br(htmlspecialchars($convocatoria['funciones'])) ?></p>
                                 <h4 class="title">Beneficios</h4>
-                                <p><?php echo $convocatoria['beneficios'] ?></p>
+                                <p><?php echo nl2br(htmlspecialchars($convocatoria['beneficios'])) ?></p>
                                 <h4 class="title">Condiciones</h4>
-                                <p><?php echo $convocatoria['condiciones'] ?></p>
+                                <p><?php echo nl2br(htmlspecialchars($convocatoria['condiciones'])) ?></p>
 
                                 <br />
                             </div>

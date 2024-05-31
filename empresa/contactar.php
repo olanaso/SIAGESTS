@@ -22,9 +22,9 @@
 
   <body>
 
-    <section class="bg-white h-screen">
+    <section class="bg-white h-screen ">
         <div class="grid grid-cols-1 lg:grid-cols-2">
-          <div class="hidden lg:flex relative h-screen items-end px-4 pb-10 pt-60 sm:pb-16 md:justify-center lg:pb-24 bg-gray-50 sm:px-6 lg:px-8">
+          <div class="lg:flex relative h-screen fixed top-0 left-0 items-end px-4 pb-10 pt-60 sm:pb-16 md:justify-center lg:pb-24 bg-gray-50 sm:px-6 lg:px-8">
             <div class="absolute inset-0">
               <img
                 class="object-cover w-full"
@@ -48,7 +48,7 @@
             </div>
           </div>
       
-          <div class="flex items-center justify-center px-4 py-4 bg-white sm:px-1 lg:px-8 sm:py-1 lg:py-4" >
+          <div class="flex items-center justify-center bg-white sm:px-1 sm:py-1 " >
             
                 <form class="mt-1" action="operaciones/registrar_empresa.php" method="post" enctype="multipart/form-data">
                     <div class="max-w-2xl mx-auto text-center">
@@ -62,7 +62,7 @@
                                                 <div class="space-y-2">
                                                     <div>
                                                         <label for="" class="text-base font-medium text-gray-900"> Nombre de la empresa *</label>
-                                                        <div class="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
+                                                        <div class="mt-1 relative text-gray-400 focus-within:text-gray-600">
                                                             <input
                                                                 type="text"
                                                                 name="nombre_empresa"
@@ -77,7 +77,7 @@
 
                                                     <div>
                                                         <label for="" class="text-base font-medium text-gray-900"> RUC *</label>
-                                                        <div class="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
+                                                        <div class="mt-1 relative text-gray-400 focus-within:text-gray-600">
                                                             <input
                                                                 type="text"
                                                                 name="ruc"
@@ -92,7 +92,7 @@
 
                                                     <div>
                                                         <label for="" class="text-base font-medium text-gray-900"> Ciudad *</label>
-                                                        <div class="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
+                                                        <div class="mt-1 relative text-gray-400 focus-within:text-gray-600">
                                                             <input
                                                                 type="text"
                                                                 name="ubicacion"
@@ -106,8 +106,8 @@
                                                     </div>
                           
                                                     <div>
-                                                        <label for="" class="text-base font-medium text-gray-900"> Correo Institucional *</label>
-                                                        <div class="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
+                                                        <label for="" class="text-base font-medium text-gray-900"> Correo Electrónico *</label>
+                                                        <div class="mt-1 relative text-gray-400 focus-within:text-gray-600">
                                                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                                                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
@@ -126,8 +126,8 @@
                                                     </div>
 
                                                     <div>
-                                                        <label for="" class="text-base font-medium text-gray-900"> Telefono / Celular *</label>
-                                                        <div class="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
+                                                        <label for="" class="text-base font-medium text-gray-900"> Teléfono / Celular *</label>
+                                                        <div class="mt-1 relative text-gray-400 focus-within:text-gray-600">
                                                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                                                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -148,8 +148,8 @@
                                                     </div>
 
                                                     <div>
-                                                        <label for="" class="text-base font-medium text-gray-900"> Nombre del contacto </label>
-                                                        <div class="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
+                                                        <label for="" class="text-base font-medium text-gray-900"> Nombre del contacto * </label>
+                                                        <div class="mt-1 relative text-gray-400 focus-within:text-gray-600">
                                                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                                                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -169,8 +169,8 @@
                                                     </div>
                           
                                                     <div>
-                                                        <label for="" class="text-base font-medium text-gray-900"> Cargo </label>
-                                                        <div class="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
+                                                        <label for="" class="text-base font-medium text-gray-900"> Cargo del contacto *</label>
+                                                        <div class="mt-1 relative text-gray-400 focus-within:text-gray-600">
                                                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                                                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -191,7 +191,7 @@
 
                                                     <div>
                                                         <label for="" class="text-base font-medium text-gray-900"> Logo con el nombre de la empresa (opcional)</label>
-                                                        <div class="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
+                                                        <div class="mt-1 relative text-gray-400 focus-within:text-gray-600">
                                                             <input
                                                                 type="file"
                                                                 name="logo"
@@ -209,17 +209,12 @@
                                                                 required
                                                                 id="terminos"
                                                             />
-                                                            <label>Aceptar terminos y condiciones.</label>
+                                                            <label>Aceptar <a class="underline" href="<?php echo $res['req_bolsa_laboral']; ?>" target="_blank" >términos y condiciones</a></label>
                                                     </div>
-                          
-                                                    <div class="flex items-center">                          
-                                                        <label for="agree" class="ml-3 text-sm font-medium text-gray-500">
-                                                            Pronto estaremos en contacto con usted para corroborar la informacion proporcionada.
-                                                        </label>
-                                                    </div>
+        
                           
                                                     <div>
-                                                        <button type="submit" class="inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md focus:outline-none hover:bg-blue-700 focus:bg-blue-700">
+                                                        <button type="submit" class="inline-flex items-center justify-center w-full px-2 py-4 text-base font-semibold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md focus:outline-none hover:bg-blue-700 focus:bg-blue-700">
                                                           Solicitar una cuenta
                                                         </button>
                                                     </div>

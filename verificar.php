@@ -86,7 +86,7 @@ if(isset($_GET['codigo'])) {
 <body>
     <div class="contenedor">
         <div class="detalle">
-            <img src="img/logo.jpg" width=200 alt="logo">
+            <img src="img/logo.png" width=200 alt="logo">
             <div class="informacion">
             <?php 
                 if($tipo_doc == 0){

@@ -62,6 +62,13 @@ if (!verificar_sesion($conexion)) {
         include ("include/menu_secretaria.php"); ?>
         <!-- page content -->
         <div class="right_col" role="main">
+            
+            <?php
+            $b_pos = buscarTodosPostulantes($conexion);
+            $count_pos = mysqli_num_rows($b_pos);
+            
+            if($count_pos > 0) { ?>
+        
           <h3 align="center">
             <?php echo $res['nombre_institucion']; ?>
           </h3>
@@ -177,7 +184,7 @@ if (!verificar_sesion($conexion)) {
                 <div class="col-md-12 col-sm-12 col-xs-12">
                   <div class="x_panel">
                     <div class="x_title">
-                      <h2>Procesos de Admision <small>(Postulantes)</small></h2>
+                      <h2>Procesos de Admisión <small>(Postulantes)</small></h2>
                       <div class="clearfix"></div>
                     </div>
                     <div class="x_content" style="height: 350px; display: flex;">
@@ -209,7 +216,7 @@ if (!verificar_sesion($conexion)) {
                 <div class="col-md-12 col-sm-12 col-xs-12">
                   <div class="x_panel">
                     <div class="x_title">
-                      <h2>Genero<small>(Postulantes)</small></h2>
+                      <h2>Género<small>(Postulantes)</small></h2>
                       <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
@@ -248,6 +255,9 @@ if (!verificar_sesion($conexion)) {
               </div>
               <br />
             </div>
+             <?php } else { ?>
+              <h2 align="center">No hay datos registrados aún... </h2>
+            <?php } ?>
           </div>
           <!-- /page content -->
 
@@ -300,6 +310,7 @@ if (!verificar_sesion($conexion)) {
 
       <!-- Custom Theme Scripts -->
       <script src="../Gentella/build/js/custom.min.js"></script>
+      
 
   </body>
 

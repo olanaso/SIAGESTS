@@ -149,6 +149,7 @@ if (!verificar_sesion($conexion) && $id == null) {
                             </div>
                             <div class="panel-body">
                                 <div class="project_detail">
+                                    <p><b>Usted puede agregar los documentos en formato PDF de la siguiente convocatoria: </b></p>
                                     <p class="title"><?php echo $convocatoria['titulo'] ?></p>
                                 </div>
                                 <br>
@@ -219,7 +220,7 @@ if (!verificar_sesion($conexion) && $id == null) {
                                         <td><?php echo $documento['nombre_documento']; ?></td>
                                         <td>
                                         <a href="<?php echo $documento['url_documento']; ?>" target="_blank" class="btn btn-primary" data-toggle="tooltip" data-original-title="Ver documento" data-placement="bottom"><i class="fa fa-eye"></i></a>
-                                        <a href="operaciones/eliminar_documentos.php?id=<?php echo $documento['id'] ?>" class="btn btn-danger" data-toggle="tooltip" data-original-title="Eliminar" data-placement="bottom"><i class="fa fa-trash"></i></a>
+                                        <a href="operaciones/eliminar_documento.php?id=<?php echo $documento['id'] ?>" class="btn btn-danger" data-toggle="tooltip" data-original-title="Eliminar" data-placement="bottom"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>  
                                     <?php

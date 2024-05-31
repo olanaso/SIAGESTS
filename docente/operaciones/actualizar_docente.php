@@ -17,6 +17,7 @@ if (!verificar_sesion($conexion)) {
 	$dni = $_POST['dni'];
 	$nom_ap = $_POST['nom_ap'];
 	$cond_laboral = $_POST['cond_laboral'];
+	$profesion = $_POST['profesion'];
 	$fecha_nac = $_POST['fecha_nac'];
 	$niv_formacion = $_POST['niv_formacion'];
 	$direccion = $_POST['direccion'];
@@ -33,14 +34,17 @@ if (!verificar_sesion($conexion)) {
 	$ejec_busc_doc = mysqli_query($conexion, $busc_doc);
 	$conteo = mysqli_num_rows($ejec_busc_doc);
 	if (($dni_a != $dni) && ($conteo == 0)) {
-		$pass = $dni;
-		$pass_secure = password_hash($pass, PASSWORD_DEFAULT);
-		$sql = "UPDATE docente SET dni='$dni', apellidos_nombres='$nom_ap', fecha_nac='$fecha_nac', direccion='$direccion', correo='$email', telefono='$telefono', id_genero='$genero', nivel_educacion='$niv_formacion', cond_laboral='$cond_laboral', id_cargo='$cargo',id_programa_estudio='$pe', activo='$activo', carga_academica='$carga_academica', password = '$pass_secure' WHERE id=$id";
+		//$pass = $dni;
+		//$pass_secure = password_hash($pass, PASSWORD_DEFAULT);
+		$sql = "UPDATE docente SET dni='$dni', apellidos_nombres='$nom_ap', fecha_nac='$fecha_nac', direccion='$direccion', correo='$email', 
+		telefono='$telefono', id_genero='$genero', nivel_educacion='$niv_formacion', profesion = '$profesion',
+		cond_laboral='$cond_laboral', id_cargo='$cargo',cargo_inmutable='$cargo', id_programa_estudio='$pe', activo='$activo', 
+		carga_academica='$carga_academica' WHERE id=$id";
 		$ejec_consulta = mysqli_query($conexion, $sql);
 		if ($ejec_consulta) {
 			echo "<script>
 			alert('Registro Actualizado de manera Correcta');
-			window.location= '../docentes.php';
+			window.location= '../administrativo_docente.php';
 		</script>
 	";
 		} else {
@@ -52,12 +56,15 @@ if (!verificar_sesion($conexion)) {
 		}
 
 	} elseif (($dni_a == $dni)) {
-		$sql = "UPDATE docente SET apellidos_nombres='$nom_ap', fecha_nac='$fecha_nac', direccion='$direccion', correo='$email', telefono='$telefono', id_genero='$genero', nivel_educacion='$niv_formacion', cond_laboral='$cond_laboral', id_cargo='$cargo',id_programa_estudio='$pe', activo='$activo', carga_academica='$carga_academica' WHERE id=$id";
+		$sql = "UPDATE docente SET apellidos_nombres='$nom_ap', fecha_nac='$fecha_nac', direccion='$direccion', correo='$email', 
+		telefono='$telefono', id_genero='$genero', nivel_educacion='$niv_formacion', cond_laboral='$cond_laboral', profesion = '$profesion',
+		id_cargo='$cargo', cargo_inmutable='$cargo' ,id_programa_estudio='$pe', activo='$activo', carga_academica='$carga_academica' 
+		WHERE id=$id";
 		$ejec_consulta = mysqli_query($conexion, $sql);
 		if ($ejec_consulta) {
 			echo "<script>
 			alert('Registro Actualizado de manera Correcta');
-			window.location= '../docentes.php';
+			window.location= '../administrativo_docente.php';
 		</script>
 	";
 		} else {

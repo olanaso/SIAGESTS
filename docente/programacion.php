@@ -95,10 +95,7 @@ if ($fecha_fin_per >= $fecha_actual) {
                         <th>Semestre</th>
                         <th>Unidad Didáctica</th>
                         <th>Docente</th>
-                        <?php if ($agregar == 1) {
-                          echo '<th>Acciones</th>';
-                        } ?>
-
+                        <th>Acciones</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -138,9 +135,13 @@ if ($fecha_fin_per >= $fecha_actual) {
                           <td><?php echo $res_b_semestre['descripcion']; ?></td>
                           <td><?php echo $res_b_unidad_didactica['descripcion']; ?></td>
                           <td><?php echo $res_b_docente['apellidos_nombres']; ?></td>
+                          <td>
                           <?php if ($agregar == 1) {
-                            echo '<td><a class="btn btn-success" href="editar_programacion.php?id=' . $res_busc_programacion['id'] . '"><i class="fa fa-pencil-square-o"></i> </a></td>';
+                            echo '<a class="btn btn-success" data-toggle="tooltip" data-original-title="Editar programación" href="editar_programacion.php?id=' . $res_busc_programacion['id'] . '"><i class="fa fa-pencil-square-o"></i> </a>';
+                            echo '<a class="btn btn-info" data-toggle="tooltip" data-original-title="Horario" href="horario.php?id=' . $res_busc_programacion['id'] . '"><i class="fa fa-calendar-o"></i> </a>';
                           } ?>
+                          <a class="btn btn-dark" data-toggle="tooltip" data-original-title="Asistencia del docente" href="asistencia_docente.php?id=<?php echo $res_busc_programacion['id'] ?>"><i class="fa fa-list-alt"></i> </a>
+                          </td>
                         </tr>
                       <?php
                       };
@@ -184,7 +185,7 @@ if ($fecha_fin_per >= $fecha_actual) {
                                           $carr = $res__busc_carr['nombre'];
                                         ?>
                                           <option value="<?php echo $id_carr;
-                                                          ?>"><?php echo $carr; ?></option>
+                                                          ?>"><?php echo $carr.' - '.$res__busc_carr['plan_estudio']; ?></option>
                                         <?php
                                         }
                                         ?>

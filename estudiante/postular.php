@@ -30,7 +30,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Inicio<?php include("../include/header_title.php"); ?></title>
+	<title>Bolsa Laboral<?php include("../include/header_title.php"); ?></title>
 	<!--icono en el titulo-->
 	<link rel="shortcut icon" href="../img/favicon.ico">
 	<!-- Bootstrap -->
@@ -153,11 +153,6 @@
                 $b_perido = buscarPeriodoAcadById($conexion, $_SESSION['periodo']);
                 $r_b_per = mysqli_fetch_array($b_perido);
 
-                $b_matricula = buscarMatriculaByEstudiantePeriodo($conexion, $id_estudiante_sesion, $_SESSION['periodo']);
-                $r_b_matricula = mysqli_fetch_array($b_matricula);
-                $id_matricula = $r_b_matricula['id'];
-                $b_det_mat = buscarDetalleMatriculaByIdMatricula($conexion, $id_matricula);
-                $cont_det_mat = mysqli_num_rows($b_det_mat);
             ?>
 			<div class="right_col">
                 <div class="row">

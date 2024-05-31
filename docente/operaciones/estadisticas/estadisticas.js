@@ -209,7 +209,7 @@ function pintarGrafico4() {
                 labels: labels,
                 datasets: [
                     {
-                        label: 'Dataset 1',
+                        label: 'Postulantes',
                         data: valores,
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.5)',

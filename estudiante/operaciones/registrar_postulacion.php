@@ -27,7 +27,7 @@
             $ejec_consulta = mysqli_query($conexion, $sql);
 
             // Datos del tercer paso (archivo cargado)
-            $nombreArchivo = "CV-".$dni.".pdf";
+            $nombreArchivo = "CL".$id_convocatoria."CV-".$dni.".pdf";
             $rutaTemporal = $_FILES["documento"]["tmp_name"];
             $directorioDestino = '../../empresa/files/';
             

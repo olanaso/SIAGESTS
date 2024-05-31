@@ -23,7 +23,7 @@ if (!verificar_sesion($conexion)) {
   $proceso_admision = mysqli_fetch_array($res_proceso_admision);
   
   //MODALIDADES
-  $res_modalidades = buscarTodasModalidadesOrdenadas($conexion);
+  $res_modalidades = buscarModalidadPorPeriodo($conexion, $proceso_admision['Periodo']);
   $modalidades_exonerados = mysqli_num_rows($res_modalidades);
   $modalidades_exonerados = $modalidades_exonerados - 1;
 
@@ -160,6 +160,7 @@ if (!verificar_sesion($conexion)) {
                                       <th><?php echo $programa['nombre']; ?></th>
                                       <form action="operaciones/registrar_vacante.php" method="POST">
                                           <input type="hidden" name="id_programa" value="<?php echo $programa['id']; ?>">
+                                          <input type="hidden" name="periodo" value="<?php echo $proceso_admision['Periodo']; ?>">
                                           <?php 
                                           //VACANTE DEFAULT
                                           $total_vacantes_programa = buscarTotalVacantesPorPeriodoPrograma($conexion, $proceso_admision['Periodo'], $programa['id']);

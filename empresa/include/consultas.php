@@ -18,6 +18,12 @@ function buscarEmpresaById($conexion, $id){
     return $res;
 }
 
+function buscarEmpresaByRucAndCorreo($conexion, $ruc, $correo){
+	$sql = "SELECT * FROM empresa WHERE ruc = '$ruc' OR correo_institucional = '$correo'";
+	$res = mysqli_query($conexion, $sql);
+    return $res;
+}
+
 function buscarOfertaLaboral($conexion){
 	$sql = "SELECT * FROM oferta_laboral WHERE estado != 'ARCHIVADO'";
 	$res = mysqli_query($conexion, $sql);
@@ -25,7 +31,7 @@ function buscarOfertaLaboral($conexion){
 }
 
 function buscarOfertaLaboralAdministrador($conexion){
-	$sql = "SELECT id, empresa, titulo, ubicacion, funciones, requisitos, condiciones, beneficios, salario, vacantes, fecha_inicio, fecha_fin, link_postulacion, estado, fecha_estado
+	$sql = "SELECT *
 	FROM oferta_laboral_propia WHERE estado != 'ARCHIVADO'";
 	$res = mysqli_query($conexion, $sql);
     return $res;
@@ -48,7 +54,7 @@ function buscarOfertaLaboralArchivada($conexion){
 }
 
 function buscarOfertaLaboralById($conexion, $id){
-	$sql = "SELECT * FROM oferta_laboral WHERE id = $id";
+	$sql = "SELECT ol.*, e.razon_social as empresa FROM oferta_laboral ol INNER JOIN empresa e ON ol.id_empresa = e.id WHERE ol.id = $id";
 	$res = mysqli_query($conexion, $sql);
     return $res;
 }
@@ -164,6 +170,12 @@ function buscarOfertasDisponiblesByPrograma($conexion, $id_programa){
 	return $res;
 }
 
+function buscarOfertasDisponiblesByProgramaIestp($conexion, $id_programa){
+	$sql = "SELECT ol.*	FROM  oferta_laboral_propia ol INNER JOIN `oferta_programas` op ON op.id_ol = ol.id  WHERE op.id_pr = $id_programa AND ol.estado != 'ARCHIVADO'";
+	$res = mysqli_query($conexion, $sql);
+	return $res;
+}
+
 function buscarOfertasEstudiante($conexion, $id_estudiante){
 	$sql = "SELECT ol.id,ol.fecha_inicio,ol.fecha_fin, ol.titulo,ol.ubicacion,ol.vacantes,ol.turno,ol.salario,ol.modalidad,ol.estado, em.razon_social as empresa, 'empresa' as propietario  FROM  oferta_laboral ol INNER JOIN `oferta_postulantes` op ON op.id_ol = ol.id INNER JOIN `empresa` em ON ol.id_empresa = em.id INNER JOIN estudiante e ON 
 	e.id = op.id_es  WHERE op.id_es = $id_estudiante GROUP BY ol.id";
@@ -171,11 +183,23 @@ function buscarOfertasEstudiante($conexion, $id_estudiante){
 	return $res;
 }
 
+
 function buscarTotalOfertasArchivadas($conexion){
-	$sql = "SELECT ol.id,ol.fecha_inicio,ol.fecha_fin, ol.titulo,ol.ubicacion,ol.vacantes,ol.turno,ol.modalidad,ol.estado, e.razon_social as empresa, 'empresa' as propietario FROM oferta_laboral ol INNER JOIN empresa e ON e.id = ol.id_empresa WHERE ol.estado = 'ARCHIVADO' UNION SELECT o.id,o.fecha_inicio, o.fecha_fin, o.titulo, o.ubicacion, o.vacantes, o.turno, o.modalidad, o.estado, o.empresa, 'iestp' as propietario FROM oferta_laboral_propia o where o.estado = 'ARCHIVADO';";
+	$sql = "SELECT ol.id,ol.fecha_inicio,ol.fecha_fin, ol.titulo,ol.ubicacion,ol.vacantes,ol.turno,ol.modalidad,ol.estado, e.razon_social as empresa, ol.fecha_estado FROM oferta_laboral ol 
+	INNER JOIN empresa e ON e.id = ol.id_empresa WHERE ol.estado = 'ARCHIVADO' 
+	UNION SELECT o.id,o.fecha_inicio, o.fecha_fin, o.titulo, o.ubicacion, o.vacantes, o.turno, o.modalidad, o.estado, o.empresa, o.fecha_estado FROM oferta_laboral_propia o where o.estado = 'ARCHIVADO';";
 	$res = mysqli_query($conexion, $sql);
 	return $res;
 }
+
+function buscarTotalOfertas($conexion){
+	$sql = "SELECT ol.id,ol.fecha_inicio,ol.fecha_fin, ol.titulo,ol.ubicacion,ol.vacantes,ol.turno,ol.modalidad,ol.estado, e.razon_social as empresa, ol.fecha_estado, 0 as propietario FROM oferta_laboral ol 
+	INNER JOIN empresa e ON e.id = ol.id_empresa WHERE ol.estado != 'ARCHIVADO' 
+	UNION SELECT o.id,o.fecha_inicio, o.fecha_fin, o.titulo, o.ubicacion, o.vacantes, o.turno, o.modalidad, o.estado, o.empresa, o.fecha_estado, 1 as propietario FROM oferta_laboral_propia o where o.estado != 'ARCHIVADO'";
+	$res = mysqli_query($conexion, $sql);
+	return $res;
+}
+
 
 function buscarTotalOfertasEmpresaArchivadas($conexion){
 	$sql = "SELECT ol.*, e.razon_social as empresa, 'empresa' as propietario FROM oferta_laboral ol INNER JOIN empresa e ON e.id = ol.id_empresa WHERE ol.estado = 'ARCHIVADO'";
@@ -183,14 +207,52 @@ function buscarTotalOfertasEmpresaArchivadas($conexion){
 	return $res;
 }
 //-----------BUSQUEDA DE REPORTES----------------
+/*
 function buscarTotalOfertasReporte($conexion, $year, $month){
 	$sql = "SELECT ol.*, e.razon_social as empresa, 'empresa' as propietario FROM oferta_laboral ol 
 	INNER JOIN empresa e ON e.id = ol.id_empresa WHERE MONTH(ol.fecha_inicio) = '$month' AND YEAR(ol.fecha_inicio) = '$year'";
 	$res = mysqli_query($conexion, $sql);
 	return $res;
+}*/
+
+function buscarTotalOfertasReporte($conexion, $fecha_inicio, $fecha_fin){
+	$sql = "SELECT 
+		ol.id,
+		ol.fecha_inicio,
+		ol.fecha_fin,
+		ol.titulo,
+		ol.ubicacion,
+		ol.vacantes,
+		ol.turno,
+		ol.modalidad,
+		e.razon_social AS empresa
+		FROM 
+		oferta_laboral ol 
+		INNER JOIN 
+		empresa e ON e.id = ol.id_empresa 
+		WHERE 
+		ol.fecha_inicio BETWEEN '$fecha_inicio' AND '$fecha_fin' 
+		UNION 
+
+		SELECT 
+		o.id,
+		o.fecha_inicio,
+		o.fecha_fin,
+		o.titulo,
+		o.ubicacion,
+		o.vacantes,
+		o.turno,
+		o.modalidad,
+		o.empresa
+		FROM 
+		oferta_laboral_propia o  
+		WHERE 
+		o.fecha_inicio BETWEEN '$fecha_inicio' AND '$fecha_fin'";
+		$res = mysqli_query($conexion, $sql);
+		return $res;
 }
 
-function buscarEmpresasReporte($conexion, $year, $month){
+function buscarEmpresasReporte($conexion, $fecha_inicio, $fecha_fin){
 	$sql = "SELECT 
                 e.id, e.estado, e.ruc, e.razon_social as empresa, e.ubicacion,
                 SUM(CASE WHEN op.id_es > 0 THEN 1 ELSE 0 END) AS postulantes
@@ -198,8 +260,8 @@ function buscarEmpresasReporte($conexion, $year, $month){
                 empresa e
                 INNER JOIN oferta_laboral ol ON e.id = ol.id_empresa
                 LEFT JOIN oferta_postulantes op ON op.id_ol = ol.id
-            	WHERE YEAR(ol.fecha_fin) = '$year' 
-                AND MONTH(ol.fecha_fin) = '$month'
+            	WHERE ol.fecha_inicio BETWEEN '$fecha_inicio' AND '$fecha_fin' 
+                OR ol.fecha_fin BETWEEN '$fecha_inicio' AND '$fecha_fin' 
             	AND e.estado != 'Por confirmar'
             GROUP BY 	
             e.id" ;
@@ -207,7 +269,7 @@ function buscarEmpresasReporte($conexion, $year, $month){
 	return $res;
 }
 
-function buscarProgramasReporte($conexion, $year, $month){
+function buscarProgramasReporte($conexion, $fecha_inicio, $fecha_fin){
 	$sql = "SELECT 
             pe.*,
             COUNT(pe.id) as postulantes
@@ -216,8 +278,24 @@ function buscarProgramasReporte($conexion, $year, $month){
                 estudiante e
                 INNER JOIN oferta_postulantes oe ON oe.id_es = e.id
                 INNER JOIN programa_estudios pe ON pe.id = e.id_programa_estudios
-            	WHERE YEAR(oe.fecha_registro) = '$year' 
-                AND MONTH(oe.fecha_registro) = '$month' GROUP BY pe.id";
+            	WHERE oe.fecha_registro BETWEEN '$fecha_inicio' AND '$fecha_fin' 
+                OR oe.fecha_registro BETWEEN '$fecha_inicio' AND '$fecha_fin'
+                GROUP BY pe.id";
+	$res = mysqli_query($conexion, $sql);
+	return $res;
+}
+
+function buscarPostulantesDetallado($conexion, $fecha_inicio, $fecha_fin){
+	$sql = "SELECT 
+			e.*, pe.*, ol.*, em.*, DATE_SUB(oe.fecha_registro, INTERVAL 5 HOUR) as fecha_registro
+            FROM 
+                estudiante e
+                INNER JOIN oferta_postulantes oe ON oe.id_es = e.id
+                INNER JOIN programa_estudios pe ON pe.id = e.id_programa_estudios
+                INNER JOIN oferta_laboral ol ON ol.id = oe.id_ol
+                INNER JOIN empresa em ON em.id = ol.id_empresa
+            	WHERE oe.fecha_registro BETWEEN '$fecha_inicio' AND '$fecha_fin' 
+                OR oe.fecha_registro BETWEEN '$fecha_inicio' AND '$fecha_fin'";
 	$res = mysqli_query($conexion, $sql);
 	return $res;
 }

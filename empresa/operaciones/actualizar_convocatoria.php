@@ -30,16 +30,16 @@ if (!verificar_sesion($conexion)) {
         $programas = isset($_POST['carreras']) ? $_POST['carreras'] : [];
 
         // Datos del segundo paso
-        $requisitos = $_POST["requisitos"];
-        $funciones = $_POST["funciones"];
-        $beneficios = $_POST["beneficios"];
-        $condiciones = isset($_POST["condiciones"]) ? $_POST["condiciones"] : "";
+        $requisitos = $conexion -> real_escape_string($_POST["requisitos"]);
+        $funciones = $conexion -> real_escape_string($_POST["funciones"]);
+        $beneficios = $conexion -> real_escape_string($_POST["beneficios"]);
+        $condiciones = $conexion -> real_escape_string(isset($_POST["condiciones"]) ? $_POST["condiciones"] : "No se registraron condiciones.");
 
         
         // Consulta para insertar los datos en la base de datos
         $sql = "UPDATE `oferta_laboral` SET `id_empresa`= $id_empresa ,`titulo`='$titulo',`ubicacion`='$ubicacion',`funciones`='$funciones',`requisitos`='$requisitos',
         `condiciones`='$condiciones',`beneficios`='$beneficios',`salario`= $salario,`vacantes`=$vacante,`modalidad`= '$modalidad',`turno`= '$turno',`fecha_inicio`='$inicio',`fecha_fin`='$fin',
-        `link_postulacion`='$url',`estado`='',`fecha_estado`= CURRENT_TIMESTAMP() WHERE id = $id";
+        `link_postulacion`='$url',`estado`='',`fecha_estado`= DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 5 HOUR) WHERE id = $id";
         $res = mysqli_query($conexion, $sql);
         if ($res) {
             $insert_programas = "DELETE FROM oferta_programas WHERE id_ol = $id";

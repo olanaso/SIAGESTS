@@ -84,8 +84,8 @@ if (!verificar_sesion($conexion)) {
                           <th>Programa de Estudios</th>
                           <th>Módulo</th>
                           <th>Competencia</th>
-                          <th>Codigo</th>
-                          <th>Descripcion</th>
+                          <th>Código</th>
+                          <th>Descripción</th>
                           <th>Acciones</th>
                         </tr>
                       </thead>
@@ -161,7 +161,7 @@ if (!verificar_sesion($conexion)) {
                               $carr = $res__busc_carr['nombre'];
                               ?>
                               <option value="<?php echo $id_carr;
-                              ?>"><?php echo $carr; ?></option>
+                              ?>"><?php echo $carr.' - '.$res__busc_carr['plan_estudio']; ?></option>
                             <?php
                             }
                             ?>

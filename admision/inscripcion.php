@@ -97,50 +97,72 @@
         border: 1px solid #ddd;
         border-top: none;
 
-    }
+        }
 
-    .card-content {
-        text-align: center;
-    }
+        .card-content {
+            text-align: center;
+        }
 
-    .card-title {
-        margin-bottom: 20px;
-        font-size: 24px;
-    }
+        .card-title {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
 
-    .image-container {
-        width: 200px;
-        height: 280px;
-        margin: 0 auto;
-        overflow: hidden;
-        border: 1px solid red;
-        border-radius: 5px;
-        background-color: #e6898980;
-    }
+        .image-container {
+            width: 200px;
+            height: 280px;
+            margin: 0 auto;
+            overflow: hidden;
+            border: 1px solid red;
+            border-radius: 5px;
+            background-color: #e6898980;
+        }
 
-    .image-container img {
-        max-width: 100%;
-        max-height: 100%;
-        display: block;
-    }
+        .image-container img {
+            width: 100%;
+            max-height: 100%;
+            width: 200px;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
 
-    .custom-file-upload {
-        display: inline-block;
-        padding: 8px 12px;
-        background-color: #4CAF50;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 20px;
-    }
+        .custom-file-upload {
+            display: inline-block;
+            padding: 8px 12px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
 
-    .card-content input[type="file"] {
-        display: none;
-    }
-    body{
-        height: 100vh;
-    }
+        .card-content input[type="file"] {
+            display: none;
+        }
+        body{
+            height: 100vh;
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #008000;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
 
     </style>
 
@@ -172,7 +194,7 @@
                                             <div class="custom-card">
                                                 <p class="custom-card-title">Fotografia</p>
                                                 <div class="custom-card-content">
-                                                    <p class="custom-card-text">La foto del postulante tiene que contar con fondo blanco y con la mirada al frente. Procure que la imagen encage en el cuadro de abajo.</p>
+                                                    <p class="custom-card-text">La foto del postulante tiene que contar con fondo blanco y con la mirada al frente. Procure que la imagen encage en el cuadro de abajo. La dimensión aceptada es de 200px : 280px</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -196,7 +218,7 @@
                                         <div class="form-group col-md-3 col-sm-6 col-xs-12">
                                             <label class="control-label ">D.N.I. *: </label>
                                             <div class="">
-                                                <input type="text" class="form-control" name="dni" id="dni" required="required" >
+                                                <input type="text" class="form-control" name="dni" id="dni" required="required" oninput="validateInputNum(this,8)">
                                             </div>
                                         </div>
                                         <div class="form-group form-group col-md-3 col-sm-6 col-xs-12">
@@ -224,12 +246,12 @@
                                             <div class="">
                                                 <div class="row">
                                                     <label class="col-md-6">
-                                                            <input type="radio" name="genero" value="0">
+                                                            <input type="radio" name="genero" value="0" required>
                                                             M
                                                         </label>
                                                         
                                                         <label class="col-md-6" >
-                                                            <input type="radio" name="genero" value="1">
+                                                            <input type="radio" name="genero" value="1" required>
                                                             F
                                                     </label>
                                                 </div>
@@ -282,11 +304,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group form-group col-md-3 col-sm-6 col-xs-12" id="tipo_discapacidad">
+                                        <div class="form-group form-group col-md-3 col-sm-6 col-xs-12" id="tipo_discapacidad" style="display: none;">
                                             <label class="control-label">Tipo de Discapacidad *:
                                             </label>
                                             <div class="">
-                                                <select class="form-control" id="" name="tipo_discapacidad" value="">
+                                                <select class="form-control" id="tipoDiscapacidad" name="tipo_discapacidad" value="">
                                                     <option value="" disabled selected>Seleccionar</option>
                                                     <option value="Física"> Física</option>
                                                     <option value="Visual"> Visual</option>
@@ -308,7 +330,7 @@
                                             <label class="control-label">Número de Celular *:
                                             </label>
                                             <div class="">
-                                                <input type="text" class="form-control" name="celular" required="required">
+                                                <input type="text" class="form-control" name="celular" required="required" oninput="validateInputNum(this,9)">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-9 col-sm-12 col-xs-12">
@@ -326,28 +348,28 @@
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                             <label class="control-label ">D.N.I. *: </label>
                                             <div class="">
-                                                <input type="text" class="form-control" name="ap_dni">
+                                                <input type="text" class="form-control" id="ap_dni" name="ap_dni" oninput="validateInputNum(this,8)">
                                             </div>
                                         </div>
                                         <div class="form-group form-group col-md-6 col-sm-6 col-xs-12">
                                             <label class="control-label">Apellidos *:
                                             </label>
                                             <div class="">
-                                                <input type="text" class="form-control" name="ap_apellidos" >
+                                                <input type="text" class="form-control" id="ap_apellidos" name="ap_apellidos" >
                                             </div>
                                         </div>
                                         <div class="form-group form-group col-md-6 col-sm-6 col-xs-12">
                                             <label class="control-label">Nombres *:
                                             </label>
                                             <div class="">
-                                                <input type="text" class="form-control" name="ap_nombres">
+                                                <input type="text" class="form-control" id="ap_nombres" name="ap_nombres">
                                             </div>
                                         </div>
                                         <div class="form-group form-group col-md-6 col-sm-6 col-xs-12">
                                             <label class="control-label">Número de Celular *:
                                             </label>
                                             <div class="">
-                                                <input type="text" class="form-control" name="ap_celular" >
+                                                <input type="text" class="form-control" id="ap_celular" name="ap_celular" oninput="validateInputNum(this,9)">
                                             </div>
                                         </div>
                                     </div>
@@ -356,7 +378,7 @@
                         </div>
                         <hr>
                         <div class ="row">
-                            <div align="right"><button class="btn btn-primary" onclick="siguientePaso()">Siguiente</button></div>
+                            <div align="right"><button class="btn btn-primary" onclick="siguientePaso3()">Siguiente</button></div>
                         </div>
                     </div>
                     <!-- Div en el centro de la página -->
@@ -435,7 +457,7 @@
                                         <div class="form-group col-md-4 col-sm-4 col-xs-12">
                                             <label class="control-label "> Año Egreso </label>
                                             <div class="">
-                                                <input type="number" class="form-control" name="anio_egreso" required="required" >
+                                                <input type="number" class="form-control" name="anio_egreso" required="required" min="2000" max="<?php echo date('Y'); ?>" value="<?php echo date('Y'); ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -445,7 +467,7 @@
                         <hr>
                         <div class ="row">
                             <div class="col-md-6 col-sm-6 col-xs-6" align="left"><button class="btn" onclick="retrocederPaso()">Retroceder</button></div>
-                            <div class="col-md-6 col-sm-6 col-xs-6" align="right"><button class="btn btn-primary" onclick="siguientePaso()">Siguiente</button></div>
+                            <div class="col-md-6 col-sm-6 col-xs-6" align="right"><button class="btn btn-primary" onclick="siguientePaso4()">Siguiente</button></div>
                         </div>
                     </div>
                     <!-- Div en el centro de la página -->
@@ -515,7 +537,7 @@
                         <hr>
                         <div class ="row">
                             <div class="col-md-6 col-sm-6 col-xs-6" align="left"><button class="btn" onclick="retrocederPaso()">Retroceder</button></div>
-                            <div class="col-md-6 col-sm-6 col-xs-6" align="right"><button class="btn btn-primary" onclick="siguientePaso()">Siguiente</button></div>
+                            <div class="col-md-6 col-sm-6 col-xs-6" align="right"><button class="btn btn-primary" onclick="siguientePaso5()">Siguiente</button></div>
                         </div>
                     </div>
                     <!-- Div en el centro de la página -->
@@ -533,7 +555,10 @@
                                                 <select class="form-control" id="metodo_pago" name="metodo_pago" value="" required="required">
                                                     <option value="" disabled selected>Seleccionar</option>
                                                     <?php while($medios_pago = mysqli_fetch_array($res_medios_pago)){ ?>
-                                                    <option value="<?php echo $medios_pago['Id'] ?>"  ><?php echo $medios_pago['Metodo'] ?></option>
+                                                    <option value="<?php echo $medios_pago['Id'] ?>"  ><?php echo $medios_pago['Metodo'];
+                                                    if($medios_pago['Metodo'] == 'Depósito') echo ' - '.$medios_pago['Banco'];
+                                                    if($medios_pago['Metodo'] == 'Transferencia Interbancaria') echo ' - '.$medios_pago['Banco'];
+                                                    ?></option>
                                                     <?php } ?>
                                                 </select>
                                             </div>
@@ -554,11 +579,11 @@
                         <hr>
                         <div class ="row">
                             <div class="col-md-6 col-sm-6 col-xs-6" align="left"><button class="btn" onclick="retrocederPaso()">Retroceder</button></div>
-                            <div class="col-md-6 col-sm-6 col-xs-6" align="right"><button class="btn btn-primary" onclick="siguientePaso()">Siguiente</button></div>
+                            <div class="col-md-6 col-sm-6 col-xs-6" align="right"><button class="btn btn-primary" onclick="siguientePaso6()">Siguiente</button></div>
                         </div>
                     </div>
                     <!-- Div en el centro de la página -->
-                    <div class="x_panel paso" id="paso6" style="display: none;">
+                    <div class="x_panel paso" id="paso6" style="display: none">
                         <h4><b>Finalizar</b></h4> <hr>
                         <div class="row">
                             <div class="col-md-4 col-sm-5 col-xs-12">
@@ -580,37 +605,50 @@
                                 <div class="">
                                     <div class="x_content">
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                            <label class="control-label">Medio de Difusión *:
-                                            </label>
-                                            <div class="">
-                                                <select class="form-control" id="" name="difusion" value="" required="required">
-                                                    <option value="" disabled selected>Seleccionar</option>
-                                                    <option value="Radio o Televisión">Radio o Televisión</option>
-                                                    <option value="Pagina Web">Pagina Web</option>
-                                                    <option value="Redes Sociales">Redes Sociales</option>
-                                                    <option value="Familiar o Amigos">Familiar o Amigos</option>
-                                                </select>
-                                            </div>
+                                        <label class="control-label">Medio de Difusión *:</label>
+                                        <div class="">
+                                            <select class="form-control" id="difusion" name="difusion" required="required">
+                                                <option value="" disabled selected>Seleccionar</option>
+                                                <option value="Radio o Televisión">Radio o Televisión</option>
+                                                <option value="Pagina Web">Pagina Web</option>
+                                                <option value="Redes Sociales">Redes Sociales</option>
+                                                <option value="Familiar o Amigos">Familiar o Amigos</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-6">
-                                            <input type="checkbox" name="" id="" required>
-                                         Aceptar terminos y condiciones
+                                        <label class="form-group col-md-12 col-sm-12 col-xs-12">
+                                            <input type="checkbox" name="terminos" id="terminos" required>
+                                            Aceptar términos y condiciones
                                         </label>
-                                                        
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        </div>
                         <hr>
                         <div class ="row">
                             <div class="col-md-6 col-sm-6 col-xs-6" align="left"><button class="btn" onclick="retrocederPaso()">Retroceder</button></div>
-                            <div class="col-md-6 col-sm-6 col-xs-6" align="right"><button class="btn btn-success" type="submit">Finalizar</button></div>
+                            <div class="col-md-6 col-sm-6 col-xs-6" align="right"><button id="btnFinalizar" class="btn btn-success">Finalizar</button></div>
                         </div>
                     </div>
                 </form>
             </div>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <center>
+                                <div class="spinner"></div>
+                            </center>
+                            Procesando tu solicitud de inscripción.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin modal -->
         </div>
     </div>
    <!-- jQuery -->
@@ -642,39 +680,16 @@
 
     <!-- Custom Theme Scripts -->
     <script src="../Gentella/build/js/custom.min.js"></script>
-    <script>
-    $(document).ready(function() {
-    $('#example').DataTable({
-      "language":{
-    "processing": "Procesando...",
-    "lengthMenu": "Mostrar _MENU_ registros",
-    "zeroRecords": "No se encontraron resultados",
-    "emptyTable": "Ningún dato disponible en esta tabla",
-    "sInfo": "Mostrando del _START_ al _END_ de un total de _TOTAL_ registros",
-    "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-    "infoFiltered": "(filtrado de un total de _MAX_ registros)",
-    "search": "Buscar:",
-    "infoThousands": ",",
-    "loadingRecords": "Cargando...",
-    "paginate": {
-        "first": "Primero",
-        "last": "Último",
-        "next": "Siguiente",
-        "previous": "Anterior"
-    },
-      }
-    });
-
-    } );
-    </script>
 
     <script>
         function mostrarTipoDiscapacidad() {
             document.getElementById("tipo_discapacidad").style.display = "block";
+            document.getElementById("tipoDiscapacidad").setAttribute("required", "required");
         }
 
         function ocultarTipoDiscapacidad() {
             document.getElementById("tipo_discapacidad").style.display = "none";
+            document.getElementById("tipoDiscapacidad").removeAttribute("required");
         }
     </script>
 
@@ -906,9 +921,45 @@
 
     <script>
         function loadImage(event) {
-            var image = document.getElementById('carnet-image');
-            image.src = URL.createObjectURL(event.target.files[0]);
+            var file = event.target.files[0];
+            var maxSize = 1024 * 1024;
+            var maxWidth = 200;
+            var maxHeight = 280;
+        
+            if (file.size > maxSize) {
+                alert('El tamaño máximo permitido es de 1MB.');
+                event.target.value = '';
+                return false;
+            }
+        
+            var img = new Image();
+            img.onload = function () {
+                /*if (this.width > maxWidth || this.height > maxHeight) {
+                    alert('Las dimensiones máximas permitidas son ' + maxWidth + 'x' + maxHeight + '.');
+                    event.target.value = '';
+                    return false;
+                }*/
+                document.getElementById('carnet-image').src = this.src;
+        };
+
+        img.src = URL.createObjectURL(file);
         }
+        
+    </script>
+
+<script>
+        function loadRequisito(event) {
+            var file = event.target.files[0];
+            var maxSize = 1024 * 1024 * 5;
+        
+            if (file.size > maxSize) {
+                alert('El tamaño máximo permitido es de 5MB.');
+                event.target.value = '';
+                return false;
+        
+            };
+        }
+        
     </script>
 
     <script>
@@ -924,23 +975,161 @@
 
                 if (edad < 18) {
                     document.getElementById('padres').style.display = 'block';
+                    document.getElementById("ap_dni").setAttribute("required", "required");
+                    document.getElementById("ap_apellidos").setAttribute("required", "required");
+                    document.getElementById("ap_nombres").setAttribute("required", "required");
+                    document.getElementById("ap_celular").setAttribute("required", "required");
                 } else {
                     document.getElementById('padres').style.display = 'none';
+                    document.getElementById("ap_dni").removeAttribute("required");
+                    document.getElementById("ap_apellidos").removeAttribute("required");
+                    document.getElementById("ap_nombres").removeAttribute("required");
+                    document.getElementById("ap_celular").removeAttribute("required");
                 }
             });
     </script>
 
     <script>
-        function siguientePaso() {
-            var pasoActual = document.querySelector('.paso:not([style*="display: none;"])');
-            var siguientePaso = pasoActual.nextElementSibling;
-            if (siguientePaso) {
-                pasoActual.style.display = 'none';
-                siguientePaso.style.display = 'block';
-                window.scrollTo(0, 0);
+        function siguientePaso3() {
+            // Llamar a la función de validación del formulario
+            if (validarFormulario1()) {
+                var pasoActual = document.querySelector('#paso1:not([style*="display: none;"])');
+                var siguientePaso = pasoActual.nextElementSibling;
+                if (siguientePaso) {
+                    pasoActual.style.display = 'none';
+                    siguientePaso.style.display = 'block';
+                    window.scrollTo(0, 0);
+                }
+            } else {
+                alert("Por favor, complete todos los campos obligatorios antes de continuar. Tambien no se olvide de cargar su fotografía.");
             }
         }
 
+        function validarFormulario1() {
+            var campos = document.querySelectorAll('#paso1 input[required], #paso1 select[required]');
+            var formularioValido = true;
+            
+            campos.forEach(function(campo) {
+                if (campo.value.trim() === "") {
+                    formularioValido = false;
+                    // Resaltar el campo vacío o sin cambios
+                    campo.style.border = "2px solid red";
+                } else {
+                    // Restaurar el estilo por defecto
+                    campo.style.border = "";
+                }
+            });
+
+            return formularioValido;
+        }
+    </script>
+
+    <script>
+        function siguientePaso4() {
+            // Llamar a la función de validación del formulario
+            if (validarFormulario3()) {
+                var pasoActual = document.querySelector('#paso3:not([style*="display: none;"])');
+                var siguientePaso = pasoActual.nextElementSibling;
+                if (siguientePaso) {
+                    pasoActual.style.display = 'none';
+                    siguientePaso.style.display = 'block';
+                    window.scrollTo(0, 0);
+                }
+            } else {
+                alert("Por favor, complete todos los campos obligatorios antes de continuar.");
+            }
+        }
+
+        function validarFormulario3() {
+            var campos = document.querySelectorAll('#paso3 input[required], #paso3 select[required]');
+            var formularioValido = true;
+            
+            campos.forEach(function(campo) {
+                if (campo.value.trim() === "") {
+                    formularioValido = false;
+                    // Resaltar el campo vacío o sin cambios
+                    campo.style.border = "2px solid red";
+                } else {
+                    // Restaurar el estilo por defecto
+                    campo.style.border = "";
+                }
+            });
+
+            return formularioValido;
+        }
+    </script>
+
+    <script>
+        function siguientePaso5() {
+            // Llamar a la función de validación del formulario
+            if (validarFormulario4()) {
+                var pasoActual = document.querySelector('#paso4:not([style*="display: none;"])');
+                var siguientePaso = pasoActual.nextElementSibling;
+                if (siguientePaso) {
+                    pasoActual.style.display = 'none';
+                    siguientePaso.style.display = 'block';
+                    window.scrollTo(0, 0);
+                }
+            } else {
+                alert("Por favor, complete todos los campos obligatorios antes de continuar.");
+            }
+        }
+
+        function validarFormulario4() {
+            var campos = document.querySelectorAll('#paso4 input[required], #paso4 select[required]');
+            var formularioValido = true;
+            
+            campos.forEach(function(campo) {
+                if (campo.value.trim() === "") {
+                    formularioValido = false;
+                    // Resaltar el campo vacío o sin cambios
+                    campo.style.border = "2px solid red";
+                } else {
+                    // Restaurar el estilo por defecto
+                    campo.style.border = "";
+                }
+            });
+
+            return formularioValido;
+        }
+    </script>
+
+    <script>
+        function siguientePaso6() {
+            // Llamar a la función de validación del formulario
+            if (validarFormulario5()) {
+                var pasoActual = document.querySelector('#paso5:not([style*="display: none;"])');
+                var siguientePaso = pasoActual.nextElementSibling;
+                if (siguientePaso) {
+                    pasoActual.style.display = 'none';
+                    siguientePaso.style.display = 'block';
+                    window.scrollTo(0, 0);
+                }
+            } else {
+                alert("Por favor, complete todos los campos obligatorios antes de continuar.");
+            }
+        }
+
+        function validarFormulario5() {
+            var campos = document.querySelectorAll('#paso5 input[required], #paso5 select[required]');
+            var formularioValido = true;
+            
+            campos.forEach(function(campo) {
+                if (campo.value.trim() === "") {
+                    formularioValido = false;
+                    // Resaltar el campo vacío o sin cambios
+                    campo.style.border = "2px solid red";
+                } else {
+                    // Restaurar el estilo por defecto
+                    campo.style.border = "";
+                }
+            });
+
+            return formularioValido;
+        }
+    </script>
+
+    <script>
         function retrocederPaso() {
             var pasoActual = document.querySelector('.paso:not([style*="display: none;"])');
             var pasoAnterior = pasoActual.previousElementSibling;
@@ -975,6 +1164,35 @@
         }
     });
     </script>
+    
+    <script>
+        document.getElementById("btnFinalizar").addEventListener("click", function() {
+            // Verificar si ambos elementos están marcados antes de mostrar el modal
+            var difusionSeleccionada = document.getElementById("difusion").value;
+            var terminosAceptados = document.getElementById("terminos").checked;
+            
+            // Si ambos elementos están marcados, mostrar el modal
+            if (difusionSeleccionada && terminosAceptados) {
+                $('#myModal').modal('show');
+            } else {
+                // Si no están marcados, mostrar un mensaje de error
+                alert("Por favor, seleccione un medio de difusión y acepte los términos y condiciones.");
+            }
+        });
+    </script>
+    
+    <script>
+      function validateInputNum(input, tamanio) {
+          // Obtén el valor actual del campo de entrada
+          let inputValue = input.value;
+
+          // Remueve cualquier carácter no permitido (en este caso, letras)
+          inputValue = inputValue.replace(/[^0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g, '');
+          inputValue = inputValue.slice(0, tamanio);
+          // Actualiza el valor del campo de entrada
+          input.value = inputValue.toUpperCase();
+      }
+     </script>
     
     <?php mysqli_close($conexion); ?>
   </body>

@@ -158,6 +158,7 @@
     <!-- Footer -->
     <div class="footer">
         <p>&copy; 2023 <?php echo $res['nombre_institucion']; ?>. Todos los derechos reservados.</p>
+        <p>V 30.05.24</p>
     </div>
 
     <!-- Bootstrap Bundle with Popper -->

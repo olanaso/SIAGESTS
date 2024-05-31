@@ -152,7 +152,7 @@ if (!verificar_sesion($conexion)) {
 
                         <div id="tab2" class="tab-pane fade">
                         <h4><b>Formato en Excel</b></h4>
-                          <a class="blue" href=""><i class="fa fa-file-excel-o"></i> Descargar Archivo</a>
+                          <a class="blue" href="../admision/utils/FormatoResultadoExamen.xlsx" download><i class="fa fa-file-excel-o"></i> Descargar Archivo</a>
                           <br>
                           <h4><b>Importante!!</b></h4>
                           <p>Subir el formato de excel con las información completa. Subir separado por programa.
@@ -260,7 +260,7 @@ if (!verificar_sesion($conexion)) {
           "previous": "Anterior"
       },
         },
-        "order": [ 4, "asc" ],
+        "order": [ 5, "asc" ],
         "searching": true,
       });
 

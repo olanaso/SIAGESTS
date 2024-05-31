@@ -84,7 +84,7 @@ if (!verificar_sesion($conexion)) {
                   <div class="">
                     <h2 align="center">Mis Convocatorias Laborales</h2>
                   </div>
-                  <a href="nueva_convocatoria.php" class="btn btn-primary"><i class="fa fa-plus-square"></i> Nueva Oferta</a>
+                  <a href="nueva_convocatoria.php" class="btn btn-success"><i class="fa fa-plus-square"></i> Nueva Convocatoria</a>
                   <div class="tab-content">
                     <div class="">
                       <br>
@@ -114,10 +114,10 @@ if (!verificar_sesion($conexion)) {
                             </td>
                             <td>
                             <?php echo '
-                            <a href="detalle_convocatoria.php?id='. $ofertas['id'] . '" class="btn btn-success" data-toggle="tooltip" data-original-title="Ver Detalles" data-placement="bottom"><i class="fa fa-eye"></i></a>
+                            <a href="detalle_convocatoria.php?id='. $ofertas['id'] . '" class="btn btn-dark" data-toggle="tooltip" data-original-title="Ver Detalles" data-placement="bottom"><i class="fa fa-eye"></i></a>
                             <a href="convocatoria_documento.php?id='. $ofertas['id'] . '" class="btn btn-primary" data-toggle="tooltip" data-original-title="Ver Documentos" data-placement="bottom"><i class="fa fa-file"></i></a>
                             <a href="convocatoria_postulantes.php?id='. $ofertas['id'] . '" class="btn btn-info" data-toggle="tooltip" data-original-title="Ver Postulantes" data-placement="bottom"><i class="fa fa-bar-chart"></i></a>
-                            <a href="editar_convocatoria.php?id='. $ofertas['id'] . '" class="btn btn-warning" data-toggle="tooltip" data-original-title="Editar" data-placement="bottom"><i class="fa fa-edit"></i></a>
+                            <a href="editar_convocatoria.php?id='. $ofertas['id'] . '" class="btn btn-success" data-toggle="tooltip" data-original-title="Editar" data-placement="bottom"><i class="fa fa-edit"></i></a>
                             <button class="btn btn-danger" data-toggle="modal" title="Archivar" data-placement="bottom" data-target=".anular'. $ofertas['id'].'">Archivar</button>
                             </td> ' ?>
                           </tr>  
@@ -140,7 +140,7 @@ if (!verificar_sesion($conexion)) {
                                             </div>
                                             <div class="x_content">
                                                 <b>Tenga en consideración que se recomienda archivar las convocatorias que ya hayan finalizado.
-                                                  Desea archivar la convocatoria "<?php echo $ofertas['titulo']; ?>"?</b>
+                                                  ¿Desea archivar la convocatoria "<?php echo $ofertas['titulo']; ?>"?</b>
                                                 <br /><br>
                                                 <form role="form" action="operaciones/archivar_convocatoria.php" class="form-horizontal form-label-left input_mask" method="POST">
                                                   <input type="hidden" name="id" value="<?php echo $ofertas['id']; ?>">
@@ -233,7 +233,8 @@ if (!verificar_sesion($conexion)) {
         "next": "Siguiente",
         "previous": "Anterior"
     },
-      }
+      },
+       "order": [4, 'desc']
     });
 
     } );

@@ -191,7 +191,7 @@ if (!verificar_sesion($conexion)) {
                     <br />
                     <form role="form" action="registrar_ingreso.php" class="form-horizontal form-label-left input_mask" method="POST" >
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo Comprobante : </label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo Persona : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                           <select class="form-control" id="concepto" name="comprobante" value="" required="required" onkeyup="javascript:this.value=this.value.toUpperCase();">
                             <option value="natural">PERSONA NATURAL</option>

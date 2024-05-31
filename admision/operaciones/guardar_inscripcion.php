@@ -20,6 +20,7 @@ if(intval($cantidad) === 0){
 
     //EVALUADOR
     $exito = False;
+    $estado_loader = "En Proceso";
 
     //POSTULANTE
     $apellido_paterno = $_POST['paterno'];
@@ -264,10 +265,16 @@ if(intval($cantidad) === 0){
                 //$mail->AltBody = '';
 
                 $mail->send();
-                
+                $exito = true;
             } catch (Exception $e) {
                 echo "Error correo: {$mail->ErrorInfo}";
+                $exito = false;
             }
+        }
+    }else{
+        $exito = false;
+        $text = "El dni proporcionado ya tiene una inscripción previa, revise su correo electronico indicado en la anterior inscripción.";
+    }   
     ?>
     <!DOCTYPE html>
     <html lang="es">
@@ -279,14 +286,9 @@ if(intval($cantidad) === 0){
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Admisión
-        </title>
+        <title>Admisión</title>
         <!--icono en el titulo-->
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <link rel="stylesheet" href="soft-ui-dashboard-tailwind.css" />
-        <!-- Google Icons -->
-        <script src="https://cdn.tailwindcss.com"></script>
         <!-- Script obtenido desde CDN jquery -->
         <script
             src="https://code.jquery.com/jquery-3.6.0.js"
@@ -294,85 +296,110 @@ if(intval($cantidad) === 0){
             crossorigin="anonymous"></script>
     </head>
     <style>
-    body {
-        margin: 0;
-        padding: 0;
-        background-color: #f2f2f2;
-    }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
 
-    .container-card {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
+        .container-card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-    .content {
-        text-align: center;
-        background-color: #fff;
-        padding: 10px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        max-width: 80%;
-        /* Ajustar el ancho máximo del contenido */
-    }
-
-    .icono-exitoso img {
-        width: 100px;
-        margin-bottom: 20px;
-    }
-
-    .creditos {
-        color: #989898;
-    }
-
-    /* Media queries para dispositivos móviles */
-    @media screen and (max-width: 600px) {
         .content {
+            text-align: center;
+            background-color: #fff;
             padding: 10px;
-            /* Reducir el espacio interior */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 80%;
+            /* Ajustar el ancho máximo del contenido */
         }
 
         .icono-exitoso img {
-            width: 80px;
-            /* Reducir el tamaño del icono */
+            width: 100px;
+            margin-bottom: 20px;
         }
 
-        button {
-            padding: 8px 16px;
-            /* Ajustar el tamaño del botón */
+        .creditos {
+            color: #989898;
         }
-    }
-</style>
+        
+        .btn{
+            padding: 10px 20px;
+            border: none;
+            background-color: green;
+        }
+
+
+        /* Media queries para dispositivos móviles */
+        @media screen and (max-width: 600px) {
+            .content {
+                padding: 10px;
+                
+            }
+
+            .icono-exitoso img {
+                width: 80px;
+                
+            }
+
+            button {
+                padding: 8px 16px;
+            }
+        }
+    </style>
 
 <body>
     <div class="container-card">
         <div class="content">
             <center>
             <div class="icono-exitoso">
-                <img src="../utils/controlar.png" alt="Éxito">
-
+                <br>
+                <center>
+                    <?php if($exito){ ?>
+                    <div class="icono-exitoso">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50" fill="#008000">
+                            <path d="M0 0h24v24H0V0z" fill="none" />
+                            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
+                        </svg>
+                    </div>
+                    <?php }else{ ?>
+                    <div class="icono-error">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50" fill="#FF0000">
+                            <path d="M0 0h24v24H0V0z" fill="none" />
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 16h2v2h-2v-2zm0-10h2v8h-2v-8z" />
+                        </svg>
+                    </div>
+                    <?php } ?>
+                </center>
             </div>
-            <a href="https://www.flaticon.es/iconos-gratis/okay" class="creditos" title="okay iconos">Okay iconos
-                creados por
-                PureSolution - Flaticon</a>
             </center>
-            <h1 class ="green">¡Registro Exitoso!</h1>
-            <span>Su código para acceder a su perfil de postulante es: <b> <?php echo $codigo_unico; ?> </b> </span>
-            <p>De igual manera se envio al correo propocionado la credencial para acceder al perfil del postulante.</p>
-            <br>
-            <a href="../login_postulante/index.php" target="_blank"><button class="btn btn-success">Ir al Perfil de Postulante</button></a>
+            <?php if($exito){ ?>
+                <h1 class ="green">¡Registro Exitoso!</h1>
+                <span>Su código para acceder a su perfil de postulante es: <b> <?php echo $codigo_unico; ?> </b> </span>
+                <p>De igual manera se envio al correo propocionado la credencial para acceder al perfil del postulante.</p>
+                <br>
+                <a href="../login_postulante/index.php" target="_blank"><button class="btn btn-success">Ir al Perfil de Postulante</button></a>
+            <?php }else{ ?>
+                <h1 class ="green">¡Error al registrar, vuelva a intentarlo de nuevo!</h1>
+                <p><?php echo $text; ?></p>
+            <?php } ?>
             <br><br>
-            <p id="contador">La página se cerrará en <span id="segundos">10</span> segundos.</p>
+            <p id="contador">La página se cerrará en <span id="segundos">30</span> segundos.</p>
         </div>
     </div>
     <script>
         setTimeout(function () {
             window.location.replace('../portal.php'); // Redirige a otra página después de 1 minuto
-        }, 10000); // 60000 milisegundos = 10 segundos
+        }, 30000); // 30000 milisegundos = 30 segundos
     </script>
     <script>
-        var segundos = 10; // Inicializar el contador de segundos
+        var segundos = 30; // Inicializar el contador de segundos
 
         // Función para actualizar el contador de segundos y cerrar la ventana después de 1 minuto
         var temporizador = setInterval(function () {
@@ -387,15 +414,6 @@ if(intval($cantidad) === 0){
         window.history.replaceState({}, document.title, window.location.href);
     </script>
 </body>
-<?php }   
+<?php    
     mysqli_close($conexion); 
-    
-}
-else{
-    echo "<script>
-			alert('El postulante ya realizado con anterioridad la inscripción para este proceso de admisión');
-            window.location.replace('../portal.php');
-				</script>
-			";
-    exit();
-}?>
+?>

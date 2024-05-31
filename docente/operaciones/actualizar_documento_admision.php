@@ -21,10 +21,10 @@ if (!verificar_sesion($conexion)) {
 
 	// Verificar si se intenta cargar un nuevo archivo
 	if (isset($_FILES['carga_documento']) && $_FILES['carga_documento']['error'] == 0) {
-		$ruta_destino = "../admision/utils/documentos/";
+		$ruta_destino = "../../admision/utils/documentos/";
 		$nombre_archivo = basename($_FILES['carga_documento']['name']);
 		$ruta_completa = $ruta_destino . $nombre_archivo;
-		$ruta_db =substr($ruta_completa,12);
+		$ruta_db =substr($ruta_completa,15);
 		
 		// Intentar mover el archivo cargado al destino deseado
 		if (!move_uploaded_file($_FILES['carga_documento']['tmp_name'], $ruta_completa)) {

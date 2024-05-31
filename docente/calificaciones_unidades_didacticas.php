@@ -182,7 +182,7 @@ if (!verificar_sesion($conexion)) {
                             } ?>
                             <?php if ($m_asistencia) {
                               ?>
-                              <a title="Asistencia" class="btn btn-success" href="asistencias.php?id=<?php echo $res_busc_prog['id']; ?>"><i class="fa fa-group"></i></a>
+                              <a title="Asistencia - Estudiantes" class="btn btn-success" href="asistencias.php?id=<?php echo $res_busc_prog['id']; ?>"><i class="fa fa-group"></i></a>
                               <?php
                             } ?>
                             <?php if ($m_calificaciones) {
@@ -199,6 +199,11 @@ if (!verificar_sesion($conexion)) {
                             <?php if ($m_imprimir) {
                               ?>
                               <a title="Informe Final" class="btn btn-danger" href="informe_final.php?id=<?php echo $res_busc_prog['id']; ?>"><i class="fa fa-bar-chart"></i></a>
+                              <?php
+                            } ?>
+                            <?php if ($m_asistencia) {
+                              ?>
+                              <a title="Mi asistencia" class="btn btn-dark" href="asistencia_docente.php?id=<?php echo $res_busc_prog['id']; ?>"><i class="fa fa-list-alt"></i></a>
                               <?php
                             } ?>
                           </td>

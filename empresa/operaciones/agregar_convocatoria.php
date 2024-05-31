@@ -29,10 +29,10 @@ if (!verificar_sesion($conexion)) {
         $programas = isset($_POST['carreras']) ? $_POST['carreras'] : [];
 
         // Datos del segundo paso
-        $requisitos = $_POST["requisitos"];
-        $funciones = $_POST["funciones"];
-        $beneficios = $_POST["beneficios"];
-        $condiciones = isset($_POST["condiciones"]) ? $_POST["condiciones"] : "";
+        $requisitos = $conexion -> real_escape_string($_POST["requisitos"]);
+        $funciones = $conexion -> real_escape_string($_POST["funciones"]);
+        $beneficios = $conexion -> real_escape_string($_POST["beneficios"]);
+        $condiciones = $conexion -> real_escape_string(isset($_POST["condiciones"]) ? $_POST["condiciones"] : "No se registraron condiciones.");
 
         
         // Consulta para insertar los datos en la base de datos

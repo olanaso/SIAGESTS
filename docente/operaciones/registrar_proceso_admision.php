@@ -14,10 +14,15 @@ if (!verificar_sesion($conexion)) {
 	
 	$inicio = $_POST['inicio'];
 	$fin = $_POST['fin'];
-	
-
+	$periodo = strval($_POST['periodo_anio']);
+	$periodo =$periodo.'-'.$_POST['periodo_unidad'];
+    $tipo = $_POST['tipo'];
 	$res_procesos = buscarProcesosActivosPorFechas($conexion, $inicio, $fin);
 	$contador = mysqli_num_rows($res_procesos);
+	
+	$res_procesos_periodo = buscarProcesoAdmisionPorPeriodoTipo($conexion,$tipo, $periodo);
+	$contador_periodo = mysqli_fetch_array($res_procesos_periodo);
+	$contador_periodo = $contador_periodo['num_rows'];
 
 	if($contador > 0){
 		echo "<script>
@@ -26,14 +31,20 @@ if (!verificar_sesion($conexion)) {
 		</script>";
 		exit();
 	}
+	elseif($contador_periodo > 0){
+	    echo "<script>
+			alert('El periodo que registró ya se encuentra en la base de datos indique otro periodo!');
+			window.history.back();
+		</script>";
+		exit();
+	}
 	else{
-		$tipo = $_POST['tipo'];
-		$periodo = $_POST['periodo'];
 		$inicio_ins = $_POST['inicio_ins'];
 		$fin_ins = $_POST['fin_ins'];
 		$inicio_ext = $_POST['inicio_ext'];
 		$fin_ext = $_POST['fin_ext'];
 		$fecha_examen = $_POST['fecha_examen'];
+		$lugar_examen = $_POST['lugar_examen'];
 
 		//MODALIDADES
 		$res_modalidades = buscarTodasModalidades($conexion);
@@ -49,8 +60,8 @@ if (!verificar_sesion($conexion)) {
 		$registrado_periodo = mysqli_num_rows($res_periodo);
 
 		if($registrado_periodo == 0){
-			$insertar = "INSERT INTO `proceso_admision`(`Periodo`, `Tipo`, `Fecha_Inicio`, `Fecha_Fin`, `Inicio_Inscripcion`, `Fin_Inscripcion`,`Inicio_Extemporaneo`, `Fin_Extemporaneo`,`Fecha_Examen`) 
-			VALUES ('$periodo', '$tipo','$inicio','$fin', '$inicio_ins','$fin_ins', '$inicio_ext','$fin_ext','$fecha_examen')";
+			$insertar = "INSERT INTO `proceso_admision`(`Periodo`, `Tipo`, `Fecha_Inicio`, `Fecha_Fin`, `Inicio_Inscripcion`, `Fin_Inscripcion`,`Inicio_Extemporaneo`, `Fin_Extemporaneo`,`Fecha_Examen`, `Lugar_Examen`) 
+			VALUES ('$periodo', '$tipo','$inicio','$fin', '$inicio_ins','$fin_ins', '$inicio_ext','$fin_ext','$fecha_examen','$lugar_examen')";
 			$ejecutar_insetar = mysqli_query($conexion, $insertar);
 			if ($ejecutar_insetar) {
 				$id_proceso_admision = mysqli_insert_id($conexion);
@@ -95,8 +106,8 @@ if (!verificar_sesion($conexion)) {
 					";
 			};
 		}else{
-			$insertar = "INSERT INTO `proceso_admision`(`Periodo`, `Tipo`, `Fecha_Inicio`, `Fecha_Fin`, `Inicio_Inscripcion`, `Fin_Inscripcion`,`Inicio_Extemporaneo`, `Fin_Extemporaneo`,`Fecha_Examen` ) 
-			VALUES ('$periodo', '$tipo','$inicio','$fin', '$inicio_ins','$fin_ins', '$inicio_ext','$fin_ext','$fecha_examen')";
+			$insertar = "INSERT INTO `proceso_admision`(`Periodo`, `Tipo`, `Fecha_Inicio`, `Fecha_Fin`, `Inicio_Inscripcion`, `Fin_Inscripcion`,`Inicio_Extemporaneo`, `Fin_Extemporaneo`,`Fecha_Examen`, `Lugar_Examen`) 
+			VALUES ('$periodo', '$tipo','$inicio','$fin', '$inicio_ins','$fin_ins', '$inicio_ext','$fin_ext','$fecha_examen', '$lugar_examen')";
 			$ejecutar_insetar = mysqli_query($conexion, $insertar);
 			if ($ejecutar_insetar) {
 				$id_proceso_admision = mysqli_insert_id($conexion);

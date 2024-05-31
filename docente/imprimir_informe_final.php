@@ -295,9 +295,7 @@ if (!($mostrar_archivo)) {
             <td width="10%"></td>
             <td width="50%" align="right"><img src="../img/logo.jpeg" alt="" height="30px"></td>
         </tr>
-        <tr>
-            <td colspan="3" align="center" ><font size="' . $text_size . '"><b>AÑO DE LA UNIDAD, LA PAZ Y EL DESARROLLO</b></font></td>
-        </tr>
+       
         <tr>
             <td colspan="3" align="center"><b>INFORME TÉCNICO - PEDAGÓGICO DEL SEMESTRE - '.$r_b_perio['nombre'].'</b></td>
         </tr>
@@ -524,7 +522,7 @@ if (!($mostrar_archivo)) {
     $content_one .= $contenido;
     $content_one .= '</table>';
     $pdf->writeHTML($content_one);
-
+    $region = ucfirst(strtolower($r_b_datos_insti['departamento']));
     $meses = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
 
     $fechaaa = date('d') . " de " . $meses[date('n') - 1] . " del " . date('Y');
@@ -533,7 +531,7 @@ if (!($mostrar_archivo)) {
         <table border="0" cellspacing="0" cellpadding="0.5">  
         <tr>
             <th width="50%"></th>
-            <th align="right">Ayacucho, ' . $fechaaa . '</th>
+            <th align="right">'.$region.', ' . $fechaaa . '</th>
         </tr>
         <tr>
             <td colspan="2" align="center"><br><br><br><br><br>...............................................<br>Docente</td>

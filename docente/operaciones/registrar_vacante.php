@@ -5,7 +5,7 @@ include "../../include/funciones.php";
 include("../include/verificar_sesion_secretaria.php");
 if (!verificar_sesion($conexion)) {
 	echo "<script>
-				  alert('Error Usted no cuenta con permiso para acceder a esta p√°gina');
+				  alert('Error Usted no cuenta con permiso para acceder a esta p®¢gina');
 				  window.location.replace('../login/');
 			  </script>";
     }else {
@@ -13,12 +13,13 @@ if (!verificar_sesion($conexion)) {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Recuperar los datos del formulario
             $id_programa = $_POST['id_programa'];
+            $periodo = $_POST['periodo'];
             $total_vacante = $_POST['total_vacante'];
             $vacantes_modalidad = $_POST['vacantes_modalidad'];
             $id_cvs = $_POST['id_cvs'];
 
             // Recuperar las modalidades
-            $res_modalidades = buscarTodasModalidadesOrdenadas($conexion);
+            $res_modalidades = buscarModalidadPorPeriodo($conexion, $periodo);
             // Inicializar un contador
             $contador = 0;
             $total_vacantes_exonerado = 0;
@@ -47,7 +48,7 @@ if (!verificar_sesion($conexion)) {
 				";
         } else {
             echo "<script>
-				alert('Error al registrar, verifique la informaci√≥n proporcionada');
+				alert('Error al registrar, verifique la informaci®Æn proporcionada');
 				window.history.back();
 					</script>
 				";

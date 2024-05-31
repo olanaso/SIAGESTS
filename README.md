@@ -3,10 +3,12 @@
 
  Pasos pra la instalacion:
 
- 1.- clonar repositorio de github a hosting
- 2.- crear subdominio apuntanda la carpeta clonada
- 3.- crear base de datos con su respectivo usuario
- 4.- importar base de datos
- 5.- iniciar el sistema abriendo el subdominio
- 6.- iniciar con la configuración en datos de sistema e institucionales
+<ol>
+ <li>Clonar repositorio de github a hosting</li>
+ <li>Crear subdominio apuntanda la carpeta clonada</li>
+ <li>Crear base de datos con su respectivo usuario</li>
+ <li>Importar base de datos</li>
+ <li>Iniciar el sistema abriendo el subdominio</li>
+ <li>Iniciar con la configuración en datos de sistema e institucionales</li>
+</ol>
 
