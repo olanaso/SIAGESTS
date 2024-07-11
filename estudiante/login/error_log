@@ -13,3 +13,9 @@
 [04-May-2024 19:42:27 America/Lima] PHP Warning:  Undefined array key "password" in /home/sistemae/institutohaquira.sistema.edu.pe/estudiante/login/iniciar_sesion.php on line 6
 [05-May-2024 07:12:15 America/Lima] PHP Warning:  Undefined array key "usuario" in /home/sistemae/institutohaquira.sistema.edu.pe/estudiante/login/iniciar_sesion.php on line 5
 [05-May-2024 07:12:15 America/Lima] PHP Warning:  Undefined array key "password" in /home/sistemae/institutohaquira.sistema.edu.pe/estudiante/login/iniciar_sesion.php on line 6
+[09-Jul-2024 08:34:39 America/Lima] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'sigaestc_demo.datos_institucionales' doesn't exist in /home/sigaestc/demo.sigaest.com/include/busquedas.php:6
+Stack trace:
+#0 /home/sigaestc/demo.sigaest.com/include/busquedas.php(6): mysqli_query()
+#1 /home/sigaestc/demo.sigaest.com/estudiante/login/index.php(10): buscarDatosGenerales()
+#2 {main}
+  thrown in /home/sigaestc/demo.sigaest.com/include/busquedas.php on line 6

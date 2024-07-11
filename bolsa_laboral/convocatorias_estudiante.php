@@ -137,7 +137,7 @@ if (!verificar_sesion($conexion)) {
                           <thead>
                             <tr>
                               <th>Id</th>
-                              <th>Empresa</th>
+                              <th>Nombre de la empresa, persona natural o jurídica</th>
                               <th>Título</th>
                               <th>Ubicación</th>
                               <th>Modalidad</th>
@@ -150,6 +150,51 @@ if (!verificar_sesion($conexion)) {
                           <tbody>
                             <?php
                             $res = buscarOfertasEstudiante($conexion,$id_estudiante);
+                            while ($ofertas = mysqli_fetch_array($res)) {
+                              ?>
+                              <tr>
+                                <td><?php echo $ofertas['id']; ?></td>
+                                <td><?php echo $ofertas['empresa']; ?></td>
+                                <td><?php echo $ofertas['titulo']; ?></td>
+                                <td><?php echo $ofertas['ubicacion']; ?></td>
+                                <td><?php echo $ofertas['modalidad']; ?></td>
+
+                                <?php
+                                if ($ofertas['propietario'] == 0) {
+                                  $programas = buscarProgramasByIdOferta($conexion, $ofertas['id']);
+                                  $nombre_programas = [];
+                                  while ($programa = $programas->fetch_assoc()) {
+                                    $nombres_programas[] = $programa['nombre'];
+                                  }
+
+                                  $programas_string = implode(', ', $nombres_programas);
+
+                                  echo '<td class="green"><i class="fa fa-building"></i> <b>EMPRESA</b></td>';
+
+                                } else {
+                                  $programas = buscarProgramasByIdOfertaIestp($conexion, $ofertas['id']);
+                                  $nombre_programas_iestp = [];
+                                  while ($programa = $programas->fetch_assoc()) {
+                                    $nombre_programas_iestp[] = $programa['nombre'];
+                                  }
+
+                                  $nombres_programas_string = implode(', ', $nombre_programas_iestp);
+                                  echo '<td class="green"><i class="fa fa-building"></i>  <b>EMPRESA</b></td>';
+
+                                }
+                                ?>
+                                <td><?php echo $ofertas['fecha_inicio']; ?></td>
+                                <td><?php echo $ofertas['fecha_fin']; ?></td>
+                                <td>
+                                  <span
+                                    class="badge <?php echo determinarEstado($ofertas['fecha_inicio'], $ofertas['fecha_fin']) ?>"><?php echo determinarEstado($ofertas['fecha_inicio'], $ofertas['fecha_fin']) ?></span>
+                                </td>
+
+                              </tr>
+
+                              <?php  }  ?>
+                              <?php
+                            $res = buscarOfertasEstudianteInstituto($conexion,$id_estudiante);
                             while ($ofertas = mysqli_fetch_array($res)) {
                               ?>
                               <tr>
@@ -192,11 +237,7 @@ if (!verificar_sesion($conexion)) {
 
                               </tr>
 
-                              <?php
-                            }
-                            ;
-                            ?>
-
+                              <?php  }  ?>
                           </tbody>
                         </table>
                       </div>

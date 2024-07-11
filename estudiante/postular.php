@@ -7,6 +7,7 @@
     include("../empresa/include/consultas.php");
 
     $id = isset($_GET['id']) ? $_GET['id'] : null;
+    $tipo = isset($_GET['type']) ? $_GET['type'] : null;
 
 	if (!verificar_sesion($conexion)) {
 		echo "<script>
@@ -18,7 +19,15 @@
         $id_estudiante_sesion = buscar_estudiante_sesion($conexion, $_SESSION['id_sesion_est'], $_SESSION['token']);
 		$b_estudiante = buscarEstudianteById($conexion, $id_estudiante_sesion);
 		$r_b_estudiante = mysqli_fetch_array($b_estudiante);
-        $oferta_laboral = buscarOfertaLaboralById($conexion, $id);
+        if($tipo == 1){
+            $oferta_laboral = buscarOfertaLaboralById($conexion, $id);
+        }
+        elseif($tipo == 0){
+            $oferta_laboral = buscarOfertaLaboralByIdIestp($conexion, $id);
+        }else{
+            exit;
+        }
+        
         $convocatoria = mysqli_fetch_array($oferta_laboral);    
 
 ?>
@@ -165,6 +174,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <input type="hidden" name="id" value="<?php echo $r_b_estudiante['id']; ?>">
+                                    <input type="hidden" name="tipo" value="<?php echo $tipo; ?>">
                                     <input type="hidden" name="convocatoria" value="<?php echo $convocatoria['id']; ?>">
                                     <div class="form-group row">
                                         <label class="col-form-label label-align" for="dni"><i class="fa fa-lock"> </i>  D.N.I.:

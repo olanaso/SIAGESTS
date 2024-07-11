@@ -135,98 +135,207 @@
 
     <div class="col-md-4">
       <div class="card">
-        <h3>Video tutorial de Concepto de Ingresos</h3>
+        <h3>Video tutorial del Menú de Mantenimiento</h3>
         <div>
           <i class="fa fa-film fa-4x"></i>
           <br><br />
-          <p>Permite ver cómo gestionar, agregar, editar y eliminar los conceptos de ingreso de la
-            institución.</p>
+          <p>Permite gestionar la información de los programas de estudio en referencia a los planes de estudio de cada programa.</p>
         </div>
         <p><a
-            href="https://drive.google.com/file/d/10WpuP6t236mFqDj7qwqc4Jg85fmHxW0H/view?usp=sharing"
+            href="https://drive.google.com/file/d/1gvoXPqn4_FsNoO7lMbMFSsCrCkUeLWj3/view?usp=drive_link"
             class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="card">
-        <h3>Video tutorial de Comprobantes</h3>
+        <h3>Video tutorial del Módulo de Admisión - Primera Parte</h3>
         <div>
           <i class="fa fa-film fa-4x"></i>
           <br><br />
-          <p>Permite ver cómo gestionar, agregar y editar los comprobantes de pago que utiliza la
-            institución.</p>
+          <p>Permite gestionar la información de requisitos, modalidades y metodos de pagos.</p>
         </div>
         <p><a
-            href="https://drive.google.com/file/d/1S_X8XITIaiYAvfKhogkAkTsJ_WYDooEM/view?usp=sharing"
+            href="https://drive.google.com/file/d/113DzCvEhMexpIrUF8mnYA4ns-fpVbNvg/view?usp=drive_link"
             class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="card">
-        <h3>Video tutorial de Movimientos de Ingresos</h3>
+        <h3>Video tutorial del Módulo de Admisión - Procesos de Admisión</h3>
         <div>
           <i class="fa fa-film fa-4x"></i>
           <br><br />
-          <p>Permite ver cómo gestionar, agregar, visualizar y anular los movimientos de ingreso.</p>
+          <p>Permite la programación y gestión de procesos de admisión.</p>
         </div>
         <p><a
-            href="https://drive.google.com/file/d/1oHRd0hFKS4TXRgRHBU0csiXSkwvhCuCU/view?usp=sharing"
+            href="https://drive.google.com/file/d/1fFxfsuvgCV8MTyIJO5liGgoC1NHMp6oT/view?usp=drive_link"
             class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="card">
-        <h3>Video tutorial de Movimientos de Egresos</h3>
+        <h3>Video tutorial del Módulo de Admisión - Condifguración de Proceso de Admisión</h3>
         <div>
           <i class="fa fa-film fa-4x"></i>
           <br><br />
-          <p>Permite ver cómo gestionar, agregar, visualizar y anular los movimientos de egreso.</p>
+          <p>Permite la configuración de los procesos de admisión, actualización del cuadro de vacantes, gestión de documentos para el portal y para los postulantes.</p>
         </div>
         <p><a
-            href="https://drive.google.com/file/d/1mCuaVhj14ANVqmseYW4orUV1Y6rHuWAr/view?usp=sharing"
+            href="https://drive.google.com/file/d/1-nftfx_XaY9QuDpXTAgAKqchLDs96lxX/view?usp=drive_link"
             class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="card">
-        <h3>Video tutorial de Movimientos Anulados</h3>
+        <h3>Video tutorial del Módulo de Admisión - Postulantes</h3>
         <div>
           <i class="fa fa-film fa-4x"></i>
           <br><br />
-          <p>Permite ver los movimientos de ingresos y egresos que fueron anulados.</p>
+          <p>Permite la gestión de los postulantes, vizualización de la infromación proporcionada desde el formulario de inscripción y permite evaluar al postulante.</p>
         </div>
         <p><a
-            href="https://drive.google.com/file/d/1d639N_1Ugpao02h3WAQPsmOEIIGbGQd8/view?usp=sharing"
+            href="https://drive.google.com/file/d/1H6uWTOVH1Ox639dxQNziWHFSy-TMgBgM/view?usp=drive_link"
             class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="card">
-        <h3>Video tutorial de Reportes</h3>
+        <h3>Video tutorial del Módulo de Admisión - Resultados</h3>
         <div>
           <i class="fa fa-film fa-4x"></i>
           <br><br />
-          <p>Permite ver los reportes de ingreso, egreso y flujo de caja en un periodo determinado.
-          </p>
+          <p>Permite la importación de resultados del examen de un proceso de admisión.</p>
         </div>
         <p><a
-            href="https://drive.google.com/file/d/1JFR_TRzfznb8QRq_-z_zeqFKFBxB3r9K/view?usp=sharing"
+            href="https://drive.google.com/file/d/1-nftfx_XaY9QuDpXTAgAKqchLDs96lxX/view?usp=drive_link"
             class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="card">
-        <h3>Video tutorial de Relación de Estudiantes</h3>
+        <h3>Video tutorial del Módulo de Admisión - Estadísticas</h3>
         <div>
           <i class="fa fa-film fa-4x"></i>
           <br><br />
-          <p>Permite ver cómo gestionar, agregar y editar un estudiante.</p>
+          <p>Permite visualizar de manera general estadísticas como género, tipos de escuela, rango de edades, cantidad de postulantes, admitidos, etc.</p>
+        </div>
+        <p><a
+            href="https://drive.google.com/file/d/1oJXASUx02RT7dEeYmr1V5kZ--iwbWzL3/view?usp=drive_link"
+            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <h3>Video tutorial del Módulo de Admisión - Portal</h3>
+        <div>
+          <i class="fa fa-film fa-4x"></i>
+          <br><br />
+          <p>Permite la visualización del portal que se generá una vez configurado un procesos de admisión.</p>
+        </div>
+        <p><a
+            href="https://drive.google.com/file/d/1vHct8kdURzibMuWKITDHqo6kMGOn2cp_/view?usp=drive_link"
+            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <h3>Video tutorial del Módulo de Admisión - Inscripciones</h3>
+        <div>
+          <i class="fa fa-film fa-4x"></i>
+          <br><br />
+          <p>Permite realizar la inscripción al público interesado, además del ingreso al perfil del postulante.</p>
+        </div>
+        <p><a
+            href="https://drive.google.com/file/d/1aBT_biI499fH2qvGb0Y2W2jUQhWcDnh8/view?usp=drive_link"
+            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
+      </div>
+    </div>
+    
+
+    <div class="col-md-4">
+      <div class="card">
+        <h3>Video tutorial del Menú de Matrícula</h3>
+        <div>
+          <i class="fa fa-film fa-4x"></i>
+          <br><br />
+          <p>Permite realizar las matrículas de estudiantes regulares, que deban o quieran adelantar cursos.</p>
+        </div>
+        <p><a
+            href="https://drive.google.com/file/d/1bXvi-2zAPQodf62RzCTtiyJWaC2gI4AW/view?usp=drive_link"
+            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <h3>Video tutorial del Menú de Periodos Académicos y Programación de Clases</h3>
+        <div>
+          <i class="fa fa-film fa-4x"></i>
+          <br><br />
+          <p>Permite ver cómo gestionar, agregar y editar periodos académicos. Permite crear y editar la programación de clases, asignación de horario y configuración para la asistenia docente.</p>
+        </div>
+        <p><a
+            href="https://drive.google.com/file/d/1JltswyJ8P_G5HvetQh3lehmB1J-k-jXi/view?usp=drive_link"
+            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <h3>Video tutorial del Menú de Anuncios y Encuestas</h3>
+        <div>
+          <i class="fa fa-film fa-4x"></i>
+          <br><br />
+          <p>Permite ver cómo gestionar, agregar y editar anuncios y encuestas.</p>
+        </div>
+        <p><a
+            href="https://drive.google.com/file/d/1pK6y2PM2m3aTpl-HR4iY4djb-2mPYpo5/view?usp=drive_link"
+            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <h3>Video tutorial del Menú de Documentos</h3>
+        <div>
+          <i class="fa fa-film fa-4x"></i>
+          <br><br />
+          <p>Permite generar documentos como es el certificado de estudios y la boleta de notas.</p>
+        </div>
+        <p><a
+            href="https://drive.google.com/file/d/1b7NHChCYbgwWUF2J66NbyxAOMKc_uztD/view?usp=drive_link"
+            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <h3>Video tutorial del Menú de Administrativos y Docentes</h3>
+        <div>
+          <i class="fa fa-film fa-4x"></i>
+          <br><br />
+          <p>Permite ver cómo gestionar, agregar y editar un usuario administrativo o docente. Además permite visualizar documentos como es la carga académica y la hoja de vida de cada usuario.</p>
+        </div>
+        <p><a
+            href="https://drive.google.com/file/d/1Tx8alRTx9-xWu0OQ83_kC_-GTVDaxRmk/view?usp=drive_link"
+            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <h3>Video tutorial del Menú de Estudiantes y Egresados</h3>
+        <div>
+          <i class="fa fa-film fa-4x"></i>
+          <br><br />
+          <p>Permite ver cómo gestionar, agregar y editar un estudiante. Además permite visualizar el registro de egresados, asi como la información académica del egresado y estudiante. Por último permite la gestión de seguimiento de egresado.</p>
         </div>
         <p><a
             href="https://drive.google.com/file/d/1ZoxyuGK6vD5po0l71-CXNlGO2-SpA0h4/view?usp=sharing"
@@ -251,50 +360,6 @@
 
     <div class="col-md-4">
       <div class="card">
-        <h3>Video tutorial de Verificando Bolsa Laboral</h3>
-        <div>
-          <i class="fa fa-film fa-4x"></i>
-          <br><br />
-          <p>Permite ver cómo gestionar, evaluar y visualizar reportes de una empresa para poder
-            permitir la generación de convocatorias laborales.</p>
-        </div>
-        <p><a
-            href="https://drive.google.com/file/d/1Xk1kstlAG-kAm7m__fMZKlzXNwBWv2nC/view?usp=sharing"
-            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card">
-        <h3>Video tutorial de Relación de Docentes</h3>
-        <div>
-          <i class="fa fa-film fa-4x"></i>
-          <br><br />
-          <p>Permite ver cómo gestionar, agregar y editar un docente.</p>
-        </div>
-        <p><a
-            href="https://drive.google.com/file/d/1_hy_nTTpzVhmHcFzdAC_p-Fsb9a3JzZE/view?usp=drive_link"
-            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card">
-        <h3>Video tutorial de Registro de Evaluación</h3>
-        <div>
-          <i class="fa fa-film fa-4x"></i>
-          <br><br />
-          <p>Permite ver cómo evaluar las notas de los estudiantes, así como también generar
-            documentos para ser impresos.</p>
-        </div>
-        <p><a
-            href="https://drive.google.com/file/d/1RkMssH1Ms81gG0Xmrsz-di4QkRLLhCe6/view?usp=drive_link"
-            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card">
         <h3>Video tutorial de Licencias</h3>
         <div>
           <i class="fa fa-film fa-4x"></i>
@@ -303,6 +368,20 @@
         </div>
         <p><a
             href="https://drive.google.com/file/d/1iASwQlsWXIqr9nUrd2xo7_EJWvpg346C/view?usp=drive_link"
+            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <h3>Video tutorial de Soporte</h3>
+        <div>
+          <i class="fa fa-film fa-4x"></i>
+          <br><br />
+          <p>Permite ver cómo generar y editar tikets de soporte, preguntas frecuentes y permite visualizar los manuales y video tutoriales.</p>
+        </div>
+        <p><a
+            href="https://drive.google.com/file/d/1pu0Bs7zD8-b5834scxNaDJHXNWxF5Ynq/view?usp=drive_link"
             class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
       </div>
     </div>
@@ -412,6 +491,48 @@
 
     <div class="col-md-4">
       <div class="card">
+        <h3>Video tutorial de Información Socioeconómica</h3>
+        <div>
+          <i class="fa fa-film fa-4x"></i>
+          <br><br />
+          <p>Permite ver el perfil del estudiantes, además de ingresar al registro de la información socioeconómica del estudiante.</p>
+        </div>
+        <p><a
+            href="https://drive.google.com/file/d/10STVW_GJLclsDNeL7bp8EGC-IY36ImcY/view?usp=drive_link"
+            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <h3>Video tutorial de Información Académica</h3>
+        <div>
+          <i class="fa fa-film fa-4x"></i>
+          <br><br />
+          <p>Permite ver el histórico de las calificaciones del estudiante.</p>
+        </div>
+        <p><a
+            href="https://drive.google.com/file/d/1mNlhezpfhvvag75yzrZW1h7OSbyy1LZQ/view?usp=drive_link"
+            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <h3>Video tutorial del Menú de Mi Matrícula</h3>
+        <div>
+          <i class="fa fa-film fa-4x"></i>
+          <br><br />
+          <p>Permite ver los cursos en las que esta matriculado el estudiantes, también documentos como el silabo.</p>
+        </div>
+        <p><a
+            href="https://drive.google.com/file/d/1-FsX0RCYJdptH8lAzElb_Vq47136lONM/view?usp=drive_link"
+            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
         <h3>Video tutorial de Unidades Didácticas</h3>
         <div>
           <i class="fa fa-film fa-4x"></i>
@@ -451,6 +572,20 @@
 
     <div class="col-md-4">
       <div class="card">
+        <h3>Video tutorial de Perfil Docente</h3>
+        <div>
+          <i class="fa fa-film fa-4x"></i>
+          <br><br />
+          <p>Permite ver, actualizar información, cargar documentos como es el hoja de vida y generar el documento de carga académica.</p>
+        </div>
+        <p><a
+            href="https://drive.google.com/file/d/1ScaNMVHR0-WJADXennT_bpCEAninYNd4/view?usp=drive_link"
+            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
         <h3>Video tutorial de Generación de Sílabos</h3>
         <div>
           <i class="fa fa-film fa-4x"></i>
@@ -465,6 +600,20 @@
 
     <div class="col-md-4">
       <div class="card">
+        <h3>Video tutorial de Importar Sílabo</h3>
+        <div>
+          <i class="fa fa-film fa-4x"></i>
+          <br><br />
+          <p>Permite importar otro formato de sílabo a la plataforma.</p>
+        </div>
+        <p><a
+            href="https://drive.google.com/file/d/1cjLN5WLUebfT0MZK1lOy3XAugzZjneWa/view?usp=drive_link"
+            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
         <h3>Video tutorial de Sesiones de Aprendizaje</h3>
         <div>
           <i class="fa fa-film fa-4x"></i>
@@ -472,7 +621,7 @@
           <p>Permite ver cómo generar, modificar y visualizar las sesiones de aprendizaje.</p>
         </div>
         <p><a
-            href="https://drive.google.com/file/d/1QMaEs8Bl-i3Wu8ZFgKUOFn77UEAXV1HR/view?usp=sharing"
+            href="https://drive.google.com/file/d/10qKsTT64vvi_--4oWVtg-rM41K7vt1ZP/view?usp=drive_link"
             class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
       </div>
     </div>

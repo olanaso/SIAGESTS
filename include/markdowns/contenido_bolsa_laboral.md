@@ -61,6 +61,45 @@
   <div class="row">
     <div class="col-md-4">
       <div class="card">
+        <h3>Video tutorial de Gestión de Empresas</h3>
+        <div>
+          <i class="fa fa-film fa-4x"></i>
+          <br><br />
+          <p>Permite desde el listado de solicitudes de empresas, la aceptación o rechazo de estas solicitudes. Permite la gestión de empresas aceptadas.</p>
+        </div>
+        <p><a
+            href="https://drive.google.com/file/d/18I-X99BK3tLlbQt3F9NUBR0zUufY4BCR/view?usp=drive_link"
+            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <h3>Video tutorial de Gestión de Convocatorias</h3>
+        <div>
+          <i class="fa fa-film fa-4x"></i>
+          <br><br />
+          <p>Permite la gestión de convocatorias creadas por las empresas y las creadas por el administrador de la bolsa laboral.</p>
+        </div>
+        <p><a
+            href="https://drive.google.com/file/d/1fl-HxiwjP0RDQrvwPUHLP-gBLZK0qF2m/view?usp=drive_link"
+            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <h3>Video tutorial de Reportes</h3>
+        <div>
+          <i class="fa fa-film fa-4x"></i>
+          <br><br />
+          <p>Permite la generación de reportes de empresas, convocatorias y postulantes.</p>
+        </div>
+        <p><a
+            href="https://drive.google.com/file/d/1I-hlYCRb3JnLFtcLHlr7ltPbrwr3Fvnv/view?usp=drive_link"
+            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
         <h3>Video tutorial de Empresa</h3>
         <div>
           <i class="fa fa-film fa-4x"></i>
@@ -103,15 +142,40 @@
     </div>
     <div class="col-md-4">
       <div class="card">
-        <h3>Video tutorial de Administrador</h3>
+        <h3>Video tutorial de Soporte - Tickets</h3>
         <div>
           <i class="fa fa-film fa-4x"></i>
           <br><br />
-          <p>Permite ver cómo generar, visualizar, editar y archivar convocatorias por parte de la
-            empresa.</p>
+          <p>Permite ver cómo generar y editar tikets de soporte.</p>
         </div>
         <p><a
-            href="https://drive.google.com/file/d/1Xk1kstlAG-kAm7m__fMZKlzXNwBWv2nC/view?usp=drive_link"
+            href="https://drive.google.com/file/d/1zxIr11lvMhGxfUPJL8OlNBv19oVyprfv/view?usp=drive_link"
+            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <h3>Video tutorial de Soporte - Preguntas Frecuentes</h3>
+        <div>
+          <i class="fa fa-film fa-4x"></i>
+          <br><br />
+          <p>Permite ver cómo generar y editar las preguntas frecuentes para los usuarios del sistema.</p>
+        </div>
+        <p><a
+            href="https://drive.google.com/file/d/1gKMAF82K5nOT14mFq6Uf1Xjo8l8prgp6/view?usp=drive_link"
+            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <h3>Video tutorial de Soporte - Manuales y Tutoriales</h3>
+        <div>
+          <i class="fa fa-film fa-4x"></i>
+          <br><br />
+          <p>Permite ver cómo visualizar los manuales y tutoriales del sistema.</p>
+        </div>
+        <p><a
+            href="https://drive.google.com/file/d/1XKneLqtr0HyanpwYQ2AKwK7qinLU7BIG/view?usp=drive_link"
             class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
       </div>
     </div>

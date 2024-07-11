@@ -1141,28 +1141,47 @@
         }
     </script>
 
-    <script>
-        $('input[name="dni"]').focusout(function() {
-        var dni = $(this).val();
-        if(dni.length == 8) {
-            $.ajax({
-                url: 'https://md-lst4.euromedia.net.pe/api/obtener-dni?dni=' + dni,
-                type: "GET",
-                success: function(data) {
-                    if(data.success) {
-                        $('input[name="paterno"]').val(data.apellidoPaterno);
-                        $('input[name="materno"]').val(data.apellidoMaterno);
-                        $('input[name="nombres"]').val(data.nombres);
-                    } else {
-                        alert("No se encontraron datos para el DNI ingresado.");
-                    }
-                },
-                error: function(error) {
-                    alert("Hubo un error al realizar la solicitud.");
-                }
-            });
-        }
-    });
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dniInput = document.getElementById('dni');
+            const nameInput = document.getElementById('nombres');
+            const apInput = document.getElementById('apellidoPaterno');
+            const amInput = document.getElementById('apellidoMaterno');
+            let timeoutId = null;
+
+
+              dniInput.addEventListener('input', function() {
+                  const dni = dniInput.value;
+
+                  // Si el valor no tiene 8 dígitos, limpiamos el timeout y retornamos
+                  if (dni.length !== 8) {
+                      if (timeoutId) {
+                          clearTimeout(timeoutId);
+                          nameInput.value = "";
+                      }
+                      return;
+                  }
+
+                  // Limpiamos cualquier timeout anterior
+                  if (timeoutId) {
+                      clearTimeout(timeoutId);
+                  }
+
+                  // Establecemos un nuevo timeout de 1 segundo
+                  timeoutId = setTimeout(() => {
+                      fetch(`https://dni.biblio-ideas.com/api/dni/${dni}`)
+                          .then(response => response.json())
+                          .then(data => {
+                            apInput.value = data.apellidoPaterno
+                            amInput.value = data.apellidoMaterno
+                            nameInput.value = data.nombres
+                          })
+                          .catch(error => {
+                              
+                          });
+                  }, 500);
+              });
+        });
     </script>
     
     <script>

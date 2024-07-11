@@ -60,5 +60,44 @@
             class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
       </div>
     </div>
+    <div class="col-md-4">
+      <div class="card">
+        <h3>Video tutorial de Soporte - Tickets</h3>
+        <div>
+          <i class="fa fa-film fa-4x"></i>
+          <br><br />
+          <p>Permite ver cómo generar y editar tikets de soporte.</p>
+        </div>
+        <p><a
+            href="https://drive.google.com/file/d/1zxIr11lvMhGxfUPJL8OlNBv19oVyprfv/view?usp=drive_link"
+            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <h3>Video tutorial de Soporte - Preguntas Frecuentes</h3>
+        <div>
+          <i class="fa fa-film fa-4x"></i>
+          <br><br />
+          <p>Permite ver cómo generar y editar las preguntas frecuentes para los usuarios del sistema.</p>
+        </div>
+        <p><a
+            href="https://drive.google.com/file/d/1gKMAF82K5nOT14mFq6Uf1Xjo8l8prgp6/view?usp=drive_link"
+            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <h3>Video tutorial de Soporte - Manuales y Tutoriales</h3>
+        <div>
+          <i class="fa fa-film fa-4x"></i>
+          <br><br />
+          <p>Permite ver cómo visualizar los manuales y tutoriales del sistema.</p>
+        </div>
+        <p><a
+            href="https://drive.google.com/file/d/1XKneLqtr0HyanpwYQ2AKwK7qinLU7BIG/view?usp=drive_link"
+            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
+      </div>
+    </div>
   </div>
 </div>

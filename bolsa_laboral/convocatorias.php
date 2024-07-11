@@ -172,18 +172,18 @@ if (!verificar_sesion($conexion)) {
 
                               echo '<td>'.$programas_string.'</td>';
                               echo '<td class="green"><i class="fa fa-building"></i> <b>EMPRESA</b></td>';
-
+                              $programas_string = "";
                             }else{
-                              $programas = buscarProgramasByIdOfertaIestp($conexion, $ofertas['id']);
+                              $programas_ies = buscarProgramasByIdOfertaIestp($conexion, $ofertas['id']);
                               $nombre_programas_iestp = [];
-                              while ($programa = $programas->fetch_assoc()) {
-                                $nombre_programas_iestp[] = $programa['nombre'];
+                              while ($programa_ies = $programas_ies->fetch_assoc()) {
+                                $nombre_programas_iestp[] = $programa_ies['nombre'];
                               }
 
                               $nombres_programas_string = implode(', ', $nombre_programas_iestp);
                               echo '<td>'.$nombres_programas_string.'</td>';
                               echo '<td class="blue"><i class="fa fa-bank"></i>  <b>INSTITUTO</b></td>';
-
+                              $nombres_programas_string = "";
                             }
                             ?>
                             <td>
@@ -355,7 +355,7 @@ if (!verificar_sesion($conexion)) {
         "previous": "Anterior"
     },
       },
-      "order": [4, 'desc']
+      "order": [5, 'asc']
     });
 
     } );

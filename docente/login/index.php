@@ -3,10 +3,6 @@
  include("../../include/busquedas.php");
  include("../../include/funciones.php");
  
- 
-?>
-
- <?php
                     $buscar = buscarDatosGenerales($conexion);
                     $res = mysqli_fetch_array($buscar); 
                     ?>

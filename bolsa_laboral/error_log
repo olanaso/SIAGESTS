@@ -88,3 +88,69 @@ Stack trace:
 #0 /home/sistemae/iestpmorochucos.sistema.edu.pe/bolsa_laboral/detalle_convocatoria.php(21): mysqli_fetch_array()
 #1 {main}
   thrown in /home/sistemae/iestpmorochucos.sistema.edu.pe/bolsa_laboral/detalle_convocatoria.php on line 21
+[09-Jul-2024 11:39:13 America/Lima] PHP Warning:  Undefined variable $nombres_programas in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php on line 171
+[09-Jul-2024 11:39:13 America/Lima] PHP Fatal error:  Uncaught TypeError: implode(): Argument #1 ($array) must be of type array, string given in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php:171
+Stack trace:
+#0 /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php(171): implode()
+#1 {main}
+  thrown in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php on line 171
+[09-Jul-2024 11:39:28 America/Lima] PHP Warning:  Undefined variable $nombres_programas in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php on line 171
+[09-Jul-2024 11:39:28 America/Lima] PHP Fatal error:  Uncaught TypeError: implode(): Argument #1 ($array) must be of type array, string given in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php:171
+Stack trace:
+#0 /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php(171): implode()
+#1 {main}
+  thrown in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php on line 171
+[09-Jul-2024 11:39:35 America/Lima] PHP Warning:  Undefined variable $nombres_programas in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php on line 171
+[09-Jul-2024 11:39:35 America/Lima] PHP Fatal error:  Uncaught TypeError: implode(): Argument #1 ($array) must be of type array, string given in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php:171
+Stack trace:
+#0 /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php(171): implode()
+#1 {main}
+  thrown in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php on line 171
+[09-Jul-2024 11:43:20 America/Lima] PHP Warning:  Undefined variable $nombres_programas in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php on line 171
+[09-Jul-2024 11:43:20 America/Lima] PHP Fatal error:  Uncaught TypeError: implode(): Argument #1 ($array) must be of type array, string given in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php:171
+Stack trace:
+#0 /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php(171): implode()
+#1 {main}
+  thrown in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php on line 171
+[09-Jul-2024 11:43:22 America/Lima] PHP Warning:  Undefined variable $nombres_programas in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php on line 171
+[09-Jul-2024 11:43:22 America/Lima] PHP Fatal error:  Uncaught TypeError: implode(): Argument #1 ($array) must be of type array, string given in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php:171
+Stack trace:
+#0 /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php(171): implode()
+#1 {main}
+  thrown in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php on line 171
+[09-Jul-2024 11:43:23 America/Lima] PHP Warning:  Undefined variable $nombres_programas in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php on line 171
+[09-Jul-2024 11:43:23 America/Lima] PHP Fatal error:  Uncaught TypeError: implode(): Argument #1 ($array) must be of type array, string given in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php:171
+Stack trace:
+#0 /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php(171): implode()
+#1 {main}
+  thrown in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php on line 171
+[09-Jul-2024 11:43:40 America/Lima] PHP Warning:  Undefined variable $nombres_programas in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php on line 171
+[09-Jul-2024 11:43:40 America/Lima] PHP Fatal error:  Uncaught TypeError: implode(): Argument #1 ($array) must be of type array, string given in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php:171
+Stack trace:
+#0 /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php(171): implode()
+#1 {main}
+  thrown in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php on line 171
+[09-Jul-2024 11:44:19 America/Lima] PHP Warning:  Undefined variable $nombres_programas in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php on line 171
+[09-Jul-2024 11:44:19 America/Lima] PHP Fatal error:  Uncaught TypeError: implode(): Argument #1 ($array) must be of type array, string given in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php:171
+Stack trace:
+#0 /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php(171): implode()
+#1 {main}
+  thrown in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php on line 171
+[09-Jul-2024 11:44:20 America/Lima] PHP Warning:  Undefined variable $nombres_programas in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php on line 171
+[09-Jul-2024 11:44:20 America/Lima] PHP Fatal error:  Uncaught TypeError: implode(): Argument #1 ($array) must be of type array, string given in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php:171
+Stack trace:
+#0 /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php(171): implode()
+#1 {main}
+  thrown in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php on line 171
+[09-Jul-2024 11:44:22 America/Lima] PHP Warning:  Undefined variable $nombres_programas in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php on line 171
+[09-Jul-2024 11:44:22 America/Lima] PHP Fatal error:  Uncaught TypeError: implode(): Argument #1 ($array) must be of type array, string given in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php:171
+Stack trace:
+#0 /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php(171): implode()
+#1 {main}
+  thrown in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php on line 171
+[09-Jul-2024 11:44:23 America/Lima] PHP Warning:  Undefined variable $nombres_programas in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php on line 171
+[09-Jul-2024 11:44:23 America/Lima] PHP Fatal error:  Uncaught TypeError: implode(): Argument #1 ($array) must be of type array, string given in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php:171
+Stack trace:
+#0 /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php(171): implode()
+#1 {main}
+  thrown in /home/sigaestc/demo.sigaest.com/bolsa_laboral/convocatorias.php on line 171

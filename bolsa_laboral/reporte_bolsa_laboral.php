@@ -98,7 +98,7 @@ if (!verificar_sesion($conexion)) {
                                     <thead>
                                       <tr>
                                           <th>N°</th>
-                                          <th>Empresa</th>
+                                          <th>Nombre de la empresa, persona natural o jurídica</th>
                                           <th>Título</th>
                                           <th>Lugar de trabajo</th>
                                           <th>Modalidad</th>
@@ -130,14 +130,13 @@ if (!verificar_sesion($conexion)) {
                                     </tbody>
                                   </table> 
                                     <?php } 
-                                    if( $tipo == 'Clasificación de empresas'){ ?>
+                                    if( $tipo == 'Conteo de estudiantes por empresas'){ ?>
                                     <table id="empresa" class="table table-striped table-bordered" style="width:100%">
                                       <thead>
                                         <tr>
                                           <th>N°</th>
                                           <th>Estado</th>
-                                          <th>RUC</th>
-                                          <th>Razon Social</th>
+                                          <th>Nombre de la empresa, persona natural o jurídica</th>
                                           <th>Ubicación</th>
                                           <th>Total de Postulantes</th>
                                         </tr>
@@ -145,14 +144,25 @@ if (!verificar_sesion($conexion)) {
                                       <tbody>
                                         <?php 
                                           $cont = 0;
-                                          $busc_conc_egr = buscarEmpresasReporte($conexion, $fecha_inicio, $fecha_fin); 
+                                          $busc_conc_egr_iestp = buscarEmpresasConvocatoriasInstitutoReporte($conexion, $fecha_inicio, $fecha_fin); 
+                                          while ($empresa=mysqli_fetch_array($busc_conc_egr_iestp)){
+                                        ?>
+                                        <tr>
+                                          <td><?php $cont = $cont + 1;
+                                          echo $cont; ?></td>
+                                          <td>Activo</td>
+                                          <td><?php echo $empresa['empresa']; ?></td>
+                                          <td><?php echo $empresa['ubicacion']; ?></td>
+                                          <td><?php echo $empresa['postulantes']; ?></td>
+                                        </tr>
+                                        <?php } 
+                                        $busc_conc_egr = buscarEmpresasReporte($conexion, $fecha_inicio, $fecha_fin); 
                                           while ($empresa=mysqli_fetch_array($busc_conc_egr)){
                                         ?>
                                         <tr>
                                           <td><?php $cont = $cont + 1;
                                           echo $cont; ?></td>
                                           <td><?php echo $empresa['estado']; ?></td>
-                                          <td><?php echo $empresa['ruc']; ?></td>
                                           <td><?php echo $empresa['empresa']; ?></td>
                                           <td><?php echo $empresa['ubicacion']; ?></td>
                                           <td><?php echo $empresa['postulantes']; ?></td>
@@ -162,13 +172,13 @@ if (!verificar_sesion($conexion)) {
                                     </table> 
                                     <?php } ?>
                                     <?php 
-                                    if( $tipo == 'Total de postulantes'){ ?>
+                                    if( $tipo == 'Conteo de postulantes por programas'){ ?>
                                     <table id="programa" class="table table-striped table-bordered" style="width:100%">
                                       <thead>
                                         <tr>
                                           <th>N°</th>
                                           <th>Código</th>
-                                          <th>Nombre</th>
+                                          <th>Programa de estudios</th>
                                           <th>Tipo</th>
                                           <th>Plan de estudios</th>
                                           <th>Total de Postulantes</th>
@@ -201,14 +211,13 @@ if (!verificar_sesion($conexion)) {
                                         <tr>
                                           <th>N°</th>
                                           <th>DNI</th>
-                                          <th>Apellidos y Nombres</th>
+                                          <th>Apellidos y nombres</th>
                                           <th>Programa de estudios</th>
                                           <th>Plan de estudios</th>
-                                          <th>Nombre de la entidad</th>
-                                          <th>RUC de la empresa</th>
+                                          <th>Nombre de la empresa, persona natural o jurídica</th>
                                           <th>Ubicación de la empresa</th>
                                           <th>Título de la convocatoria</th>
-                                          <th>Fecha de Postulación</th>
+                                          <th>Fecha de postulación</th>
                                         </tr>
                                       </thead>
                                       <tbody>
@@ -225,12 +234,27 @@ if (!verificar_sesion($conexion)) {
                                           <td><?php echo $programa['nombre']; ?></td>
                                           <td><?php echo $programa['plan_estudio']; ?></td>
                                           <td><?php echo $programa['razon_social']; ?></td>
-                                          <td><?php echo $programa['ruc']; ?></td>
                                           <td><?php echo $programa['ubicacion']; ?></td>
                                           <td><?php echo $programa['titulo']; ?></td>
                                           <td><?php echo $programa['fecha_registro']; ?></td>
                                         </tr>
-                                        <?php } ?>
+                                        <?php } 
+                                        $busc_detalle = buscarPostulantesDetalladoInstituto($conexion, $fecha_inicio, $fecha_fin); 
+                                        while ($programa=mysqli_fetch_array($busc_detalle)){
+                                      ?>
+                                      <tr>
+                                        <td><?php $cont = $cont + 1;
+                                          echo $cont; ?></td>
+                                        <td><?php echo $programa['dni']; ?></td>
+                                        <td><?php echo $programa['apellidos_nombres']; ?></td>
+                                        <td><?php echo $programa['nombre']; ?></td>
+                                        <td><?php echo $programa['plan_estudio']; ?></td>
+                                        <td><?php echo $programa['empresa']; ?></td>
+                                        <td><?php echo $programa['ubicacion']; ?></td>
+                                        <td><?php echo $programa['titulo']; ?></td>
+                                        <td><?php echo $programa['fecha_registro']; ?></td>
+                                      </tr>
+                                      <?php } ?>
                                       </tbody>
                                     </table> 
 
@@ -303,7 +327,7 @@ if (!verificar_sesion($conexion)) {
         searching: false, // Desactiva el buscador
         info: false,
         dom: 'Bfrtip', // Aquí incluyes la configuración para los botones de exportación
-        order: [5, 'desc'],
+        order: [1, 'asc'],
         buttons: [
           {
                 extend: 'excelHtml5',

@@ -165,20 +165,33 @@ function buscarPostulantesByIdOfertaIestp($conexion, $id_ol){
 function buscarOfertasDisponiblesByPrograma($conexion, $id_programa){
 	$sql = "SELECT ol.id,ol.fecha_inicio,ol.fecha_fin, ol.titulo,ol.ubicacion,ol.vacantes,ol.turno,ol.salario,ol.modalidad,ol.estado, e.razon_social as empresa, 'empresa' as propietario 
 	FROM  oferta_laboral ol INNER JOIN `oferta_programas` op ON op.id_ol = ol.id INNER JOIN empresa e ON 
-		e.id = ol.id_empresa WHERE op.id_pr = $id_programa AND ol.estado != 'ARCHIVADO'";
+		e.id = ol.id_empresa WHERE op.id_pr = $id_programa AND ol.estado != 'ARCHIVADO' AND op.propietario = 'empresa'";
 	$res = mysqli_query($conexion, $sql);
 	return $res;
 }
 
 function buscarOfertasDisponiblesByProgramaIestp($conexion, $id_programa){
-	$sql = "SELECT ol.*	FROM  oferta_laboral_propia ol INNER JOIN `oferta_programas` op ON op.id_ol = ol.id  WHERE op.id_pr = $id_programa AND ol.estado != 'ARCHIVADO'";
+	$sql = "SELECT ol.*	FROM  oferta_laboral_propia ol INNER JOIN `oferta_programas` op ON op.id_ol = ol.id  WHERE op.id_pr = $id_programa AND ol.estado != 'ARCHIVADO' AND op.propietario = 'iestp'";
 	$res = mysqli_query($conexion, $sql);
 	return $res;
 }
 
 function buscarOfertasEstudiante($conexion, $id_estudiante){
 	$sql = "SELECT ol.id,ol.fecha_inicio,ol.fecha_fin, ol.titulo,ol.ubicacion,ol.vacantes,ol.turno,ol.salario,ol.modalidad,ol.estado, em.razon_social as empresa, 'empresa' as propietario  FROM  oferta_laboral ol INNER JOIN `oferta_postulantes` op ON op.id_ol = ol.id INNER JOIN `empresa` em ON ol.id_empresa = em.id INNER JOIN estudiante e ON 
-	e.id = op.id_es  WHERE op.id_es = $id_estudiante GROUP BY ol.id";
+	e.id = op.id_es  WHERE op.id_es = $id_estudiante AND op.propietario = 'empresa' GROUP BY ol.id";
+	$res = mysqli_query($conexion, $sql);
+	return $res;
+}
+
+function buscarOfertasEstudianteInstituto($conexion, $id_estudiante){
+	$sql = "SELECT ol.id,ol.fecha_inicio,ol.fecha_fin, ol.titulo,ol.ubicacion,ol.vacantes,ol.turno,ol.salario,ol.modalidad,ol.estado, ol.empresa as empresa, 'iestp' as propietario  FROM  oferta_laboral_propia ol INNER JOIN `oferta_postulantes` op ON op.id_ol = ol.id  INNER JOIN estudiante e ON 
+	e.id = op.id_es  WHERE op.id_es = $id_estudiante AND op.propietario = 'iestp' GROUP BY ol.id";
+	$res = mysqli_query($conexion, $sql);
+	return $res;
+}
+
+function buscarOfertaPostuladaInstituto($conexion, $id_oferta){
+	$sql = "SELECT id FROM oferta_postulantes WHERE id_ol = $id_oferta AND propietario = 'iestp'";
 	$res = mysqli_query($conexion, $sql);
 	return $res;
 }
@@ -269,6 +282,14 @@ function buscarEmpresasReporte($conexion, $fecha_inicio, $fecha_fin){
 	return $res;
 }
 
+function buscarEmpresasConvocatoriasInstitutoReporte($conexion, $fecha_inicio, $fecha_fin){
+	$sql = "SELECT ol.empresa, ol.ubicacion, SUM(CASE WHEN op.id_es > 0 THEN 1 ELSE 0 END) AS postulantes FROM oferta_laboral_propia ol  INNER JOIN oferta_postulantes op ON op.id_ol = ol.id 
+	WHERE op.propietario = 'iestp' AND ol.fecha_inicio BETWEEN '$fecha_inicio' AND '$fecha_fin' 
+                OR ol.fecha_fin BETWEEN '$fecha_inicio' AND '$fecha_fin' GROUP BY ol.empresa, ol.ubicacion" ;
+	$res = mysqli_query($conexion, $sql);
+	return $res;
+}
+
 function buscarProgramasReporte($conexion, $fecha_inicio, $fecha_fin){
 	$sql = "SELECT 
             pe.*,
@@ -294,8 +315,20 @@ function buscarPostulantesDetallado($conexion, $fecha_inicio, $fecha_fin){
                 INNER JOIN programa_estudios pe ON pe.id = e.id_programa_estudios
                 INNER JOIN oferta_laboral ol ON ol.id = oe.id_ol
                 INNER JOIN empresa em ON em.id = ol.id_empresa
-            	WHERE oe.fecha_registro BETWEEN '$fecha_inicio' AND '$fecha_fin' 
-                OR oe.fecha_registro BETWEEN '$fecha_inicio' AND '$fecha_fin'";
+            	WHERE oe.fecha_registro BETWEEN '$fecha_inicio' AND '$fecha_fin'";
+	$res = mysqli_query($conexion, $sql);
+	return $res;
+}
+
+function buscarPostulantesDetalladoInstituto($conexion, $fecha_inicio, $fecha_fin){
+	$sql = "SELECT 
+			e.*, pe.*, ol.*, DATE_SUB(oe.fecha_registro, INTERVAL 5 HOUR) as fecha_registro
+            FROM 
+                estudiante e
+                INNER JOIN oferta_postulantes oe ON oe.id_es = e.id
+                INNER JOIN programa_estudios pe ON pe.id = e.id_programa_estudios
+                INNER JOIN oferta_laboral_propia ol ON ol.id = oe.id_ol
+            	WHERE oe.propietario = 'iestp' AND oe.fecha_registro BETWEEN '$fecha_inicio' AND '$fecha_fin'";
 	$res = mysqli_query($conexion, $sql);
 	return $res;
 }

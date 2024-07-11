@@ -85,7 +85,7 @@ if (!verificar_sesion($conexion)) {
               <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                   <div class="x_panel">
                       <div class="x_title">
-                          <h2>Total de ofertas laborales</h2>
+                          <h2>Convocatorias laborales</h2>
                           <div class="clearfix"></div>
                       </div>
                       <div class="x_content">
@@ -98,12 +98,12 @@ if (!verificar_sesion($conexion)) {
               <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                   <div class="x_panel">
                       <div class="x_title">
-                          <h2>Clasificación de empresas</h2>
+                          <h2>Conteo de estudiantes por empresas</h2>
                           <div class="clearfix"></div>
                       </div>
                       <div class="x_content">
                           <p>Reporte de empresas con mayores postulantes a convocatorias que hayan finalizado en el rango de fechas seleccionadas.</p>
-                          <button  onclick="generarReporte('Clasificación de empresas')" class="btn btn-primary">Generar Reporte</button>
+                          <button  onclick="generarReporte('Conteo de estudiantes por empresas')" class="btn btn-primary">Generar Reporte</button>
                       </div>
                   </div>
               </div>
@@ -111,12 +111,12 @@ if (!verificar_sesion($conexion)) {
               <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                   <div class="x_panel">
                       <div class="x_title">
-                          <h2>Total de postulantes por programas</h2>
+                          <h2>Conteo de postulantes por programas</h2>
                           <div class="clearfix"></div>
                       </div>
                       <div class="x_content">
                           <p>Reporte general de postulantes a las diferentes convocatorias que se encuentren inscritos en el rango de fechas seleccionadas.</p>
-                          <button  onclick="generarReporte('Total de postulantes')" class="btn btn-primary">Generar Reporte</button>
+                          <button  onclick="generarReporte('Conteo de postulantes por programas')" class="btn btn-primary">Generar Reporte</button>
                       </div>
                   </div>
               </div>

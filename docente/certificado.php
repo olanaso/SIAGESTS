@@ -124,7 +124,7 @@ if (!verificar_sesion($conexion)) {
                 </div>
                 <div class="x_content">
                 <br />
-                <form role="form" action="imprimir_certificado_estudios.php" class="form-horizontal form-label-left input_mask" method="POST">
+                <form role="form" id="certificadoForm" action="imprimir_certificado_estudios.php" class="form-horizontal form-label-left input_mask" method="POST">
                     <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">DNI Estudiante : </label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
@@ -142,10 +142,11 @@ if (!verificar_sesion($conexion)) {
 
             
                     <div align="center">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                    </div>
+                    <button type="submit" class="btn btn-primary" name="rechazar" onclick="setFormAction('imprimir_certificado_estudios.php')">Generar en Formato del Anexo 1A</button>
+                    <button type="submit" class="btn btn-primary" name="aceptar" onclick="setFormAction('imprimir_certificado_estudios_personalizado.php')">Generar en Formato Personalizado</button>
+                  <br><br>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>  
+                  </div>
                 </form>
                 </div>
                 </div>
@@ -228,6 +229,12 @@ if (!verificar_sesion($conexion)) {
       </div>
     </div>
 
+    <script>
+      function setFormAction(action) {
+          document.getElementById('certificadoForm').action = action;
+      }
+    </script>
+
     <!-- jQuery -->
    <script src="../Gentella/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -277,7 +284,8 @@ if (!verificar_sesion($conexion)) {
         "next": "Siguiente",
         "previous": "Anterior"
     },
-      }
+      },
+      "order": [4, 'desc']
     });
 
     } );

@@ -8,6 +8,14 @@
     margin-left: 5px;
     font-size: smaller;
   }
+  .responsive_img{
+      padding: 10px;
+      width: 100%;
+      object-fit:cover;
+  }
+  .cargo{
+      color:#fff;
+  }
 </style>
 <div class="col-md-3 left_col menu_fixed">
   <div class="left_col scroll-view">
@@ -21,17 +29,20 @@
     ?>
     <div class="clearfix"></div>
 
-    <!-- menu profile quick info -->
-    <div class="profile clearfix">
-      <div class="profile_pic">
-        <img src="../img/logo.png" alt="..." class="img-circle profile_img">
+     <!-- menu profile quick info -->
+     <div class="profile clearfix">
+    <center>
+      <div class="">
+        <img src="../img/logo.png" alt="..." class="responsive_img profile_img">
       </div>
-      <div class="profile_info">
+      <div >
         <span>Bienvenido,</span>
-        <h2><?php echo $res_b_u_sesion['apellidos_nombres']; ?></h2>
+        <h5 class="cargo">Estudiante</h5>
       </div>
-    </div>
+     </center>
+     </div>
     <!-- /menu profile quick info -->
+
 
     <br />
 

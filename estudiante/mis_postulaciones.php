@@ -97,7 +97,7 @@
                                     <table id="convocatorias" class="table table-striped table-bordered" style="width:100%">
                                         <thead>
                                         <tr>
-                                            <th>Empresa</th>
+                                            <th>Nombre de la empresa, persona natural o jurídica</th>
                                             <th>Título de la convocatoria</th>
                                             <th>Lugar de Trabajo</th>
                                             <th>Modalidad</th>
@@ -111,6 +111,36 @@
                                         </thead>
                                         <tbody>
                                         <?php 
+                                            $o_postuladas = buscarOfertasEstudianteInstituto($conexion, $id_estudiante_sesion);
+                                            while ($ofertas=mysqli_fetch_array($o_postuladas)){
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $ofertas['empresa']; ?></td>
+                                            <td><?php echo $ofertas['titulo']; ?></td>
+                                            <td><?php echo $ofertas['ubicacion']; ?></td>
+                                            <td><?php echo $ofertas['modalidad']; ?></td>
+                                            <td><?php echo $ofertas['turno']; ?></td>
+                                            <td><?php echo $ofertas['salario']; ?></td>
+                                            <td><?php echo $ofertas['fecha_inicio']; ?></td>
+                                            <td><?php echo $ofertas['fecha_fin']; ?></td>
+                                            <td>
+                                                <?php if($ofertas['estado'] == "ARCHIVADO"){?>
+                                                    <span class="badge <?php echo $ofertas['estado']?>"><?php echo $ofertas['estado'] ?></span>
+                                                <?php }else{ ?>
+                                                    <span class="badge <?php echo determinarEstado($ofertas['fecha_inicio'], $ofertas['fecha_fin'])?>"><?php echo determinarEstado($ofertas['fecha_inicio'], $ofertas['fecha_fin']) ?></span>
+                                                <?php } ?>
+                                            </td>
+                                            <td>
+                                            <?php
+                                                echo '
+                                                <a href="detalle_convocatoria_postulada.php?id='. $ofertas['id'] . '&type=0" class="btn btn-success" data-toggle="tooltip" data-original-title="Ver Detalles" data-placement="bottom"><i class="fa fa-eye"></i></a>
+                                                </td> '; 
+                                                ?>
+                                        </tr>  
+                                        <?php
+                                                };
+                                        ?>
+                                         <?php 
                                             $o_postuladas = buscarOfertasEstudiante($conexion, $id_estudiante_sesion);
                                             while ($ofertas=mysqli_fetch_array($o_postuladas)){
                                         ?>
@@ -133,7 +163,7 @@
                                             <td>
                                             <?php
                                                 echo '
-                                                <a href="detalle_convocatoria_postulada.php?id='. $ofertas['id'] . '" class="btn btn-success" data-toggle="tooltip" data-original-title="Ver Detalles" data-placement="bottom"><i class="fa fa-eye"></i></a>
+                                                <a href="detalle_convocatoria_postulada.php?id='. $ofertas['id'] . '&type=1" class="btn btn-success" data-toggle="tooltip" data-original-title="Ver Detalles" data-placement="bottom"><i class="fa fa-eye"></i></a>
                                                 </td> '; 
                                                 ?>
                                         </tr>  

@@ -61,6 +61,19 @@
   <div class="row">
     <div class="col-md-4">
       <div class="card">
+        <h3>Video tutorial de Perfil Docente</h3>
+        <div>
+          <i class="fa fa-film fa-4x"></i>
+          <br><br />
+          <p>Permite ver, actualizar información, cargar documentos como es el hoja de vida y generar el documento de carga académica.</p>
+        </div>
+        <p><a
+            href="https://drive.google.com/file/d/1ScaNMVHR0-WJADXennT_bpCEAninYNd4/view?usp=drive_link"
+            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
         <h3>Video tutorial de Generación de Sílabos</h3>
         <div>
           <i class="fa fa-film fa-4x"></i>
@@ -74,6 +87,19 @@
     </div>
     <div class="col-md-4">
       <div class="card">
+        <h3>Video tutorial de Importar Sílabo</h3>
+        <div>
+          <i class="fa fa-film fa-4x"></i>
+          <br><br />
+          <p>Permite importar otro formato de sílabo a la plataforma.</p>
+        </div>
+        <p><a
+            href="https://drive.google.com/file/d/1cjLN5WLUebfT0MZK1lOy3XAugzZjneWa/view?usp=drive_link"
+            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
         <h3>Video tutorial de Sesiones de Aprendizaje</h3>
         <div>
           <i class="fa fa-film fa-4x"></i>
@@ -81,7 +107,20 @@
           <p>Permite ver cómo generar, modificar y visualizar las sesiones de aprendizaje.</p>
         </div>
         <p><a
-            href="https://drive.google.com/file/d/1QMaEs8Bl-i3Wu8ZFgKUOFn77UEAXV1HR/view?usp=sharing"
+            href="https://drive.google.com/file/d/10qKsTT64vvi_--4oWVtg-rM41K7vt1ZP/view?usp=drive_link"
+            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <h3>Video tutorial de Generación de Sílabos</h3>
+        <div>
+          <i class="fa fa-film fa-4x"></i>
+          <br><br />
+          <p>Permite ver cómo generar, modificar y visualizar el sílabo de la unidad didáctica.</p>
+        </div>
+        <p><a
+            href="https://drive.google.com/file/d/1FoNU28CGI-pXEsYqIhNFS84RitqKl469/view?usp=sharing"
             class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
       </div>
     </div>
@@ -136,6 +175,45 @@
         </div>
         <p><a
             href="https://drive.google.com/file/d/1uGyOEAxJB0nz__MJAPY0SJy6VgMp0--k/view?usp=sharing"
+            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <h3>Video tutorial de Soporte - Tickets</h3>
+        <div>
+          <i class="fa fa-film fa-4x"></i>
+          <br><br />
+          <p>Permite ver cómo generar y editar tikets de soporte.</p>
+        </div>
+        <p><a
+            href="https://drive.google.com/file/d/1zxIr11lvMhGxfUPJL8OlNBv19oVyprfv/view?usp=drive_link"
+            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <h3>Video tutorial de Soporte - Preguntas Frecuentes</h3>
+        <div>
+          <i class="fa fa-film fa-4x"></i>
+          <br><br />
+          <p>Permite ver cómo generar y editar las preguntas frecuentes para los usuarios del sistema.</p>
+        </div>
+        <p><a
+            href="https://drive.google.com/file/d/1gKMAF82K5nOT14mFq6Uf1Xjo8l8prgp6/view?usp=drive_link"
+            class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <h3>Video tutorial de Soporte - Manuales y Tutoriales</h3>
+        <div>
+          <i class="fa fa-film fa-4x"></i>
+          <br><br />
+          <p>Permite ver cómo visualizar los manuales y tutoriales del sistema.</p>
+        </div>
+        <p><a
+            href="https://drive.google.com/file/d/1XKneLqtr0HyanpwYQ2AKwK7qinLU7BIG/view?usp=drive_link"
             class="btn btn-primary" target="_blank"><i class="fa fa-eye"></i> Visualizar</a></p>
       </div>
     </div>

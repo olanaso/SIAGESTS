@@ -171,7 +171,11 @@
                                 <div class="text-right mtop20">
                                 <?php
                                     if($convocatoria['link_postulacion'] != "" || is_null($convocatoria['link_postulacion'])){ ?>
-                                        <a href="<?php echo $convocatoria['link_postulacion']; ?>" target="_blank" class="btn btn-sm btn-primary">Ir a la convocatoria</a>
+                                        <a href="<?php echo $convocatoria['link_postulacion']; ?>" target="_blank" class="btn btn-sm btn-primary">Ir al enlace de la convocatoria</a>
+                                    <?php } 
+                                    if($estado == "En proceso") {
+                                    ?> 
+                                    <a href="postular.php?id=<?php echo $convocatoria['id']; ?>&type=0" class="btn btn-sm btn-success">Postular</a>
                                     <?php } ?>
                                 </div>
                             </div>

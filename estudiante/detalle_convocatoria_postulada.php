@@ -7,6 +7,7 @@
     include("../empresa/include/consultas.php");
 
     $id = isset($_GET['id']) ? $_GET['id'] : null;
+    $tipo = isset($_GET['type']) ? $_GET['type'] : null;
 
 	if (!verificar_sesion($conexion)) {
 		echo "<script>
@@ -18,10 +19,22 @@
         $id_estudiante_sesion = buscar_estudiante_sesion($conexion, $_SESSION['id_sesion_est'], $_SESSION['token']);
 		$b_estudiante = buscarEstudianteById($conexion, $id_estudiante_sesion);
 		$r_b_estudiante = mysqli_fetch_array($b_estudiante);
-        $oferta_laboral = buscarOfertaLaboralById($conexion, $id);
-        $convocatoria = mysqli_fetch_array($oferta_laboral);    
-        $empresa = buscarEmpresaById($conexion, $convocatoria['id_empresa']);
-        $empresa = mysqli_fetch_array($empresa);
+        if($tipo == 1){
+            $oferta_laboral = buscarOfertaLaboralById($conexion, $id);
+            $convocatoria = mysqli_fetch_array($oferta_laboral);    
+            $empresa = buscarEmpresaById($conexion, $convocatoria['id_empresa']);
+            $empresa = mysqli_fetch_array($empresa);
+            $empresa = $empresa['razon_social'];
+        }
+        elseif($tipo == 0){
+            $oferta_laboral = buscarOfertaLaboralByIdIestp($conexion, $id);
+            $convocatoria = mysqli_fetch_array($oferta_laboral);
+            $empresa = $convocatoria['empresa'];
+
+        }else{
+            exit;
+        }
+        
 
 
 ?>
@@ -106,7 +119,7 @@
                                 </div>
                                 <br>
                                 <ul class="list-unstyled project_files">
-                                    <li><strong>Empresa: </strong> <br> <?php echo $empresa['razon_social'] ?>
+                                    <li><strong>Nombre de la empresa, persona natural o jurídica: </strong> <br> <?php echo $empresa ?>
                                     </li>
                                     <li><strong>Lugar de Trabajo: </strong> <br> <?php echo $convocatoria['ubicacion'] ?>
                                     </li>

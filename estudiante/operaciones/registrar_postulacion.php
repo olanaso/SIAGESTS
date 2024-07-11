@@ -16,6 +16,7 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Obtener los datos del formulario
             $id_estudiante = $_POST["id"];
+            $tipo = $_POST["tipo"];
             $id_convocatoria = $_POST["convocatoria"];
             $dni = $_POST["dni"];
             $nombre = $_POST["nombre"];
@@ -40,11 +41,19 @@
             $rutaFinal = substr($rutaFinal,3);
             
             // Consulta para insertar los datos en la base de datos
-            $sql = "INSERT INTO `oferta_postulantes`( `id_ol`, `id_es`, `url_documento`) VALUES ($id_convocatoria,$id_estudiante,'$rutaFinal')";
-            $res = mysqli_query($conexion, $sql);
+            if($tipo == 0){
+                $sql = "INSERT INTO `oferta_postulantes`( `id_ol`, `id_es`, `url_documento`,`propietario`) 
+                VALUES ($id_convocatoria,$id_estudiante,'$rutaFinal','iestp')";
+                $res = mysqli_query($conexion, $sql);
+            }else{
+                $sql = "INSERT INTO `oferta_postulantes`( `id_ol`, `id_es`, `url_documento`,`propietario`) 
+                VALUES ($id_convocatoria,$id_estudiante,'$rutaFinal','empresa')";
+                $res = mysqli_query($conexion, $sql);
+            }
+            
             if ($res) {
                 echo "<script>
-                alert('Su registro se ha realizado de manera exitosa!!');
+                alert('Su postulación a la convocatoria se ha realizado de manera exitosa!!');
                 window.location.replace('../mis_postulaciones.php');
                 </script>";
             } else {

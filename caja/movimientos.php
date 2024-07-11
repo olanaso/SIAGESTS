@@ -203,8 +203,6 @@ if (!verificar_sesion($conexion)) {
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">D.N.I. / R.U.C. : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                           <input type="text" class="form-control" id="dni" name="dni" required="required" style="text-transform:uppercase;"  oninput="validateInput(this)" onkeyup="javascript:this.value=this.value.toUpperCase();">
-                          <!--<button type="button" onclick="buscarPorDNI()" oninput="validateInputNum(this, 8)" class="btn btn-success">Buscar</button>
-                          <br><br>-->
                         </div>
                       </div>
                       <div class="form-group">
@@ -438,43 +436,48 @@ if (!verificar_sesion($conexion)) {
         }
     </script>
 
-    <script>
-        async function buscarPorDNI() {
-            // Obtener el valor del DNI
-            var dni = document.getElementById("dni").value;
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dniInput = document.getElementById('dni');
+            const nameInput = document.getElementById('nombres_apellidos');
+            var tipoComprobante = document.getElementById("concepto").value;
+            let timeoutId = null;
 
-            // Token proporcionado por la API (reemplaza 'TU_TOKEN' con tu token real)
-            var token = '38921056413a314097179eec84229162502967e29eb0076c26c8c303845da65d';
+            if (tipoComprobante === "natural") {
 
-            // Configurar los parámetros de la solicitud
-            var params = {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + token
-                },
-                body: JSON.stringify({ dni: dni })
-            };
+              dniInput.addEventListener('input', function() {
+                  const dni = dniInput.value;
 
-            try {
-                // Realizar la solicitud a la API con fetch
-                var response = await fetch("https://apiperu.dev/api/dni", params);
-                var data = await response.json();
+                  // Si el valor no tiene 8 dígitos, limpiamos el timeout y retornamos
+                  if (dni.length !== 8) {
+                      if (timeoutId) {
+                          clearTimeout(timeoutId);
+                          nameInput.value = "";
+                      }
+                      return;
+                  }
 
-                // Manejar la respuesta de la API
-                mostrarResultado(data.data.nombre_completo);
-            } catch (error) {
-                // Manejar el error
-                mostrarResultado("Registre manualmente");
+                  // Limpiamos cualquier timeout anterior
+                  if (timeoutId) {
+                      clearTimeout(timeoutId);
+                  }
+
+                  // Establecemos un nuevo timeout de 1 segundo
+                  timeoutId = setTimeout(() => {
+                      fetch(`https://dni.biblio-ideas.com/api/dni/${dni}`)
+                          .then(response => response.json())
+                          .then(data => {
+                            nameInput.value = data.apellidoPaterno + ' ' + data.apellidoMaterno + ' ' + data.nombres
+                          })
+                          .catch(error => {
+                              
+                          });
+                  }, 500);
+              });
             }
-        }
-
-        function mostrarResultado(resultado) {
-            // Mostrar el resultado en la página
-            document.getElementById("nombres_apellidos").value = resultado;
-        }
+        });
     </script>
+
 
 <!-- jQuery -->
 <script src="../Gentella/vendors/jquery/dist/jquery.min.js"></script>

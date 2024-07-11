@@ -653,3 +653,11 @@
 [23-May-2024 10:39:40 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/admision/operaciones/obtener_modalidades.php on line 17
 [23-May-2024 10:39:40 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/admision/operaciones/obtener_programas.php on line 11
 [23-May-2024 10:39:40 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/demo.sistema.edu.pe/admision/operaciones/obtener_programas_segunda_opcion.php on line 13
+[09-Jul-2024 14:22:33 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sigaestc/demo.sigaest.com/admision/operaciones/obtener_modalidades.php on line 11
+[09-Jul-2024 14:22:33 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sigaestc/demo.sigaest.com/admision/operaciones/obtener_modalidades.php on line 17
+[09-Jul-2024 14:22:33 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sigaestc/demo.sigaest.com/admision/operaciones/obtener_programas.php on line 11
+[09-Jul-2024 14:22:33 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sigaestc/demo.sigaest.com/admision/operaciones/obtener_programas_segunda_opcion.php on line 13
+[09-Jul-2024 17:45:24 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sigaestc/demo.sigaest.com/admision/operaciones/obtener_programas.php on line 11
+[09-Jul-2024 17:45:24 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sigaestc/demo.sigaest.com/admision/operaciones/obtener_modalidades.php on line 11
+[09-Jul-2024 17:45:24 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sigaestc/demo.sigaest.com/admision/operaciones/obtener_programas_segunda_opcion.php on line 13
+[09-Jul-2024 17:45:24 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sigaestc/demo.sigaest.com/admision/operaciones/obtener_modalidades.php on line 17

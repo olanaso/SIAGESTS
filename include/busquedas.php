@@ -35,6 +35,13 @@ function buscarEstudiante($conexion)
 	$sql = "SELECT * FROM estudiante WHERE egresado = 'NO'";
 	return mysqli_query($conexion, $sql);
 }
+
+function buscarEstudiantesCorreosByPrograma($conexion,$id_programa)
+{
+	$sql = "SELECT correo FROM estudiante WHERE id_programa_estudios = $id_programa";
+	return mysqli_query($conexion, $sql);
+}
+
 function buscarTodosEstudiantes($conexion)
 {
 	$sql = "SELECT * FROM estudiante";

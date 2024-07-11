@@ -188,14 +188,14 @@ if (!verificar_sesion($conexion)) {
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">DNI : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="number" class="form-control" name="dni" required="required" maxlength="8">
+                          <input type="number" class="form-control" name="dni" id="dni" required="required" maxlength="8">
                           <br>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Apellidos y Nombres : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" name="nom_ap" required="required">
+                          <input type="text" class="form-control" name="nom_ap" id="nom_ap" required="required">
                           <br>
                         </div>
                       </div>
@@ -425,6 +425,45 @@ if (!verificar_sesion($conexion)) {
     });
 
     } );
+    </script>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dniInput = document.getElementById('dni');
+            const nameInput = document.getElementById('nom_ap');
+
+            let timeoutId = null;
+
+            dniInput.addEventListener('input', function() {
+                const dni = dniInput.value;
+
+                // Si el valor no tiene 8 dígitos, limpiamos el timeout y retornamos
+                if (dni.length !== 8) {
+                    if (timeoutId) {
+                        clearTimeout(timeoutId);
+                        nameInput.value = "";
+                    }
+                    return;
+                }
+
+                // Limpiamos cualquier timeout anterior
+                if (timeoutId) {
+                    clearTimeout(timeoutId);
+                }
+
+                // Establecemos un nuevo timeout de 1 segundo
+                timeoutId = setTimeout(() => {
+                    fetch(`https://dni.biblio-ideas.com/api/dni/${dni}`)
+                        .then(response => response.json())
+                        .then(data => {
+                          nameInput.value = data.apellidoPaterno + ' ' + data.apellidoMaterno + ' ' + data.nombres
+                        })
+                        .catch(error => {
+                            
+                        });
+                }, 500);
+            });
+        });
     </script>
 
 <script>

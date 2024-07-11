@@ -15,6 +15,14 @@
     overflow-y: auto;
     /* Agrega scroll vertical si el contenido excede la altura máxima */
   }
+  .responsive_img{
+      padding: 10px;
+      width: 100%;
+      object-fit:cover;
+  }
+  .cargo{
+      color:#fff;
+  }
 </style>
 
 <style>
@@ -42,14 +50,16 @@
 
     <!-- menu profile quick info -->
     <div class="profile clearfix">
-      <div class="profile_pic">
-        <img src="../img/logo.png" alt="..." class="img-circle profile_img">
+    <center>
+      <div class="">
+        <img src="../img/logo.png" alt="..." class="responsive_img profile_img">
       </div>
-      <div class="profile_info">
+      <div >
         <span>Bienvenido,</span>
-        <h2><?php echo $res_b_u_sesion['apellidos_nombres']; ?></h2>
+        <h5 class="cargo">Adminitrador de Bolsa Laboral</h5>
       </div>
-    </div>
+     </center>
+     </div>
     <!-- /menu profile quick info -->
 
     <br />
@@ -74,6 +84,13 @@
               <li class="sub_menu"><a href="convocatorias.php">Convocatorias</a></li>
               <li class="sub_menu"><a href="convocatorias_archivadas.php">Convocatorias Archivadas</a></li>
               <li class="sub_menu"><a href="convocatoria_reportes.php">Reportes</a></li>
+            </ul>
+          </li>
+          
+          <li><a><i class="fa fa-gears"></i>Mantenimiento<span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu">
+              <li><a href="datos.php">Datos Institucionales</a></li>
+              <li><a href="programa_estudio.php">Programas de estudio</a></li>
             </ul>
           </li>
           <li>

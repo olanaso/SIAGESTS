@@ -162,7 +162,7 @@
                                 if($estado == "En proceso") {
                                 ?>
                                 <div class="text-right mtop20">
-                                    <a href="postular.php?id=<?php echo $convocatoria['id']; ?>"  class="btn btn-sm btn-primary">Quiero Postular</a>
+                                    <a href="postular.php?id=<?php echo $convocatoria['id']; ?>&type=1"  class="btn btn-sm btn-primary">Quiero Postular</a>
                                 </div>
                                 <?php }?>
                             </div>
