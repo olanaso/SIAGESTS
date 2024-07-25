@@ -126,7 +126,7 @@ if (!verificar_sesion($conexion)) {
                                                 <?php echo $medio_pago['Titular']; ?>
                                             </td>
                                             <td>
-                                                <button title="Editar" class="btn btn-warning"
+                                                <button title="Editar" class="btn btn-success"
                                                 data-toggle="modal" data-target=".edit_<?php echo $medio_pago['Id']; ?>"><i
                                                         class="fa fa-edit"></i></button>
                                             </td>
@@ -162,7 +162,7 @@ if (!verificar_sesion($conexion)) {
                                                                         <option></option>
                                                                         <option value="Efectivo">Efectivo</option>
                                                                         <option value="Yape">Yape</option>
-                                                                        <option value="Déposito">Depósito</option>
+                                                                        <option value="Depósito">Depósito</option>
                                                                         <option value="Transferencia Interbancaria">Transferencia Interbancaria</option>
                                                                         <option value="Plin">Plin</option>
                                                                     </select>

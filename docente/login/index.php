@@ -3,10 +3,6 @@
  include("../../include/busquedas.php");
  include("../../include/funciones.php");
  
- 
-?>
-
- <?php
                     $buscar = buscarDatosGenerales($conexion);
                     $res = mysqli_fetch_array($buscar); 
                     ?>
@@ -145,6 +141,9 @@
 <path d="M7.98004 16V15H14.385C14.5384 15 14.6794 14.936 14.808 14.808C14.936 14.6793 15 14.5383 15 14.385V1.615C15 1.46167 14.936 1.32067 14.808 1.192C14.6794 1.064 14.5384 1 14.385 1H7.98004V0H14.384C14.844 0 15.228 0.154333 15.536 0.463C15.8447 0.771 15.999 1.155 15.999 1.615V14.385C15.999 14.845 15.845 15.229 15.537 15.537C15.2284 15.8457 14.844 16 14.384 16H7.98004ZM7.27004 11.538L6.56704 10.819L8.88704 8.5H0.019043V7.5H8.88704L6.56704 5.18L7.26904 4.462L10.808 8L7.26904 11.538H7.27004Z" fill="white"/>
 </svg>
                             Ingresar</button>
+                            <div class="forgot-password">
+                                <a href="../../estudiante/login/">Módulo Estudiante</a>
+                            </div>
                               <div class="forgot-password">
                                 <a href="reset_password.php">¿Olvidaste tu contraseña?</a>
                             </div>
@@ -157,7 +156,8 @@
 
     <!-- Footer -->
     <div class="footer">
-        <p>&copy; 2023 <?php echo $res['nombre_institucion']; ?>. Todos los derechos reservados.</p>
+        <p>&copy; <?php echo date('Y'); ?> <?php echo $res['nombre_institucion']; ?>. Todos los derechos reservados.</p>
+        <p>V 30.05.24</p>
     </div>
 
     <!-- Bootstrap Bundle with Popper -->

@@ -3,7 +3,6 @@
 include("../include/conexion.php");
 include("../include/busquedas.php");
 include("../include/funciones.php");
-include "../caja/consultas.php";
 include("../functions/funciones.php");
 include("include/verificar_sesion_secretaria.php");
 
@@ -113,23 +112,33 @@ if (!verificar_sesion($conexion)) {
   $documento = '
       <table border="0" width="100%" cellspacing="0" cellpadding="0">
           <tr>
-              <td width="40%"><img src="../img/logo.jpg" alt="" height="30px"></td>
+              
+              <td width="15%"><img src="../img/logo.jpg" alt="" height="30px"></td>
               <td width="10%"></td>
-              <td width="50%" align="right"><img src="../img/logo_minedu.jpeg" alt="" height="30px"></td>
+              <td width="50%" align="center"><img src="../img/logo_minedu.jpeg" alt="" height="30px"></td>
+              <td width="10%"></td>
+              <td width="15%"></td>
+              
           </tr>
           <br />
           <tr>
+              <td></td>
               <td colspan="3" align="center"><b>CERTIFICADO DE ESTUDIOS DE EDUCACIÓN SUPERIOR TECNOLÓGICA</b></td>
+              <td></td>
           </tr>
           <tr>
+              <td></td>
               <td colspan="3" align="center"><font size="' . $text_size . '"><b>INSTITUTO DE EDUCACIÓN SUPERIOR TECNOLÓGICO PÚBLICO</b></font></td>
+              <td></td>
           </tr>
           <tr>
+              <td></td>
               <td colspan="3" align="center"><font size="12"><b>"'. $nombre_insti .'"</b></font></td>
+              <td></td>
           </tr>
           <tr>
               <br />
-              <td colspan="3" align="center"><font size="16"><b>CERTIFICA</b></font></td>
+              <td colspan="5" align="center"><font size="16"><b>CERTIFICA</b></font></td>
           </tr>
           <br />
           <tr>
@@ -155,7 +164,7 @@ if (!verificar_sesion($conexion)) {
               <th width="10%" align="center"><font size="10">N° de Créditos</font></th>
               <th width="10%" align="center"><font size="10">Nota (número)</font></th>
               <th width="10%" align="center"><font size="10">Nota (letra)</font></th>
-              <th width="12%" align="center"><font size="10">Periodo Lectivo</font></th>
+              <th width="12%" align="center"><font size="10">Año</font></th>
               <th width="12%" align="center"><font size="10">Periodo Académico</font></th>
           </tr>
   ';
@@ -168,8 +177,8 @@ if (!verificar_sesion($conexion)) {
               <td align="right"><font size="10">' . $notas['cantidad_creditos'] . '</font></td>
               <td align="right"><font size="10">' . $notas['calificacion'] . '</font></td>
               <td align="center"><font size="9">' . convertirNumeroALetra($notas['calificacion']) . '</font></td>
-              <td align="center"><font size="10">' . $notas['semestre_academico'] . '</font></td>
-              <td align="center"><font size="9">' . determinarParidad($notas['semestre_academico']) . '</font></td>
+              <td align="center"><font size="10">' . substr($notas['semestre_academico'],0,4) . '</font></td>
+              <td align="center"><font size="9">' . $notas['semestre_academico'] . '</font></td>
           </tr>
       ';
   }

@@ -29,7 +29,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>mis unidades didácticas<?php include("../include/header_title.php"); ?></title>
+        <title>Bolsa Laboral<?php include("../include/header_title.php"); ?></title>
         <!--icono en el titulo-->
         <link rel="shortcut icon" href="../img/favicon.ico">
         <!-- Bootstrap -->
@@ -77,12 +77,6 @@
                 include("include/menu.php");
                 $b_perido = buscarPeriodoAcadById($conexion, $_SESSION['periodo']);
                 $r_b_per = mysqli_fetch_array($b_perido);
-
-                $b_matricula = buscarMatriculaByEstudiantePeriodo($conexion, $id_estudiante_sesion, $_SESSION['periodo']);
-                $r_b_matricula = mysqli_fetch_array($b_matricula);
-                $id_matricula = $r_b_matricula['id'];
-                $b_det_mat = buscarDetalleMatriculaByIdMatricula($conexion, $id_matricula);
-                $cont_det_mat = mysqli_num_rows($b_det_mat);
                 ?>
 
                 <!-- page content -->
@@ -94,7 +88,7 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="">
-                                    <h2 align="center">Convocatorias Laborales</h2>
+                                    <h2 align="center">Mis Postulaciones</h2>
                                     <br>
                                     <div class="clearfix"></div>
                                 </div>
@@ -103,7 +97,7 @@
                                     <table id="convocatorias" class="table table-striped table-bordered" style="width:100%">
                                         <thead>
                                         <tr>
-                                            <th>Empresa</th>
+                                            <th>Nombre de la empresa, persona natural o jurídica</th>
                                             <th>Título de la convocatoria</th>
                                             <th>Lugar de Trabajo</th>
                                             <th>Modalidad</th>
@@ -117,6 +111,36 @@
                                         </thead>
                                         <tbody>
                                         <?php 
+                                            $o_postuladas = buscarOfertasEstudianteInstituto($conexion, $id_estudiante_sesion);
+                                            while ($ofertas=mysqli_fetch_array($o_postuladas)){
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $ofertas['empresa']; ?></td>
+                                            <td><?php echo $ofertas['titulo']; ?></td>
+                                            <td><?php echo $ofertas['ubicacion']; ?></td>
+                                            <td><?php echo $ofertas['modalidad']; ?></td>
+                                            <td><?php echo $ofertas['turno']; ?></td>
+                                            <td><?php echo $ofertas['salario']; ?></td>
+                                            <td><?php echo $ofertas['fecha_inicio']; ?></td>
+                                            <td><?php echo $ofertas['fecha_fin']; ?></td>
+                                            <td>
+                                                <?php if($ofertas['estado'] == "ARCHIVADO"){?>
+                                                    <span class="badge <?php echo $ofertas['estado']?>"><?php echo $ofertas['estado'] ?></span>
+                                                <?php }else{ ?>
+                                                    <span class="badge <?php echo determinarEstado($ofertas['fecha_inicio'], $ofertas['fecha_fin'])?>"><?php echo determinarEstado($ofertas['fecha_inicio'], $ofertas['fecha_fin']) ?></span>
+                                                <?php } ?>
+                                            </td>
+                                            <td>
+                                            <?php
+                                                echo '
+                                                <a href="detalle_convocatoria_postulada.php?id='. $ofertas['id'] . '&type=0" class="btn btn-success" data-toggle="tooltip" data-original-title="Ver Detalles" data-placement="bottom"><i class="fa fa-eye"></i></a>
+                                                </td> '; 
+                                                ?>
+                                        </tr>  
+                                        <?php
+                                                };
+                                        ?>
+                                         <?php 
                                             $o_postuladas = buscarOfertasEstudiante($conexion, $id_estudiante_sesion);
                                             while ($ofertas=mysqli_fetch_array($o_postuladas)){
                                         ?>
@@ -139,7 +163,7 @@
                                             <td>
                                             <?php
                                                 echo '
-                                                <a href="detalle_convocatoria_postulada.php?id='. $ofertas['id'] . '" class="btn btn-success" data-toggle="tooltip" data-original-title="Ver Detalles" data-placement="bottom"><i class="fa fa-eye"></i></a>
+                                                <a href="detalle_convocatoria_postulada.php?id='. $ofertas['id'] . '&type=1" class="btn btn-success" data-toggle="tooltip" data-original-title="Ver Detalles" data-placement="bottom"><i class="fa fa-eye"></i></a>
                                                 </td> '; 
                                                 ?>
                                         </tr>  
@@ -215,7 +239,8 @@
                             "next": "Siguiente",
                             "previous": "Anterior"
                         },
-                    }
+                    },
+                    "order":[7, "DESC"]
                 });
 
             });

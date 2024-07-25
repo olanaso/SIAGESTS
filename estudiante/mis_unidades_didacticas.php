@@ -106,6 +106,14 @@ if (!verificar_sesion($conexion)) {
                                                 $id_ud = $r_b_prog['id_unidad_didactica'];
                                                 $b_ud = buscarUdById($conexion, $id_ud);
                                                 $res_b_ud = mysqli_fetch_array($b_ud);
+                                                
+                                                //buscar silabo
+                                                $b_silabo = buscarSilaboByIdProgramacion($conexion, $res_b_det_mat['id_programacion_ud']);
+                                                $r_b_silabo = mysqli_fetch_array($b_silabo);
+                                                $documento = $r_b_silabo['documento'];
+                                                if(!is_null($documento)){ 
+                                                    $m_silabos = 1;
+                                                }
                                             ?>
                                                 <tr>
                                                     <td><?php echo $contador; ?></td>
@@ -131,7 +139,7 @@ if (!verificar_sesion($conexion)) {
 
                                                         <?php if ($m_silabos) {
                                                         ?>
-                                                            <a title="Sílabos" class="btn btn-warning" href="silabos.php?id=<?php echo $res_busc_prog['id']; ?>"><i class="fa fa-book"></i></a>
+                                                            <a href="<?php echo $documento;?>" target="_blank" class="btn btn-primary">Ver Sílabo</a>
                                                         <?php
                                                         } ?>
                                                         <?php if ($m_sesiones) {

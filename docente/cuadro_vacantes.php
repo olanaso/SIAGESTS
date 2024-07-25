@@ -23,7 +23,7 @@ if (!verificar_sesion($conexion)) {
   $proceso_admision = mysqli_fetch_array($res_proceso_admision);
   
   //MODALIDADES
-  $res_modalidades = buscarTodasModalidadesOrdenadas($conexion);
+  $res_modalidades = buscarModalidadPorPeriodo($conexion, $proceso_admision['Periodo']);
   $modalidades_exonerados = mysqli_num_rows($res_modalidades);
   $modalidades_exonerados = $modalidades_exonerados - 1;
 
@@ -114,7 +114,7 @@ if (!verificar_sesion($conexion)) {
                       </div>
                       <div class="x_content">
                           <div class="table-responsive">
-                            <table id="" class="table table-striped table-bordered" style="width:100%">
+                            <table id="example" class="table table-striped table-bordered" style="width:100%">
                               <thead>
                                 <tr>
                                   <th rowspan="2">
@@ -160,19 +160,22 @@ if (!verificar_sesion($conexion)) {
                                       <th><?php echo $programa['nombre']; ?></th>
                                       <form action="operaciones/registrar_vacante.php" method="POST">
                                           <input type="hidden" name="id_programa" value="<?php echo $programa['id']; ?>">
+                                          <input type="hidden" name="periodo" value="<?php echo $proceso_admision['Periodo']; ?>">
                                           <?php 
                                           //VACANTE DEFAULT
                                           $total_vacantes_programa = buscarTotalVacantesPorPeriodoPrograma($conexion, $proceso_admision['Periodo'], $programa['id']);
                                           $vacantes_programa = mysqli_fetch_array($total_vacantes_programa);
                                           $vacante_meta_default = $vacantes_programa['total_vacante_programa'];
                                           ?>
-                                          <th><center><input <?php if(!$editable) echo "readonly"; ?> type="number" name="total_vacante" class="total_vacante" value="<?php echo $vacante_meta_default; ?>" min="0" max="99"></center></th>
+                                          <th><center><span style="display:none;"><?php echo $vacante_meta_default; ?></span> <input <?php if(!$editable) echo "readonly"; ?> type="number" name="total_vacante" class="total_vacante" value="<?php echo $vacante_meta_default; ?>" min="0" max="99"></center></th>
                                           <?php
                                           //CUADRO DE VACANTES
                                           $res_cuadro_vacante = buscarCuadroVacantesPorPeriodoPrograma($conexion, $proceso_admision['Periodo'], $programa['id']);
                                           while($cuadro_vacantes = mysqli_fetch_array($res_cuadro_vacante)){ ?>
                                               <input type="hidden" name="id_cvs[]" class="vacantes_modalidad"  value="<?php echo $cuadro_vacantes['Id']; ?>">
-                                              <th><center><input <?php if(!$editable) echo "readonly"; ?> type="number" name="vacantes_modalidad[]" class="vacantes_modalidad"  value="<?php echo $cuadro_vacantes['Vacantes']; ?>" min="0" max="50"
+                                              <th><center>
+                                              <span style="display:none;"><?php echo $cuadro_vacantes['Vacantes']; ?>  </span>
+                                              <input <?php if(!$editable) echo "readonly"; ?> type="number" name="vacantes_modalidad[]" class="vacantes_modalidad"  value="<?php echo $cuadro_vacantes['Vacantes']; ?>" min="0" max="50"
                                               <?php if($cuadro_vacantes['Descripcion'] == "Ordinario") echo "readonly"; ?>>
                                              </center></th>
                                           <?php } 
@@ -236,6 +239,32 @@ if (!verificar_sesion($conexion)) {
       <!-- Custom Theme Scripts -->
       <script src="../Gentella/build/js/custom.min.js"></script>
       
+      <script>
+    $(document).ready(function() {
+      var tabla = $('#example').DataTable({
+        "searching": false,
+        "paging": false,
+        "info": false,
+        "dom": 'Bfrtip',
+        "buttons": [
+          {
+                extend: 'print',
+                title: 'Cuadro de vacantes' 
+            }
+        ]
+      });
+
+      // Capturar el cambio en el select y realizar la búsqueda
+      $('#filtro').on('change', function() {
+          var valorSeleccionado = $(this).val(); // Obtener el valor seleccionado del select
+          tabla.search(valorSeleccionado).draw(); // Realizar la búsqueda en DataTables y dibujar la tabla
+      });
+
+      } );
+
+
+    </script>
+
       <?php mysqli_close($conexion); ?>
     </body>
 

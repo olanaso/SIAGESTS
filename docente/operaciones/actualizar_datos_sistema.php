@@ -22,11 +22,12 @@ $titulo = $_POST['titulo'];
 $pie_pagina = $_POST['pie_pagina'];
 $host_email = $_POST['host_email'];
 $email_email = $_POST['email_email'];
+$email_soporte = $_POST['email_soporte'];
 $password_email = $_POST['password_email'];
 $puerto_email = $_POST['puerto_email'];
 $color_correo = $_POST['color_correo'];
 
-$consulta = "UPDATE sistema SET pagina='$pagina', dominio_sistema='$dominio_sistema', favicon='$favicon', logo='$logo', titulo='$titulo', pie_pagina='$pie_pagina', host_email='$host_email', email_email='$email_email', password_email='$password_email', puerto_email='$puerto_email', color_correo='$color_correo' WHERE id=$id";
+$consulta = "UPDATE sistema SET pagina='$pagina', dominio_sistema='$dominio_sistema', favicon='$favicon', logo='$logo', titulo='$titulo', pie_pagina='$pie_pagina', host_email='$host_email', email_email='$email_email', email_soporte='$email_soporte', password_email='$password_email', puerto_email='$puerto_email', color_correo='$color_correo' WHERE id=$id";
 $ejec_consulta = mysqli_query($conexion, $consulta);
 	if ($ejec_consulta) {
 			echo "<script>

@@ -32,24 +32,21 @@ require '../fpdf185/fpdf.php';
 	class PDF extends FPDF
 	{
 		function Header()
-		{
-            $this->SetFillColor(201,201,201);
-            $this->SetFont('Arial','B',13);
-			$this->Cell(10,10,'MH',0,0,'C');
-			$this->Cell(15,10,utf8_decode('PERÚ'),0,0,'C', true);
-            $this->SetFont('Arial','B',10);
-			$this->Cell(45,10,utf8_decode('Minesterio de Educación'),0,0,'C', true);
-			$this->Cell(100,10,utf8_decode('Dirección Regional de Educación de AYACUCHO'),1,0,'C', true);
-            $this->Cell(6,10,'UA',1,0,'C');
-            $this->Cell(10,10,'LOGO',0,0,'C');
+        {
+            // Establecer la posición Y para el encabezado
+            $this->SetY(10);
+            
+            // Mostrar la imagen a la izquierda
+            $this->Image('../img/logo_minedu.png', 10, $this->GetY(), 40);
+            
+            // Calcular la posición X para la imagen derecha
+            $imagen_derecha_x = $this->GetPageWidth() - 50;
+            
+            // Mostrar la imagen a la derecha
+            $this->Image('../img/logo.png', $imagen_derecha_x, $this->GetY(), 40);
+            
             $this->Ln(15);
-			
-            /*$this->Image('../img/cabeza.png', 5, 3, 190,);
-			$this->SetFont('Arial','B',15);
-			$this->Cell(30);
-			$this->Cell(120,10, '',0,0,'C');
-			$this->Ln(20);*/
-		}
+        }
 		
 		function Footer()
 		{

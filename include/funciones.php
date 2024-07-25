@@ -529,6 +529,23 @@ function determinarEstadoAdmision($fechaInicio, $fechaFin) {
     } elseif ($fechaActualObj >= $fechaInicioObj && $fechaActualObj <= $fechaFinObj) {
         return "En proceso";
     } else {
-        return "Finalizado";
+        return "Terminado";
     }
+}
+
+//FUNCIONES PARA CODIGO DE POSTULACION DE PROCESO DE ADMISION
+function generarCodigoAdmision($dni, $numero) {
+   // Obtener los últimos 2 dígitos del año actual
+   $año = substr(date("Y"), -2);
+    
+   // Obtener los últimos 2 dígitos del DNI
+   $ultimos_dni = substr($dni, -2);
+   
+   // Completar el número de 1, 2 o 3 dígitos con ceros por delante para tener 4 dígitos
+   $numero_completo = str_pad($numero, 4, "0", STR_PAD_LEFT);
+   
+   // Generar el código numérico concatenando las partes
+   $codigo = $año . $ultimos_dni . $numero_completo;
+   
+   return $codigo;
 }

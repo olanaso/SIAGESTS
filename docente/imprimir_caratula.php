@@ -88,7 +88,7 @@ if (!($mostrar_archivo)) {
     $b_director = buscarDocenteById($conexion, $r_b_perio['director']);
     $r_b_director = mysqli_fetch_array($b_director);
 
-    $horas_semanal = $r_b_ud['horas']/16;
+    $horas_semanal = $r_b_ud['horas']/18;
 
     $horario1 = explode(",", $r_b_silabo['horario']);
         
@@ -158,7 +158,7 @@ if (!($mostrar_archivo)) {
         </tr>
         <tr>
             <br>
-            <td colspan="3" align="center"><b>INSTITUTO DE EDUCACIÓN SUPERIOR TECNOLÓGICO PÚBLICO AYACUCHO</b></td>
+            <td colspan="3" align="center"><b>'.$r_b_datos_insti['nombre_institucion'].'</b></td>
         </tr>
         
         <tr>

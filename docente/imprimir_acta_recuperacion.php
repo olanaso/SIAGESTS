@@ -200,7 +200,7 @@ if (!($mostrar_archivo)) {
         <tr>
             <td width="30%"><font size="' . $text_size . '"><b>INSTITUCIÓN EDUCATIVA</b></font></td>
             <td width="5%">:</td>
-            <td width="65%"><font size="' . $text_size . '">INSTITUTO DE EDUCACIÓN SUPERIOR TECNOLÓGICO PÚBLICO AYACUCHO</font></td>
+            <td width="65%"><font size="' . $text_size . '">'.$r_b_datos_insti['nombre_institucion'].'</font></td>
         </tr>
         <tr>
             <td width="30%"><font size="' . $text_size . '"><b>PROGRAMA DE ESTUDIOS</b></font></td>
@@ -225,7 +225,7 @@ if (!($mostrar_archivo)) {
         <tr>
             <td width="30%"><font size="' . $text_size . '"><b>SEMESTRE ACADÉMICO</b></font></td>
             <td width="5%">:</td>
-            <td width="65%"><font size="' . $text_size . '">' . $r_b_sem['descripcion'] . ' - ' . $r_b_perio['nombre'] . '</font></td>
+            <td width="65%"><font size="' . $text_size . '">'. $r_b_perio['nombre'] . '</font></td>
         </tr>
         <tr>
             <td width="30%"><font size="' . $text_size . '"><b>DOCENTE</b></font></td>
@@ -251,8 +251,8 @@ if (!($mostrar_archivo)) {
     $content_one .= '</table></tr></table>';
     $pdf->writeHTML($content_one);
 
-
-
+    $region = ucfirst(strtolower($r_b_datos_insti['departamento']));
+    
     $meses = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
 
     $fechaaa = date('d') . " de " . $meses[date('n') - 1] . " del " . date('Y');
@@ -261,7 +261,7 @@ if (!($mostrar_archivo)) {
         <table border="0" cellspacing="0" cellpadding="0.5">  
         <tr>
             <th width="50%"></th>
-            <th align="right">Ayacucho, ' . $fechaaa . '</th>
+            <th align="right">'.$region.', ' . $fechaaa . '</th>
         </tr>
         <tr>
             <td colspan="2" align="center"><br><br><br><br><br><br><br><br>...............................................<br>Docente</td>

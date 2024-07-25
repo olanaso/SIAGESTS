@@ -18,7 +18,7 @@ $descripcion = $_POST['descripcion'];
 $id_modalidad = $_POST['id_modalidad'];
 
 	if($tipo == 'General'){
-		$insertar = "INSERT INTO Requisito (Titulo, Tipo, Descripcion) 
+		$insertar = "INSERT INTO requisito (Titulo, Tipo, Descripcion) 
 		VALUES ('$titulo', '$tipo', '$descripcion')";
 		$ejecutar_insetar = mysqli_query($conexion, $insertar);
 		if ($ejecutar_insetar) {
@@ -33,7 +33,7 @@ $id_modalidad = $_POST['id_modalidad'];
 				";
 		};
 	}else{
-		$insertar = "INSERT INTO Requisito (Titulo, Tipo, Descripcion, Id_Modalidad) 
+		$insertar = "INSERT INTO requisito (Titulo, Tipo, Descripcion, Id_Modalidad) 
 		VALUES ('$titulo', '$tipo', '$descripcion', '$id_modalidad')";
 		$ejecutar_insetar = mysqli_query($conexion, $insertar);
 		if ($ejecutar_insetar) {

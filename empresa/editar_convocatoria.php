@@ -8,7 +8,7 @@ include("../include/funciones.php");
 
 $id = isset($_GET['id']) ? $_GET['id'] : null;
 
-if (!verificar_sesion($conexion) && $id == null) {
+if (!verificar_sesion($conexion)) {
     echo "<script>
                 alert('Error Usted no cuenta con permiso para acceder a esta página');
                 window.location.replace('login/');
@@ -82,27 +82,8 @@ if (!verificar_sesion($conexion) && $id == null) {
                     <div class="x_content">
                         <form role="form" action="operaciones/actualizar_convocatoria.php" class="form-horizontal form-label-center"  method="POST" >
                         <p>Todos los campos con (*), son campos obligatorios.</p>
-                        <div id="wizard" class="form_wizard wizard_horizontal">
-                            <ul class="wizard_steps">
-                                <li>
-                                    <a href="#step-1">
-                                        <span class="step_no">1</span>
-                                        <span class="step_descr">
-                                            Paso 1<br />
-                                            <small>Información Especifica</small>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#step-2">
-                                        <span class="step_no">2</span>
-                                        <span class="step_descr">
-                                            Paso 2<br />
-                                            <small>Información Detallada</small>
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
+                        <div>
+                            
                             <div id="step-1">
                                 <input type="hidden" id="id" name="id" required="required" class="form-control" value="<?php echo $convocatoria['id'] ?>">
                                 <div class="form-group row">
@@ -123,7 +104,7 @@ if (!verificar_sesion($conexion) && $id == null) {
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="vacante"># Vacantes <span
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="vacante">Cantidad de Vacantes <span
                                             class="required">* : </span>
                                     </label>
                                     <div class="col-md-9 col-sm-9">
@@ -144,9 +125,18 @@ if (!verificar_sesion($conexion) && $id == null) {
                                     <label for="modalidad" class="col-form-label col-md-3 col-sm-3 label-align">Modalidad * :</label>
                                     <div class="col-md-9 col-sm-9 ">
                                                 <select class="form-control" id="modalidad" name="modalidad" required="required" value="<?php echo $convocatoria['modalidad'] ?>" >
-                                                    <option value="PRESENCIAL">Presencial</option>
-                                                    <option value="SEMIPRESENCIAL">Semipresencial</option>
-                                                    <option value="REMOTO">Remoto</option>
+                                                    <option value="PRESENCIAL" 
+                                                    <?php if ($convocatoria['modalidad'] == "PRESENCIAL") {
+                                                        echo "selected";
+                                                    } ?>>Presencial</option>
+                                                    <option value="SEMIPRESENCIAL" 
+                                                    <?php if ($convocatoria['modalidad'] == "SEMIPRESENCIAL") {
+                                                        echo "selected";
+                                                    }?>>Semipresencial</option>
+                                                    <option value="REMOTO" 
+                                                    <?php if ($convocatoria['modalidad'] == "REMOTO") {
+                                                        echo "selected";
+                                                    }?>>Remoto</option>
                                                 </select>
                                     </div>
                                 </div>
@@ -154,60 +144,29 @@ if (!verificar_sesion($conexion) && $id == null) {
                                     <label for="horario" class="col-form-label col-md-3 col-sm-3 label-align">Turno * :</label>
                                     <div class="col-md-9 col-sm-9 ">
                                                 <select class="form-control" id="horario" name="turno" required="required" value="<?php echo $convocatoria['turno'] ?>" >
-                                                    <option value="COMPLETO">Completo</option>
-                                                    <option value="MAÑANA">Turno Mañana</option>
-                                                    <option value="TARDE">Turno Tarde</option>
-                                                    <option value="NOCHE">Turno Noche</option>
+                                                    <option value="COMPLETO" 
+                                                    <?php if ($convocatoria['turno'] == "COMPLETO") {
+                                                        echo "selected";
+                                                    } ?>
+                                                    >Completo</option>
+                                                    <option value="MAÑANA" 
+                                                    <?php if ($convocatoria['turno'] == "MAÑANA") {
+                                                        echo "selected";
+                                                    } ?>
+                                                    >Turno Mañana</option>
+                                                    <option value="TARDE" 
+                                                    <?php if ($convocatoria['turno'] == "TARDE") {
+                                                        echo "selected";
+                                                    } ?>
+                                                    >Turno Tarde</option>
+                                                    <option value="NOCHE" 
+                                                    <?php if ($convocatoria['turno'] == "NOCHE") {
+                                                        echo "selected";
+                                                    } ?>>Turno Noche</option>
                                                 </select>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="inicio">Inicio Convocatoria <span
-                                            class="required">* : </span>
-                                    </label>
-                                    <div class="col-md-9 col-sm-9">
-                                        <input type="date" id="inicio" name="inicio" required="required" value="<?php echo $convocatoria['fecha_inicio'] ?>"
-                                            class="form-control ">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="fin">Fin Convocatoria <span
-                                            class="required">* : </span>
-                                    </label>
-                                    <div class="col-md-9 col-sm-9">
-                                        <input type="date" id="fin" name="fin" required="required" value="<?php echo $convocatoria['fecha_fin'] ?>"
-                                            class="form-control ">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for = "url">U.R.L. (en otra plataforma) :
-                                    </label>
-                                    <div class="col-md-9 col-sm-9">
-                                        <input id="url" name="url" class="date-picker form-control" type="text" value="<?php echo $convocatoria['link_postulacion'] ?>">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-form-label col-md-3 col-sm-3 label-align">Programa Dirigido * :</label>
-                                    <div class="col-md-9 col-sm-9">
-                                    <?php 
-                                        $programasDirigidosSeleccionados = buscarProgramasByOferta($conexion, $id);
-                                        $carreras = buscarCarreras($conexion);
-                                        while ($carrera = mysqli_fetch_array($carreras)) {
-                                            $idPrograma = $carrera['id']; // ID del programa actual
-                                            $marcado = false;
-                                            foreach ($programasDirigidosSeleccionados as $programaDirigido) {
-                                                if ($programaDirigido == $idPrograma) {
-                                                    $marcado = true;
-                                                    break;
-                                                }
-                                            }
-                                            $marcadoAttr = $marcado ? 'checked' : ''; // Atributo 'checked' si el programa está marcado
-                                        ?>
-                                            <input type="checkbox" class="concepto-checkbox" data-monto="<?php echo $idPrograma ?>" name="carreras[]" value="<?php echo $idPrograma ?>" id="<?php echo $idPrograma ?>" <?php echo $marcadoAttr ?>>
-                                            <label class="form-check-label" for="<?php echo $idPrograma; ?>"><?php echo $carrera['nombre']; ?></label> <br>
-                                        <?php }; ?>          
-                                    </div>
-                                </div>
+                                
                             </div>
                             <div id="step-2">
                                 <div class="form-group row">
@@ -237,10 +196,57 @@ if (!verificar_sesion($conexion) && $id == null) {
                                     <div class="col-md-9 col-sm-9 ">
                                         <textarea class="form-control" name="condiciones" rows="5"><?php echo $convocatoria['condiciones'] ?></textarea>
                                     </div>
-                                </div>  
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="inicio">Inicio de Inscripciones <span
+                                            class="required">* : </span>
+                                    </label>
+                                    <div class="col-md-9 col-sm-9">
+                                        <input type="date" id="inicio" name="inicio" required="required" value="<?php echo $convocatoria['fecha_inicio'] ?>"
+                                            class="form-control ">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="fin">Fin de Inscripciones <span
+                                            class="required">* : </span>
+                                    </label>
+                                    <div class="col-md-9 col-sm-9">
+                                        <input type="date" id="fin" name="fin" required="required" value="<?php echo $convocatoria['fecha_fin'] ?>"
+                                            class="form-control ">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for = "url">U.R.L. (en otra plataforma) :
+                                    </label>
+                                    <div class="col-md-9 col-sm-9">
+                                        <input id="url" name="url" class="date-picker form-control" type="text" value="<?php echo $convocatoria['link_postulacion'] ?>">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align">¿Hacia que programas de estudio está dirigido? * :</label>
+                                    <div class="col-md-9 col-sm-9">
+                                    <?php 
+                                        $programasDirigidosSeleccionados = buscarProgramasByOferta($conexion, $id);
+                                        $carreras = buscarCarreras($conexion);
+                                        while ($carrera = mysqli_fetch_array($carreras)) {
+                                            $idPrograma = $carrera['id']; // ID del programa actual
+                                            $marcado = false;
+                                            foreach ($programasDirigidosSeleccionados as $programaDirigido) {
+                                                if ($programaDirigido == $idPrograma) {
+                                                    $marcado = true;
+                                                    break;
+                                                }
+                                            }
+                                            $marcadoAttr = $marcado ? 'checked' : ''; // Atributo 'checked' si el programa está marcado
+                                        ?>
+                                            <input type="checkbox" class="concepto-checkbox" data-monto="<?php echo $idPrograma ?>" name="carreras[]" value="<?php echo $idPrograma ?>" id="<?php echo $idPrograma ?>" <?php echo $marcadoAttr ?>>
+                                            <label class="form-check-label" for="<?php echo $idPrograma; ?>"><?php echo $carrera['nombre']; ?></label> <br>
+                                        <?php }; ?>          
+                                    </div>
+                                </div>
                                 <br>   
                                 <div class="form-group" align="center">
-                                    <input class="btn btn-primary" type="submit" value="Actualizar Oferta Laboral">
+                                    <input class="btn btn-primary" type="submit" value="Actualizar Convocatoria">
                                 </div>
                             </div>
                         </div>
@@ -263,6 +269,44 @@ if (!verificar_sesion($conexion) && $id == null) {
         <!-- /footer content -->
       </div>
     </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Obtener el campo de entrada
+            var vacanteInput = document.getElementById("vacante");
+        
+            // Agregar un event listener para el evento input del campo de entrada
+            vacanteInput.addEventListener("input", function() {
+                // Obtener el valor actual del campo de entrada
+                var valor = vacanteInput.value;
+        
+                // Limitar la longitud del valor a 2 dígitos
+                if (valor.length > 2) {
+                    // Si la longitud es mayor a 2, recortar el valor a los primeros 2 dígitos
+                    vacanteInput.value = valor.slice(0, 2);
+                }
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Obtener el campo de entrada
+            var salarioInput = document.getElementById("salario");
+        
+            // Agregar un event listener para el evento input del campo de entrada
+            salarioInput.addEventListener("input", function() {
+                // Obtener el valor actual del campo de entrada
+                var valor = salarioInput.value;
+        
+                // Limitar la longitud del valor a 7 dígitos
+                if (valor.length > 7) {
+                    // Si la longitud es mayor a 7, recortar el valor a los primeros 7 dígitos
+                    salarioInput.value = valor.slice(0, 7);
+                }
+            });
+        });
+    </script>
    
 <!-- jQuery -->
 <script src="../Gentella/vendors/jquery/dist/jquery.min.js"></script>

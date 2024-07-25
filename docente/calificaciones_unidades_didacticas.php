@@ -61,7 +61,17 @@ if (!verificar_sesion($conexion)) {
           <?php
           
           $per_select = $_SESSION['periodo'];
-          if($r_b_docente['id_cargo']==5){//si es docente
+          $director = false;
+          $unidad = false;
+          if($r_b_docente['id_cargo']== 1 AND  $r_b_docente['carga_academica'] == 1){
+            $director = true;
+          }
+
+          if($r_b_docente['id_cargo']== 3 AND  $r_b_docente['carga_academica'] == 1){
+            $unidad = true;
+          }
+
+          if($r_b_docente['id_cargo'] ==5 || $director || $unidad ){//si es docente
             $m_caratula = 1;
             $m_silabos = 1;
             $m_sesiones = 1;
@@ -172,7 +182,7 @@ if (!verificar_sesion($conexion)) {
                             } ?>
                             <?php if ($m_asistencia) {
                               ?>
-                              <a title="Asistencia" class="btn btn-success" href="asistencias.php?id=<?php echo $res_busc_prog['id']; ?>"><i class="fa fa-group"></i></a>
+                              <a title="Asistencia - Estudiantes" class="btn btn-success" href="asistencias.php?id=<?php echo $res_busc_prog['id']; ?>"><i class="fa fa-group"></i></a>
                               <?php
                             } ?>
                             <?php if ($m_calificaciones) {
@@ -189,6 +199,11 @@ if (!verificar_sesion($conexion)) {
                             <?php if ($m_imprimir) {
                               ?>
                               <a title="Informe Final" class="btn btn-danger" href="informe_final.php?id=<?php echo $res_busc_prog['id']; ?>"><i class="fa fa-bar-chart"></i></a>
+                              <?php
+                            } ?>
+                            <?php if ($m_asistencia) {
+                              ?>
+                              <a title="Mi asistencia" class="btn btn-dark" href="asistencia_docente.php?id=<?php echo $res_busc_prog['id']; ?>"><i class="fa fa-list-alt"></i></a>
                               <?php
                             } ?>
                           </td>

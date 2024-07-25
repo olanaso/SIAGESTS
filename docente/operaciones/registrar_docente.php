@@ -17,6 +17,7 @@ $nom_ap = $_POST['nom_ap'];
 $cond_laboral = $_POST['cond_laboral'];
 $fecha_nac = $_POST['fecha_nac'];
 $niv_formacion = $_POST['niv_formacion'];
+$profesion = $_POST['profesion'];
 $direccion = $_POST['direccion'];
 $genero = $_POST['genero'];
 $telefono = $_POST['telefono'];
@@ -37,19 +38,24 @@ if ($conteo > 0) {
 	}else{
 	$pass = $dni;
 	$pass_secure = password_hash($pass, PASSWORD_DEFAULT);
-
-	$insertar = "INSERT INTO docente (dni, apellidos_nombres, fecha_nac, direccion, correo, telefono, id_genero, nivel_educacion, cond_laboral, id_cargo, id_programa_estudio, password, activo, reset_password) VALUES ('$dni','$nom_ap','$fecha_nac', '$direccion', '$email', '$telefono', '$genero', '$niv_formacion', '$cond_laboral', '$cargo', '$pe', '$pass_secure', 1, 0)";
-	$ejecutar_insetar = mysqli_query($conexion, $insertar);
+	if(intval($cargo) == 2 || intval($cargo) == 6){
+		$insertar = "INSERT INTO docente (dni, apellidos_nombres, fecha_nac, direccion, correo, telefono, id_genero, nivel_educacion, profesion, cond_laboral, id_cargo, cargo_inmutable ,id_programa_estudio, password, activo, reset_password) VALUES ('$dni','$nom_ap','$fecha_nac', '$direccion', '$email', '$telefono', '$genero', '$niv_formacion', '$profesion', '$cond_laboral', '$cargo', '$cargo', '$pe', '$pass_secure', 1, 0)";
+		$ejecutar_insetar = mysqli_query($conexion, $insertar);
+	}else{
+		$insertar = "INSERT INTO docente (dni, apellidos_nombres, fecha_nac, direccion, correo, telefono, id_genero, nivel_educacion, profesion, cond_laboral, id_cargo, id_programa_estudio, password, activo, reset_password) VALUES ('$dni','$nom_ap','$fecha_nac', '$direccion', '$email', '$telefono', '$genero', '$niv_formacion', '$cond_laboral', '$profesion', '$cargo', '$pe', '$pass_secure', 1, 0)";
+		$ejecutar_insetar = mysqli_query($conexion, $insertar);
+	}
+	
 	if ($ejecutar_insetar) {
 		
 			echo "<script>
                 alert('Registro Existoso');
-                window.location= '../docentes.php'
+                window.location= '../administrativo_docente.php'
     			</script>";
 			
 	}else{
 		echo "<script>
-			alert('Error al registrar docente, por favor verifique sus datos');
+			alert('Error al registrar usuario, por favor verifique sus datos');
 			window.history.back();
 				</script>
 			";

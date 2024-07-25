@@ -79,8 +79,17 @@ if (!verificar_sesion($conexion)) {
         <div class="main_container">
           <!--menu-->
           <?php
+          $director = false;
+          $unidad = false;
+          if($r_b_docente['id_cargo']== 1 AND  $r_b_docente['carga_academica'] == 1){
+            $director = true;
+          }
 
-          if ($r_b_docente['id_cargo'] == 5) {
+          if($r_b_docente['id_cargo']== 3 AND  $r_b_docente['carga_academica'] == 1){
+            $unidad = true;
+          }
+
+          if($r_b_docente['id_cargo'] ==5 || $director || $unidad ){//si es docente
             include("include/menu_docente.php");
           } elseif ($r_b_docente['id_cargo'] == 4) {
             include("include/menu_coordinador.php");
@@ -221,6 +230,7 @@ if (!verificar_sesion($conexion)) {
                                   while ($r_b_sesion = mysqli_fetch_array($b_sesion)) {
                                     $b_asistencia = buscarAsistenciaBySesionAndEstudiante($conexion, $r_b_sesion['id'], $r_b_matricula['id_estudiante']);
                                     $r_b_asistencia = mysqli_fetch_array($b_asistencia);
+                                    $fecha_fin_sesion = strtotime($r_b_sesion['fecha_desarrollo']);
                                     if ($editar_doc == 0) {
                                       if ($r_b_asistencia['asistencia'] == "P") {?>
                                         <td><font color="blue"><?php echo $r_b_asistencia['asistencia']; ?></font></td>
@@ -238,7 +248,6 @@ if (!verificar_sesion($conexion)) {
                                       <td>
 
                                         <select name="<?php echo $r_b_estudiante['dni'] . "_" . $r_b_asistencia['id'] ?>" id="<?php echo $r_b_estudiante['dni'] . "_" . $r_b_asistencia['id'] ?>" <?php echo " " . $si_licencia; ?>>
-                                          <option value=""></option>
                                           <option value="P" <?php if ($r_b_asistencia['asistencia'] == "P") {
                                                               echo "selected ";
                                                             } ?>>P</option>

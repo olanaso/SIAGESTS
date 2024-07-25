@@ -4,7 +4,6 @@ include("../include/conexion.php");
 include("../include/busquedas.php");
 include("../include/funciones.php");
 include("../functions/funciones.php");
-include "../caja/consultas.php";
 require_once('../tcpdf/tcpdf.php');
 include("include/verificar_sesion_secretaria.php");
 

@@ -18,7 +18,9 @@
         $id_estudiante_sesion = buscar_estudiante_sesion($conexion, $_SESSION['id_sesion_est'], $_SESSION['token']);
 		$b_estudiante = buscarEstudianteById($conexion, $id_estudiante_sesion);
 		$r_b_estudiante = mysqli_fetch_array($b_estudiante);
+        
         $oferta_laboral = buscarOfertaLaboralById($conexion, $id);
+        
         $convocatoria = mysqli_fetch_array($oferta_laboral);    
 
 ?>
@@ -30,7 +32,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Inicio<?php include("../include/header_title.php"); ?></title>
+	<title>Bolsa Laboral<?php include("../include/header_title.php"); ?></title>
 	<!--icono en el titulo-->
 	<link rel="shortcut icon" href="../img/favicon.ico">
 	<!-- Bootstrap -->
@@ -153,11 +155,6 @@
                 $b_perido = buscarPeriodoAcadById($conexion, $_SESSION['periodo']);
                 $r_b_per = mysqli_fetch_array($b_perido);
 
-                $b_matricula = buscarMatriculaByEstudiantePeriodo($conexion, $id_estudiante_sesion, $_SESSION['periodo']);
-                $r_b_matricula = mysqli_fetch_array($b_matricula);
-                $id_matricula = $r_b_matricula['id'];
-                $b_det_mat = buscarDetalleMatriculaByIdMatricula($conexion, $id_matricula);
-                $cont_det_mat = mysqli_num_rows($b_det_mat);
             ?>
 			<div class="right_col">
                 <div class="row">
@@ -170,6 +167,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <input type="hidden" name="id" value="<?php echo $r_b_estudiante['id']; ?>">
+                                    <input type="hidden" name="tipo" value=1>
                                     <input type="hidden" name="convocatoria" value="<?php echo $convocatoria['id']; ?>">
                                     <div class="form-group row">
                                         <label class="col-form-label label-align" for="dni"><i class="fa fa-lock"> </i>  D.N.I.:

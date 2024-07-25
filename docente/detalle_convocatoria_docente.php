@@ -1,6 +1,5 @@
 <?php
 include("../include/conexion.php");
-include("../caja/consultas.php");
 include("../empresa/include/consultas.php");
 include("../include/busquedas.php");
 include("../include/funciones.php");
@@ -16,9 +15,18 @@ if (!verificar_sesion($conexion)) {
 }else {
 
     $id_docente_sesion = buscar_docente_sesion($conexion, $_SESSION['id_sesion'], $_SESSION['token']);
-  
-    $oferta_laboral = buscarOfertaLaboralById($conexion, $id);
-    $convocatoria = mysqli_fetch_array($oferta_laboral);    
+    $celular_contacto = "";
+    if($_GET['type'] == "1"){
+        $oferta_laboral = buscarOfertaLaboralByIdIestp($conexion, $id);
+        $convocatoria = mysqli_fetch_array($oferta_laboral);
+        $celular_contacto = "<li><strong>Celular de contacto: </strong> <br> ".$convocatoria['celular_contacto']."
+        </li>";
+    }
+    if($_GET['type'] == "0"){
+        $oferta_laboral = buscarOfertaLaboralById($conexion, $id);
+        $convocatoria = mysqli_fetch_array($oferta_laboral);
+        
+    }
 
 ?>
 <!DOCTYPE html>
@@ -102,8 +110,9 @@ if (!verificar_sesion($conexion)) {
                                 </div>
                                 <br>
                                 <ul class="list-unstyled project_files">
-                                    <li><strong>Empresa: </strong> <br> <?php echo $convocatoria['empresa']?>
+                                    <li><strong>Nombre de la empresa, persona natural o jurídica: </strong> <br> <?php echo $convocatoria['empresa']?>
                                     </li>
+                                    <?php echo $celular_contacto; ?>
                                     <li><strong>Lugar de Trabajo: </strong> <br> <?php echo $convocatoria['ubicacion'] ?>
                                     </li>
                                     <li><strong>Vacantes: </strong> <br> <?php echo $convocatoria['vacantes'] ?>
@@ -125,7 +134,7 @@ if (!verificar_sesion($conexion)) {
                                     </li>
                                 </ul>
                                 <br />
-                                <h5><strong>Documentos del proyecto</strong></h5>
+                                <h5><strong>Documentos de la convocatoria</strong></h5>
                                 <ul class="list-unstyled project_files">
                                     <?php 
                                         $res = buscarDocumentosByIdOfertaIestp($conexion, $id);
@@ -142,7 +151,7 @@ if (!verificar_sesion($conexion)) {
                     <div class="col-md-9 col-sm-9  ">
                         <section class="panel">
                             <div class="x_title">
-                                <h2 class="blue">Detalle de convocatoria</h2>
+                                <h2 class="blue">Detalle de la convocatoria</h2>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="panel-body">

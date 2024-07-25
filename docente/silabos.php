@@ -79,7 +79,17 @@ if (!($res_b_prog['id_docente'] == $id_docente_sesion)) {
       <div class="main_container">
         <!--menu-->
         <?php
-        if($r_b_docente['id_cargo']==5){
+        $director = false;
+        $unidad = false;
+        if($r_b_docente['id_cargo']== 1 AND  $r_b_docente['carga_academica'] == 1){
+          $director = true;
+        }
+
+        if($r_b_docente['id_cargo']== 3 AND  $r_b_docente['carga_academica'] == 1){
+          $unidad = true;
+        }
+
+        if($r_b_docente['id_cargo'] ==5 || $director || $unidad ){//si es docente
           include ("include/menu_docente.php");
         }elseif($r_b_docente['id_cargo']==4) {
           include ("include/menu_coordinador.php");
@@ -120,10 +130,31 @@ if (!($res_b_prog['id_docente'] == $id_docente_sesion)) {
                 <div class="x_panel">
                   <div class="">
                     <h2 align="center"><b>Sílabo - <?php echo $r_b_ud['descripcion']; ?></b></h2>
-                    <form action="imprimir_silabo.php" method="POST" target="_blank"><input type="hidden" name="data" value="<?php echo $id_prog; ?>">
-                      <button type="submit" class="btn btn-info">Imprimir</button>
-                    </form>
                     <a href="calificaciones_unidades_didacticas.php" class="btn btn-danger">Regresar</a>
+                    <br>
+                        <form action="imprimir_silabo.php" method="POST" target="_blank"><input type="hidden" name="data" value="<?php echo $id_prog; ?>">
+                          <button type="submit" class="btn btn-info">Imprimir</button>
+                        </form>
+                      <br>
+                      <?php
+                      $documento = $r_b_silabo['documento'];
+                      ?>
+                        <b>Cuenta con el sílabo en formato PDF?, puede subirlo aquí:</b>  
+                        <form action="operaciones/cargar_silabo.php" method="POST" class="row" enctype="multipart/form-data">
+                            <input type="hidden" name="id_silabo" value="<?php echo $id_silabo; ?>">
+                            <div  class="col-md-4 col-sm-4 col-xs-12 form-group">
+                                <input type="file" name="documento" class="form-control" accept=".pdf">
+                            </div>
+                            <div  class="col-md-8 col-sm-8 col-xs-12">
+                                <?php 
+                                if(is_null($documento)){?>
+                                    <button type="submit" class="btn btn-success">Cargar Documento</button>
+                                <?php }else{?>
+                                    <button type="submit" class="btn btn-success">Actualizar Documento</button>
+                                    <a href="<?php echo $documento;?>" target="_blank" class="btn btn-primary">Ver Documento</a>
+                                <?php }?>
+                            </div>
+                        </form>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -183,7 +214,7 @@ if (!($res_b_prog['id_docente'] == $id_docente_sesion)) {
                             </tr>
                             <tr>
                               <td>Nro de Horas Semanal</td>
-                              <td>: <?php echo $r_b_ud['horas'] / 16; ?></td>
+                              <td>: <?php echo $r_b_ud['horas'] / 18; ?></td>
                             </tr>
                             <tr>
                               <td>Nro de Horas Semestral</td>

@@ -116,7 +116,7 @@ $id_semestre = $res_busc_ud['id_semestre'];
                                 <option value="<?php echo $id_car_prof;
                                                 ?>" <?php if ($id_car_prof == $id_carrera) {
                                     echo 'selected="selected"';
-                                  }; ?>><?php echo $car_prof; ?></option>
+                                  }; ?>><?php echo $car_prof.' - '.$res_busc_car_prof['plan_estudio']; ?></option>
                               <?php
                               }
                               ?>
@@ -170,7 +170,7 @@ $id_semestre = $res_busc_ud['id_semestre'];
                         <div class="form-group">
                           <label class="control-label col-md-3 col-sm-3 col-xs-12">Créditos : </label>
                           <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="number" class="form-control" name="creditos" required="" value="<?php echo $res_busc_ud['creditos']; ?>" maxlength="3">
+                            <input type="decimal" class="form-control" name="creditos" required="" value="<?php echo $res_busc_ud['creditos']; ?>" maxlength="3">
                             <br>
                           </div>
                         </div>
@@ -192,6 +192,12 @@ $id_semestre = $res_busc_ud['id_semestre'];
                               <option value="EMPLEABILIDAD" <?php if ($res_busc_ud['tipo'] == "EMPLEABILIDAD") {
                                                               echo "Selected";
                                                             } ?>>EMPLEABILIDAD</option>
+                              <option value="ALTERNATIVA" <?php if ($res_busc_ud['tipo'] == "ALTERNATIVA") {
+                                                              echo "Selected";
+                                                            } ?>>ALTERNATIVA</option>
+                              <option value="TRANSVERSAL" <?php if ($res_busc_ud['tipo'] == "TRANSVERSAL") {
+                                                              echo "Selected";
+                                                            } ?>>TRANSVERSAL</option>
                             </select>
 
                             <br>

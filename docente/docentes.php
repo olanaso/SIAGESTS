@@ -63,7 +63,7 @@ if (!verificar_sesion($conexion)) {
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="">
-                    <h2 align="center">Docentes</h2>
+                    <h2 align="center">Relación de Usuarios</h2>
                     <button class="btn btn-success" data-toggle="modal" data-target=".registrar"><i class="fa fa-plus-square"></i> Nuevo</button>
 
                     <div class="clearfix"></div>
@@ -128,7 +128,7 @@ if (!verificar_sesion($conexion)) {
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
                           </button>
-                          <h4 class="modal-title" id="myModalLabel" align="center">Registrar Docente</h4>
+                          <h4 class="modal-title" id="myModalLabel" align="center">Registrar Usuario</h4>
                         </div>
                         <div class="modal-body">
                           <!--INICIO CONTENIDO DE MODAL-->
@@ -255,7 +255,7 @@ if (!verificar_sesion($conexion)) {
                               $pe = $res_b_busc_car['nombre'];
                               ?>
                               <option value="<?php echo $id_pe;
-                              ?>"><?php echo $pe; ?></option>
+                              ?>"><?php echo $pe.' - '.$res_b_busc_car['plan_estudio']; ?></option>
                             <?php
                             }
                             ?>

@@ -64,7 +64,15 @@ if ($enviar) {
     $asunto = "Cambio de Contraseña";
     //Create an instance; passing `true` enables exceptions
     $mail = new PHPMailer(true);
-
+    
+    $protocol = 'http://';
+    if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
+        $protocol = 'https://';
+    }
+    
+    $domain = $_SERVER['HTTP_HOST']; // Obtendrá algo como iestpaurahua.sigaest.com
+    $urlLogo = $protocol . $domain. "/img/logo.png";
+    
     try {
         //Server settings
         $mail->SMTPDebug = 0;                      //Enable verbose debug output
@@ -76,7 +84,7 @@ if ($enviar) {
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
         $mail->Port       = $r_b_datos_sistema['puerto_email'];                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
-        $titulo_correo = 'SISPA '.$r_b_datos_sistema['titulo'];
+        $titulo_correo = 'SIGAEST '.$r_b_datos_sistema['titulo'];
         //Recipients
         $mail->setFrom($r_b_datos_sistema['email_email'], $titulo_correo);
         $mail->addAddress($r_b_emp['correo_institucional'], $r_b_emp['contacto']);     //Add a recipient
@@ -102,7 +110,7 @@ if ($enviar) {
                     <body>
                     <div style="width: 100%; font-family: Roboto; font-size: 0.8em; display: inline;">
                         <div style="background-color:'.$r_b_datos_sistema['color_correo'].'; border-radius: 10px 10px 0px 0px; text-align: center;">
-                            <img src="https://sispa.iestphuanta.edu.pe/img/logo.png" alt="'.$r_b_datos_sistema['pagina'].'" style="padding: 0.5em; text-align: center;" height="50px">
+                            <img src="'.$urlLogo.'" alt="'.$r_b_datos_sistema['pagina'].'" style="padding: 0.5em; text-align: center;" height="50px">
                         </div>
                         <div style="background-color:'.$r_b_datos_sistema['color_correo'].'; border-radius: 0px 0px 0px 0px; height: 60px; margin-top: 0px; padding-top: 2px; padding-bottom: 10px;">
                             <p style="text-align: center; font-size: 1.0rem; color: #f1f1f1; text-shadow: 2px 2px 2px #cfcfcf; ">'.$r_b_datos_institucion['nombre_institucion'].'</p>

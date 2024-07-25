@@ -214,7 +214,8 @@ if (!verificar_sesion($conexion)) {
         "next": "Siguiente",
         "previous": "Anterior"
     },
-      }
+      },
+       "order": [5, 'desc']
     });
 
     } );

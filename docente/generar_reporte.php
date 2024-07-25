@@ -83,7 +83,7 @@ if (!verificar_sesion($conexion)) {
                         <input type="hidden" value = "<?php echo $tipo ?>" name="tipo">
                         <input type="hidden" value = "<?php echo $inicio ?>" name="inicio">
                         <input type="hidden" value = "<?php echo $fin ?>" name="fin">
-                      <input type="submit" class="btn btn-primary" value="Imprimir PDF">
+                      <input type="submit" class="btn btn-primary" value="Descargar PDF">
                       </div>
                     </form>
                     <form action="imprimir_excel_caja.php" method="post">
@@ -91,7 +91,7 @@ if (!verificar_sesion($conexion)) {
                         <input type="hidden" value = "<?php echo $tipo ?>" name="tipo">
                         <input type="hidden" value = "<?php echo $inicio ?>" name="inicio">
                         <input type="hidden" value = "<?php echo $fin ?>" name="fin">
-                      <input type="submit" class="btn btn-success" value="Imprimir EXCEL">
+                      <input type="submit" class="btn btn-success" value="Descargar EXCEL">
                       </div>
                     </form>
                   <div class="tab-content">

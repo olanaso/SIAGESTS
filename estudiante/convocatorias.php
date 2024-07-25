@@ -29,7 +29,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>mis unidades didácticas<?php include("../include/header_title.php"); ?></title>
+        <title>Bolsa Laboral<?php include("../include/header_title.php"); ?></title>
         <!--icono en el titulo-->
         <link rel="shortcut icon" href="../img/favicon.ico">
         <!-- Bootstrap -->
@@ -77,12 +77,6 @@
                 include("include/menu.php");
                 $b_perido = buscarPeriodoAcadById($conexion, $_SESSION['periodo']);
                 $r_b_per = mysqli_fetch_array($b_perido);
-
-                $b_matricula = buscarMatriculaByEstudiantePeriodo($conexion, $id_estudiante_sesion, $_SESSION['periodo']);
-                $r_b_matricula = mysqli_fetch_array($b_matricula);
-                $id_matricula = $r_b_matricula['id'];
-                $b_det_mat = buscarDetalleMatriculaByIdMatricula($conexion, $id_matricula);
-                $cont_det_mat = mysqli_num_rows($b_det_mat);
                 ?>
 
                 <!-- page content -->
@@ -94,23 +88,45 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="">
-                                    <h2 align="center">Convocatorias Laborales</h2>
+                                    <h2 align="center">Convocatorias Laborales de Empresas</h2>
                                     <br>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
+                                <div class="col-lg-4">
+                                    <div><b>Filtrar Por Administrador de Convocatoria: </b></div>
+                                        <div class="form-group ">
+                                        <select id="filtro_administrado" class="form-control">
+                                            <option value="">TODOS</option>
+                                            <option value="EMPRESA">EMPRESA</option>
+                                            <option value="INSTITUTO">INSTITUTO</option>
+                                        </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div><b>Filtrar Por Estado: </b></div>
+                                        <div class="form-group ">
+                                        <select id="filtro_estado" class="form-control">
+                                            <option value="">TODOS</option>
+                                            <option value="Por comenzar">POR COMENZAR</option>
+                                            <option value="En proceso">EN PROCESO</option>
+                                            <option value="Finalizado">FINALIZADO</option>
+                                        </select>
+                                        </div>
+                                    </div>
+                                    <br><br><br><br>
                                     <div class="">
                                     <table id="convocatorias" class="table table-striped table-bordered" style="width:100%">
                                         <thead>
                                         <tr>
-                                            <th>Empresa</th>
+                                            <th>N°</th>
+                                            <th>Administrado Por</th>
+                                            <th>Nombre de la empresa, persona natural o jurídica</th>
                                             <th>Título de la convocatoria</th>
                                             <th>Lugar de Trabajo</th>
                                             <th>Modalidad</th>
                                             <th>Turno</th>
                                             <th>Salario</th>
-                                            <th>Fecha de Inicio</th>
-                                            <th>Fecha Fin</th>
                                             <th>Estado</th>
                                             <th>Acciones</th>
                                         </tr>
@@ -123,6 +139,8 @@
                                             
                                             // Array para almacenar las ofertas de la primera consulta que no están en la segunda
                                             $diferencia = array();
+
+                                            $cantidad = 0;
                                             
                                             // Iterar sobre los resultados de la primera consulta
                                             while ($oferta1 = mysqli_fetch_assoc($resultado1)) {
@@ -145,16 +163,17 @@
                                             }
 
                                             foreach ($diferencia as $ofertas) {
+                                                $cantidad++;
                                         ?>
                                         <tr>
+                                            <td><?php echo $cantidad; ?></td>
+                                            <td class="green"><i class="fa fa-building"></i> <b>EMPRESA</b></td>
                                             <td><?php echo $ofertas['empresa']; ?></td>
                                             <td><?php echo $ofertas['titulo']; ?></td>
                                             <td><?php echo $ofertas['ubicacion']; ?></td>
                                             <td><?php echo $ofertas['modalidad']; ?></td>
                                             <td><?php echo $ofertas['turno']; ?></td>
                                             <td><?php echo $ofertas['salario']; ?></td>
-                                            <td><?php echo $ofertas['fecha_inicio']; ?></td>
-                                            <td><?php echo $ofertas['fecha_fin']; ?></td>
                                             <td>
                                                 <span class="badge <?php echo determinarEstado($ofertas['fecha_inicio'], $ofertas['fecha_fin'])?>"><?php echo determinarEstado($ofertas['fecha_inicio'], $ofertas['fecha_fin']) ?></span>
                                             </td>
@@ -166,6 +185,33 @@
                                                 };
                                         ?>
 
+                                        <?php 
+                                            $resultado1 = buscarOfertasDisponiblesByProgramaIestp($conexion, $r_b_estudiante['id_programa_estudios']);
+                                
+                                            while ($ofertas = mysqli_fetch_array($resultado1)) {
+                                                $cantidad++;
+                                                $res_postulado = buscarOfertaPostuladaInstituto($conexion, $ofertas['id']);
+                                                $es_postulado = mysqli_fetch_array($res_postulado);
+                                                if(!$es_postulado){ ?>
+                                                   <tr>
+                                                        <td><?php echo $cantidad; ?></td>
+                                                        <td class="blue"><i class="fa fa-bank"></i>  <b>INSTITUTO</b></td>
+                                                        <td><?php echo $ofertas['empresa']; ?></td>
+                                                        <td><?php echo $ofertas['titulo']; ?></td>
+                                                        <td><?php echo $ofertas['ubicacion']; ?></td>
+                                                        <td><?php echo $ofertas['modalidad']; ?></td>
+                                                        <td><?php echo $ofertas['turno']; ?></td>
+                                                        <td><?php echo $ofertas['salario']; ?></td>
+                                                        <td>
+                                                            <span class="badge <?php echo determinarEstado($ofertas['fecha_inicio'], $ofertas['fecha_fin'])?>"><?php echo determinarEstado($ofertas['fecha_inicio'], $ofertas['fecha_fin']) ?></span>
+                                                        </td>
+                                                        <td>
+                                                            <a href="detalle_convocatoria.php?id= <?php echo $ofertas['id']?>" class="btn btn-success" data-toggle="tooltip" data-original-title="Ver Detalles" data-placement="bottom"><i class="fa fa-eye"></i></a>
+                                                    </td>
+                                                    </tr>  
+                                                <?php} ?>
+                                        
+                                        <?php } }?>
                                         </tbody>
                                     </table>
                                     </div>
@@ -239,7 +285,31 @@
 
             });
         </script>
+    <script>
+      $(document).ready(function () {
+        var table = $('#convocatorias').DataTable();
 
+        // Custom filter for Programa de Estudios
+        $('#filtro_administrado').on('change', function () {
+          var filtro = $(this).val();
+          table.column(1).search(filtro).draw();
+        }    
+      );
+      });
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        var table = $('#convocatorias').DataTable();
+        // Filtro por estado
+        $('#filtro_estado').on('change', function () {
+          var filtro = $(this).val();
+          table.column(8).search(filtro).draw();
+        }
+                
+      );
+      });
+    </script>
 
         <?php mysqli_close($conexion); ?>
     </body>

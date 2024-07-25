@@ -1,6 +1,5 @@
 <?php
 include("../include/conexion.php");
-include("../caja/consultas.php");
 include("../empresa/include/consultas.php");
 include("../include/busquedas.php");
 include("../include/funciones.php");

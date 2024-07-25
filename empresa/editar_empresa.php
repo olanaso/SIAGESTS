@@ -204,7 +204,7 @@ if (!verificar_sesion($conexion)) {
                                             <input type="text" class="form-control" id="cargo" value="<?php echo $empresa['cargo'] ?>" onkeyup="javascript:this.value=this.value.toUpperCase();" name="cargo">
                                         </div>
                                         <div class="form-group">
-                                            <label for="correo">Correo Institucional*:</label>
+                                            <label for="correo">Correo Electrónico*:</label>
                                             <input type="email" class="form-control" id="correo" name="correo" value="<?php echo $empresa['correo_institucional'] ?>" onkeyup="javascript:this.value=this.value.toLowerCase();" required>
                                         </div>
                                         <div class="form-group">

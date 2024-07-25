@@ -115,7 +115,7 @@ if (!verificar_sesion($conexion)) {
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
                           </button>
-                          <h4 class="modal-title" id="myModalLabel" align="center">Registrar Carrera Profesional</h4>
+                          <h4 class="modal-title" id="myModalLabel" align="center">Registrar Programa de Estudio</h4>
                         </div>
                         <div class="modal-body">
                           <!--INICIO CONTENIDO DE MODAL-->
@@ -141,6 +141,7 @@ if (!verificar_sesion($conexion)) {
                           <select class="form-control" name="tipo" value="" required="required">
                               <option></option>
                               <option value="Modular">Modular</option>
+                              <option value="Transversal">Transversal</option>
                               <option value="Empleabilidad">Empleabilidad</option>
                           </select>
                           <br>

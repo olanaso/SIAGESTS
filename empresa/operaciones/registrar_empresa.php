@@ -14,6 +14,7 @@
 
         $nombreArchivo = $_FILES['logo']['name'];
         $tipoArchivo = $_FILES['logo']['type'];
+        $extension = pathinfo($nombreArchivo, PATHINFO_EXTENSION);
         $tamañoArchivo = $_FILES['logo']['size'];
         $tempArchivo = $_FILES['logo']['tmp_name'];
         $errorArchivo = $_FILES['logo']['error'];
@@ -27,7 +28,7 @@
         // Verificar si no hubo errores al subir la imagen
         if($errorArchivo === 0) {
             // Mover la imagen de la ubicación temporal a la ubicación deseada
-            $rutaDestino = '../files/' . $nombreArchivo;
+            $rutaDestino = '../files/' .$ruc.$extension;
             move_uploaded_file($tempArchivo, $rutaDestino);
         
         }
@@ -40,12 +41,12 @@
         $res = mysqli_query($conexion, $sql);
         if ($res) {
             echo "<script>
-            alert('Su registro ha sido exitoso!');
+            alert('Su registro ha sido exitoso! Se le enviará un correo una vez que se valide la información proporcionada.');
             window.location.replace('../contactar.php');
             </script>";
         } else {
             echo "<script>
-            alert('Ops, ha ocurrido un error! Recuerde no registrar una empresa ya existente.');
+            alert('No se puede registrar! Recuerde no registrar una empresa ya existente.');
             window.history.back();
             </script>";
         }

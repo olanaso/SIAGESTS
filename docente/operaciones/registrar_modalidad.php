@@ -14,7 +14,7 @@ if (!verificar_sesion($conexion)) {
 	$monto = $_POST['monto'];
 	$monto_extemporaneo = $_POST['monto_extemporaneo'];
 	
-	$insertar = "INSERT INTO Modalidad (Descripcion, Monto, Monto_Extemporaneo) 
+	$insertar = "INSERT INTO modalidad (Descripcion, Monto, Monto_Extemporaneo) 
 				 VALUES ('$descripcion', '$monto', '$monto_extemporaneo')";
 	
 	$ejecutar_insertar = mysqli_query($conexion, $insertar);

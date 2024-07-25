@@ -14,6 +14,8 @@ if (!verificar_sesion($conexion)) {
 } else {
 
     $id = $_POST["id"];
+    $nombre_empresa = $_POST["nombre_empresa"];
+    $ruc = $_POST["ruc"];
     $ubicacion = $_POST["ubicacion"];
     $contacto = $_POST["contacto"];
     $cargo = $_POST["cargo"];
@@ -21,6 +23,7 @@ if (!verificar_sesion($conexion)) {
     $celular = $_POST["celular"];
 
     $nombreArchivo = $_FILES['logo']['name'];
+    $extension = pathinfo($nombreArchivo, PATHINFO_EXTENSION);
     $tipoArchivo = $_FILES['logo']['type'];
     $tamañoArchivo = $_FILES['logo']['size'];
     $tempArchivo = $_FILES['logo']['tmp_name'];
@@ -38,7 +41,7 @@ if (!verificar_sesion($conexion)) {
     }
 
     if($errorArchivo === 0) {
-        $rutaDestino = '../files/' . $nombreArchivo;
+        $rutaDestino = '../files/' .$ruc.$extension;
         move_uploaded_file($tempArchivo, $rutaDestino);
         $tieneLogo = true;
     } else {
@@ -52,7 +55,7 @@ if (!verificar_sesion($conexion)) {
     $rutaDestino = substr($rutaDestino,3);
 
     // Consulta para insertar los datos en la base de datos
-    $sql = "UPDATE `empresa` SET `correo_institucional`='$correo',`ubicacion`='$ubicacion',`ruta_logo`='$rutaDestino',
+    $sql = "UPDATE `empresa` SET `razon_social`='$nombre_empresa', `ruc`='$ruc', `correo_institucional`='$correo',`ubicacion`='$ubicacion',`ruta_logo`='$rutaDestino',
     `contacto`='$contacto',`cargo`='$cargo',`celular_telefono`='$celular',`usuario`='$correo' WHERE id = $id";
     $res = mysqli_query($conexion, $sql);
     if ($res) {

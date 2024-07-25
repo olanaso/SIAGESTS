@@ -15,7 +15,7 @@ if (!verificar_sesion($conexion)) {
 	$monto = $_POST['monto'];
 	$monto_extemporaneo = $_POST['monto_extemporaneo'];
 
-	$consulta = "UPDATE Modalidad SET Descripcion='$descripcion', Monto='$monto', Monto_Extemporaneo='$monto_extemporaneo' WHERE id=$id";
+	$consulta = "UPDATE modalidad SET Descripcion='$descripcion', Monto='$monto', Monto_Extemporaneo='$monto_extemporaneo' WHERE id=$id";
 	$ejec_consulta = mysqli_query($conexion, $consulta);
 	if ($ejec_consulta) {
 		echo "<script>

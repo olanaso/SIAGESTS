@@ -1,0 +1,11 @@
+[15-Jul-2024 14:55:08 America/Lima] PHP Warning:  move_uploaded_file(../soporte_imagenes/Sin título.png): Failed to open stream: No such file or directory in /home/sigaestc/demo.sigaest.com/estudiante/operaciones/registrar_ticket_estudiante.php on line 54
+[15-Jul-2024 14:55:08 America/Lima] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpKmgDra' to '../soporte_imagenes/Sin título.png' in /home/sigaestc/demo.sigaest.com/estudiante/operaciones/registrar_ticket_estudiante.php on line 54
+[23-Jul-2024 10:36:47 America/Lima] PHP Warning:  Undefined array key "direccion" in /home/sistemae/iestppcs.sistema.edu.pe/estudiante/operaciones/registrar_postulacion.php on line 23
+[23-Jul-2024 10:36:47 America/Lima] PHP Warning:  Undefined array key "celular" in /home/sistemae/iestppcs.sistema.edu.pe/estudiante/operaciones/registrar_postulacion.php on line 24
+[23-Jul-2024 10:36:47 America/Lima] PHP Warning:  Undefined array key "documento" in /home/sistemae/iestppcs.sistema.edu.pe/estudiante/operaciones/registrar_postulacion.php on line 32
+[23-Jul-2024 10:36:47 America/Lima] PHP Warning:  Trying to access array offset on value of type null in /home/sistemae/iestppcs.sistema.edu.pe/estudiante/operaciones/registrar_postulacion.php on line 32
+[23-Jul-2024 10:40:29 America/Lima] PHP Warning:  Undefined array key "direccion" in /home/sistemae/iestppcs.sistema.edu.pe/estudiante/operaciones/registrar_postulacion.php on line 23
+[23-Jul-2024 10:40:29 America/Lima] PHP Warning:  Undefined array key "celular" in /home/sistemae/iestppcs.sistema.edu.pe/estudiante/operaciones/registrar_postulacion.php on line 24
+[23-Jul-2024 10:40:48 America/Lima] PHP Warning:  Undefined array key "direccion" in /home/sistemae/iestppcs.sistema.edu.pe/estudiante/operaciones/registrar_postulacion.php on line 23
+[23-Jul-2024 10:40:48 America/Lima] PHP Warning:  Undefined array key "celular" in /home/sistemae/iestppcs.sistema.edu.pe/estudiante/operaciones/registrar_postulacion.php on line 24
+[23-Jul-2024 12:30:16 America/Lima] PHP Warning:  Undefined array key "direccion" in /home/sistemae/iestppcs.sistema.edu.pe/estudiante/operaciones/registrar_postulacion.php on line 23

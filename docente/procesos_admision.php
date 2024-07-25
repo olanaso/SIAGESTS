@@ -15,6 +15,9 @@ if (!verificar_sesion($conexion)) {
   $id_docente_sesion = buscar_docente_sesion($conexion, $_SESSION['id_sesion'], $_SESSION['token']);
   $b_docente = buscarDocenteById($conexion, $id_docente_sesion);
   $r_b_docente = mysqli_fetch_array($b_docente);
+  
+  $buscar = buscarDatosSistema($conexion);
+  $res = mysqli_fetch_array($buscar);
 
 ?>
 <!DOCTYPE html>
@@ -86,6 +89,7 @@ if (!verificar_sesion($conexion)) {
                               <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
+                                <p><b>¿Donde visualizar el portal de admisión? Use el siguiente link cuando exista un proceso de admisión activo:</b> <br><a target="_blank" href="https://www.<?php  echo $res['dominio_sistema']; ?>admision/portal.php"> https://www.<?php  echo $res['dominio_sistema']; ?>admision/portal.php</a></p>
                                 <br />
 
                                 <table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -125,9 +129,9 @@ if (!verificar_sesion($conexion)) {
                                             </td>
                                             <td>
 
-                                                <?php if ($estado !== "Finalizado") {
+                                                <?php if ($estado !== "Terminado") {
                               ?>
-                                                <button title="Editar" class="btn btn-warning"
+                                                <button title="Editar" class="btn btn-success"
                                                 data-toggle="modal" data-target=".edit_<?php echo $proceso['Id']; ?>"><i
                                                         class="fa fa-edit"></i></button>
                                                 <?php
@@ -136,21 +140,28 @@ if (!verificar_sesion($conexion)) {
                                                     href="cuadro_vacantes.php?id=<?php echo $proceso['Id']; ?>"><i
                                                         class="fa fa-cubes"></i></a>
                                                   <a title="Documentos" class="btn btn-dark"
-                                                    href="silabos.php?id=<?php echo $proceso['Id']; ?>"><i
+                                                    href="documento_admision.php?id=<?php echo $proceso['Id']; ?>"><i
                                                         class="fa fa-folder-o"></i></a>
                                                   <a title="Ajustes" class="btn btn-dark"
-                                                    href="silabos.php?id=<?php echo $proceso['Id']; ?>"><i
+                                                    href="ajustes_admision.php?id=<?php echo $proceso['Id']; ?>"><i
                                                         class="fa fa-cog"></i></a>
                                                   <a title="Postulantes" class="btn btn-info"
-                                                    href="silabos.php?id=<?php echo $proceso['Id']; ?>"><i
+                                                    href="postulantes_admision.php?id=<?php echo $proceso['Id']; ?>"><i
                                                         class="fa fa-users"></i></a>
-                                                  <a title="Calificaciones" class="btn btn-primary"
-                                                    href="silabos.php?id=<?php echo $proceso['Id']; ?>"><i
+                                                  <a title="Resultados Examen" class="btn btn-primary"
+                                                    href="importar_resultados_admision.php?id=<?php echo $proceso['Id']; ?>"><i
+
                                                         class="fa fa-file-excel-o"></i></a>
-                                                  <a title="Reportes" class="btn btn-success"
-                                                    href="silabos.php?id=<?php echo $proceso['Id']; ?>"><i
-                                                        class="fa fa-bar-chart"></i></a>
-                                                  
+                                                 <a title="Reportes" class="btn btn-warning"
+                                                    href="estadisticas_reportes.php?id=<?php echo $proceso['Id']; ?>"><i
+                                                        class="fa fa-bar-chart"></i></a> 
+                                                <?php $estado = determinarEstadoAdmision($proceso['Fecha_Inicio'], $proceso['Fecha_Fin']);
+                                                
+                                                if($estado == "Terminado"){?>
+                                                  <a title="Ajudicar Aptos" class="btn btn-danger"
+                                                    href="operaciones/adjudicar.php?id=<?php echo $proceso['Id']; ?>"><i
+                                                        class="fa fa-refresh"></i></a>
+                                                  <?php } ?>
                                             </td>
                                         </tr>
                                         <?php
@@ -179,13 +190,23 @@ if (!verificar_sesion($conexion)) {
                                                             class="form-vertical form-label-right input_mask formulario" method="POST">
                                                             <div class="form-group">
                                                                 <label class="control-label col-md-12 col-sm-12 col-xs-12">Periodo *: </label>
-                                                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                                                    <select class="form-control" name="periodo" value="" id="periodo" onchange="recargarlista()" required="required">
+                                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                                    <select class="form-control" name="periodo_anio" value="" id="periodo" onchange="recargarlista()" required="required">
                                                                         <?php $anio = date("Y"); ?>
                                                                         <option></option>
-                                                                        <option value="<?php echo $anio."-I" ?>"><?php echo $anio."-I" ?></option>
-                                                                        <option value="<?php echo $anio."-II" ?>"><?php echo $anio."-II" ?></option>
-                                                                        <option value="<?php echo $anio."-III" ?>"><?php echo $anio."-III" ?></option>
+                                                                        <option value="<?php echo $anio-1; ?>"><?php echo $anio-1?></option>
+                                                                        <option value="<?php echo $anio;?>"><?php echo $anio ?></option>
+                                                                        <option value="<?php echo $anio+1 ?>"><?php echo $anio+1 ?></option>
+                                                                    </select>
+                                                                    <br>
+                                                                </div>
+                                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                                    <select class="form-control" name="periodo_unidad" value="" id="periodo" onchange="recargarlista()" required="required">
+                                                                        <?php $anio = date("Y"); ?>
+                                                                        <option></option>
+                                                                        <option value="I">I</option>
+                                                                        <option value="II">II</option>
+                                                                        <option value="III">III</option>
                                                                     </select>
                                                                     <br>
                                                                 </div>
@@ -246,7 +267,25 @@ if (!verificar_sesion($conexion)) {
                                                                     <br>
                                                                 </div>
                                                             </div>
-                                                            <div align="center">
+                                                            <div class="form-group form-group col-md-6 col-sm-6 col-xs-12">
+                                                                <label class="control-label">Fecha de Examen de Admisión *:
+                                                                </label>
+                                                                <div class="">
+                                                                    <input type="datetime-local" class="form-control" name="fecha_examen" required="required">
+                                                                    <br>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="form-group form-group col-md-6 col-sm-6 col-xs-12">
+                                                                <label class="control-label">Lugar de Examen de Admisión *:
+                                                                </label>
+                                                                <div class="">
+                                                                    <input type="text" class="form-control" name="lugar_examen" required="required">
+                                                                    <br>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group form-group col-md-12 col-sm-12 col-xs-12" align="center">
                                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                                                                 <button type="submit" class="btn btn-primary">Guardar</button>
                                                             </div>
@@ -421,7 +460,7 @@ if (!verificar_sesion($conexion)) {
                         "previous": "Anterior"
                     },
                 },
-                "order": [[0, 'desc']]
+                "order": [2, 'desc']
             });
 
         });

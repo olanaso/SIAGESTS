@@ -1,3 +1,14 @@
+<style>
+  .new-label {
+    display: inline-block;
+    background-color: green;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 5px;
+    font-size: smaller;
+  }
+</style>
 <div class="col-md-3 left_col menu_fixed">
   <div class="left_col scroll-view">
 
@@ -27,7 +38,7 @@
     <!-- sidebar menu -->
     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
       <div class="menu_section">
-        <h3>Menu de Navegación</h3>
+        <h3>Menú de Navegación</h3>
         <ul class="nav side-menu">
           <li><a href="../docente/"><i class="fa fa-home"></i>Inicio</a>
           </li>
@@ -39,6 +50,18 @@
           <li><a><i class="fa fa-briefcase"></i> Bolsa Laboral <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
               <li class="sub_menu"><a href="convocatorias_docente.php">Convocatorias</a></li>
+            </ul>
+          </li>
+          <li>
+            <a>
+              <i class="fa fa-wrench"></i>Soporte<span class="fa fa-chevron-down"></span><span
+                class="new-label">Nuevo</span>
+            </a>
+            <ul class="nav child_menu">
+              <li><a href="tickets_docente.php">Tickets </a></li>
+              <li><a href="preguntas_frecuentes_docente.php">Preguntas Frecuentes </a></li>
+              <li><a href="manuales_videotutoriales_docente.php">Manuales y tutoriales </a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -61,6 +84,7 @@
             <span class=" fa fa-angle-down"></span>
           </a>
           <ul class="dropdown-menu dropdown-usermenu pull-right">
+            <li><a href="mi_perfil.php"> Mi perfil <span class="new-label">Nuevo</span></a></li>
             <li><a href="login/enviar_correo.php"> Cambiar mi contraseña</a></li>
             <li><a href="../include/cerrar_sesion.php"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesión</a></li>
           </ul>
@@ -77,17 +101,65 @@
             <?php
             $buscar_periodos = buscarPeriodoAcademicoInvert($conexion);
             while ($res_busc_periodos = mysqli_fetch_array($buscar_periodos)) {
-            ?>
+              ?>
               <li><a href="operaciones/actualizar_sesion_periodo.php?dato=<?php echo $res_busc_periodos['id']; ?>"><?php if ($res_busc_periodos['id'] == $id_per_act_m) {
-                                                                                                                      echo "<b>";
-                                                                                                                    } ?><?php echo $res_busc_periodos['nombre']; ?><?php if ($res_busc_periodos['id'] == $id_per_act_m) {
-                                                                                                                                                                                                                                  echo "</b>";
-                                                                                                                                                                                                                                } ?></a></li>
-            <?php
+                   echo "<b>";
+                 } ?><?php echo $res_busc_periodos['nombre']; ?><?php if ($res_busc_periodos['id'] == $id_per_act_m) {
+                       echo "</b>";
+                     } ?></a>
+              </li>
+              <?php
             }
             ?>
           </ul>
         </li>
+        <?php if ($res_b_u_sesion['cargo_inmutable'] == 2) { ?>
+          <li class="">
+            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+              <?php
+              $res_cargo = buscarCargoById($conexion, $res_b_u_sesion['id_cargo']);
+              $cargo = mysqli_fetch_array($res_cargo);
+              echo $cargo['descripcion']; ?>
+              <span class=" fa fa-angle-down"></span>
+            </a>
+            <ul class="dropdown-menu  pull-right">
+              <?php if ($res_b_u_sesion['carga_academica'] == 1 && $res_b_u_sesion['id_cargo'] == 2) {
+                $res_cargo = buscarCargoById($conexion, 5);
+                $cargo = mysqli_fetch_array($res_cargo);
+                ?>
+                <li><a href="operaciones/actualizar_cargo.php?cargo=5"><?php echo $cargo['descripcion']; ?></a></li>
+              <?php }
+              if ($res_b_u_sesion['id_cargo'] == 5) {
+                $res_cargo = buscarCargoById($conexion, 2);
+                $cargo = mysqli_fetch_array($res_cargo); ?>
+                <li><a href="operaciones/actualizar_cargo.php?cargo=2"><?php echo $cargo['descripcion']; ?></a></li>
+              <?php } ?>
+            </ul>
+          </li> <?php } ?>
+
+        <?php if ($res_b_u_sesion['cargo_inmutable'] == 6) { ?>
+          <li class="">
+            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+              <?php
+              $res_cargo = buscarCargoById($conexion, $res_b_u_sesion['id_cargo']);
+              $cargo = mysqli_fetch_array($res_cargo);
+              echo $cargo['descripcion']; ?>
+              <span class=" fa fa-angle-down"></span>
+            </a>
+            <ul class="dropdown-menu  pull-right">
+              <?php if ($res_b_u_sesion['carga_academica'] == 1 && $res_b_u_sesion['id_cargo'] == 6) {
+                $res_cargo = buscarCargoById($conexion, 5);
+                $cargo = mysqli_fetch_array($res_cargo);
+                ?>
+                <li><a href="operaciones/actualizar_cargo.php?cargo=5"><?php echo $cargo['descripcion']; ?></a></li>
+              <?php }
+              if ($res_b_u_sesion['id_cargo'] == 5) {
+                $res_cargo = buscarCargoById($conexion, 6);
+                $cargo = mysqli_fetch_array($res_cargo); ?>
+                <li><a href="operaciones/actualizar_cargo.php?cargo=6"><?php echo $cargo['descripcion']; ?></a></li>
+              <?php } ?>
+            </ul>
+          </li> <?php } ?>
       </ul>
     </nav>
   </div>

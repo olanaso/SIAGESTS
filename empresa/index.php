@@ -88,7 +88,7 @@ if (!verificar_sesion($conexion)) {
                                 </ul>
                                 <br>
                                 <div align="center">
-                                    <a href="editar_empresa.php" class="btn btn-primary" data-toggle="tooltip" data-original-title="Actualizar información" data-placement="bottom"><i class="fa fa-edit"></i> Editar</a>
+                                    <a href="editar_empresa.php" class="btn btn-success" data-toggle="tooltip" data-original-title="Actualizar información" data-placement="bottom"><i class="fa fa-edit"></i> Editar</a>
                                 </div>
                             </div>
                         </section>

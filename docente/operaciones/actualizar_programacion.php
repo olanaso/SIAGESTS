@@ -14,9 +14,10 @@ if (!verificar_sesion($conexion)) {
 
 $id = $_POST['id'];
 $id_docente = $_POST['docente'];
+$activar = $_POST['activar_asistencia'];
 
 
-$consulta = "UPDATE programacion_unidad_didactica SET id_docente='$id_docente' WHERE id=$id";
+$consulta = "UPDATE programacion_unidad_didactica SET id_docente='$id_docente', activar_asistencia = '$activar' WHERE id=$id";
 $ejec_consulta = mysqli_query($conexion, $consulta);
 if ($ejec_consulta) {
 	echo "<script>

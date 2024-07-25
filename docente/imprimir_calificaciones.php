@@ -323,7 +323,7 @@ if (!($mostrar_archivo)) {
                     </tr>
                     <tr>
                         <td width="10%"></td>
-                        <td width="60%"><b>HORAS POR SEMANA </b>: ' . ($r_b_ud['horas'] / 16) . '<br></td>
+                        <td width="60%"><b>HORAS POR SEMANA </b>: ' . ($r_b_ud['horas'] / 18) . '<br></td>
                         <td width="20%"></td>
                         <td width="10%"></td>
                     </tr>
@@ -533,6 +533,8 @@ if (!($mostrar_archivo)) {
     $content .= generateRow();
     $content .= '</table>';
     $pdf->writeHTML($content);
+    
+    $region = ucfirst(strtolower($r_b_datos_insti['departamento']));
 
     $meses = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
 
@@ -542,7 +544,7 @@ if (!($mostrar_archivo)) {
         <table border="0" cellspacing="0" cellpadding="0.5">  
         <tr>
             <th width="75%"></th>
-            <th >Ayacucho, ' . $fechaaa . '</th>
+            <th >'.$region.', ' . $fechaaa . '</th>
         </tr>
         </table>    
       ';

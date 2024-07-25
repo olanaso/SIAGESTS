@@ -78,27 +78,8 @@ if (!verificar_sesion($conexion)) {
                     <div class="x_content">
                         <form role="form" action="operaciones/agregar_convocatoria.php" class="form-horizontal form-label-center"  method="POST" >
                         <p>Todos los campos con (*), son campos obligatorios.</p>
-                        <div id="wizard" class="form_wizard wizard_horizontal">
-                            <ul class="wizard_steps">
-                                <li>
-                                    <a href="#step-1">
-                                        <span class="step_no">1</span>
-                                        <span class="step_descr">
-                                            Paso 1<br />
-                                            <small>Información Especifica</small>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#step-2">
-                                        <span class="step_no">2</span>
-                                        <span class="step_descr">
-                                            Paso 2<br />
-                                            <small>Información Detallada</small>
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
+                        <div>
+                            
                             <div id="step-1">
                             
                                 <div class="form-group row">
@@ -119,7 +100,7 @@ if (!verificar_sesion($conexion)) {
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="vacante"># Vacantes <span
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="vacante">Cantidad de Vacantes <span
                                             class="required">* : </span>
                                     </label>
                                     <div class="col-md-9 col-sm-9">
@@ -157,44 +138,7 @@ if (!verificar_sesion($conexion)) {
                                                 </select>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="inicio">Inicio Convocatoria <span
-                                            class="required">* : </span>
-                                    </label>
-                                    <div class="col-md-9 col-sm-9">
-                                        <input type="date" id="inicio" name="inicio" required="required"
-                                            class="form-control ">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="fin">Fin Convocatoria <span
-                                            class="required">* : </span>
-                                    </label>
-                                    <div class="col-md-9 col-sm-9">
-                                        <input type="date" id="fin" name="fin" required="required"
-                                            class="form-control ">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for = "url">U.R.L. (en otra plataforma) :
-                                    </label>
-                                    <div class="col-md-9 col-sm-9">
-                                        <input id="url" name="url" class="date-picker form-control" type="text">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-form-label col-md-3 col-sm-3 label-align">Programa Dirigido * :
-                                    </label>
-                                    <div class="col-md-9 col-sm-9">
-                                        <?php 
-                                            $carreras = buscarCarreras($conexion);
-                                            while ($carrera = mysqli_fetch_array($carreras)) {
-                                        ?>
-                                           <input  type="checkbox" class="concepto-checkbox" data-monto="<?php echo $carrera['id'] ?>" name="carreras[]" value="<?php echo $carrera['id'] ?>" id="<?php echo $carrera['id'] ?>">
-                                            <label class="form-check-label" for="<?php echo $carrera['id']; ?>"><?php echo $carrera['nombre']; ?></label> <br>
-                                        <?php }; ?>            
-                                    </div>
-                                </div>
+                                
                             </div>
                             <div id="step-2">
                                 <div class="form-group row">
@@ -225,9 +169,47 @@ if (!verificar_sesion($conexion)) {
                                         <textarea class="form-control" name="condiciones" rows="5"></textarea>
                                     </div>
                                 </div>  
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="inicio">Inicio de Inscripciones <span
+                                            class="required">* : </span>
+                                    </label>
+                                    <div class="col-md-9 col-sm-9">
+                                        <input type="date" id="inicio" name="inicio" required="required"
+                                            class="form-control ">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="fin">Fin de Inscripciones <span
+                                            class="required">* : </span>
+                                    </label>
+                                    <div class="col-md-9 col-sm-9">
+                                        <input type="date" id="fin" name="fin" required="required"
+                                            class="form-control ">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for = "url">U.R.L. (en otra plataforma) :
+                                    </label>
+                                    <div class="col-md-9 col-sm-9">
+                                        <input id="url" name="url" class="date-picker form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align">¿Hacia que programas de estudio está dirido? * :
+                                    </label>
+                                    <div class="col-md-9 col-sm-9">
+                                        <?php 
+                                            $carreras = buscarCarreras($conexion);
+                                            while ($carrera = mysqli_fetch_array($carreras)) {
+                                        ?>
+                                           <input  type="checkbox" class="concepto-checkbox" data-monto="<?php echo $carrera['id'] ?>" name="carreras[]" value="<?php echo $carrera['id'] ?>" id="<?php echo $carrera['id'] ?>">
+                                            <label class="form-check-label" for="<?php echo $carrera['id']; ?>"><?php echo $carrera['nombre']; ?></label> <br>
+                                        <?php }; ?>            
+                                    </div>
+                                </div>
                                 <br>   
                                 <div class="form-group" align="center">
-                                    <input class="btn btn-primary" type="submit" value="Registrar Oferta Laboral">
+                                    <input class="btn btn-primary" type="submit" value="Registrar Convocatoria">
                                 </div>
                             </div>
                         </div>
@@ -250,6 +232,44 @@ if (!verificar_sesion($conexion)) {
         <!-- /footer content -->
       </div>
     </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Obtener el campo de entrada
+            var vacanteInput = document.getElementById("vacante");
+        
+            // Agregar un event listener para el evento input del campo de entrada
+            vacanteInput.addEventListener("input", function() {
+                // Obtener el valor actual del campo de entrada
+                var valor = vacanteInput.value;
+        
+                // Limitar la longitud del valor a 2 dígitos
+                if (valor.length > 2) {
+                    // Si la longitud es mayor a 2, recortar el valor a los primeros 2 dígitos
+                    vacanteInput.value = valor.slice(0, 2);
+                }
+            });
+        });
+    </script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Obtener el campo de entrada
+            var salarioInput = document.getElementById("salario");
+        
+            // Agregar un event listener para el evento input del campo de entrada
+            salarioInput.addEventListener("input", function() {
+                // Obtener el valor actual del campo de entrada
+                var valor = salarioInput.value;
+        
+                // Limitar la longitud del valor a 7 dígitos
+                if (valor.length > 7) {
+                    // Si la longitud es mayor a 7, recortar el valor a los primeros 7 dígitos
+                    salarioInput.value = valor.slice(0, 7);
+                }
+            });
+        });
+    </script>
 
 <!-- jQuery -->
 <script src="../Gentella/vendors/jquery/dist/jquery.min.js"></script>

@@ -45,25 +45,25 @@ function convertirNumeroALetra($numero) {
 function obtenerFecha(){
     //CONFIGURAR FECHA
     $traducciones = array(
-        'Monday'    => 'lunes',
-        'Tuesday'   => 'martes',
-        'Wednesday' => 'miércoles',
-        'Thursday'  => 'jueves',
-        'Friday'    => 'viernes',
-        'Saturday'  => 'sábado',
-        'Sunday'    => 'domingo',
-        'January'   => 'enero',
-        'February'  => 'febrero',
-        'March'     => 'marzo',
-        'April'     => 'abril',
-        'May'       => 'mayo',
-        'June'      => 'junio',
-        'July'      => 'julio',
-        'August'    => 'agosto',
-        'September' => 'septiembre',
-        'October'   => 'octubre',
-        'November'  => 'noviembre',
-        'December'  => 'diciembre'
+        'Monday'    => 'Lunes',
+        'Tuesday'   => 'Martes',
+        'Wednesday' => 'Miércoles',
+        'Thursday'  => 'Jueves',
+        'Friday'    => 'Viernes',
+        'Saturday'  => 'Sábado',
+        'Sunday'    => 'Domingo',
+        'January'   => 'Enero',
+        'February'  => 'Febrero',
+        'March'     => 'Marzo',
+        'April'     => 'Abril',
+        'May'       => 'Mayo',
+        'June'      => 'Junio',
+        'July'      => 'Julio',
+        'August'    => 'Agosto',
+        'September' => 'Septiembre',
+        'October'   => 'Octubre',
+        'November'  => 'Noviembre',
+        'December'  => 'Diciembre'
     );
 
     // Crear una instancia de DateTime
@@ -108,10 +108,8 @@ function determinarParidad($cadena) {
 
     if ($ocurrenciasI == 1) {
         return 'IMPAR';
-    } elseif ($ocurrenciasII == 2) {
-        return 'PAR';
     } else {
-        return 'N/A'; // No cumple ninguna condición
+        return 'PAR'; // No cumple ninguna condición
     }
 }
 

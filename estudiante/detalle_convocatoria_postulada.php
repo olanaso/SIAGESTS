@@ -7,6 +7,7 @@
     include("../empresa/include/consultas.php");
 
     $id = isset($_GET['id']) ? $_GET['id'] : null;
+    $tipo = isset($_GET['type']) ? $_GET['type'] : null;
 
 	if (!verificar_sesion($conexion)) {
 		echo "<script>
@@ -18,10 +19,22 @@
         $id_estudiante_sesion = buscar_estudiante_sesion($conexion, $_SESSION['id_sesion_est'], $_SESSION['token']);
 		$b_estudiante = buscarEstudianteById($conexion, $id_estudiante_sesion);
 		$r_b_estudiante = mysqli_fetch_array($b_estudiante);
-        $oferta_laboral = buscarOfertaLaboralById($conexion, $id);
-        $convocatoria = mysqli_fetch_array($oferta_laboral);    
-        $empresa = buscarEmpresaById($conexion, $convocatoria['id_empresa']);
-        $empresa = mysqli_fetch_array($empresa);
+        if($tipo == 1){
+            $oferta_laboral = buscarOfertaLaboralById($conexion, $id);
+            $convocatoria = mysqli_fetch_array($oferta_laboral);    
+            $empresa = buscarEmpresaById($conexion, $convocatoria['id_empresa']);
+            $empresa = mysqli_fetch_array($empresa);
+            $empresa = $empresa['razon_social'];
+        }
+        elseif($tipo == 0){
+            $oferta_laboral = buscarOfertaLaboralByIdIestp($conexion, $id);
+            $convocatoria = mysqli_fetch_array($oferta_laboral);
+            $empresa = $convocatoria['empresa'];
+
+        }else{
+            exit;
+        }
+        
 
 
 ?>
@@ -33,7 +46,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Inicio<?php include("../include/header_title.php"); ?></title>
+	<title>Bolsa Laboral<?php include("../include/header_title.php"); ?></title>
 	<!--icono en el titulo-->
 	<link rel="shortcut icon" href="../img/favicon.ico">
 	<!-- Bootstrap -->
@@ -86,12 +99,6 @@
                 include("include/menu.php");
                 $b_perido = buscarPeriodoAcadById($conexion, $_SESSION['periodo']);
                 $r_b_per = mysqli_fetch_array($b_perido);
-
-                $b_matricula = buscarMatriculaByEstudiantePeriodo($conexion, $id_estudiante_sesion, $_SESSION['periodo']);
-                $r_b_matricula = mysqli_fetch_array($b_matricula);
-                $id_matricula = $r_b_matricula['id'];
-                $b_det_mat = buscarDetalleMatriculaByIdMatricula($conexion, $id_matricula);
-                $cont_det_mat = mysqli_num_rows($b_det_mat);
             ?>
 			<div class="right_col">
                 <div class="row">
@@ -112,7 +119,7 @@
                                 </div>
                                 <br>
                                 <ul class="list-unstyled project_files">
-                                    <li><strong>Empresa: </strong> <br> <?php echo $empresa['razon_social'] ?>
+                                    <li><strong>Nombre de la empresa, persona natural o jurídica: </strong> <br> <?php echo $empresa ?>
                                     </li>
                                     <li><strong>Lugar de Trabajo: </strong> <br> <?php echo $convocatoria['ubicacion'] ?>
                                     </li>
@@ -130,7 +137,7 @@
                                     </p>
                                     </li>
                                 </ul>
-                                <h5><strong>Documentos del proyecto</strong></h5>
+                                <h5><strong>Documentos de la convocatoria</strong></h5>
                                 <ul class="list-unstyled project_files">
                                     <?php 
                                         $res = buscarDocumentosByIdOferta($conexion, $id);
@@ -147,22 +154,36 @@
                     <div class="col-md-9 col-sm-9  ">
                         <section class="panel">
                             <div class="x_title">
-                                <h2 class="blue">Detalle de convocatoria</h2>
+                                <h2 class="blue">Detalle de la convocatoria</h2>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="panel-body">
                                 <h4 class="title">Requisitos</h4>
-                                <p><?php echo $convocatoria['requisitos'] ?></p>
+                                <p><?php echo nl2br(htmlspecialchars($convocatoria['requisitos'])) ?></p>
                                 <h4 class="title">Funciones</h4>
-                                <p><?php echo $convocatoria['funciones'] ?></p>
+                                <p><?php echo nl2br(htmlspecialchars($convocatoria['funciones'])) ?></p>
                                 <h4 class="title">Beneficios</h4>
-                                <p><?php echo $convocatoria['beneficios'] ?></p>
+                                <p><?php echo nl2br(htmlspecialchars($convocatoria['beneficios'])) ?></p>
                                 <h4 class="title">Condiciones</h4>
-                                <p><?php echo $convocatoria['condiciones'] ?></p>
+                                <p><?php echo nl2br(htmlspecialchars($convocatoria['condiciones'])) ?></p>
 
                                 <br />
                             </div>
                         </section>
+                        <?php if($tipo == 0){ ?>
+                            <section class="x_panel">
+                                <div class="x_title">
+                                    <h5>Continue su postulación desde el siguiente botón:</h5>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <a href="<?php echo $convocatoria['link_postulacion']; ?>" target="_blank" class="btn btn-sm btn-primary">
+                                        Ir al enlace de la convocatoria
+                                    </a>
+                                </div>
+                            </section>
+
+                        <?php } ?>
                     </div>
                 </div>
 			</div>
