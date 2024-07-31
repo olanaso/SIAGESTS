@@ -24,9 +24,9 @@ SIGAEST es un sistema integral diseñado para gestionar y optimizar las operacio
 - **Cliente**: Navegador web moderno (Chrome, Firefox, Safari, etc.)
 
 ## Instalación
- 1.- Clonar repositorio de github a hosting
- 2.- Crear subdominio apuntanda la carpeta clonada
- 3.- Crear base de datos con su respectivo usuario
- 4.- Importar base de datos
- 5.- Iniciar el sistema abriendo el subdominio
- 6.- Iniciar con la configuración en datos de sistema e institucionales
+- **Clonar repositorio de github a hosting
+- **Crear subdominio apuntanda la carpeta clonada
+- **Crear base de datos con su respectivo usuario
+- **Importar base de datos
+- **Iniciar el sistema abriendo el subdominio
+- **Iniciar con la configuración en datos de sistema e institucionales
